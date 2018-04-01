@@ -87,21 +87,6 @@ function the_mx_get_first_media() {
 			
 			return the_mx_get_first_image();
 			
-		} elseif( has_post_format( 'video' ) ) {
-			
-			$embeds = get_media_embedded_in_content( $new_content,  array( 'video', 'object', 'embed', 'iframe' ) );
-			if( !empty( $first_embed ) ) {
-				$first_embed = $embeds[0];
-			}
-			
-			if( !empty( $first_embed ) && current_theme_supports( 'jetpack-responsive-videos' ) ) {
-				return '<div class="jetpack-video-wrapper">' . $first_embed . '</div>';
-			} elseif( !empty( $first_embed ) ) {
-				return $first_embed;
-			} else {
-				return $new_content;
-			}
-			
 		} elseif( has_post_format( 'quote' ) ) {
 			// Adapted from the article Post Formats: Quote, by Justin Tadlock
 			// see http://justintadlock.com/archives/2012/08/27/post-formats-quote
