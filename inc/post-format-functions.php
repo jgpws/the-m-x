@@ -34,37 +34,44 @@ function the_mx_get_formatted_excerpt() {
 	return $excerpt;
 }
 
-function the_mx_get_first_image() {
+function the_mx_wrap_quote() {
+// Adapted from the article Post Formats: Quote, by Justin Tadlock
+// see http://justintadlock.com/archives/2012/08/27/post-formats-quote
+	
 	global $post;
+	$content = $post->post_content;
 	
-	if( has_shortcode( $post->post_content, 'caption' ) ) {
-		$output_caption = preg_match_all('/\[caption(.)*caption="([\s\S][^"]*)"]<a.*>(<img[\s\S][^>]*>)<\/a>\[\/caption\]/im', $post->post_content, $caption_matches );
-		// [2] = first capturing group (information inside caption="")
-		// [3] = first image src
-		// second [0] = first iteration of each
-		$first_caption = $caption_matches[2][0];
-		$first_img = $caption_matches[3][0];
-		return '<a href="' . get_the_permalink() . '">' . $first_img . '</a>' . "\n" .
-		'<p class="wp-caption-text">' . $first_caption . '</p>';
-	} else {
-	
-	$first_img = '';
-	ob_start();
-	ob_end_clean();
-	$output_nocaption = preg_match_all('/(<img.+src=[\'"]([^\'"]+)[\'"].*>)/i', $post->post_content, $matches );
-	$first_img = $matches[1][0];
-	// [0] = the first matching img src tag
-	// [1] = first capturing group in parenthesis (also represented by the entire img src tag)
-	
-	if( empty( $first_img ) ) {
-		$first_img = "";
+	if( has_post_format( 'quote' ) && ( !is_single() || !is_search() ) ) {
+		/* Match blockquote elements */
+		preg_match( '/<blockquote.*?>/', $content, $matches );
+		
+		if( empty( $matches ) ) {
+			$content = "<blockquote>{$content}</blockquote>";
+		} else {
+			return $content;
+		}
 	}
-	return '<a href="' . get_the_permalink() . '">' . $first_img . '</a>';
 	
-	}
+	return $content;
 }
 
-function the_mx_get_first_media() {
+function the_mx_get_first_video( $post_id ) {
+	
+	if( has_post_format( 'video' ) ) {
+		$post = get_post( $post_id );
+		$content = apply_filters( 'the_content', $post->post_content );
+		$embeds = get_media_embedded_in_content( $content, array( 'video', 'object', 'embed', 'iframe' ) );
+		
+		$first_embed = $embeds[0];
+		
+		if( !empty( $embeds ) ) {
+			return $first_embed;
+		}
+	}
+	
+}
+
+/*function the_mx_get_first_media() {
 	$content = the_mx_get_formatted_content();
 	
 	global $post;
@@ -72,14 +79,6 @@ function the_mx_get_first_media() {
 	// To get oembeds within posts that don't have this filter applied
 	// get_the_content literally echoes everything on the page
 	// see the answer on this Stack Exchange page - http://wordpress.stackexchange.com/questions/202707/how-to-use-oembeds-on-post-content-during-ajax-requests
-	global $wp_embed;
-	$new_content = '';
-	
-	$wp_embed->post_ID = $post->ID;
-	
-	$wp_embed->run_shortcode( $content );
-	
-	$new_content = $wp_embed->autoembed( $content );
 	
 	if( !is_single() && !is_search() ) {
 	
@@ -93,25 +92,25 @@ function the_mx_get_first_media() {
 			
 			$content = the_mx_get_formatted_content();
 			/* Match blockquote elements */
-			preg_match( '/<blockquote.*?>/', $content, $matches );
+			/*preg_match( '/<blockquote.*?>/', $content, $matches );
 			
 			if( empty( $matches ) ) {
 				$content = "<blockquote>{$content}</blockquote>";
 			} else {
-				return $new_content;
+				return $content;
 			}
 		
 		return $content;
 		
 		} else {
-			return $new_content; // Content when media type post format is not chosen
+			return $content; // Content when media type post format is not chosen
 		}
 			
 	} else {
-		return $new_content; // Content inside Single post
+		return $content; // Content inside Single post
 	}
 }
-add_filter( 'the_content', 'the_mx_get_first_media' );
+add_filter( 'the_content', 'the_mx_get_first_media' );*/
 
 function the_mx_get_first_excerpt_media() {
 	$new_excerpt = the_mx_get_formatted_excerpt();
