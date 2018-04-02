@@ -37,16 +37,17 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 	
 		<div class="entry-content">
 			<?php
-				the_content( sprintf(
-					/* translators: %s: Name of current post. */
-					__( 'Continue reading %s...', 'the-mx' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				) );
-	
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-mx' ),
-					'after'  => '</div>',
-				) );
+			global $post;
+			$post_id = '';
+			
+			$post = get_post( $post_id );
+			$content = apply_filters( 'the_content', $post->post_content );
+			$embeds = get_media_embedded_in_content( $content );
+			
+			if( !empty( $embeds ) ) {
+				$first_embed = $embeds[0];
+				echo $first_embed;
+			}
 			?>
 		</div><!-- .entry-content -->
 	
