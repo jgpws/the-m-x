@@ -74,7 +74,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					echo '<a href="' . get_the_permalink() . '">' . $first_img . '</a>';
 				}
 			
-		} else {
+		} else { // If we are on a single page
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				__( 'Continue reading %s...', 'the-mx' ),

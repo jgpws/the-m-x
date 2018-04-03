@@ -7,7 +7,6 @@
  
 /**
  * These functions control the display of content when some of the registered post formats are active.
- * The content and excerpts are changed with filters.
  */
 function the_mx_get_link_url() {
 	$content = get_the_content();
