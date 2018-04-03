@@ -1,0 +1,377 @@
+.site-header {
+	position: relative;
+}
+
+.site-header #header-button-panel {
+	height: 4rem;
+	/* Other flexbox properties are provided by .jgd-grid-wrap inside jgd-material-grid.css file */
+	justify-content: flex-end;
+	@include padding-four-values(0.5em, 0.5em, 0.5em, 4.5rem);
+	background-color: $primary-color-dark;
+}
+
+.site-branding {
+	background-color: $primary-color;
+}
+
+.menu-toggle,
+.sidebar-toggle,
+.search-toggle {
+	box-shadow: none;
+	color: $primary-text-color-white;
+	min-height: 3rem;
+	min-width: 3rem;
+	padding: 0.75em;
+}
+
+.sidebar-toggle {
+	z-index: 200;
+}
+
+#header-button-panel .searchform {
+	@include flex-row-right-aligned;
+	align-items: flex-end;
+	height: 3rem;
+	margin-left: 0.5em;
+	max-width: 50%;
+}
+
+#header-button-panel .search-field {
+	background-color: transparent;
+	color: $primary-text-color-white;
+	margin-bottom: 0;
+	width: 95%; /* fallback for browsers that don't support calc */
+	width: calc(100% - 0.5em);
+}
+
+#header-button-panel input.search-field::-webkit-input-placeholder {
+	color: $primary-text-color-faded;
+}
+
+#header-button-panel input.search-field::-moz-placeholder {
+	color: $primary-text-color-faded;
+	font-weight: $font__weight-heavy;
+	opacity: 1;
+}
+
+#header-button-panel input.search-field::-ms-input-placeholder {
+	color: $primary-text-color-faded;
+}
+
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	position: relative;
+	width: 100%;
+
+	ul {
+		background-color: $white;
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			padding-left: 1em;
+
+			a:hover,
+			a:focus {
+				border-bottom: transparent;
+				color: $accent-color-darker;
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+	
+	li {
+		position: relative;
+	}
+	
+	a:link,
+	a:visited {
+		@include vertical-menu;
+	}
+	
+	a:hover,
+	a:focus {
+		color: $accent-color-darker;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+		color: $accent-color-dark;
+	}
+}
+
+.widget {
+	
+	li {
+	
+		a:link,
+		a:visited {
+			@include vertical-menu;
+		}
+		
+		a:hover,
+		a:focus {
+			color: $accent-color-darker;
+		}
+	
+	}
+	
+}
+
+/* Box shadow values are from the codepen at the following address */
+/* https://codepen.io/sdthornton/pen/wBZdXq */
+/* Small menu. */
+.site-header {
+	
+	.main-navigation {
+	
+		ul#primary-menu,
+		ul.nav-menu {
+			box-shadow: $box-shadow-large;
+			left: 0;
+			@include padding-four-values(4.5em, 1em, 1em, 1em);
+			position: absolute;
+			top: 0;
+			width: 73%;
+			width: calc(75% - 1em);
+			z-index: 100;
+			
+			ul {
+				padding-top: 0;
+				
+				ul {
+					padding-top: 0;
+				}
+
+			}
+
+		}
+	
+	}
+	
+}
+
+.menu-toggle,
+.search-toggle,
+.sidebar-toggle,
+.menu-toggle:hover,
+.search-toggle:hover,
+.sidebar-toggle:hover {
+	background-color: transparent;
+}
+
+.menu-toggle:hover,
+.search-toggle:hover,
+.sidebar-toggle:hover {
+	color: $accent-color;
+}
+
+.menu-toggle {
+	position: absolute;
+	top: 0.5em;
+	left: 1em;
+	z-index: 200;
+}
+
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: flex;
+	flex-direction: column;
+}
+
+.search-toggle { /* Created in the-mx-scripts.js */
+	margin-left: 0.5em;
+	z-index: 50;
+}
+
+.menu-toggle:focus,
+.search-toggle:focus,
+.sidebar-toggle:focus,
+.searchform.toggled + .search-toggle {
+	background-color: $pale-black;
+	color: $accent-color;
+}
+
+.sidebar-toggle.toggled,
+.main-navigation.toggled .menu-toggle {
+	color: $primary-text-color;
+}
+
+.search-icon {
+	min-height: 3rem;
+	min-width: 3rem;
+}
+
+.menu-down-arrow {
+	box-shadow: none;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	
+	.site-header {
+	
+		.main-navigation {
+			background-color: $primary-color-darker;
+			
+			a:link,
+			a:visited {
+				border-bottom-color: transparent;
+				color: $primary-text-color-medium-white;
+				height: 3rem;
+				@include padding-two-values(0.75em, 1em);
+				text-transform: uppercase;
+				white-space: nowrap;
+			}
+			
+			ul {
+				align-items: flex-end;
+				background-color: transparent;
+				display: block;
+				@include flex-row-wrapped;
+				min-height: 3em;
+				
+				ul {
+					background-color: $white;
+					float: left;
+					@include padding-four-values(0, 0, 1em, 0);
+					position: absolute;
+					top: 1.5em;
+					z-index: 99999;
+				}
+				
+			}
+			
+			ul#primary-menu,
+			ul.nav-menu {
+				box-shadow: none;
+				min-height: 3rem;
+				position: relative;
+				@include padding-two-values(0, 1em);
+				width: 100%;
+				width: calc(100% - 1em);
+			}
+			
+			.menu-item-has-children,
+			.page_item_has_children {
+				display: flex;
+			}
+			
+			.children,
+			.sub-menu {
+				box-shadow: $box-shadow-medium;
+				display: block;
+				@include hide-offscreen;
+				top: 3rem;
+			}
+			
+			.children a:link,
+			.children a:visited,
+			.sub-menu a:link,
+			.sub-menu a:visited {
+				color: $primary-text-color;
+				min-width: 9.375em;
+				text-transform: unset;
+				white-space: normal;
+			}
+			
+			.children a:hover,
+			.children a:focus,
+			.sub-menu a:hover,
+			.sub-menu a:focus {
+				color: $accent-color-darker;
+				border-bottom-color: transparent;
+			}
+			
+			.sub-menu.toggled-submenu,
+			.children.toggled-submenu {
+				left: 0;
+			}
+			
+			.children ul,
+			.sub-menu ul {
+				@include hide-offscreen;
+				box-shadow: $box-shadow-medium-large;
+			}
+			
+			.children li > .children.toggled-submenu,
+			.sub-menu li > .sub-menu.toggled-submenu {
+				left: 25%;
+			}
+			
+			.children .menu-down-arrow {
+				color: $black;
+			}
+			
+			.menu-item-has-children,
+			.page_item_has_children {
+				display: flex;
+			}
+			
+			.menu-down-arrow {
+				background-color: transparent;
+				color: $white;
+				height: 3rem;
+			}
+			
+			.page_item_has_children .page_item_has_children .menu-down-arrow,
+			.menu-item-has-children .menu-item-has-children .menu-down-arrow {
+				color: $black;
+			}
+			
+			ul li a:hover,
+			ul li a:focus,
+			.current_page_item > a,
+			.current-menu-item > a,
+			.current_page_ancestor > a,
+			.current-menu-ancestor > a {
+				border-bottom: 2px solid $accent-color;
+				color: $primary-text-color-white;
+			}
+			
+		}
+	
+	}
+	
+	.error404 .widget li a {
+		display: inline-block;
+	}
+	
+}
+
+@media screen and (min-width: 80em) {
+
+	.site-header {
+	
+		.site-branding {
+			width: 75%;
+		}
+		
+		#header-button-panel {
+			align-items: flex-start;
+			height: auto;
+			padding: 0.5em;
+			width: 25%;
+			
+			.searchform {
+				width: 60%;
+			}
+			
+		}
+	
+	}
+
+}

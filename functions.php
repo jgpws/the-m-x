@@ -86,8 +86,22 @@ function the_mx_setup() {
 	// Custom image sizes
 	add_image_size( 'gallery-thumb', 300, 300, array( 'center', 'center' ) );
 	
-	// Support for Gutenberg wide alignment
+	// Support for Gutenberg
 	add_theme_support( 'align-wide' );
+	
+	add_theme_support( 'editor-color-palette',
+		'#ffffff',
+		'#efebe9',
+		'#a1887f',
+		'#795548',
+		'#5d4037',
+		'#3e2723',
+		'#eceff1',
+		'#90a4ae',
+		'#607d8b',
+		'#455a64',
+		'#263238'
+	);
 }
 endif;
 add_action( 'after_setup_theme', 'the_mx_setup' );

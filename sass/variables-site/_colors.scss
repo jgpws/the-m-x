@@ -1,0 +1,39 @@
+$primary-text-color: rgba(0, 0, 0, 0.87);
+$primary-text-color-medium: rgba(0, 0, 0, 0.54);
+$primary-text-color-faded: rgba(255, 255, 255, 0.4);
+$primary-text-color-white: rgba(255, 255, 255, 0.87);
+$primary-text-color-medium-white: rgba(255, 255, 255, 0.7);
+$primary-color: #795548;
+$primary-color-pale: #efebe9;
+$primary-color-medium: #a1887f;
+$primary-color-dark: #5d4037;
+$primary-color-darker: #3e2723;
+$primary-color-darker-faded: rgba(62, 39, 35, 0.54);
+$accent-color: #ffc107;
+$accent-color-dark: #ffa000;
+$accent-color-darker: #ff6f00;
+$alt-accent-color: #ffab00;
+$white: #ffffff;
+$black: #000000;
+$pale-black: rgba(0, 0, 0, 0.2);
+
+$color__background-body: $primary-color-pale;
+$color__background-screen: $primary-color-pale;
+$color__background-hr: $primary-text-color-medium;
+$color__background-button: $accent-color;
+$color__background-pre: $primary-color-pale;
+$color__background-ins: $accent-color-dark;
+
+$color__text-screen: $primary-text-color;
+$color__text-input: $primary-text-color;
+$color__text-input-focus: $primary-text-color;
+$color__link: $primary_color;
+$color__link-visited: $primary_color_medium;
+$color__link-hover: $primary_color_dark;
+$color__text-main: $primary-text-color;
+
+$color__border-button: transparent;
+$color__border-button-hover: transparent;
+$color__border-button-focus: transparent;
+$color__border-input: transparent;
+$color__border-abbr: $primary-text-color;

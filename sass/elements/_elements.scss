@@ -1,0 +1,74 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	touch-action: none;
+}
+
+/* Styling from Materialize CSS; see http://materializecss.com/typography.html. */
+blockquote, q, .wp-block-pullquote {
+	border-left: 5px solid $primary-color;
+	font-weight: $font__weight-bold;
+	@include margin-two-values(1.25em, 0);
+	padding-left: 1.25rem;
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+/* Gutenberg pullquote */
+.wp-block-pullquote {
+	border-top: transparent;
+	border-bottom: transparent;
+	max-width: 100%;
+}
+
+.wp-block-pullquote.aligncenter {
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+.wp-block-pullquote.alignleft,
+.wp-block-pullquote.alignright {
+	width: 50%;
+}
+
+.wp-block-pullquote > p,
+.wp-block-pullquote cite {
+	color: $primary-text-color;
+}
+
+.wp-block-pullquote > p {
+	font-weight: $font__weight-bold;
+}
+
+.wp-block-pullquote cite {
+	font-weight: $font__weight-normal;
+}
+
+hr, .wp-block-separator {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+@import "lists";
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+@import "tables";

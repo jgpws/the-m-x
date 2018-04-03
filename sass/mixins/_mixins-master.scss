@@ -1,0 +1,136 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Large Formatted centered text; best used for headings
+@mixin large-centered-text() {
+	color: $primary-text-color-medium;
+	@include font-size(2.81);
+	line-height: 1.2em;
+	text-align: center;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Center 12.5%; apply to block level elements
+@mixin center-75-percent() {
+	margin-left: 12.5%;
+	margin-right: 12.5%;
+	width: 75%;
+}
+
+// Margins
+@mixin margin-two-values($topbottom, $rightleft) {
+	margin: $topbottom $rightleft;
+}
+
+@mixin margin-four-values($top, $right, $bottom, $left) {
+	margin: $top $right $bottom $left;
+}
+
+// Padding
+@mixin padding-two-values($topbottom, $rightleft) {
+	padding: $topbottom $rightleft;
+}
+
+@mixin padding-four-values($top, $right, $bottom, $left) {
+	padding: $top $right $bottom $left;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Hide off-screen
+@mixin hide-offscreen() {
+	position: absolute;
+	left: -9999em;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Vertical links list; apply to a tags inside of a list (li)
+@mixin vertical-menu() {
+	color: $primary-text-color;
+	display: block;
+	font-weight: $font__weight-bold;
+	min-height: 3em;
+	@include padding-two-values(0.5em, 0);
+	text-decoration: none;
+}
+
+// Restore regular link styles; used for resetting custom link styles to the default
+@mixin restore-link-style() {
+	background-color: transparent;
+	color: $primary-color;
+	text-transform: none;
+}
+
+@mixin restore-link-hover-style() {
+	background-color: transparent;
+	color: $primary-color-dark;
+}
+
+// No background "cards"
+@mixin no-card-style() {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+// Button link style
+@mixin link-button-style() {
+	background-color: $accent-color;
+	border-radius: 2px;
+	color: $primary-text-color;
+	font-weight: $font__weight-bold;
+	text-transform: uppercase;
+}
+
+@mixin link-highlight-style() {
+	background-color: $primary-color-darker-faded;
+	border-radius: 2px;
+	color: $primary-text-color-white;
+	font-weight: $font__weight-bold;
+	@include padding-two-values(0.25em, 0.5em);
+	text-transform: uppercase;
+}
+
+@mixin link-highlight-style-hover() {
+	background-color: rgba(62, 39, 35, 0.7);
+	color: $white;
+}
+
+// Flexbox layouts
+// Horizontal row of wrapping elements
+@mixin flex-row-wrapped() {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+// Horizontal right-aligned; use on parent element
+@mixin flex-row-right-aligned() {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+// Horizontal spread with space in between each item
+@mixin flex-row-spread() {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}

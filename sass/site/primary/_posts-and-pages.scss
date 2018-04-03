@@ -1,0 +1,355 @@
+.post,
+article.page,
+.single .post,
+.search .post.format-gallery,
+.search .post.format-image,
+.search .post.format-video,
+.search .post.format-audio {
+	background-color: $white;
+	border-radius: 2px;
+	box-shadow: $box-shadow-small;
+}
+
+.page-header {
+	width: 100%;
+}
+
+.entry-title,
+.page-title {
+	@include font-size(1.5);
+	font-weight: $font__weight-bold;
+	line-height: 2rem;
+	
+	a:link {
+		color: $primary-color;
+	}
+	
+	a:visited {
+		color: $primary-color-medium;
+	}
+	
+	a:hover,
+	a:focus {
+		color: $primary-color-dark;
+	}
+	
+}
+
+.single .entry-title,
+.page .entry-title {
+	@include font-size(2.125);
+}
+
+.search .entry-title {
+	@include font-size(1.5);
+}
+
+.search .cat-links,
+.search .tags-links,
+.search .posted-on {
+	margin-bottom: 0;
+	
+	a:link,
+	a:visited {
+		@include restore-link-style;
+	}
+	
+	a:hover,
+	a:focus {
+		@include restore-link-hover-style;
+	}
+	
+}
+
+.search .no-results {
+	width: 100%;
+}
+
+.search .no-results .page-content {
+	margin-bottom: 1.5em;
+}
+
+@media screen and (min-width: 37.5em) {
+	.search .featured-image {
+		background-color: transparent;
+		@include margin-four-values(2em, 0, 1em, -1em);
+	}
+	
+	.search img.wp-post-image {
+		margin: 0;
+	}
+	
+	.search .featured-image,
+	.search .featured-image + .entry-summary {
+		display: inline-block;
+		max-height: 300px;
+		vertical-align: top;
+		width: 50%;
+	}
+	
+	.search .entry-summary {
+		padding: 0 1em;
+	}
+}
+
+@media (min-width: 80em) {
+	.search .featured-image {
+		@include margin-four-values(2em, 0, 1em, -1.5em);
+		width: 33%;
+	}
+	
+	.search .featured-image + .entry-summary {
+		width: 68%;
+	}
+}
+
+.single {
+
+	.featured-image {
+		margin-top: 3.165rem;
+	}
+	
+	.has-post-thumbnail .entry-title {
+		top: -4.765rem;
+		width: 100%;
+	}
+	
+}
+
+.more-link {
+	&:link,
+	&:visited {
+		@include link-button-style;
+		padding: 0.5em;
+	}
+  
+	&:hover,
+	&:focus {
+		background-color: $accent-color-dark;
+		color: $primary-text-color;
+	}
+}
+
+.more-images-link {
+	
+	a {
+		@include link-button-style;
+		@include padding-two-values(0.25em, 0.5em);
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+	
+	a:link,
+	a:visited {
+		color: $primary-text-color;
+	}
+	
+	a:hover,
+	a:focus {
+		background-color: $accent-color-dark;
+		color: $primary-text-color;
+	}
+
+}
+
+.cat-links,
+.tags-links,
+.edit-link,
+.comments-link,
+.posted-on {
+	margin-bottom: 0.5rem;
+}
+
+.cat-links .material-icons,
+.tags-links .material-icons,
+.edit-link .material-icons,
+.comments-link .material-icons,
+.byline .material-icons,
+.posted-on .material-icons,
+.image-size-meta .material-icons,
+.entry-title .material-icons {
+	color: $primary-text-color-medium;
+	margin-right: 0.5em;
+	vertical-align: bottom;
+}
+
+.cat-links a,
+.tags-links a,
+.edit-link a,
+.comments-link a,
+.posted-on a {
+	
+	&:link,
+	&:visited {
+		@include link-highlight-style;
+	}
+	
+	&:hover,
+	&:focus {
+		@include link-highlight-style-hover;
+	}
+	
+}
+
+.cat-links a,
+.tags-links a,
+.edit-link a,
+.comments-link a {
+	line-height: 2rem;
+}
+
+.sticky {
+	background-color: $primary-color;
+	color: $white;
+	display: block;
+	
+	a:link,
+	a:visited {
+		color: $primary-text-color-white;
+	}
+	
+	a:hover,
+	a:focus {
+		color: $white;
+	}
+	
+	.material-icons {
+		color: $white;
+	}
+	
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	@include padding-two-values(1.5em, 0);
+}
+
+.page-links {
+	clear: both;
+	font-weight: $font__weight-bold;
+	@include margin-four-values(0, 0, 1.5em, 0);
+	text-align: center;
+	
+	a:link,
+	a:visited {
+		border-radius: 2px;
+		display: inline-block;
+		min-height: 3rem;
+		min-width: 3rem;
+		padding-top: 0.875em;
+		text-align: center;
+	}
+	
+	a:hover,
+	a:focus {
+		background-color: $pale-black;
+	}
+
+}
+
+/* Gutenberg compatibility */
+.alignwide {
+	@include margin-two-values(1em, 0);
+}
+
+.alignfull {
+	@include margin-two-values(1em, -1em);
+}
+
+@media (min-width: 52.5em) {
+	.alignfull {
+		@include margin-two-values(1em, -1.5em);
+	}
+}
+
+/* Attachment pages */
+.attachment {
+	background-color: $white;
+	
+	img {
+		@include center-block;
+	}
+	
+}
+
+article.attachment {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.entry-attachment-image {
+	background-color: $primary-color-pale;
+	
+	p {
+		margin-top: 0;
+	}
+	
+	.wp-caption-text {
+		padding-bottom: 1rem;
+	}
+	
+}
+
+.return-to-parent {
+	background-color: $primary-color-medium;
+	padding: 1rem;
+	text-align: center;
+	
+	a:link,
+	a:visited {
+		color: $white;
+	}
+	
+}
+
+.return-to-text {
+	color: $primary-text-color-white;
+	font-weight: $font__weight-heavy;
+}
+
+@media (min-width: 37.5em) {
+	.attachment .entry-header,
+	.attachment .entry-content {
+		@include center-75-percent;
+	}
+	
+	.attachment img {
+		padding-bottom: 3em;
+		padding-top: 3em;
+	}
+}
+
+/* Fixes for Colorbox popups; only use with attachment.* class prepended!
+.colorbox class only displays when Colorbox is enabled in the Customizer- get_theme_mod('the_mx_enable_colorbox') */
+body.attachment.colorbox img {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+/* Removes admin bar css in attachment pages with colorbox enabled */
+body.attachment.admin-bar.colorbox {
+	margin-top: -46px;
+}
+
+@media screen and (min-width: 783px) {
+	body.attachment.admin-bar.colorbox {
+		margin-top: -32px;
+	}
+}

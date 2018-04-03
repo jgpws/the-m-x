@@ -1,0 +1,35 @@
+.widget-area {
+	background-color: $white;
+	box-shadow: $box-shadow-large;
+	padding-top: 4.5em;
+	z-index: 100;
+}
+
+/* Refer to menu section for widget link styling */
+
+.widget {
+	margin: 0 0 1.5em;
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+	
+	ul {
+		list-style: none;
+		margin: 0;
+		@include padding-two-values(0, 1rem);
+	}
+
+}
+
+/* Override column-1 in jgd-material-grid.css */
+.widget.column-1 {
+	@include padding-two-values(0, 1rem);
+}
+
+@media screen and (min-width: 80em) {
+	.widget.column-1 {
+		@include padding-two-values(0, 1.5rem);
+	}
+}

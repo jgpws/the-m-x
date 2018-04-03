@@ -1,0 +1,82 @@
+.comment-navigation,
+.posts-navigation,
+.post-navigation,
+.images-navigation {
+
+	.site-main & {
+		background-color: $primary-color-medium;
+		margin: 0 0 1.5em;
+		@include margin-two-values(0, -0.5em);
+		padding: 1em;
+		overflow: hidden;
+		width: 102%;
+		width: calc(100% + 1em);
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+	
+	.nav-previous,
+	.nav-next {
+		
+		a:link,
+		a:visited {
+			color: $white;
+		}
+	}
+		
+	.nav-previous .material-icons {
+		margin-right: 0.5em;
+	}
+	
+	.nav-next .material-icons {
+		margin-left: 0.5em;
+	}
+	
+	.nav-previous .material-icons,
+	.nav-next .material-icons {
+		/* Google's material icons are displayed as inline-block */
+		/* setting a vertical-align makes the text line up with the icons */
+		vertical-align: bottom;
+	}
+
+}
+
+@media (min-width: 52.5em) { /* ~840px; */
+	.site-main .comment-navigation,
+	.site-main .posts-navigation,
+	.site-main .post-navigation,
+	.site-main .images-navigation {
+		@include margin-two-values(0, -0.75em);
+		width: calc(100% + 1.5em);
+	}
+}
+
+@media (min-width: 80em) {
+	.blog .site-main,
+	.search .site-main,
+	.archive .site-main {
+	
+		.posts-navigation {
+			border-bottom-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+		}
+		
+		article + .posts-navigation {
+			border-top-left-radius: 2px;
+			border-top-right-radius: 2px;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+		
+	}
+
+}

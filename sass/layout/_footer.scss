@@ -1,0 +1,18 @@
+.site-footer {
+	background-color: $primary-color;
+	box-shadow: $box-shadow-large-reversed;
+	color: $white;
+	/* position is set to relative in order for the footer's box shadow to show */
+	position: relative;
+	
+	a:link,
+	a:visited {
+		color: $primary-text-color-white;
+	}
+	
+	a:hover,
+	a:focus {
+		color: $white;
+	}
+	
+}

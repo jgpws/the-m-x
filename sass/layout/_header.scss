@@ -1,0 +1,45 @@
+.site-header {
+	box-shadow: $box-shadow-large;
+}
+
+.site-title {
+	padding-top: 0.5em;
+}
+
+.site-title,
+.site-description {
+	margin: 0;
+}
+
+.site-title a:link,
+.site-title a:visited {
+	font-size: 2.125rem; /* ~34px */
+	font-weight: 400;
+	line-height: 2.5rem; /* ~40px */
+	color: $primary-text-color-white;
+}
+
+.site-title a:hover,
+.site-title a:focus {
+	color: $white;
+}
+
+.site-description {
+	color: $white;
+	padding-bottom: 1rem;
+}
+
+/* Skrollr fixes for mobile */
+html.skrollr-mobile {
+	margin-top: 0 !important;
+}
+
+.skrollr-mobile .logged-in .site-header {
+	margin-top: 46px;
+}
+
+@media screen and ( min-width: 783px ) { /* min width where wp admin bar shrinks to 32 px */ 
+	.skrollr-mobile .logged-in .site-header {
+		margin-top: 32px;
+	}
+}

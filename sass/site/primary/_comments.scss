@@ -1,0 +1,75 @@
+.comments-area {
+	background-color: $white;
+	@include padding-two-values(1rem, 12.5%);
+	width: 100%;
+}
+
+.comments-area .navigation {
+	border-radius: 2px;
+}
+
+.comment-list li {
+	min-height: 4.5rem;
+	@include padding-two-values(1rem, 0);
+}
+
+.comment-list,
+.comment-list .children {
+	list-style-type: none;
+	margin: 0;
+	padding-left: 10%;
+}
+
+.comment-author .avatar {
+	border-radius: 16px;
+}
+
+.comment-metadata .edit-link {
+	margin-left: 0.5rem;
+}
+
+.comment-reply-link:link,
+.comment-reply-link:visited {
+	border-radius: 2px;
+	color: $primary-text-color;
+	font-weight: $font__weight-bold;
+	padding: 0.5em;
+	text-transform: uppercase;
+}
+
+.comment-reply-link:hover,
+.comment-reply-link:focus {
+	background-color: $pale-black;
+}
+
+@media screen and (min-width: 37.5em) {
+	.comment-list,
+	.comment-list .children {
+		padding-left: 5%;
+	}
+}
+
+.comment-content a {
+	word-wrap: break-word;
+}
+.bypostauthor {
+	display: block;
+}
+
+.bypostauthor .comment-content {
+	background-color: $primary-color-pale;
+	border-radius: 2px;
+	font-weight: $font__weight-bold;
+	margin: 1em;
+	@include padding-two-values(0, 1rem);
+}
+
+.comment-author {
+	@include font-size(1.25);
+}
+
+.comment-author,
+.pingback,
+.no-comments {
+	font-weight: $font__weight-bold;
+}

@@ -1,0 +1,44 @@
+/* Classes that can be added with jQuery/JavaScript */
+.transition1Sec {
+	transition-duration: 1s;
+}
+
+.transitionHalfSec {
+	transition-duration: 0.5s;
+}
+
+.rotate180 {
+	transform: rotate(-180deg);
+}
+
+.rotate0 {
+	transform: rotate(0deg);
+}
+
+// Classes added with .animation class added to body tag
+// The .animation class is active when "Enable simple animations..." is checked in the Customizer
+
+.animate a:link,
+.animate a:visited,
+.animate button,
+.animate input[type="submit"],
+.animate .gallery-item {
+	transition-duration: 1s;
+}
+
+.animate .site-header .main-navigation a:link,
+.animate .site-header .main-navigation a:visited {
+	transition-property: all;
+	transition-duration: 0.25s;
+	transition-timing-function: linear;
+}
+
+.animate .main-navigation ul ul a:hover,
+.animate .main-navigation ul ul a:focus {
+	border-bottom: transparent;
+}
+
+// For Colorbox
+.animate #cboxLoadedContent.fadeIn {
+	animation-duration: 3s;
+}

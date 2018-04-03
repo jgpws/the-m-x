@@ -1,0 +1,61 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select {
+	background: transparent;
+	color: $color__text-input;
+	border-top: $color__border-input;
+	border-right: $color__border-input;
+	border-bottom: 2px solid $accent-color;
+	border-left: $color__border-input;
+
+	&:focus {
+		color: $color__text-input-focus;
+	}
+}
+
+select {
+	border: 1px solid $color__border-input;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"] {
+	padding: 3px;
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background: $color__background-button;
+}
+
+textarea {
+	padding-left: 3px;
+	width: 100%;
+}

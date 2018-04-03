@@ -1,0 +1,84 @@
+.format-standard.has-post-thumbnail,
+.format-image.has-post-thumbnail {
+
+	.entry-header {
+		position: relative;
+	}
+	
+	.entry-title {
+		bottom: 3em;
+	}
+	
+	.entry-title,
+	.entry-meta {
+		position: absolute;
+		color: $primary-text-color-white;
+		
+		a:link,
+		a:visited {
+			color: $primary-text-color-white;
+		}
+		
+	}
+	
+	.entry-content,
+	.entry-summary {
+		padding-top: 1rem;
+	}
+
+}
+
+.single .format-standard.has-post-thumbnail .entry-title,
+.single .format-image.has-post-thumbnail .entry-title {
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.format-standard.has-post-thumbnail .entry-meta {
+	bottom: 2em;
+}
+
+.format-image.has-post-thumbnail .entry-meta {
+	bottom: 3em;
+}
+
+.format-standard.has-post-thumbnail .entry-meta .material-icons,
+.format-image.has-post-thumbnail .entry-meta .material-icons {
+	color: $white;
+}
+
+.featured-image {
+	background-color: $primary-color-darker;
+	margin: -1em;
+}
+
+.scrim {
+	background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+	bottom: 0;
+	height: 33%;
+	@include margin-four-values(-1em, -1em, 0, -1em);
+	position: absolute;
+}
+
+.featured-image,
+.scrim {
+	width: calc(100% + 2em);
+}
+
+img.wp-post-image {
+	@include center-block;
+}
+
+@media screen and (min-width: 80em) {
+	.featured-image,
+	.scrim {
+		width: calc(100% + 3em);
+	}
+	
+	.featured-image {
+		margin: -1.5em;	
+	}
+	
+	.scrim {
+		@include margin-four-values(-1.5em, -1.5em, 0, -1.5em);
+	}
+}

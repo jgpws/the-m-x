@@ -1,0 +1,22 @@
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 85%;
+
+	img[class*="wp-image-"] {
+		@include center-block;
+	}
+
+	.wp-caption-text {
+		margin: 0.8075em 0;
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.wp-caption-text,
+.gallery-caption {
+	@include font-size(0.75);
+	font-weight: $font__weight-heavy;
+}
