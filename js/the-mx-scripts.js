@@ -1,7 +1,7 @@
 /**
  * File the-mx-scripts.js.
  *
- * Extra scripts for navigation, video sizing controls, etc.
+ * Extra scripts for navigation, video sizing controls, animations, etc.
  * Licenses for the scripts are GPLv3 or compatible
  */
  
@@ -153,7 +153,7 @@
 		var customSubmenuButton = document.querySelectorAll( '.main-navigation .menu-down-arrow' );
 		for ( var iSub = 0, customSubmenuButton; iSub < customSubmenuButton.length; iSub++ ) {
 			// Add click event to the button to show ul.sub-menu
-			customSubmenuButton[iSub].addEventListener( 'click', function () {
+			customSubmenuButton[iSub].addEventListener( 'click', function() {
 				// this refers to the current loop iteration of customSubmenuButton
 				// nextElementSibling refers to the neighboring ul with .sub-menu class
 				if ( this.nextElementSibling.className.indexOf( 'toggled-submenu' ) !== -1 ) { // if .sub-menu has .toggled-submenu class
@@ -287,12 +287,6 @@
 							document.querySelectorAll('.single.slider #gallery-4 .gallery-item'),
 							document.querySelectorAll('.single.slider #gallery-5 .gallery-item') ];
 	
-	var slides1Count = 0;
-	var slides2Count = 0;
-	var slides3Count = 0;
-	var slides4Count = 0;
-	var slides5Count = 0;
-	
 	function hideFirstSlide() {
 		
 		// slides[0] = first location of the array in the slides variable, slides[1] = second, etc.
@@ -384,43 +378,55 @@
 		buttonPanel[i].classList.add('hide');
 	}
 	
-	// Show each subsequent slide one at a time by clicking the next and previous buttons
-	// checking if each button exists on the page first
-	if (sliderNext[0]) {
-		sliderNext[0].addEventListener('click', showNext(slides[0], slides1Count));
-	}
-	if (sliderNext[1]) {
-		sliderNext[1].addEventListener('click', showNext(slides[1], slides2Count));
-	}
-	if (sliderNext[2]) {
-		sliderNext[2].addEventListener('click', showNext(slides[2], slides3Count));
-	}
-	if (sliderNext[3]) {
-		sliderNext[3].addEventListener('click', showNext(slides[3], slides4Count));
-	}
-	if (sliderNext[4]) {
-		sliderNext[4].addEventListener('click', showNext(slides[4], slides5Count));
+	// Some of the articles and tutorials consulted for these functions are:
+	// Understand JavaScript Closures With Ease- http://javascriptissexy.com/understand-javascript-closures-with-ease/
+	// Make a Simple JavaScript Slideshow without jQuery- https://www.sitepoint.com/make-a-simple-javascript-slideshow-without-jquery/
+	
+	// Next slide function
+	function showSlide(obj) {
+		var counter = 0;
+		return {
+			showNext: function() {
+				counter++;
+				if (counter === obj.length) {
+					counter = obj.length - 1;
+				}
+				console.log('Next slide: ' + counter);
+				return counter;
+			},
+			showPrevious: function() {
+				counter--;
+				if (counter < 0) {
+					counter = 0;
+				}
+				console.log('Previous slide: ' + counter);
+				return counter;
+			}
+		}
 	}
 	
-	if (sliderPrevious[0]) {
-		sliderPrevious[0].addEventListener('click', showPrevious(slides[0], slides1Count));
-	}
-	if (sliderPrevious[1]) {
-		//sliderPrevious[1].addEventListener('click', showPreviousSlide2);
-	}
-	if (sliderPrevious[2]) {
-		//sliderPrevious[2].addEventListener('click', showPreviousSlide3);
-	}
-	if (sliderPrevious[3]) {
-		//sliderPrevious[3].addEventListener('click', showPreviousSlide4);
-	}
-	if (sliderPrevious[4]) {
-		//sliderPrevious[4].addEventListener('click', showPreviousSlide5);
-	}
-		
-	// https://www.sitepoint.com/make-a-simple-javascript-slideshow-without-jquery/
-	// Next slide function
-	function showNext(obj, counter) {
+	/*function showSlide2(obj2) {
+		var counter2 = 0;
+		return {
+			showNext: function() {
+				counter2++;
+				if (counter2 === obj2.length) {
+					counter2 = obj2.length - 1;
+				}
+				console.log('Next slide: ' + counter2);
+				return counter2;
+			},
+			showPrevious: function() {
+				counter2--;
+				if (counter2 < 0) {
+					counter2 = 0;
+				}
+				console.log('Previous slide: ' + counter2);
+				return counter2;
+			}
+		}
+	}*/
+	/*function showNext(obj, counter) {
 		return function() {
 			obj[counter].classList.add('hide');
 			counter++;
@@ -429,10 +435,10 @@
 			}
 			obj[counter].classList.remove('hide');
 			console.log(counter);
+			//console.log(obj.length - counter);
 		}
 	}
 	
-	// Previous slide function
 	function showPrevious(obj, counter) {
 		return function() {
 			obj[counter].classList.add('hide');
@@ -443,6 +449,91 @@
 			obj[counter].classList.remove('hide');
 			console.log(counter);
 		}
+	}*/
+	
+	// Show each subsequent slide one at a time by clicking the next and previous buttons
+	// checking if each button exists on the page first
+	function addClickEvents() {
+		var currentSlide1 = showSlide(slides[0]);
+		var currentSlide2 = showSlide(slides[1]);
+		var currentSlide3 = showSlide(slides[2]);
+		var currentSlide4 = showSlide(slides[3]);
+		var currentSlide5 = showSlide(slides[4]);
+		
+		var slides1Length = slides[0].length - 1;
+		
+		if (sliderNext[0]) {
+			sliderNext[0].addEventListener('click', function() {
+				slides[0][currentSlide1.showPrevious()].classList.add('hide');
+				slides[0][currentSlide1.showNext()].classList.remove('hide');
+				slides[0][currentSlide1.showNext()];
+			});
+		}
+		if (sliderNext[1]) {
+			sliderNext[1].addEventListener('click', function () {
+				slides[1][currentSlide2.showPrevious()].classList.add('hide');
+				slides[1][currentSlide2.showNext()].classList.remove('hide');
+				slides[1][currentSlide2.showNext()];
+			});
+		}
+		if (sliderNext[2]) {
+			sliderNext[2].addEventListener('click', function () {
+				slides[2][currentSlide3.showPrevious()].classList.add('hide');
+				slides[2][currentSlide3.showNext()].classList.remove('hide');
+				slides[2][currentSlide3.showNext()];
+			});
+		}
+		if (sliderNext[3]) {
+			sliderNext[3].addEventListener('click', function () {
+				slides[3][currentSlide4.showPrevious()].classList.add('hide');
+				slides[3][currentSlide4.showNext()].classList.remove('hide');
+				slides[3][currentSlide4.showNext()];
+			});
+		}
+		if (sliderNext[4]) {
+			sliderNext[4].addEventListener('click', function () {
+				slides[4][currentSlide5.showPrevious()].classList.add('hide');
+				slides[4][currentSlide5.showNext()].classList.remove('hide');
+				slides[4][currentSlide5.showNext()];
+			});
+		}
+		
+		if (sliderPrevious[0]) {
+			sliderPrevious[0].addEventListener('click', function() {
+				slides[0][currentSlide1.showPrevious()].classList.remove('hide');
+				slides[0][currentSlide1.showNext()].classList.add('hide');
+				slides[0][currentSlide1.showPrevious()];
+			});
+		}
+		if (sliderPrevious[1]) {
+			sliderPrevious[1].addEventListener('click', function () {
+				slides[1][currentSlide2.showPrevious()].classList.remove('hide');
+				slides[1][currentSlide2.showNext()].classList.add('hide');
+				slides[1][currentSlide2.showPrevious()];
+			});
+		}
+		if (sliderPrevious[2]) {
+			sliderPrevious[2].addEventListener('click', function () {
+				slides[2][currentSlide3.showPrevious()].classList.remove('hide');
+				slides[2][currentSlide3.showNext()].classList.add('hide');
+				slides[2][currentSlide3.showPrevious()];
+			});
+		}
+		if (sliderPrevious[3]) {
+			sliderPrevious[3].addEventListener('click', function () {
+				slides[3][currentSlide4.showPrevious()].classList.remove('hide');
+				slides[3][currentSlide4.showNext()].classList.add('hide');
+				slides[3][currentSlide4.showPrevious()];
+			});
+		}
+		if (sliderPrevious[4]) {
+			sliderPrevious[4].addEventListener('click', function () {
+				slides[4][currentSlide5.showPrevious()].classList.remove('hide');
+				slides[4][currentSlide5.showNext()].classList.add('hide');
+				slides[4][currentSlide5.showPrevious()];
+			});
+		}
 	}
+	window.onload = addClickEvents();
 	
 })();
