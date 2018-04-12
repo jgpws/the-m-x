@@ -405,52 +405,6 @@
 		}
 	}
 	
-	/*function showSlide2(obj2) {
-		var counter2 = 0;
-		return {
-			showNext: function() {
-				counter2++;
-				if (counter2 === obj2.length) {
-					counter2 = obj2.length - 1;
-				}
-				console.log('Next slide: ' + counter2);
-				return counter2;
-			},
-			showPrevious: function() {
-				counter2--;
-				if (counter2 < 0) {
-					counter2 = 0;
-				}
-				console.log('Previous slide: ' + counter2);
-				return counter2;
-			}
-		}
-	}*/
-	/*function showNext(obj, counter) {
-		return function() {
-			obj[counter].classList.add('hide');
-			counter++;
-			if (counter === obj.length) {
-				counter = obj.length - 1;
-			}
-			obj[counter].classList.remove('hide');
-			console.log(counter);
-			//console.log(obj.length - counter);
-		}
-	}
-	
-	function showPrevious(obj, counter) {
-		return function() {
-			obj[counter].classList.add('hide');
-			counter--;
-			if (counter === -1) {
-				counter = 0;
-			}
-			obj[counter].classList.remove('hide');
-			console.log(counter);
-		}
-	}*/
-	
 	// Show each subsequent slide one at a time by clicking the next and previous buttons
 	// checking if each button exists on the page first
 	function addClickEvents() {
