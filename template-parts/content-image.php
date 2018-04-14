@@ -25,7 +25,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 		} ?>
 		<?php
 		if ( !is_single() ) {
-			if( has_post_format() ) {
+			if( has_post_thumbnail() ) {
 				the_title( '<h2 class="entry-title"><i class="material-icons">image</i><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			} else {
 				the_title( '<h2 class="entry-title"><i class="material-icons">image</i>', '</h2>' );

@@ -71,6 +71,20 @@ article.page.three-fourths-centered {
 		width: 75%;
 	}
 	
+	@media (min-width: 80em) {
+		.three-fourths-centered .post,
+		.three-fourths-centered .page {
+			max-width: 80em;
+		}
+		
+		.three-fourths-centered .page-content,
+		.three-fourths-centered .entry-content,
+		.three-fourths-centered .entry-summary {
+			@include padding-two-values(1.5em, 0);
+			margin: 0 auto;
+		}
+	}
+	
 	/* Undo extra margins on outside of main element for galleries on single posts with Gallery post format */
 	.single-format-gallery main.jgd-grid-wrap {
 		margin-left: 0;

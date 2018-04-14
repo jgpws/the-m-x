@@ -348,9 +348,6 @@
 		//console.log(gallery.length);
 	}
 	
-	var sliderButtonPrevious = document.querySelectorAll('.single.slider .slider-previous');
-	var sliderButtonNext = document.querySelectorAll('.single.slider .slider-next');
-	
 	// Variables that are defined after our dynamically created buttons/panel
 	var buttonPanel = document.querySelectorAll('.single.slider .slider-button-panel');
 	
@@ -413,8 +410,6 @@
 		var currentSlide3 = showSlide(slides[2]);
 		var currentSlide4 = showSlide(slides[3]);
 		var currentSlide5 = showSlide(slides[4]);
-		
-		var slides1Length = slides[0].length - 1;
 		
 		if (sliderNext[0]) {
 			sliderNext[0].addEventListener('click', function() {

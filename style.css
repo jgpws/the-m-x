@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Jason G. Designs
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.0.1
+Version: 1.0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: the-mx
@@ -1437,12 +1437,6 @@ article.page,
   display: inline;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-  padding: 1.5em 0;
-}
-
 .page-links {
   clear: both;
   font-weight: 500;
@@ -1465,7 +1459,7 @@ article.page,
 
 /* Gutenberg compatibility */
 .alignwide {
-  margin: 1em 0;
+  margin: 1em;
 }
 
 .alignfull {
@@ -1477,6 +1471,27 @@ article.page,
     margin: 1em -1.5em;
   }
 }
+/* Above 80em (~1280px), the content area's max-width is 46em (736px)
+ */
+@media (min-width: 80em) {
+  .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+  }
+
+  .alignwide {
+    margin: 1em 4em;
+  }
+
+  .wp-block-cover-image.alignwide {
+    max-width: calc(100% - 8em);
+  }
+}
+.wp-block-cover-image {
+  /*width: 125%;*/
+}
+
 /* Attachment pages */
 .attachment {
   background-color: #ffffff;
@@ -2052,17 +2067,10 @@ img.wp-post-image {
   margin-right: auto;
 }
 
-@media screen and (min-width: 80em) {
+@media screen and (min-width: 52.5em) {
   .featured-image,
   .scrim {
     width: calc(100% + 3em);
-  }
-
-  .featured-image {
-    margin: -1.5em;
-  }
-
-  .scrim {
     margin: -1.5em -1.5em 0 -1.5em;
   }
 }
@@ -2406,7 +2414,21 @@ article.page.three-fourths-centered {
     margin-right: 12.5%;
     width: 75%;
   }
+}
+@media (min-width: 80em) and (min-width: 80em) {
+  .three-fourths-centered .post,
+  .three-fourths-centered .page {
+    max-width: 80em;
+  }
 
+  .three-fourths-centered .page-content,
+  .three-fourths-centered .entry-content,
+  .three-fourths-centered .entry-summary {
+    padding: 1.5em 0;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 80em) {
   /* Undo extra margins on outside of main element for galleries on single posts with Gallery post format */
   .single-format-gallery main.jgd-grid-wrap {
     margin-left: 0;
