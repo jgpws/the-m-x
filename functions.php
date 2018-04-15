@@ -41,6 +41,13 @@ function the_mx_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	
+	// Custom logo
+	$defaults = array(
+		'flex-height' => true,
+		'flex-width' => true,
+	);
+	add_theme_support( 'custom-logo', $defaults );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

@@ -29,6 +29,34 @@
 	padding-bottom: 1rem;
 }
 
+.custom-logo-link {
+	
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+	
+}
+
+@media ( min-width: 80em ) {
+	.custom-logo-link {
+	
+		img {
+			margin: 0 0 0 -0.75em; /* negative left margin accounts for padding from the .jgd-grid class */
+			max-width: 400px; /* Fixes flexbox shrinkage of child images */
+		}
+	
+	}
+	
+	.wp-custom-logo .site-branding {
+		display: flex;
+	}
+	
+	.wp-custom-logo .site-branding-text {
+		padding-left: 1em;
+	}
+}
+
 /* Skrollr fixes for mobile */
 html.skrollr-mobile {
 	margin-top: 0 !important;

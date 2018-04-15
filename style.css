@@ -1,10 +1,10 @@
 /*
 Theme Name: The M.X.
-Theme URI: http://underscores.me/
+Theme URI: http://www.jasong-designs.com/tag/the-m-x/
 Author: Jason G. Designs
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.0.2
+Version: 1.0.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: the-mx
@@ -1133,6 +1133,27 @@ a:hover, a:active {
   padding-bottom: 1rem;
 }
 
+.custom-logo-link img {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 80em) {
+  .custom-logo-link img {
+    margin: 0 0 0 -0.75em;
+    /* negative left margin accounts for padding from the .jgd-grid class */
+    max-width: 400px;
+    /* Fixes flexbox shrinkage of child images */
+  }
+
+  .wp-custom-logo .site-branding {
+    display: flex;
+  }
+
+  .wp-custom-logo .site-branding-text {
+    padding-left: 1em;
+  }
+}
 /* Skrollr fixes for mobile */
 html.skrollr-mobile {
   margin-top: 0 !important;
@@ -1462,6 +1483,10 @@ article.page,
   margin: 1em;
 }
 
+.wp-block-cover-image.alignwide {
+  max-width: calc(100% - 2em);
+}
+
 .alignfull {
   margin: 1em -1em;
 }
@@ -1472,17 +1497,17 @@ article.page,
   }
 }
 @media (min-width: 80em) {
-  .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
+  .three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
     margin-left: auto;
     margin-right: auto;
     max-width: 75%;
   }
 
-  .alignwide {
+  .three-fourths-centered .alignwide {
     margin: 1em 4em;
   }
 
-  .wp-block-cover-image.alignwide {
+  .three-fourths-centered .wp-block-cover-image.alignwide {
     max-width: calc(100% - 8em);
   }
 }
