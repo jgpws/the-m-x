@@ -272,8 +272,6 @@ article.page,
 	}
 }
 
-/* Above 80em (~1280px), the content area's max-width is 46em (736px)
- */
 @media (min-width: 80em) {
 	.entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
 		margin-left: auto;
@@ -288,10 +286,6 @@ article.page,
 	.wp-block-cover-image.alignwide {
 		max-width: calc(100% - 8em);
 	}
-}
-
-.wp-block-cover-image {
-	/*width: 125%;*/
 }
 
 /* Attachment pages */

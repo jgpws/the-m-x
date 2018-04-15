@@ -141,7 +141,7 @@
 .single.slider .gallery {
 	background-color: $primary-color-darker;
 	position: relative;
-	min-height: 480px;
+	min-height: 416px;
 	min-width: 100%;
 }
 
@@ -201,7 +201,7 @@
 
 @media screen and (min-width: 37.5em) {
 	.single.slider .gallery {
-		min-height: 640px;
+		min-height: 560px;
 	}
 	
 	.single.slider .gallery-item img {
@@ -211,10 +211,16 @@
 
 @media screen and (min-width: 80em) {
 	.single.slider .gallery {
-		min-height: 800px;
+		min-height: 736px;
 	}
 	
 	.single.slider .gallery-item img {
 		max-height: 640px;
+	}
+	
+	.single.slider .gallery-caption {
+		max-width: 75%;
+    	margin-left: 12.5%;
+    	margin-right: 12.5%;
 	}
 }
