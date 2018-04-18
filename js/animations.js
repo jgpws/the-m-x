@@ -177,11 +177,8 @@
 	});
 	
 	function addMaterialInk() {
-		/* From the Material design buttons pen by Michaela on Codepen
-		 * https://codepen.io/Fischaela/pen/ahgIy
-		 */
-		
-		// First, add .material-ink class to auto-generated WordPress HTML, including menus
+
+		// Add .material-ripple class to auto-generated WordPress HTML, including menus
 		$(menuItems).addClass('material-ripple');
 		$(sidebarItems).addClass('material-ripple');
 	}
