@@ -247,6 +247,8 @@ function the_mx_scripts() {
 	if( get_theme_mod( 'the_mx_animate_css' ) == 1 ) {
 		wp_enqueue_style( 'the-mx-animations', get_template_directory_uri() . '/css/animate.css-master/animate.min.css', array(), '' );
 		wp_enqueue_script( 'the-mx-animations-js', get_template_directory_uri() . '/js/animations.js', array( 'jquery' ), '', true );
+		wp_enqueue_style( 'the-mx-ripple-animation', get_template_directory_uri() . '/css/ripple.min.css', array(), '' );
+		wp_enqueue_script( 'the-mx-ripple-animation-js', get_template_directory_uri() . '/js/ripple.min.js', array( 'jquery' ), '', true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'the_mx_scripts' );

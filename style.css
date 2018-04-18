@@ -623,13 +623,6 @@ a:hover, a:active {
   z-index: 200;
 }
 
-/*#header-button-panel .searchform {
-	@include flex-row-right-aligned;
-	align-items: flex-end;
-	height: 3rem;
-	margin-left: 0.5em;
-	max-width: 50%;
-}*/
 #header-button-panel .searchform {
   display: flex;
   flex-direction: row;
@@ -819,6 +812,7 @@ a:hover, a:active {
     background-color: transparent;
     max-width: 50%;
     position: static;
+    z-index: 0;
   }
   .site-header .main-navigation {
     background-color: #3e2723;
@@ -875,6 +869,7 @@ a:hover, a:active {
   .site-header .main-navigation .sub-menu a:link,
   .site-header .main-navigation .sub-menu a:visited {
     color: rgba(0, 0, 0, 0.87);
+    height: auto;
     min-width: 9.375em;
     text-transform: unset;
     white-space: normal;

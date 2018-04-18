@@ -14,6 +14,8 @@
 	var mobileSubmenu = $('#primary-menu .nav-menu ul');
 	var mobileMenuCustom = $('ul.nav-menu');
 	var mobileSubmenuCustom = $('ul.nav-menu ul');
+	var menuItems = $('.main-navigation ul li a');
+	var subMenuItems = $('.main-navigation ul ul a');
 	
 	// Search
 	var searchButton = $('.search-toggle');
@@ -23,6 +25,7 @@
 	// Sidebar
 	var sidebarButton = $('.sidebar-toggle');
 	var sidebarPanel = $('#secondary');
+	var sidebarItems = $('#secondary ul li a');
 	
 	// Colorbox
 	var colorboxNext = $('#cboxNext');
@@ -119,11 +122,6 @@
 			animateMenu();
 		}, 250 );
 	}
-	/*$(window).resize(function(){
-		if (windowWidth < 600) {
-			animateMenu;
-		}
-	});*/
 	
 	searchButton.on('click', function() {
 		if (searchForm.hasClass('toggled')) {
@@ -177,5 +175,16 @@
 			$('#cboxLoadedContent').removeClass('animated fadeIn');
 		});
 	});
+	
+	function addMaterialInk() {
+		/* From the Material design buttons pen by Michaela on Codepen
+		 * https://codepen.io/Fischaela/pen/ahgIy
+		 */
+		
+		// First, add .material-ink class to auto-generated WordPress HTML, including menus
+		$(menuItems).addClass('material-ripple');
+		$(sidebarItems).addClass('material-ripple');
+	}
+	window.onload = addMaterialInk();
 	
 })(jQuery);

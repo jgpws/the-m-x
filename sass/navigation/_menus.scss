@@ -28,13 +28,6 @@
 	z-index: 200;
 }
 
-/*#header-button-panel .searchform {
-	@include flex-row-right-aligned;
-	align-items: flex-end;
-	height: 3rem;
-	margin-left: 0.5em;
-	max-width: 50%;
-}*/
 #header-button-panel .searchform {
 	@include flex-row-right-aligned;
 	background-color: $primary-color-dark;
@@ -239,6 +232,7 @@
 			background-color: transparent;
 			max-width: 50%;
 			position: static;
+			z-index: 0;
 		}
 	
 		.main-navigation {
@@ -300,6 +294,7 @@
 			.sub-menu a:link,
 			.sub-menu a:visited {
 				color: $primary-text-color;
+				height: auto;
 				min-width: 9.375em;
 				text-transform: unset;
 				white-space: normal;
