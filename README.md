@@ -1,5 +1,7 @@
 # The M.X.
 
+Visit The M.X. temporary [Homepage](http://www.jasong-designs.com/tag/the-m-x/) for more information including images.
+
 The M.X. stands for *The Modern Experience*.
 
 Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats.
@@ -33,6 +35,8 @@ ___
 Newest additions:
 
 * Custom logo support has now been added!
+* "Wide" layout mode added to the Customizer, suitable for the incoming Gutenberg editor
+* Ripple effect on menu items; more may be added as needed
 
 ___
 
