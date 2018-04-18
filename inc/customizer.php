@@ -339,10 +339,11 @@ function the_mx_customize_register( $wp_customize ) {
 		'the_mx_layout', array(
 			'type' => 'radio',
 			'label' => __( 'Choose between three layouts for the blog pages.', 'the-mx' ),
-			'description' => __( '* The Centered and Two by two layouts affect widths 1280px and above.', 'the-mx' ),
+			'description' => __( '* The Centered, Wide and Two by two layouts affect widths 1280px and above.', 'the-mx' ),
 			'section' => 'the_mx_layout_section',
 			'choices' => array(
 				'centered' => __( 'Centered- Posts stacked vertically.', 'the-mx' ),
+				'wide' => __( 'Wide- Posts stacked vertically with a wide content area.', 'the-mx' ),
 				'twobytwo' => __( 'Two by two- A grid of posts two across the screen', 'the-mx' ),
 				'imagegrid' => __( 'Image grid- A grid designed for image or gallery posts, supporting only featured images and captions.', 'the-mx' ),
 			),
@@ -572,7 +573,7 @@ function the_mx_sanitize_color_choices( $input ) {
 }
 
 function the_mx_sanitize_layout_choices( $input ) {
-	if( !in_array( $input, array( 'centered', 'twobytwo', 'imagegrid' ) ) ) {
+	if( !in_array( $input, array( 'centered', 'wide', 'twobytwo', 'imagegrid' ) ) ) {
 		$input = 'centered';
 	}
 	return $input;

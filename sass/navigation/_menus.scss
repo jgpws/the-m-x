@@ -28,12 +28,23 @@
 	z-index: 200;
 }
 
-#header-button-panel .searchform {
+/*#header-button-panel .searchform {
 	@include flex-row-right-aligned;
 	align-items: flex-end;
 	height: 3rem;
 	margin-left: 0.5em;
 	max-width: 50%;
+}*/
+#header-button-panel .searchform {
+	@include flex-row-right-aligned;
+	background-color: $primary-color-dark;
+	align-items: flex-end;
+	height: 3rem;
+	left: 0;
+	margin-left: 0.5em;
+	max-width: 75%;
+	position: absolute;
+	z-index: 500;
 }
 
 #header-button-panel .search-field {
@@ -223,6 +234,12 @@
 	}
 	
 	.site-header {
+		
+		#header-button-panel .searchform {
+			background-color: transparent;
+			max-width: 50%;
+			position: static;
+		}
 	
 		.main-navigation {
 			background-color: $primary-color-darker;

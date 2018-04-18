@@ -159,6 +159,10 @@ blockquote, q, .wp-block-pullquote {
 	background-color: ' . $primary_color_2 . ';
 }
 
+#header-button-panel .searchform {
+	background-color: ' . $primary_color_2 . ';
+}
+
 a:hover,
 a:focus {
 	color: ' . $primary_color_2 . ';
@@ -178,6 +182,10 @@ a:focus {
 .search .posted-on a:hover,
 .search .posted-on a:focus {
 	color: ' . $primary_color_2 . ';
+}
+
+.wp-block-image.alignfull {
+	background-color: ' . $primary_color_2 . ';
 }';
 		wp_add_inline_style( 'the-mx-style', $primary_color_2_css );
 		}

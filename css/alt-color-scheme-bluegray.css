@@ -91,6 +91,10 @@ a:active {
 	background-color: #607d8b;
 }
 
+#header-button-panel .searchform {
+	background-color: #455a64;
+}
+
 .main-navigation a:hover,
 .main-navigation a:focus {
   color: #3e2723;
@@ -124,6 +128,10 @@ a:active {
 .sidebar-toggle:focus,
 .searchform.toggled + .search-toggle {
 	color: #795548;
+}
+
+.wp-block-image.alignfull {
+	background-color: #263238;
 }
 
 @media screen and (min-width: 37.5em) {

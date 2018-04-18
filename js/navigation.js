@@ -33,17 +33,23 @@
 	
 	window.addEventListener( 'resize', function(event) {
 		var windowWidth = window.innerWidth;
-		if ( windowWidth < 600 ) {
-			menu.style.display = 'none';
-			for ( var i = 0; i < submenuButton.length; i++ ) {
-				submenuButton[i].style.display = 'none';
-			}
-		} else {
-			menu.style.display = 'flex';
-			for ( var i = 0; i < submenuButton.length; i++ ) {
-				submenuButton[i].style.display = 'inline';
-			}
+		if (timeOut != null) {
+			clearTimeout(timeOut);
 		}
+		
+		var timeOut = setTimeout(function() {
+			if (windowWidth < 600) {
+				menu.style.display = 'none';
+				for (var i = 0; i < submenuButton.length; i++) {
+					submenuButton[i].style.display = 'none';
+				}
+			} else {
+				menu.style.display = 'flex';
+				for (var i = 0; i < submenuButton.length; i++) {
+					submenuButton[i].style.display = 'inline';
+				}
+			}
+		}, 250 );
 	} );
 	
 	window.addEventListener( 'load', function(event) {

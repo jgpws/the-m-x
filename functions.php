@@ -232,7 +232,7 @@ function the_mx_scripts() {
 	}
 	
 	if ( get_theme_mod( 'the_mx_skrollr_animations' ) == 1 ) {
-		wp_enqueue_script( 'the-mx-skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array(), '', true );
+		wp_enqueue_script( 'the-mx-skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array( 'the-mx-scripts' ), '', true );
 	
 		wp_add_inline_script( 'the-mx-skrollr', 
 			'var s = skrollr.init({

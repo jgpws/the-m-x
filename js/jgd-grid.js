@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
 					articles[i].classList.add( 'three-fourths-centered' );
 					articles[i].classList.remove( 'two-by-two-centered' );
 					articles[i].classList.remove( 'jgd-column-1' );
+				} else if ( jgdGridParams.layouts === 'wide' ) {
+					articles[i].classList.add( 'jgd-column-1' );
+					articles[i].classList.remove( 'two-by-two-centered' );
+					articles[i].classList.remove( 'three-fourths-centered' );
 				} else {
 					articles[i].classList.add( 'two-by-two-centered' );
 					articles[i].classList.remove( 'three-fourths-centered' );
@@ -75,24 +79,40 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 			
 			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
-				stickyContainers[i].classList.add( 'three-fourths-centered' );
-				stickyContainers[i].classList.remove( 'two-by-two-centered' );
-				stickyContainers[i].classList.remove( 'jgd-column-1' );
+				if ( jgdGridParams.layouts === 'wide' ) {
+					stickyContainers[i].classList.add( 'jgd-column-1' );
+					stickyContainers[i].classList.remove( 'three-fourths-centered' );
+					stickyContainers[i].classList.remove( 'two-by-two-centered' );
+				} else {
+					stickyContainers[i].classList.add( 'three-fourths-centered' );
+					stickyContainers[i].classList.remove( 'two-by-two-centered' );
+					stickyContainers[i].classList.remove( 'jgd-column-1' );
+				}
 			}
 
 			// if body tag contains string ".single"; this check is needed otherwise the script breaks on non-single pages
 			if ( -1 !== bodyTag[0].className.indexOf( 'single' ) ) {
 				if ( document.body.contains( singlePostContainer ) ) {
-					singlePostContainer.classList.add( 'three-fourths-centered' );
-					singlePostContainer.classList.remove( 'jgd-column-1' );
+					if ( jgdGridParams.layouts === 'wide' ) {
+						singlePostContainer.classList.add( 'jgd-column-1' );
+						singlePostContainer.classList.remove( 'three-fourths-centered' );
+					} else {
+						singlePostContainer.classList.add( 'three-fourths-centered' );
+						singlePostContainer.classList.remove( 'jgd-column-1' );
+					}
 				}
 			}
 			
 			// if .page is found, but .paged is not found
 			if ( 	-1 !== bodyTag[0].className.indexOf( 'page' ) &&
 					-1 === bodyTag[0].className.indexOf( 'paged' ) ) {
-				pageContainer.classList.add( 'three-fourths-centered' );
-				pageContainer.classList.remove( 'jgd-column-1' );
+				if ( jgdGridParams.layouts === 'wide' ) {
+					pageContainer.classList.add( 'jgd-column-1' );
+					pageContainer.classList.remove( 'three-fourths-centered' );
+				} else {
+					pageContainer.classList.add( 'three-fourths-centered' );
+					pageContainer.classList.remove( 'jgd-column-1' );
+				}
 			}
 			
 			if ( -1 !== bodyTag[0].className.indexOf( 'error404' ) ) {
@@ -108,9 +128,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			
 			// loop through each article with class .post and add/remove grid classes
 			for (var i = 0, len = articles.length; i < len; i++ ) {
-				articles[i].classList.remove( 'two-by-two-centered' );
-				articles[i].classList.add( 'three-fourths-centered' );
-				articles[i].classList.remove( 'jgd-column-1' );
+				if ( jgdGridParams.layouts === 'wide' ) {
+					articles[i].classList.remove( 'two-by-two-centered' );
+					articles[i].classList.add( 'jgd-column-1' );
+					articles[i].classList.remove( 'three-fourths-centered' );
+				} else {
+					articles[i].classList.remove( 'two-by-two-centered' );
+					articles[i].classList.add( 'three-fourths-centered' );
+					articles[i].classList.remove( 'jgd-column-1' );
+				}
 			}
 			
 			for ( var i = 0, len = searchContainers.length; i < len; i++ ) {
@@ -122,8 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			// if body tag contains string ".single"; this check is needed otherwise the script breaks on non-single pages
 			if ( -1 !== bodyTag[0].className.indexOf( 'single' ) ) {
 				if ( document.body.contains( singlePostContainer ) ) {
-					singlePostContainer.classList.add( 'three-fourths-centered' );
-					singlePostContainer.classList.remove( 'jgd-column-1' );
+					if ( jgdGridParams.layouts === 'wide' ) {
+						singlePostContainer.classList.add( 'jgd-column-1' );
+						singlePostContainer.classList.remove( 'three-fourths-centered' );
+					} else {
+						singlePostContainer.classList.add( 'three-fourths-centered' );
+						singlePostContainer.classList.remove( 'jgd-column-1' );
+					}
 				}
 			}
 			

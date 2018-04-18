@@ -10,6 +10,12 @@ article.page,
 	box-shadow: $box-shadow-small;
 }
 
+/*.page-content,*/
+.entry-content,
+.entry-summary {
+	@include padding-two-values(1.5em, 0);
+}
+
 .page-header {
 	width: 100%;
 }
@@ -270,25 +276,17 @@ article.page,
 	@include margin-two-values(1em, -1em);
 }
 
+.wp-block-image.alignfull {
+	background-color: $primary-color-darker;
+}
+
+.wp-block-image.alignfull img {
+	@include center-block;
+}
+
 @media (min-width: 52.5em) {
 	.alignfull {
 		@include margin-two-values(1em, -1.5em);
-	}
-}
-
-@media (min-width: 80em) {
-	.three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 75%;
-	}
-	
-	.three-fourths-centered .alignwide {
-		margin: 1em 4em;
-	}
-	
-	.three-fourths-centered .wp-block-cover-image.alignwide {
-		max-width: calc(100% - 8em);
 	}
 }
 

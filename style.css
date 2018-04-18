@@ -623,14 +623,25 @@ a:hover, a:active {
   z-index: 200;
 }
 
+/*#header-button-panel .searchform {
+	@include flex-row-right-aligned;
+	align-items: flex-end;
+	height: 3rem;
+	margin-left: 0.5em;
+	max-width: 50%;
+}*/
 #header-button-panel .searchform {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  background-color: #5d4037;
   align-items: flex-end;
   height: 3rem;
+  left: 0;
   margin-left: 0.5em;
-  max-width: 50%;
+  max-width: 75%;
+  position: absolute;
+  z-index: 500;
 }
 
 #header-button-panel .search-field {
@@ -804,6 +815,11 @@ a:hover, a:active {
     display: none;
   }
 
+  .site-header #header-button-panel .searchform {
+    background-color: transparent;
+    max-width: 50%;
+    position: static;
+  }
   .site-header .main-navigation {
     background-color: #3e2723;
   }
@@ -1226,6 +1242,12 @@ article.page,
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+/*.page-content,*/
+.entry-content,
+.entry-summary {
+  padding: 1.5em 0;
+}
+
 .page-header {
   width: 100%;
 }
@@ -1491,24 +1513,19 @@ article.page,
   margin: 1em -1em;
 }
 
+.wp-block-image.alignfull {
+  background-color: #3e2723;
+}
+
+.wp-block-image.alignfull img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 52.5em) {
   .alignfull {
     margin: 1em -1.5em;
-  }
-}
-@media (min-width: 80em) {
-  .three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 75%;
-  }
-
-  .three-fourths-centered .alignwide {
-    margin: 1em 4em;
-  }
-
-  .three-fourths-centered .wp-block-cover-image.alignwide {
-    max-width: calc(100% - 8em);
   }
 }
 /* Attachment pages */
@@ -2432,6 +2449,7 @@ article.page.three-fourths-centered {
 
   .blog main.jgd-grid-wrap,
   .single main.jgd-grid-wrap,
+  .page main.jgd-grid-wrap,
   .search main.jgd-grid-wrap,
   .archive main.jgd-grid-wrap,
   .error404 main.jgd-grid-wrap {
@@ -2439,8 +2457,7 @@ article.page.three-fourths-centered {
     margin-right: 12.5%;
     width: 75%;
   }
-}
-@media (min-width: 80em) and (min-width: 80em) {
+
   .three-fourths-centered .post,
   .three-fourths-centered .page {
     max-width: 80em;
@@ -2449,16 +2466,50 @@ article.page.three-fourths-centered {
   .three-fourths-centered .page-content,
   .three-fourths-centered .entry-content,
   .three-fourths-centered .entry-summary {
-    padding: 1.5em 0;
     margin: 0 auto;
   }
-}
-@media (min-width: 80em) {
+
+  .three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link),
+  .jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
+    max-width: 75%;
+  }
+
+  .jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link) {
+    max-width: 50%;
+  }
+
+  .three-fourths-centered .alignwide {
+    margin: 1em 4em;
+  }
+
+  .three-fourths-centered .wp-block-cover-image.alignwide {
+    max-width: calc(100% - 8em);
+  }
+
+  .jgd-column-1 .alignwide {
+    margin: 1em 8em;
+  }
+
+  .jgd-column-1 .wp-block-cover-image.alignwide {
+    max-width: calc(100% - 16em);
+  }
+
   /* Undo extra margins on outside of main element for galleries on single posts with Gallery post format */
   .single-format-gallery main.jgd-grid-wrap {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
+  }
+
+  /* Redo margins for wide setting */
+  .single-format-gallery .post.jgd-column-1 {
+    margin-left: 12.5%;
+    margin-right: 12.5%;
   }
 }
 /*--------------------------------------------------------------
