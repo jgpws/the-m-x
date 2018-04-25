@@ -293,11 +293,10 @@ article.page,
 /* Attachment pages */
 .attachment {
 	background-color: $white;
-	
-	img {
-		@include center-block;
-	}
-	
+}
+
+.entry-attachment-image img {
+	@include center-block;
 }
 
 article.attachment {
@@ -342,7 +341,7 @@ article.attachment {
 		@include center-75-percent;
 	}
 	
-	.attachment img {
+	.entry-attachment-image img {
 		padding-bottom: 3em;
 		padding-top: 3em;
 	}
@@ -350,6 +349,10 @@ article.attachment {
 
 /* Fixes for Colorbox popups; only use with attachment.* class prepended!
 .colorbox class only displays when Colorbox is enabled in the Customizer- get_theme_mod('the_mx_enable_colorbox') */
+body.attachment.custom-background.colorbox {
+	background-image: none;
+}
+
 body.attachment.colorbox img {
 	padding-bottom: 0;
 	padding-top: 0;

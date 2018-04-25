@@ -8,3 +8,20 @@
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+/* Styling for Infinite Scroll elements */
+#infinite-handle {
+	@include margin-two-values(1em, auto);
+	box-shadow: $box-shadow-small;
+	
+	span {
+		background-color: $primary-color;
+		border-radius: 2px;
+		color: $white;
+	}
+	
+	button {
+		box-shadow: none;
+	}
+	
+}

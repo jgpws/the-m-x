@@ -348,7 +348,7 @@ html {
 }
 
 body {
-  background: #efebe9;
+  background-color: #efebe9;
   /* Fallback for when there is no custom background color defined. */
   touch-action: none;
 }
@@ -1527,7 +1527,8 @@ article.page,
 .attachment {
   background-color: #ffffff;
 }
-.attachment img {
+
+.entry-attachment-image img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -1572,13 +1573,17 @@ article.attachment {
     width: 75%;
   }
 
-  .attachment img {
+  .entry-attachment-image img {
     padding-bottom: 3em;
     padding-top: 3em;
   }
 }
 /* Fixes for Colorbox popups; only use with attachment.* class prepended!
 .colorbox class only displays when Colorbox is enabled in the Customizer- get_theme_mod('the_mx_enable_colorbox') */
+body.attachment.custom-background.colorbox {
+  background-image: none;
+}
+
 body.attachment.colorbox img {
   padding-bottom: 0;
   padding-top: 0;
@@ -1628,8 +1633,8 @@ body.attachment.admin-bar.colorbox {
 .format-aside,
 .format-status,
 .format-quote {
-  background-color: transparent;
-  box-shadow: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #efebe9;
 }
 
 .format-image .entry-content,
@@ -1938,6 +1943,20 @@ iframe.twitter-tweet {
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
 .infinity-end.neverending .site-footer {
   display: block;
+}
+
+/* Styling for Infinite Scroll elements */
+#infinite-handle {
+  margin: 1em auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+#infinite-handle span {
+  background-color: #795548;
+  border-radius: 2px;
+  color: #ffffff;
+}
+#infinite-handle button {
+  box-shadow: none;
 }
 
 /*--------------------------------------------------------------

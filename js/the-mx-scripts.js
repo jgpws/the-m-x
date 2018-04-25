@@ -1,7 +1,7 @@
 /**
  * File the-mx-scripts.js.
  *
- * Extra scripts for navigation, video sizing controls, animations, etc.
+ * Extra scripts for navigation, slideshow controls, animations, etc.
  * Licenses for the scripts are GPLv3 or compatible
  */
  
@@ -216,38 +216,39 @@
 				}
 				
 				for ( var i = 0; i < cardPf.length; i++ ) {
-					cardPf[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-50%); opacity: 0' );
-					cardPf[i].setAttribute( 'data-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					cardPf[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-25%); opacity: 0' );
+					cardPf[i].setAttribute( 'data-288-center-center', 'transform: translateX(0%); opacity: 1.0' );
 					cardPf[cardPf.length - 1].setAttribute( 'data-0-bottom-center', 'translateX(0%); opacity: 1.0' );
 				}
 				
 				for ( var i = 1; i < cardHeader.length; i++ ) {
-					cardHeader[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-50%); opacity: 0' );
-					cardHeader[i].setAttribute( 'data-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					cardHeader[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-12.5%); opacity: 0' );
+					cardHeader[i].setAttribute( 'data-288-center-center', 'transform: translateX(0%); opacity: 1.0' );
 					cardHeader[cardHeader.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
 				
 				for ( var i = 1; i < cardContent.length; i++ ) {
-					cardContent[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-50%); opacity: 0' );
-					cardContent[i].setAttribute( 'data-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					cardContent[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-25%); opacity: 0' );
+					cardContent[i].setAttribute( 'data-144-center-center', 'transform: translateX(0%); opacity: 1.0' );
 					cardContent[cardContent.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
 				
 				for ( var i = 1; i < cardFooter.length; i++ ) {
-					cardFooter[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-50%); opacity: 0' );
-					cardFooter[i].setAttribute( 'data-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					cardFooter[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-12.5%); opacity: 0' );
+					cardFooter[i].setAttribute( 'data-288-center-center', 'transform: translateX(0%); opacity: 1.0' );
 					cardFooter[cardFooter.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
 			} else if (mxSkrollrParams.layout_type === 'twobytwo') {
 				for ( var i = 1; i < card.length; i++ ) {
 					card[i].setAttribute( 'data-0-bottom-top', 'opacity: 0' );
 					card[i].setAttribute( 'data-0-bottom-center', 'opacity: 1.0' );
-					card[card.length - 1].setAttribute( 'data-0-bottom-center', 'opacity: 1.0' );
+					card[card.length - 1].setAttribute( 'data-0-bottom-top', 'opacity: 1.0' );
 				}
 				
 				for ( var i = 0; i < cardPf.length; i++ ) {
 					cardPf[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-50%); opacity: 0' );
 					cardPf[i].setAttribute( 'data-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					cardPf[cardPf.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
 			} else {
 				// Do nothing;

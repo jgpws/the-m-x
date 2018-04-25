@@ -4,6 +4,7 @@
 ( function( $ ) {
 
 	windowWidth = $( window ).width();
+	
 	/* Jetpack tiled gallery compatible */
 	if ( colorboxParams.link_to === 'attachment' && windowWidth >= 600 ) {
 		$( '.gallery-item a, .tiled-gallery-item a' ).colorbox({
@@ -35,5 +36,26 @@
 	}).on( 'cbox_closed', function() {
 		$( 'body' ).css({ overflow: '' });
 	});
+	
+	// AJAX to pull in our attachment posts
+	
+	/*$(document).on( 'click', '.gallery-item a', function( event ) {
+		if ( colorboxParams.link_to === 'attachment' ) {
+			event.preventDefault();
+			$.ajax( {
+				url: ajaxCboxContent.ajaxurl,
+				type: 'post',
+				data: {
+					action: 'cbox_content',
+					query_vars: ajaxCboxContent.query_vars,
+					//page: page
+				},
+				success: function( html ) {
+					$('#cboxLoadedContent .main-navigation').remove();
+					$('#cboxLoadedContent .attachment').html( html );
+				}
+			} );
+		}
+	} );*/
 	
 } ) (jQuery);

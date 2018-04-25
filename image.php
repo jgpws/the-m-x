@@ -15,42 +15,29 @@ See http://www.wpbeginner.com/wp-themes/how-to-create-a-custom-single-attachment
 global $post;
 
 if( get_theme_mod( 'the_mx_enable_colorbox' ) == 1 ) {
-	// limited header for display inside colorbox
-	get_template_part( 'template-parts/header', 'none' );
-	the_mx_hide_adminbar();
+	the_mx_cbox_content();
 } else {
-	get_header(); 
-} ?>
-
+get_header(); ?>
+	
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php
-		while ( have_posts() ) : the_post();
+		while ( have_posts() ) : the_post(); ?>
 		
-		if( get_theme_mod( 'the_mx_enable_colorbox' ) == 1 ) {
-			//show nothing
-		} else { ?>
 			<div class="return-to-parent"><?php echo sprintf(__( '%1$sReturn to:%2$s', 'the-mx' ), '<span class="return-to-text">', '</span>' ); ?> <a href="<?php echo get_permalink( $post->post_parent ); ?>"><?php echo get_the_title( $post->post_parent ); ?></a></div>
-		<?php
-		}
-		?>
 		
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			
-			<?php if( get_theme_mod( 'the_mx_enable_colorbox' ) == 1 ) { 
-				// show nothing
-			} else { ?>
 			<nav class="images-navigation">
 				<div class="nav-previous"><?php previous_image_link( false, '<i class="material-icons">arrow_back</i>' ); ?></div>
 				<div class="nav-next"><?php next_image_link( false, '<i class="material-icons">arrow_forward</i>' ); ?></div>
 			</nav>
-			<?php } ?>
 			
 			<div class="entry-attachment-image">
 			<?php if( wp_attachment_is_image( $post->id ) ) : $att_image = wp_get_attachment_image_src( $post->id, 'full' ); ?>
 				<p>
-				<?php if( get_theme_mod( 'the_mx_enable_colorbox' ) == 1 && get_theme_mod( 'the_mx_single_slider' ) == 1 ) { ?>
+				<?php if( get_theme_mod( 'the_mx_single_slider' ) == 1 ) { ?>
 					<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo $att_image[1]; ?>" height="<?php echo $att_image[2]; ?>" alt="<?php echo esc_attr( $post->post_excerpt ); ?>">
 				<?php } else { ?>
 					<a href="<?php echo wp_get_attachment_url($post->id); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo $att_image[1]; ?>" height="<?php echo $att_image[2]; ?>" class="attachment-medium" alt="<?php echo esc_attr( $post->post_excerpt ); ?>"></a>
@@ -86,26 +73,19 @@ if( get_theme_mod( 'the_mx_enable_colorbox' ) == 1 ) {
 			</article>
 			
 			<?php
-			if( get_theme_mod( 'the_mx_enable_colorbox' ) == 1 ) {
-				// exclude comments
-			} else {
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-			}
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
 
 		endwhile; // End of the loop.
 		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-<?php
-if( get_theme_mod( 'the_mx_enable_colorbox' ) ) {
-	// exclude sidebar
-	get_template_part( 'template-parts/footer', 'none' );
-} else {
+	
+	<?php
 	get_sidebar();
-	get_footer();
+	get_footer();	
+
 }

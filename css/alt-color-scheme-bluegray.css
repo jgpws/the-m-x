@@ -296,6 +296,15 @@ body.attachment.custom-background {
 	background-color: #90a4ae;
 }
 
+.format-image,
+.format-audio,
+.format-video,
+.format-aside,
+.format-status,
+.format-quote {
+	background-color: #eceff1;
+}
+
 .search .format-standard.has-post-thumbnail .entry-title a:link,
 .search .format-image.has-post-thumbnail .entry-title a:link {
 	color: #607d8b;
@@ -362,4 +371,9 @@ body.attachment.custom-background {
 
 #cboxClose:hover {
 	background:url(images/ic_cancel_brown_hover_24px.svg) no-repeat center center !important;
+}
+
+/* Jetpack */
+#infinite-handle span {
+	background-color: #607d8b;
 }

@@ -171,6 +171,7 @@ add_action( 'widgets_init', 'the_mx_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
 function the_mx_scripts() {
 	wp_enqueue_style( 'the-mx-style', get_stylesheet_uri() );
 	
@@ -220,9 +221,13 @@ function the_mx_scripts() {
 		// Supply colorbox main file with customizer settings
 		$parameters = array(
 			'link_to' => get_theme_mod( 'the_mx_media_link_to' ),
-			//'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		);
 		wp_localize_script( 'the-mx-colorbox-main', 'colorboxParams', $parameters );
+		global $wp_query;
+		/*wp_localize_script( 'the-mx-colorbox-main', 'ajaxCboxContent', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'query_vars' => json_encode( $wp_query->query ),
+		) );*/
 	}
 	
 	if ( get_theme_mod( 'the_mx_single_slider' ) == 1 && is_single() ) {
@@ -252,6 +257,11 @@ function the_mx_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'the_mx_scripts' );
+
+/**
+ * Colorbox content
+ */
+require get_template_directory() . '/inc/colorbox-gallery-content.php';
 
 /**
  * Implement the Custom Header feature.

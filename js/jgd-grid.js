@@ -73,13 +73,19 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 			
 			for ( var i = 0, len = pfContainers.length; i < len; i++ ) {
-				pfContainers[i].classList.add( 'three-fourths-centered' );
-				pfContainers[i].classList.remove( 'two-by-two-centered' );
-				pfContainers[i].classList.remove( 'jgd-column-1' );
+				if ( jgdGridParams.layouts === 'wide' || jgdGridParams.layouts === 'twobytwo' ) {
+					pfContainers[i].classList.add( 'jgd-column-1' );
+					pfContainers[i].classList.remove( 'three-fourths-centered' );
+					pfContainers[i].classList.remove( 'two-by-two-centered' );
+				} else {
+					pfContainers[i].classList.add( 'three-fourths-centered' );
+					pfContainers[i].classList.remove( 'two-by-two-centered' );
+					pfContainers[i].classList.remove( 'jgd-column-1' );
+				}
 			}
 			
 			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
-				if ( jgdGridParams.layouts === 'wide' ) {
+				if ( jgdGridParams.layouts === 'wide' || jgdGridParams.layouts === 'twobytwo' ) {
 					stickyContainers[i].classList.add( 'jgd-column-1' );
 					stickyContainers[i].classList.remove( 'three-fourths-centered' );
 					stickyContainers[i].classList.remove( 'two-by-two-centered' );

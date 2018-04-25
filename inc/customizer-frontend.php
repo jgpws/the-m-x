@@ -148,6 +148,10 @@ blockquote, q, .wp-block-pullquote {
 
 #custom-header {
 	background-color: ' . $primary_color_1 . ';
+}
+
+#infinite-handle span {
+	background-color: ' . $primary_color_1 . ';
 }';
 		wp_add_inline_style( 'the-mx-style', $primary_color_1_css );
 		}
@@ -459,6 +463,15 @@ pre {
 .format-image.has-post-thumbnail .entry-title a:hover,
 .format-image.has-post-thumbnail .entry-title a:hover {
 	color: #ffffff !important;
+}
+
+.format-image,
+.format-audio,
+.format-video,
+.format-aside,
+.format-status,
+.format-quote {
+	background-color: #' . $bg_color . ';
 }
 
 .sticky a:link,
@@ -809,6 +822,7 @@ body.custom-background .entry-attachment-image {
 .page-title,
 .blog .wp-caption-text,
 .archive .wp-caption-text,
+.entry-attachment-image .wp-caption-text,
 .search .no-results,
 .search .no-results input.search-field,
 pre {
@@ -1013,6 +1027,10 @@ a:focus {
 
 .site-footer a:hover,
 .site-footer a:focus {
+	color: #000000;
+}
+
+#infinite-handle span {
 	color: #000000;
 }';
 	

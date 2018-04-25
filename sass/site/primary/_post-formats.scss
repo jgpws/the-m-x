@@ -23,7 +23,8 @@
 .format-aside,
 .format-status,
 .format-quote {
-	@include no-card-style;
+	box-shadow: $box-shadow-small;
+	background-color: $primary-color-pale;
 }
 
 .format-image .entry-content,
