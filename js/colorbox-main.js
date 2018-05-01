@@ -37,25 +37,4 @@
 		$( 'body' ).css({ overflow: '' });
 	});
 	
-	// AJAX to pull in our attachment posts
-	
-	/*$(document).on( 'click', '.gallery-item a', function( event ) {
-		if ( colorboxParams.link_to === 'attachment' ) {
-			event.preventDefault();
-			$.ajax( {
-				url: ajaxCboxContent.ajaxurl,
-				type: 'post',
-				data: {
-					action: 'cbox_content',
-					query_vars: ajaxCboxContent.query_vars,
-					//page: page
-				},
-				success: function( html ) {
-					$('#cboxLoadedContent .main-navigation').remove();
-					$('#cboxLoadedContent .attachment').html( html );
-				}
-			} );
-		}
-	} );*/
-	
 } ) (jQuery);

@@ -188,6 +188,10 @@
 	z-index: 200;
 }
 
+.menu-toggle.material-ripple { /* Remove position: relative from the .material-ripple class because this button has absolute positioning */
+	position: absolute;
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: flex;

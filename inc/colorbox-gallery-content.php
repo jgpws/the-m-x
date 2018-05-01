@@ -38,23 +38,26 @@ global $post;
 		
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			
-			<div class="entry-attachment-image">
-			<?php if( wp_attachment_is_image( $post->id ) ) : $att_image = wp_get_attachment_image_src( $post->id, 'full' ); ?>
-				<p>
-				<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo $att_image[1]; ?>" height="<?php echo $att_image[2]; ?>" alt="<?php echo esc_attr( $post->post_excerpt ); ?>">
-				</p>
-				<?php
-				$caption = $post->post_excerpt;
-				if( $caption != '' ) { ?>
-					<div class="wp-caption-text"><?php echo esc_html( $post->post_excerpt ); ?></div>
-				<?php 
-				} ?>
-			<?php else: ?>
-				<a href="<?php echo wp_get_attachment_url($post->id); ?>" title="<?php echo wp_specialchars( get_the_title($post->id), 1 ); ?>" rel="attachment"><?php echo basename($post->guid); ?></a>
-			<?php endif; ?>
+			<div class="entry-content jgd-grid">
+				<div class="entry-attachment-image">
+				<?php if( wp_attachment_is_image( $post->id ) ) : $att_image = wp_get_attachment_image_src( $post->id, 'full' ); ?>
+					<p>
+					<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo $att_image[1]; ?>" height="<?php echo $att_image[2]; ?>" alt="<?php echo esc_attr( $post->post_excerpt ); ?>">
+					</p>
+					<?php
+					$caption = $post->post_excerpt;
+					if( $caption != '' ) { ?>
+						<div class="wp-caption-text"><?php echo esc_html( $post->post_excerpt ); ?></div>
+					<?php 
+					} ?>
+				<?php else: ?>
+					<a href="<?php echo wp_get_attachment_url($post->id); ?>" title="<?php echo wp_specialchars( get_the_title($post->id), 1 ); ?>" rel="attachment"><?php echo basename($post->guid); ?></a>
+				<?php endif; ?>
+				</div>
+				<?php the_content(); ?>
 			</div>
 			
-			<header class="entry-header jgd-grid">
+			<footer class="entry-footer jgd-grid">
 				<h2 class="image-title"><?php 
 					$image_title = get_the_title($post->id);
 					echo $image_title;
@@ -64,11 +67,7 @@ global $post;
 					<?php the_mx_posted_on(); ?>
 					<div class="image-size-meta"><i class="material-icons">image</i><?php echo $att_image[1]; ?> x <?php echo $att_image[2]; ?> pixels</div>
 				</div>
-			</header>
-			
-			<div class="entry-content jgd-grid">
-				<?php the_content(); ?>
-			</div>
+			</footer>
 			
 			</article>
 			
@@ -88,6 +87,4 @@ global $post;
 
 <?php
 } // ends function
-
-the_mx_hide_adminbar();
 ?>

@@ -301,12 +301,11 @@ article.page,
 
 article.attachment {
 	margin: 0;
-	padding: 0;
+	padding: 0 0 2em 0;
 	width: 100%;
 }
 
 .entry-attachment-image {
-	background-color: $primary-color-pale;
 	
 	p {
 		margin-top: 0;
@@ -337,18 +336,27 @@ article.attachment {
 
 @media (min-width: 37.5em) {
 	.attachment .entry-header,
-	.attachment .entry-content {
+	.attachment .entry-content > :not(.entry-attachment-image),
+	.attachment .entry-footer,
+	.entry-attachment-image .wp-caption-text {
 		@include center-75-percent;
 	}
 	
 	.entry-attachment-image img {
-		padding-bottom: 3em;
 		padding-top: 3em;
 	}
 }
 
 /* Fixes for Colorbox popups; only use with attachment.* class prepended!
 .colorbox class only displays when Colorbox is enabled in the Customizer- get_theme_mod('the_mx_enable_colorbox') */
+body.attachment.colorbox .entry-attachment-image {
+	@include margin-two-values(0, -0.5em);
+}
+
+body.attachment.colorbox .entry-attachment-image p {
+	background-color: $primary-color-pale;
+}
+
 body.attachment.custom-background.colorbox {
 	background-image: none;
 }
@@ -359,8 +367,28 @@ body.attachment.colorbox img {
 }
 
 /* Removes admin bar css in attachment pages with colorbox enabled */
+body.attachment.admin-bar.colorbox #wpadminbar {
+	display: none;
+}
+
 body.attachment.admin-bar.colorbox {
 	margin-top: -46px;
+}
+
+@media screen and (min-width: 37.5em) {
+	body.attachment.colorbox .entry-attachment-image {
+		margin-left: -1em;
+		margin-right: -1em;
+		width: calc(100% + 2em);
+	}
+}
+
+@media screen and (min-width: 80em) {
+	body.attachment.colorbox .entry-attachment-image {
+		margin-left: -1.5em;
+		margin-right: -1.5em;
+		width: calc(100% + 3em);
+	}
 }
 
 @media screen and (min-width: 783px) {

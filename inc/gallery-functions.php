@@ -96,7 +96,6 @@ function the_mx_get_limited_gallery_ids() {
 		$args = array(
 			'post_type' => 'attachment',
 			'numberposts' => $mx_thumbcount,
-			'orderby' => 'menu_order',
 			'order' => 'ASC',
 			'post_status' => null,
 			'post_parent' => $post->ID,

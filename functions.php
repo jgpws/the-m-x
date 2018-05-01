@@ -223,11 +223,6 @@ function the_mx_scripts() {
 			'link_to' => get_theme_mod( 'the_mx_media_link_to' ),
 		);
 		wp_localize_script( 'the-mx-colorbox-main', 'colorboxParams', $parameters );
-		global $wp_query;
-		/*wp_localize_script( 'the-mx-colorbox-main', 'ajaxCboxContent', array(
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'query_vars' => json_encode( $wp_query->query ),
-		) );*/
 	}
 	
 	if ( get_theme_mod( 'the_mx_single_slider' ) == 1 && is_single() ) {
@@ -354,8 +349,3 @@ add_filter( 'body_class', 'the_mx_add_skrollr_class' );
 
 /* include gallery functions */
 require get_template_directory() . '/inc/gallery-functions.php';
-
-/* Hide admin bar; used in lightbox pages */
-function the_mx_hide_adminbar() {
-	show_admin_bar( false );	
-}

@@ -90,8 +90,6 @@ function the_mx_frontend_customizer_styles() {
 		$accent_color_3 = esc_html( get_theme_mod( 'the_mx_custom_accent_3' ) );
 		$misc_css = '';
 		$bg_color = get_background_color();
-		$reverse_text_color = get_theme_mod( 'the_mx_reverse_textcolor', 0 );
-		$reverse_supporting_color = get_theme_mod( 'the_mx_reverse_supporting_color', 0 );
 		
 		if( $primary_color_4 != '' ) {
 		$primary_color_4_css = '
@@ -214,7 +212,8 @@ a:focus {
 	background-color: ' . $primary_color_3 . ';
 }
 
-.single.slider .gallery {
+.single.slider .gallery,
+.single.slider .slider-button-panel {
 	background-color: ' . $primary_color_3 . ';
 }';
 		wp_add_inline_style( 'the-mx-style', $primary_color_3_css );
@@ -488,11 +487,14 @@ body.attachment.custom-background {
 	background-color: #ffffff;
 }
 
-body.custom-background .entry-attachment-image {
+body.attachment.custom-background.colorbox .entry-attachment-image p {
 	background-color: #' . $bg_color . ';
 }';
 		wp_add_inline_style( 'the-mx-style', $misc_css );
 	}
+	
+	$reverse_text_color = get_theme_mod( 'the_mx_reverse_textcolor', 0 );
+	$reverse_supporting_color = get_theme_mod( 'the_mx_reverse_supporting_color', 0 );
 	
 	if( $reverse_text_color == 1 ) {
 		$reverse_text_color_css = '
@@ -822,7 +824,6 @@ body.custom-background .entry-attachment-image {
 .page-title,
 .blog .wp-caption-text,
 .archive .wp-caption-text,
-.entry-attachment-image .wp-caption-text,
 .search .no-results,
 .search .no-results input.search-field,
 pre {

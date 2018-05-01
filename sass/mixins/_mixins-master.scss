@@ -134,3 +134,10 @@
 	flex-direction: row;
 	justify-content: space-between;
 }
+
+// Horizontal spread with space around each item evenly
+@mixin flex-row-space-around() {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}

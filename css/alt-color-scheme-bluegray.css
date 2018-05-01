@@ -266,7 +266,7 @@ a:active {
 }
 
 /* Attachment pages */
-.entry-attachment-image {
+body.attachment.colorbox .entry-attachment-image p {
   background-color: #eceff1;
 }
 
@@ -316,7 +316,8 @@ body.attachment.custom-background {
 }
 
 /* Single page optional slider */
-.single.slider .gallery {
+.single.slider .gallery,
+.single.slider .slider-button-panel {
 	background-color: #263238;
 }
 
@@ -330,14 +331,6 @@ body.attachment.custom-background {
 .single.slider .slider-button-panel .slider-previous:focus,
 .single.slider .slider-button-panel .slider-next:focus {
 	background-color: #5d4037;
-}
-
-.single.slider .slider-button-panel .slider-previous {
-	background-image: url("images/ic_arrow_back_white_24px.svg");
-}
-
-.single.slider .slider-button-panel .slider-next {
-	background-image: url("images/ic_arrow_forward_white_24px.svg");
 }
 
 /* Comments */

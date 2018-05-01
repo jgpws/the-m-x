@@ -309,7 +309,7 @@
 							document.querySelectorAll('.single.slider #gallery-4 .gallery-item'),
 							document.querySelectorAll('.single.slider #gallery-5 .gallery-item') ];
 	
-	function hideFirstSlide() {
+	function showFirstSlide() {
 		
 		// slides[0] = first location of the array in the slides variable, slides[1] = second, etc.
 		// slides[0][0] = first slide inside of the first array
@@ -362,11 +362,11 @@
 		}
 	}
 	
-	window.onload = hideFirstSlide();
+	window.onload = showFirstSlide();
 	
 	for (var i = 0, len = gallery.length; i < len; i++) {
 		// Add slider controls to each gallery
-		gallery[i].insertAdjacentHTML('afterend', '<div class="slider-button-panel"><button class="slider-previous"></button><button class="slider-startshow">Start Slideshow</button><button class="slider-next"></button></div>');
+		gallery[i].insertAdjacentHTML('afterend', '<div class="slider-button-panel"><button class="slider-previous"><i class="material-icons">skip_previous</i></button><button class="slider-startshow"><i class="material-icons">play_arrow</i></button><button class="slider-next"><i class="material-icons">skip_next</i></button></div>');
 		//console.log(gallery.length);
 	}
 	
@@ -384,6 +384,12 @@
 									document.querySelector('.single.slider #gallery-3 + .slider-button-panel .slider-previous'),
 									document.querySelector('.single.slider #gallery-4 + .slider-button-panel .slider-previous'),
 									document.querySelector('.single.slider #gallery-5 + .slider-button-panel .slider-previous') ];
+									
+	var slideshowBtn = [ document.querySelector('.single.slider #gallery-1 + .slider-button-panel .slider-startshow'),
+								document.querySelector('.single.slider #gallery-2 + .slider-button-panel .slider-startshow'),
+								document.querySelector('.single.slider #gallery-3 + .slider-button-panel .slider-startshow'),
+								document.querySelector('.single.slider #gallery-4 + .slider-button-panel .slider-startshow'),
+								document.querySelector('.single.slider #gallery-5 + .slider-button-panel .slider-startshow') ];
 	
 	// Hide any galleries and button panels that are more than five;
 	// for this we start the counter at 4
@@ -399,7 +405,7 @@
 	
 	// Some of the articles and tutorials consulted for these functions are:
 	// Understand JavaScript Closures With Ease- http://javascriptissexy.com/understand-javascript-closures-with-ease/
-	// Make a Simple JavaScript Slideshow without jQuery- https://www.sitepoint.com/make-a-simple-javascript-slideshow-without-jquery/
+	// Make a Simple JavaScript Slideshow without jQuery- https://www.sitepoint.com/make-a-simple-javascript-slideshow-without-jquery/ <- for the start and pause functions
 	
 	// Next slide function
 	function showSlide(obj) {
@@ -410,7 +416,7 @@
 				if (counter === obj.length) {
 					counter = obj.length - 1;
 				}
-				console.log('Next slide: ' + counter);
+				//console.log('Next slide: ' + counter);
 				return counter;
 			},
 			showPrevious: function() {
@@ -418,7 +424,7 @@
 				if (counter < 0) {
 					counter = 0;
 				}
-				console.log('Previous slide: ' + counter);
+				//console.log('Previous slide: ' + counter);
 				return counter;
 			}
 		}
@@ -426,13 +432,13 @@
 	
 	// Show each subsequent slide one at a time by clicking the next and previous buttons
 	// checking if each button exists on the page first
+	var currentSlide1 = showSlide(slides[0]);
+	var currentSlide2 = showSlide(slides[1]);
+	var currentSlide3 = showSlide(slides[2]);
+	var currentSlide4 = showSlide(slides[3]);
+	var currentSlide5 = showSlide(slides[4]);
+	
 	function addClickEvents() {
-		var currentSlide1 = showSlide(slides[0]);
-		var currentSlide2 = showSlide(slides[1]);
-		var currentSlide3 = showSlide(slides[2]);
-		var currentSlide4 = showSlide(slides[3]);
-		var currentSlide5 = showSlide(slides[4]);
-		
 		if (sliderNext[0]) {
 			sliderNext[0].addEventListener('click', function() {
 				slides[0][currentSlide1.showPrevious()].classList.add('hide');
@@ -441,28 +447,28 @@
 			});
 		}
 		if (sliderNext[1]) {
-			sliderNext[1].addEventListener('click', function () {
+			sliderNext[1].addEventListener('click', function() {
 				slides[1][currentSlide2.showPrevious()].classList.add('hide');
 				slides[1][currentSlide2.showNext()].classList.remove('hide');
 				slides[1][currentSlide2.showNext()];
 			});
 		}
 		if (sliderNext[2]) {
-			sliderNext[2].addEventListener('click', function () {
+			sliderNext[2].addEventListener('click', function() {
 				slides[2][currentSlide3.showPrevious()].classList.add('hide');
 				slides[2][currentSlide3.showNext()].classList.remove('hide');
 				slides[2][currentSlide3.showNext()];
 			});
 		}
 		if (sliderNext[3]) {
-			sliderNext[3].addEventListener('click', function () {
+			sliderNext[3].addEventListener('click', function() {
 				slides[3][currentSlide4.showPrevious()].classList.add('hide');
 				slides[3][currentSlide4.showNext()].classList.remove('hide');
 				slides[3][currentSlide4.showNext()];
 			});
 		}
 		if (sliderNext[4]) {
-			sliderNext[4].addEventListener('click', function () {
+			sliderNext[4].addEventListener('click', function() {
 				slides[4][currentSlide5.showPrevious()].classList.add('hide');
 				slides[4][currentSlide5.showNext()].classList.remove('hide');
 				slides[4][currentSlide5.showNext()];
@@ -477,28 +483,28 @@
 			});
 		}
 		if (sliderPrevious[1]) {
-			sliderPrevious[1].addEventListener('click', function () {
+			sliderPrevious[1].addEventListener('click', function() {
 				slides[1][currentSlide2.showPrevious()].classList.remove('hide');
 				slides[1][currentSlide2.showNext()].classList.add('hide');
 				slides[1][currentSlide2.showPrevious()];
 			});
 		}
 		if (sliderPrevious[2]) {
-			sliderPrevious[2].addEventListener('click', function () {
+			sliderPrevious[2].addEventListener('click', function() {
 				slides[2][currentSlide3.showPrevious()].classList.remove('hide');
 				slides[2][currentSlide3.showNext()].classList.add('hide');
 				slides[2][currentSlide3.showPrevious()];
 			});
 		}
 		if (sliderPrevious[3]) {
-			sliderPrevious[3].addEventListener('click', function () {
+			sliderPrevious[3].addEventListener('click', function() {
 				slides[3][currentSlide4.showPrevious()].classList.remove('hide');
 				slides[3][currentSlide4.showNext()].classList.add('hide');
 				slides[3][currentSlide4.showPrevious()];
 			});
 		}
 		if (sliderPrevious[4]) {
-			sliderPrevious[4].addEventListener('click', function () {
+			sliderPrevious[4].addEventListener('click', function() {
 				slides[4][currentSlide5.showPrevious()].classList.remove('hide');
 				slides[4][currentSlide5.showNext()].classList.add('hide');
 				slides[4][currentSlide5.showPrevious()];
@@ -506,5 +512,143 @@
 		}
 	}
 	window.onload = addClickEvents();
+	
+	function addSlideshowEvents() {
+		var isPlaying = false;
+		
+		if (slideshowBtn[0]) {
+			function startShow1() {
+				isPlaying = true;
+				slideshowBtn[0].innerHTML = '<i class="material-icons">pause</i>';
+				slideInterval1 = setInterval(function() {
+					slides[0][currentSlide1.showPrevious()].classList.add('hide');
+					slides[0][currentSlide1.showNext()].classList.remove('hide');
+					slides[0][currentSlide1.showNext()];
+				}, 5000);
+			}
+			
+			function pauseShow1() {
+				isPlaying = false;
+				slideshowBtn[0].innerHTML = '<i class="material-icons">play_arrow</i>';
+				clearInterval(slideInterval1);
+			}
+			
+			slideshowBtn[0].addEventListener('click', function() {
+				if (isPlaying === false) {
+					startShow1();
+					//console.log('The slideshow is playing');
+				} else {
+					pauseShow1();
+					//console.log('The slideshow is not playing');
+				}
+			});
+			//console.log('The slideshow is not playing');
+		}
+		
+		if (slideshowBtn[1]) {
+			function startShow2() {
+				isPlaying = true;
+				slideshowBtn[1].innerHTML = '<i class="material-icons">pause</i>';
+				slideInterval2 = setInterval(function() {
+					slides[1][currentSlide2.showPrevious()].classList.add('hide');
+					slides[1][currentSlide2.showNext()].classList.remove('hide');
+					slides[1][currentSlide2.showNext()];
+				}, 5000);
+			}
+			
+			function pauseShow2() {
+				isPlaying = false;
+				slideshowBtn[1].innerHTML = '<i class="material-icons">play_arrow</i>';
+				clearInterval(slideInterval2);
+			}
+			
+			slideshowBtn[1].addEventListener('click', function() {
+				if (isPlaying === false) {
+					startShow2();
+				} else {
+					pauseShow2();
+				}
+			});
+		}
+		
+		if (slideshowBtn[2]) {
+			function startShow3() {
+				isPlaying = true;
+				slideshowBtn[2].innerHTML = '<i class="material-icons">pause</i>';
+				slideInterval3 = setInterval(function() {
+					slides[2][currentSlide3.showPrevious()].classList.add('hide');
+					slides[2][currentSlide3.showNext()].classList.remove('hide');
+					slides[2][currentSlide3.showNext()];
+				}, 5000);
+			}
+			
+			function pauseShow3() {
+				isPlaying = false;
+				slideshowBtn[2].innerHTML = '<i class="material-icons">play_arrow</i>';
+				clearInterval(slideInterval3);
+			}
+			
+			slideshowBtn[2].addEventListener('click', function() {
+				if (isPlaying === false) {
+					startShow3();
+				} else {
+					pauseShow3();
+				}
+			});
+		}
+		
+		if (slideshowBtn[3]) {
+			function startShow4() {
+				isPlaying = true;
+				slideshowBtn[3].innerHTML = '<i class="material-icons">pause</i>';
+				slideInterval4 = setInterval(function() {
+					slides[3][currentSlide3.showPrevious()].classList.add('hide');
+					slides[3][currentSlide3.showNext()].classList.remove('hide');
+					slides[3][currentSlide3.showNext()];
+				}, 5000);
+			}
+			
+			function pauseShow4() {
+				isPlaying = false;
+				slideshowBtn[3].innerHTML = '<i class="material-icons">play_arrow</i>';
+				clearInterval(slideInterval4);
+			}
+			
+			slideshowBtn[3].addEventListener('click', function() {
+				if (isPlaying === false) {
+					startShow4();
+				} else {
+					pauseShow4();
+				}
+			});
+		}
+		
+		if (slideshowBtn[4]) {
+			function startShow5() {
+				isPlaying = true;
+				slideshowBtn[4].innerHTML = '<i class="material-icons">pause</i>';
+				slideInterval5 = setInterval(function() {
+					slides[4][currentSlide3.showPrevious()].classList.add('hide');
+					slides[4][currentSlide3.showNext()].classList.remove('hide');
+					slides[4][currentSlide3.showNext()];
+				}, 5000);
+			}
+			
+			function pauseShow5() {
+				isPlaying = false;
+				slideshowBtn[4].innerHTML = '<i class="material-icons">play_arrow</i>';
+				clearInterval(slideInterval5);
+			}
+			
+			slideshowBtn[4].addEventListener('click', function() {
+				if (isPlaying === false) {
+					startShow5();
+				} else {
+					pauseShow5();
+				}
+			});
+		}
+	}
+	window.onload = addSlideshowEvents();
 	
 })();

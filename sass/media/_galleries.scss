@@ -2,6 +2,10 @@
 	@include margin-two-values(2em, auto);
 }
 
+.gallery-columns-1 {
+	max-width: 300px;
+}
+
 .gallery-item {
 	margin: 0 auto;
 	max-width: 300px;
@@ -12,10 +16,6 @@
 	
 	img {
 		display: block;
-	}
-
-	.gallery-columns-1 & {
-		max-width: 300px;
 	}
 	
 	&:hover,
@@ -141,8 +141,16 @@
 .single.slider .gallery {
 	background-color: $primary-color-darker;
 	position: relative;
+	margin-bottom: 0px;
 	min-height: 416px;
 	min-width: 100%;
+}
+
+.single.slider .gallery,
+.single.slider .slider-button-panel {
+	margin-left: -1em;
+	margin-right: -1em;
+	max-width: calc(100% + 2em) !important;
 }
 
 .single.slider .gallery-item {
@@ -179,16 +187,11 @@
 }
 
 .single.slider .slider-button-panel {
-	@include flex-row-spread;
-	padding-bottom: 1em;
-	
-	.slider-previous {
-		background: url("css/images/ic_arrow_back_black_24px.svg") center center no-repeat $accent-color;
-	}
-	
-	.slider-next {
-		background: url("css/images/ic_arrow_forward_black_24px.svg") center center no-repeat $accent-color;
-	}
+	@include flex-row-space-around;
+	background-color: $primary-color-darker;
+	margin-bottom: 2em;
+	//@include padding-two-values(1em, 25%);
+	padding: 1em;
 	
 	.slider-previous:hover,
 	.slider-previous:focus,
@@ -206,6 +209,19 @@
 	
 	.single.slider .gallery-item img {
 		max-height: 480px;
+	}
+	
+	.single.slider .slider-button-panel {
+		@include padding-two-values(1em, 25%);
+	}
+}
+
+@media screen and (min-width: 52.5em) {
+	.single.slider .gallery,
+	.single.slider .slider-button-panel {
+		margin-left: -1.5em;
+		margin-right: -1.5em;
+		max-width: calc(100% + 3em) !important;
 	}
 }
 
