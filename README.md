@@ -37,6 +37,7 @@ Newest additions:
 * Custom logo support has now been added!
 * "Wide" layout mode added to the Customizer, suitable for the incoming Gutenberg editor
 * Ripple effect on menu items; more may be added as needed
+* The animations for the gallery slider option on single pages has been completed! This includes transitions between each slide on click and when playing on a timed slideshow. Also, the galleries themselves have been given a new look with new icons.
 
 ___
 
