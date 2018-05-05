@@ -350,6 +350,28 @@ function the_mx_customize_register( $wp_customize ) {
 		)
 	);
 	
+	$wp_customize->add_setting(
+		'the_mx_contentlength_choices', array(
+			'type' => 'theme_mod',
+			'capability' => 'edit_theme_options',
+			'default' => 'full',
+			'sanitize_callback' => 'the_mx_sanitize_contentlength_choices'
+		)
+	);
+	
+	$wp_customize->add_control(
+		'the_mx_contentlength_choices', array(
+			'type' => 'radio',
+			'label' => __( 'Content Length', 'the-mx' ),
+			'description' => __( 'Choose between full length content or excerpts on the blog posts page.', 'the-mx' ),
+			'section' => 'the_mx_layout_section',
+			'choices' => array(
+				'full' => __( 'Full Content', 'the-mx' ),
+				'excerpt' => __( 'Excerpt', 'the-mx' ),
+			),
+		)
+	);
+	
 	/* Gallery Settings */
 	$wp_customize->add_section(
 		'the_mx_gallery_settings', array(
@@ -575,6 +597,13 @@ function the_mx_sanitize_color_choices( $input ) {
 function the_mx_sanitize_layout_choices( $input ) {
 	if( !in_array( $input, array( 'centered', 'wide', 'twobytwo', 'imagegrid' ) ) ) {
 		$input = 'centered';
+	}
+	return $input;
+}
+
+function the_mx_sanitize_contentlength_choices( $input ) {
+	if( !in_array( $input, array( 'full', 'excerpt' ) ) ) {
+		$input = 'full';
 	}
 	return $input;
 }

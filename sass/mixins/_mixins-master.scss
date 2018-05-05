@@ -53,7 +53,7 @@
 
 // Hide off-screen
 @mixin hide-offscreen() {
-	position: absolute;
+	position: absolute !important;
 	left: -9999em;
 }
 

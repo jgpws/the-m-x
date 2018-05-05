@@ -288,6 +288,10 @@ article.page,
 	.alignfull {
 		@include margin-two-values(1em, -1.5em);
 	}
+	
+	.wp-block-image.alignfull {
+		width: calc(100% + 3em);
+	}
 }
 
 /* Attachment pages */

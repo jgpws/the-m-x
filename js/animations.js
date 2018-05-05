@@ -29,7 +29,7 @@
 		
 		searchButton.on('click', function() {
 			if (searchForm.hasClass('toggled')) {
-				searchForm.addClass('fadeInRight').show().one(animationEnd, function() {
+				searchForm.addClass('fadeInRight').removeClass('hide').one(animationEnd, function() {
 					searchForm.removeClass('fadeInRight');
 					//console.log(this);
 				});
@@ -37,8 +37,8 @@
 					sidebarButton.removeClass('fadeInRight');
 				});
 			} else {
-				searchForm.addClass('fadeOutRight').show().one(animationEnd, function() {
-					searchForm.hide().removeClass('fadeOutRight');
+				searchForm.addClass('fadeOutRight').removeClass('hide').one(animationEnd, function() {
+					searchForm.addClass('hide').removeClass('fadeOutRight');
 					//console.log(this);
 				});
 				sidebarButton.addClass('fadeOutRight').one(animationEnd, function() {
@@ -109,25 +109,25 @@
 		if(windowWidth < 600) {
 			menuButton.on('click', function() {
 				if ($(this).closest(mainMenu).hasClass('toggled')) {
-					$(this).closest(mainMenu).find(mobileMenu).addClass('slideInLeft').show().one(animationEnd, function() {
+					$(this).closest(mainMenu).find(mobileMenu).addClass('slideInLeft').removeClass('hide').one(animationEnd, function() {
 						$(this).removeClass('slideInLeft');
 					});
 					mobileSubmenu.removeClass('animated slideInLeft slideOutLeft');
 				} else {
-					$(this).closest(mainMenu).find(mobileMenu).addClass('slideOutLeft').show().one(animationEnd, function() {
-						$(this).hide().removeClass('slideOutLeft');
+					$(this).closest(mainMenu).find(mobileMenu).addClass('slideOutLeft').removeClass('hide').one(animationEnd, function() {
+						$(this).addClass('hide').removeClass('slideOutLeft');
 					});
 					mobileSubmenu.removeClass('animated slideInLeft slideOutLeft');
 				}
 				
 				if ($(this).closest(mainMenu).hasClass('toggled')) {
-					$(this).closest(mainMenu).find(mobileMenuCustom).addClass('slideInLeft').show().one(animationEnd, function() {
+					$(this).closest(mainMenu).find(mobileMenuCustom).addClass('slideInLeft').removeClass('hide').one(animationEnd, function() {
 						$(this).removeClass('slideInLeft');
 					});
 					mobileSubmenuCustom.removeClass('animated slideInLeft slideOutLeft');
 				} else {
-					$(this).closest(mainMenu).find(mobileMenuCustom).addClass('slideOutLeft').show().one(animationEnd, function() {
-						$(this).hide().removeClass('slideOutLeft');
+					$(this).closest(mainMenu).find(mobileMenuCustom).addClass('slideOutLeft').removeClass('hide').one(animationEnd, function() {
+						$(this).addClass('hide').removeClass('slideOutLeft');
 					});
 					mobileSubmenuCustom.removeClass('animated slideInLeft slideOutLeft');
 				}
@@ -154,12 +154,12 @@
 		
 		sidebarButton.on('click', function () {
 			if ($(this).hasClass('toggled')) {
-				sidebarPanel.addClass('slideInRight').show().one(animationEnd, function() {
+				sidebarPanel.addClass('slideInRight').removeClass('hide').one(animationEnd, function() {
 					sidebarPanel.removeClass('slideInRight');
 				});
 			} else {
-				sidebarPanel.addClass('slideOutRight').show().one(animationEnd, function() {
-					sidebarPanel.hide().removeClass('slideOutRight');
+				sidebarPanel.addClass('slideOutRight').removeClass('hide').one(animationEnd, function() {
+					sidebarPanel.addClass('hide').removeClass('slideOutRight');
 				});
 			}
 		});

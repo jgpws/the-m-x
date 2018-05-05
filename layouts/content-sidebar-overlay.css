@@ -10,7 +10,7 @@
 	width: 100%;
 }
 .site-content .widget-area {
-	overflow: hidden;
+	overflow: auto;
 	width: 73%;
 	width: calc(75% - 1em);
 	position: absolute;

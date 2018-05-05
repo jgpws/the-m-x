@@ -39,12 +39,13 @@
 		
 		var timeOut = setTimeout(function() {
 			if (windowWidth < 600) {
-				menu.style.display = 'none';
+				menu.classList.add('hide');
 				for (var i = 0; i < submenuButton.length; i++) {
-					submenuButton[i].style.display = 'none';
+					submenuButton[i].classList.add('hide');
 				}
 			} else {
-				menu.style.display = 'flex';
+				menu.classList.remove('hide');
+				//menu.style.display = 'flex';
 				for (var i = 0; i < submenuButton.length; i++) {
 					submenuButton[i].style.display = 'inline';
 				}
@@ -55,13 +56,14 @@
 	window.addEventListener( 'load', function(event) {
 		var windowWidth = window.innerWidth;
 		if ( windowWidth < 600 ) {
-			menu.style.display = 'none';
+			menu.classList.add('hide');
 			for ( var i = 0; i < submenuButton.length; i++ ) {
-				submenuButton[i].style.display = 'none';
+				submenuButton[i].classList.add('hide');
 			}
 		} else {
-			menu.style.display = 'flex';
+			menu.classList.remove('hide');
 			for ( var i = 0; i < submenuButton.length; i++ ) {
+				submenuButton[i].classList.remove('hide');
 				submenuButton[i].style.display = 'inline';
 			}
 		}
@@ -78,12 +80,12 @@
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
-			menu.style.display = 'none';
+			menu.classList.add('hide');
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
-			menu.style.display = 'flex';
+			menu.classList.remove('hide');
 		}
 	};
 

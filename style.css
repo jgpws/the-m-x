@@ -265,6 +265,14 @@ th {
 }
 
 /*--------------------------------------------------------------
+# Common Classes and IDs
+--------------------------------------------------------------*/
+.hide {
+  position: absolute !important;
+  left: -9999em;
+}
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 body,
@@ -630,11 +638,14 @@ a:hover, a:active {
   background-color: #5d4037;
   align-items: flex-end;
   height: 3rem;
-  left: 0;
+  left: 0px;
   margin-left: 0.5em;
   max-width: 75%;
   position: absolute;
   z-index: 500;
+}
+#header-button-panel .searchform.hide {
+  left: -9999em;
 }
 
 #header-button-panel .search-field {
@@ -730,7 +741,6 @@ a:hover, a:active {
 .site-header .main-navigation ul#primary-menu,
 .site-header .main-navigation ul.nav-menu {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  left: 0;
   padding: 4.5em 1em 1em 1em;
   position: absolute;
   top: 0;
@@ -865,7 +875,7 @@ a:hover, a:active {
   .site-header .main-navigation .sub-menu {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: block;
-    position: absolute;
+    position: absolute !important;
     left: -9999em;
     top: 3rem;
   }
@@ -892,7 +902,7 @@ a:hover, a:active {
   }
   .site-header .main-navigation .children ul,
   .site-header .main-navigation .sub-menu ul {
-    position: absolute;
+    position: absolute !important;
     left: -9999em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.23);
   }
@@ -1526,6 +1536,10 @@ article.page,
 @media (min-width: 52.5em) {
   .alignfull {
     margin: 1em -1.5em;
+  }
+
+  .wp-block-image.alignfull {
+    width: calc(100% + 3em);
   }
 }
 /* Attachment pages */
@@ -2530,16 +2544,20 @@ article.page.three-fourths-centered {
   }
 
   .three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
-  .jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
+  .jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
+  .three-fourths-centered .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
+  .jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
+  .three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
+  .three-fourths-centered .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
     max-width: 75%;
   }
 
-  .jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
+  .jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
+  .jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
     max-width: 50%;
   }
 
@@ -2632,12 +2650,6 @@ article.page.three-fourths-centered {
     left: 1.5em;
     max-width: 300px;
   }
-}
-/*--------------------------------------------------------------
-# Common Classes and IDs
---------------------------------------------------------------*/
-.hide {
-  display: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */

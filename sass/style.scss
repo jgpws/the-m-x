@@ -60,6 +60,13 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "normalize";
 
 /*--------------------------------------------------------------
+# Common Classes and IDs
+--------------------------------------------------------------*/
+.hide {
+	@include hide-offscreen;
+}
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 @import "typography/typography";
@@ -133,10 +140,3 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 ## Customizer Layouts
 --------------------------------------------------------------*/
 @import "layout/image-grid";
-
-/*--------------------------------------------------------------
-# Common Classes and IDs
---------------------------------------------------------------*/
-.hide {
-	display: none !important;
-}

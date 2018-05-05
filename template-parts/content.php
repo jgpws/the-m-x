@@ -35,6 +35,11 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 				} ?>
 		</header><!-- .entry-header -->
 	
+		<?php if( get_theme_mod( 'the_mx_contentlength_choices' ) === 'excerpt' && !is_single() && !is_page() ) { ?>
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div>
+		<?php } else { ?>
 		<div class="entry-content">
 			<?php
 				the_content( sprintf(
@@ -49,6 +54,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 				) );
 			?>
 		</div><!-- .entry-content -->
+		<?php } ?>
 	
 		<footer class="entry-footer">
 			<?php the_mx_entry_footer(); ?>

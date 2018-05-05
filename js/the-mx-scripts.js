@@ -12,6 +12,10 @@
 	function toggleSidebar() {
 		/* Toggle sidebar script */
 		var container, toggleButton, sidebar, chevronLeft, chevronRight;
+		//var bodyEl = document.getElementsByTagName( 'body' )[0];
+		var bodyElHeight = document.getElementById( 'main' ).clientHeight;
+		console.log(bodyElHeight);
+		console.log(window.innerHeight);
 		
 		container = document.getElementById( 'content' );
 		if ( ! container ) {
@@ -38,14 +42,18 @@
 		if ( document.body.contains( sidebar ) ) {
 		
 			if ( 'undefined' === typeof sidebar ) {
-				toggleButton.style.display = 'none';
+				toggleButton.classList.add('hide');
 				return;
 			}
 			
 			sidebar.setAttribute( 'aria-expanded', 'false' );
+			// Absolutely positioned sidebar flows outside of its container, adding space below the footer
+			// So, the sidebar's max height is set to the same as the body.
+			sidebar.style.maxHeight = (bodyElHeight - window.innerHeight) + 'px';
+			
 			
 			// set initial menu state here, instead of CSS file, in case JavaScript is turned off in browser.
-			sidebar.style.display = 'none';
+			sidebar.classList.add('hide');
 			toggleButton.appendChild(chevronLeft);
 			toggleButton.setAttribute( 'title', 'Click or press Enter to open/close the sidebar.' );
 			
@@ -55,7 +63,7 @@
 					toggleButton.className = toggleButton.className.replace( ' toggled', '' );
 					toggleButton.setAttribute( 'aria-expanded', 'false' );
 					sidebar.setAttribute( 'aria-expanded', 'false' );
-					sidebar.style.display = 'none';
+					sidebar.classList.add('hide');
 					toggleButton.appendChild(chevronLeft);
 					toggleButton.removeChild(chevronRight);
 				} else {
@@ -63,7 +71,7 @@
 					toggleButton.className += ' toggled';
 					toggleButton.setAttribute( 'aria-expanded', 'true' );
 					sidebar.setAttribute( 'aria-expanded', 'true' );
-					sidebar.style.display = 'flex';
+					sidebar.classList.remove('hide');
 					toggleButton.removeChild(chevronLeft);
 					toggleButton.appendChild(chevronRight);
 				}
@@ -99,24 +107,22 @@
 			
 			// Get the first instance of searchform (class) within .header-button-panel
 			searchContainer = document.getElementById( 'header-button-panel' ).getElementsByClassName( 'searchform' )[0];
-			
 			toggleSearch = document.getElementById( 'header-button-panel' ).getElementsByClassName( 'search-toggle' )[0];
-			
 			searchField = document.getElementsByClassName( 'search-field' )[0];
 			
 			// Set initial search field state here, instead of CSS file, in case JavaScript is turned off in browser.
 			searchContainer.setAttribute( 'aria-expanded', 'false' );
-			searchContainer.style.display = 'none';
+			searchContainer.classList.add('hide');
 			
 			// Toggle search field
 			toggleSearch.onclick = function() {
 				if ( -1 !== searchContainer.className.indexOf( 'toggled' ) ) {
 					searchContainer.className = searchContainer.className.replace( ' toggled', '' );
-					searchContainer.style.display = 'none';
+					searchContainer.classList.add('hide');
 					searchContainer.setAttribute( 'aria-expanded', 'false' );
 				} else {
 					searchContainer.className += ' toggled';
-					searchContainer.style.display = 'flex';
+					searchContainer.classList.remove('hide');
 					searchContainer.setAttribute( 'aria-expanded', 'true' );
 				}
 			}
@@ -200,7 +206,7 @@
 		var card = document.querySelectorAll( '.home .post.format-standard, .home .post.format-link' );
 		var cardPf = document.querySelectorAll( '.home .post.format-aside, .home .post.format-status, .home .post.format-link, .home .post.format-quote' );
 		var cardHeader = document.querySelectorAll( '.home .format-standard:not(.has-post-thumbnail) .entry-header' );
-		var cardContent = document.querySelectorAll( '.home .format-standard .entry-content' );
+		var cardContent = document.querySelectorAll( '.home .format-standard .entry-content, .home .format-standard .entry-summary' );
 		var cardFooter = document.querySelectorAll( '.home .format-standard .entry-footer' );
 		
 		// If skrollr animations are checked in the customizer, the class skrollr-animate is added to the body via functions.php
