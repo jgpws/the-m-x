@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/tag/the-m-x/
 Author: Jason G. Designs
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.0.5
+Version: 1.0.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: the-mx
@@ -618,6 +618,7 @@ a:hover, a:active {
 }
 
 .menu-toggle,
+.social-toggle,
 .sidebar-toggle,
 .search-toggle {
   box-shadow: none;
@@ -629,6 +630,22 @@ a:hover, a:active {
 
 .sidebar-toggle {
   z-index: 200;
+}
+
+#menu-social ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#menu-social ul li a:link, #menu-social ul li a:visited {
+  color: #795548;
+  padding: 0.5rem;
+}
+#menu-social ul li a::before {
+  font-size: 18px;
+  font-size: 1.125rem;
+  min-height: 3rem;
+  min-width: 3rem;
+  -webkit-font-smoothing: antialiased;
 }
 
 #header-button-panel .searchform {
@@ -758,15 +775,18 @@ a:hover, a:active {
 }
 
 .menu-toggle,
+.social-toggle,
 .search-toggle,
 .sidebar-toggle,
 .menu-toggle:hover,
+.social-toggle:hover,
 .search-toggle:hover,
 .sidebar-toggle:hover {
   background-color: transparent;
 }
 
 .menu-toggle:hover,
+.social-toggle:hover,
 .search-toggle:hover,
 .sidebar-toggle:hover {
   color: #ffc107;
@@ -797,6 +817,7 @@ a:hover, a:active {
 }
 
 .menu-toggle:focus,
+.social-toggle:focus,
 .search-toggle:focus,
 .sidebar-toggle:focus,
 .searchform.toggled + .search-toggle {
@@ -1178,6 +1199,61 @@ a:hover, a:active {
 
   .wp-custom-logo .site-branding-text {
     padding-left: 1em;
+  }
+}
+/* Social media icons */
+#header-button-panel .menu-social-media-icons-container {
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  position: absolute;
+  top: 4rem;
+  width: calc(100% - 1em);
+}
+#header-button-panel .menu-social-media-icons-container.toggled {
+  left: 0.5em;
+}
+
+#menu-social-items {
+  list-style: none;
+  margin: 0px;
+  padding: 1em;
+}
+
+@media screen and (min-width: 37.5em) {
+  #header-button-panel .menu-social-media-icons-container {
+    width: 75%;
+  }
+  #header-button-panel .menu-social-media-icons-container.toggled {
+    left: 12.5%;
+  }
+}
+@media screen and (min-width: 48em) {
+  #header-button-panel .menu-social-media-icons-container {
+    background-color: transparent;
+    box-shadow: none;
+    position: static;
+    width: auto;
+  }
+  #header-button-panel #menu-social {
+    padding: 0.75em;
+    margin-right: 0.5em;
+  }
+  #header-button-panel #menu-social-items {
+    padding: 0px;
+  }
+  #header-button-panel #menu-social ul li a {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  #header-button-panel #menu-social ul li a:hover {
+    color: #ffffff;
+  }
+}
+@media screen and (min-width: 80em) {
+  #header-button-panel .menu-social-media-icons-container {
+    margin-top: 0.5em;
+    position: absolute;
+    right: 25%;
+    top: 0px;
   }
 }
 /* Skrollr fixes for mobile */

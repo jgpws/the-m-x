@@ -91,6 +91,11 @@ a:active {
 	background-color: #607d8b;
 }
 
+#menu-social ul li a:link,
+#menu-social ul li a:visited {
+	color: #455a64;
+}
+
 #header-button-panel .searchform {
 	background-color: #455a64;
 }
@@ -118,12 +123,14 @@ a:active {
 }
 
 .menu-toggle:hover,
+.social-toggle:hover,
 .search-toggle:hover,
 .sidebar-toggle:hover {
   color: #795548;
 }
 
 .menu-toggle:focus,
+.social-toggle:focus,
 .search-toggle:focus,
 .sidebar-toggle:focus,
 .searchform.toggled + .search-toggle {

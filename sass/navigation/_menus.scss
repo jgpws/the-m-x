@@ -15,6 +15,7 @@
 }
 
 .menu-toggle,
+.social-toggle,
 .sidebar-toggle,
 .search-toggle {
 	box-shadow: none;
@@ -26,6 +27,28 @@
 
 .sidebar-toggle {
 	z-index: 200;
+}
+
+#menu-social ul {
+	display: flex;
+	flex-wrap: wrap;
+	
+	li {
+		
+		a:link, a:visited {
+			color: $primary-color;
+			padding: 0.5rem;
+		}
+		
+		a::before {
+			@include font-size(1.125);
+			min-height: 3rem;
+			min-width: 3rem;
+			
+			-webkit-font-smoothing: antialiased;
+		}
+		
+	}
 }
 
 #header-button-panel .searchform {
@@ -171,15 +194,18 @@
 }
 
 .menu-toggle,
+.social-toggle,
 .search-toggle,
 .sidebar-toggle,
 .menu-toggle:hover,
+.social-toggle:hover,
 .search-toggle:hover,
 .sidebar-toggle:hover {
 	background-color: transparent;
 }
 
 .menu-toggle:hover,
+.social-toggle:hover,
 .search-toggle:hover,
 .sidebar-toggle:hover {
 	color: $accent-color;
@@ -208,6 +234,7 @@
 }
 
 .menu-toggle:focus,
+.social-toggle:focus,
 .search-toggle:focus,
 .sidebar-toggle:focus,
 .searchform.toggled + .search-toggle {

@@ -8,14 +8,106 @@
 (function() {
 	// Global variables
 	var windowWidth = window.innerWidth;
+	var headerPanel = document.getElementById( 'header-button-panel' );
+	var socialContainer = document.getElementById( 'menu-social' );
+	
+	function toggleSocialPanel() {
+		/* Toggle social media button panel */
+		var socialToggleButton;
+		
+		if ( document.body.contains( socialContainer ) ) {
+			socialContainer.insertAdjacentHTML( 'beforebegin', '<button class="social-toggle" id="social-button"><i class="material-icons">people</i></button>' );
+		}
+		
+		socialToggleButton = document.getElementById( 'social-button' );
+		
+		if ( windowWidth < 768 ) {
+			socialContainer.classList.add( 'hide' );
+			socialToggleButton.onclick = function() {
+				if ( -1 !== socialContainer.className.indexOf( 'toggled' ) ) {
+					socialContainer.className = socialContainer.className.replace( ' toggled', '' );
+					socialContainer.classList.add( 'hide' );
+					socialContainer.setAttribute( 'aria-expanded', 'false' );
+				} else {
+					socialContainer.className += ' toggled';
+					socialContainer.classList.remove( 'hide' );
+					socialContainer.setAttribute( 'aria-expanded', 'true' );
+				}
+			}
+		} else {
+			socialToggleButton.style.display = 'none';
+		}
+	}
+	window.onload = toggleSocialPanel();
+	
+	
+	function socialMediaButtons() {
+		/* add social media icons to links in the Social Media Icons menu */
+		/* by adding specific classes to a tags with *.com strings */
+		
+		// if the container for the social icons exists
+		if ( document.body.contains( socialContainer ) ) {
+			var fbLink = document.querySelector( '#menu-social-items li a[href*="facebook.com"]' );
+			var twLink = document.querySelector( '#menu-social-items li a[href*="twitter.com"]' );
+			var instLink = document.querySelector( '#menu-social-items li a[href*="instagram.com"]' );
+			var pntLink = document.querySelector( '#menu-social-items li a[href*="pinterest.com"]' );
+			var ytLink = document.querySelector( '#menu-social-items li a[href*="youtube.com"]' );
+			var vimLink = document.querySelector( '#menu-social-items li a[href*="vimeo.com"]' );
+			var flkLink = document.querySelector( '#menu-social-items li a[href*="flickr.com"]' );
+			var gthbLink = document.querySelector( '#menu-social-items li a[href*="github.com"]' );
+			var gpLink = document.querySelector( '#menu-social-items li a[href*="plus.google.com"]' );
+			var tmbLink = document.querySelector( '#menu-social-items li a[href*="tumblr.com"]' );
+			var wpLink = document.querySelector( '#menu-social-items li a[href*="wordpress.com"]' );
+			var wpOrgLink = document.querySelector( '#menu-social-items li a[href*="wordpress.org"]' );
+			
+			if ( fbLink ) {
+				fbLink.classList.add( 'ti-facebook' );
+			}
+			if ( twLink ) {
+				twLink.classList.add( 'ti-twitter-alt' );
+			}
+			if ( instLink ) {
+				instLink.classList.add( 'ti-instagram' );
+			}
+			if ( pntLink ) {
+				pntLink.classList.add( 'ti-pinterest' );
+			}
+			if ( ytLink ) {
+				ytLink.classList.add( 'ti-youtube' );
+			}
+			if ( vimLink ) {
+				vimLink.classList.add( 'ti-vimeo-alt' );
+			}
+			if ( flkLink ) {
+				flkLink.classList.add( 'ti-flickr-alt' );
+			}
+			if ( gthbLink ) {
+				gthbLink.classList.add( 'ti-github' );
+			}
+			if ( gpLink ) {
+				gpLink.classList.add( 'ti-google' );
+			}
+			if ( tmbLink ) {
+				tmbLink.classList.add( 'ti-tumblr-alt' );
+			}
+			if ( wpLink ) {
+				wpLink.classList.add( 'ti-wordpress' );
+			}
+			if ( wpOrgLink ) {
+				wpOrgLink.classList.add( 'ti-wordpress' );
+			}
+		}
+	}
+	window.onload = socialMediaButtons();
+	
 	
 	function toggleSidebar() {
 		/* Toggle sidebar script */
 		var container, toggleButton, sidebar, chevronLeft, chevronRight;
 		//var bodyEl = document.getElementsByTagName( 'body' )[0];
-		var bodyElHeight = document.getElementById( 'main' ).clientHeight;
+		var bodyElHeight = document.getElementsByTagName( 'body' )[0].clientHeight;
 		console.log(bodyElHeight);
-		console.log(window.innerHeight);
+		console.log(window.outerHeight);
 		
 		container = document.getElementById( 'content' );
 		if ( ! container ) {
@@ -42,14 +134,14 @@
 		if ( document.body.contains( sidebar ) ) {
 		
 			if ( 'undefined' === typeof sidebar ) {
-				toggleButton.classList.add('hide');
+				toggleButton.classList.add( 'hide' );
 				return;
 			}
 			
 			sidebar.setAttribute( 'aria-expanded', 'false' );
 			// Absolutely positioned sidebar flows outside of its container, adding space below the footer
 			// So, the sidebar's max height is set to the same as the body.
-			sidebar.style.maxHeight = (bodyElHeight - window.innerHeight) + 'px';
+			sidebar.style.maxHeight = (bodyElHeight - window.outerHeight) + 'px';
 			
 			
 			// set initial menu state here, instead of CSS file, in case JavaScript is turned off in browser.
@@ -85,10 +177,7 @@
 	function toggleSearchbar() {
 		/* Toggle search bar with button */
 		
-		var searchToggleButton, searchField, searchContainer, headerPanel;
-		
-		headerPanel = document.getElementById( 'header-button-panel' );
-		
+		var searchToggleButton, searchField, searchContainer;
 		
 		if ( document.body.contains( headerPanel ) ) { // check if headerPanel exists
 			

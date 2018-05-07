@@ -57,6 +57,79 @@
 	}
 }
 
+/* Social media icons */
+#header-button-panel .menu-social-media-icons-container {
+	background-color: $white;
+	box-shadow: $box-shadow-large;
+	position: absolute;
+	top: 4rem;
+	width: calc(100% - 1em);
+	
+	&.toggled {
+		left: 0.5em;
+	}
+	
+}
+
+#menu-social-items {
+	list-style: none;
+	margin: 0px;
+	padding: 1em;
+}
+
+@media screen and (min-width: 37.5em) {
+	#header-button-panel .menu-social-media-icons-container {
+		width: 75%;
+		
+		&.toggled {
+			left: 12.5%;
+		}
+		
+	}
+}
+
+@media screen and (min-width: 48em) {
+	#header-button-panel {
+		
+		.menu-social-media-icons-container {
+			@include no-card-style;
+			position: static;
+			width: auto;
+		}
+		
+		#menu-social {
+			padding: 0.75em;
+			margin-right: 0.5em;
+		}
+		
+		#menu-social-items {
+			padding: 0px;
+		}
+		
+		#menu-social ul li a {
+			color: $primary-text-color-white;
+			
+			&:hover {
+				color: $white;
+			}
+			
+		}
+	}	
+}
+
+@media screen and (min-width: 80em) {
+	#header-button-panel {
+		
+		.menu-social-media-icons-container {
+			margin-top: 0.5em;
+			position: absolute;
+			right: 25%;
+			top: 0px;
+		}
+		
+	}
+}
+
 /* Skrollr fixes for mobile */
 html.skrollr-mobile {
 	margin-top: 0 !important;

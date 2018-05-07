@@ -115,6 +115,11 @@ blockquote, q, .wp-block-pullquote {
 	background-color: ' . $primary_color_1 . ';
 }
 
+#menu-social ul li a:link,
+#menu-social ul li a:visited {
+	color: ' . $primary_color_1 . ';
+}
+
 .entry-title a:link,
 .page-title a:link {
 	color: ' . $primary_color_1 . ';
@@ -291,12 +296,14 @@ select {
 }
 
 .menu-toggle:hover,
+.social-toggle:hover,
 .search-toggle:hover,
 .sidebar-toggle:hover {
   color: ' . $accent_color_1 . ';
 }
 
 .menu-toggle:focus,
+.social-toggle:focus,
 .search-toggle:focus,
 .sidebar-toggle:focus,
 .searchform.toggled + .search-toggle {
@@ -882,7 +889,8 @@ a:focus {
 	color: rgba(0, 0, 0, 0.87) !important;
 }
 
-.sticky .entry-content {
+.sticky .entry-content,
+.sticky .entry-summary {
 	color: rgba(0, 0, 0, 0.87);
 }
 
@@ -916,6 +924,7 @@ a:focus {
 .site-title a:visited,
 .site-description,
 .menu-toggle,
+.social-toggle,
 .sidebar-toggle,
 .search-toggle {
 	color: rgba(0, 0, 0, 0.87);
@@ -923,6 +932,15 @@ a:focus {
 
 .site-title a:hover,
 .site-title a:focus {
+	color: #000000;
+}
+
+#header-button-panel #menu-social ul li a:link,
+#header-button-panel #menu-social ul li a:visited {
+	color: rgba(0, 0, 0, 0.7);
+}
+
+#header-button-panel #menu-social ul li a:hover {
 	color: #000000;
 }
 

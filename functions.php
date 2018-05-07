@@ -52,6 +52,7 @@ function the_mx_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'the-mx' ),
+		'social' => esc_html__( 'Social Profiles', 'the-mx' ),
 	) );
 
 	/*
@@ -181,6 +182,8 @@ function the_mx_scripts() {
 	wp_enqueue_style( 'the-mx-grid', get_template_directory_uri() . '/layouts/jgd-material-grid.css', array( 'the-mx-style') );
 	
 	wp_enqueue_style( 'the-mx-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
+	
+	wp_enqueue_style( 'the-mx-social-icons', get_template_directory_uri() . '/css/themify-icons.css', false );
 	
 	wp_enqueue_style( 'the-mx-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,500,300', false );
 	
