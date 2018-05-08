@@ -15,6 +15,11 @@
 
 	<footer id="colophon" class="site-footer jgd-grid" role="contentinfo">
 		<div class="site-info jgd-column-1">
+			<?php if( is_active_sidebar( 'footer-widget-area' ) ) { ?>
+			<div class="footer-widget-panel three-fourths-centered">
+				<?php dynamic_sidebar( 'footer-widget-area' ); ?>
+			</div>
+			<?php } ?>
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'the-mx' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'the-mx' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'the-mx' ), 'the-mx', '<a href="http://www.jasong-designs.com" rel="designer">Jason G. Designs</a>' ); ?>

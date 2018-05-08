@@ -117,11 +117,6 @@ a:active {
   color: #5d4037;
 }
 
-.widget li a:hover,
-.widget li a:focus {
-  color: #3e2723;
-}
-
 .menu-toggle:hover,
 .social-toggle:hover,
 .search-toggle:hover,
@@ -137,6 +132,25 @@ a:active {
 	color: #795548;
 }
 
+/* Widgets */
+.widget li a:hover,
+.widget li a:focus {
+  color: #3e2723;
+}
+
+.widget .recentcomments a:hover,
+.widget .recentcomments a:focus,
+.widget ul li .rsswidget:hover,
+.widget ul li .rsswidget:focus {
+	border-bottom-color: #3e2723;
+}
+
+.widget .calendar_wrap caption,
+.widget .calendar_wrap td a {
+	background-color: #607d8b;
+}
+
+/* Gutenberg */
 .wp-block-image.alignfull {
 	background-color: #263238;
 }

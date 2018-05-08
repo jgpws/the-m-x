@@ -62,14 +62,12 @@
 	clear: both;
 }
 
-// Vertical links list; apply to a tags inside of a list (li)
+// Vertical links list; apply to a list (li)
 @mixin vertical-menu() {
-	color: $primary-text-color;
 	display: block;
 	font-weight: $font__weight-bold;
 	min-height: 3em;
 	@include padding-two-values(0.5em, 0);
-	text-decoration: none;
 }
 
 // Restore regular link styles; used for resetting custom link styles to the default

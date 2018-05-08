@@ -123,11 +123,12 @@
 	
 	li {
 		position: relative;
+		@include vertical-menu;
 	}
 	
 	a:link,
 	a:visited {
-		@include vertical-menu;
+		font-weight: $font__weight-bold;
 	}
 	
 	a:hover,
@@ -146,15 +147,22 @@
 .widget {
 	
 	li {
+		
+		@include vertical-menu;
 	
 		a:link,
 		a:visited {
-			@include vertical-menu;
+			color: $primary-text-color;
 		}
 		
 		a:hover,
 		a:focus {
 			color: $accent-color-darker;
+		}
+		
+		.children,
+		.sub-menu {
+			padding-top: 1em;
 		}
 	
 	}
@@ -273,10 +281,15 @@
 		.main-navigation {
 			background-color: $primary-color-darker;
 			
+			li {
+				padding: 0px;
+			}
+			
 			a:link,
 			a:visited {
 				border-bottom-color: transparent;
 				color: $primary-text-color-medium-white;
+				display: block;
 				height: 3rem;
 				@include padding-two-values(0.75em, 1em);
 				text-transform: uppercase;

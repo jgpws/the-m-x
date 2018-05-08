@@ -48,7 +48,7 @@
 		</div><!-- .site-branding -->
 		<div class="jgd-grid jgd-grid-wrap" id="header-button-panel">
 		<?php get_template_part( 'template-parts/menu', 'social' ); ?>
-		<?php if( !is_404() ) { ?>
+		<?php if( !is_404() && is_active_sidebar( 'sidebar-1' ) ) { ?>
 			<button class="sidebar-toggle" id="sidebar-button"></button>
 		<?php } ?>
 		<?php get_search_form(); ?>

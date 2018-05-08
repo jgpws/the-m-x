@@ -6,13 +6,66 @@
 	position: relative;
 	
 	a:link,
-	a:visited {
+	a:visited,
+	.widget li a:link,
+	.widget li a:visited {
 		color: $primary-text-color-white;
+	}
+	
+	a:link,
+	a:visited {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 	}
 	
 	a:hover,
 	a:focus {
 		color: $white;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 	}
 	
+	.widget li a:link,
+	.widget li a:visited {
+		display: inline-block;
+	}
+	
+	ol, ul {
+		@include padding-four-values(0, 1em, 1em, 3em);
+	}
+	
+	ol {
+		margin: 0px;
+	}
+	
+	ul {
+		list-style-type: disc;
+	}
+	
+}
+
+@media screen and (min-width: 48em) {
+	.site-footer {
+	
+		.footer-widget-panel {
+			display: flex;
+			flex-wrap: wrap;
+			justify-items: center;
+		}
+		
+		.widget {
+			@include margin-two-values(0px, auto);
+			padding: 1em;
+			width: 50%;
+		}
+	
+	}
+}
+
+@media screen and (min-width: 80em) {
+	.site-footer {
+		
+		.widget {
+			width: 33%;
+		}
+		
+	}
 }

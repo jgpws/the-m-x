@@ -7,6 +7,7 @@
 */
 
 .content-area {
+	min-height: 48em;
 	width: 100%;
 }
 .site-content .widget-area {

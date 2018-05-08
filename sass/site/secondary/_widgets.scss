@@ -6,6 +6,11 @@
 }
 
 /* Refer to menu section for widget link styling */
+/* Refer to footer section for footer widget link styling */
+
+#secondary {
+	overflow-x: hidden;
+}
 
 .widget {
 	margin: 0 0 1.5em;
@@ -13,12 +18,94 @@
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
+		@include center-block;
 	}
 	
 	ul {
 		list-style: none;
 		margin: 0;
 		@include padding-two-values(0, 1rem);
+	}
+	
+	/* For specific widgets */
+	.recentcomments a:link,
+	.recentcomments a:visited,
+	ul li .rsswidget:link,
+	ul li .rsswidget:visited {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	}
+	
+	.recentcomments a:hover,
+	.recentcomments a:focus,
+	ul li .rsswidget:hover,
+	ul li .rsswidget:focus {
+		border-bottom-color: $accent-color-darker;
+	}
+	
+	.rsswidget {
+		font-weight: $font__weight-heavy;
+	}
+	
+	.rss-date {
+		text-transform: uppercase;
+	}
+	
+	.search-field {
+		width: calc(100% - 4em);
+	}
+	
+	.wp-caption {
+		max-width: 100%;
+	}
+	
+	.calendar_wrap {
+		font-weight: $font__weight-bold;
+		@include margin-four-values(0px, -0.5em, 1em, 12.5%);
+		width: calc(100% + 1em);
+		
+		caption {
+			background-color: $primary-color;
+			@include font-size(2);
+			@include margin-four-values(0px, 0.5em, 1em, calc(-12.5% - 1em));
+			padding-left: 2rem;
+			text-align: left;
+			width: calc(100% + 2em);
+		}
+		
+		#wp-calendar {
+			max-width: 75%;
+		}
+		
+		td, th {
+			height: 1.5em;
+			padding: 0.5em;
+			width: 1.5em;
+		}
+		
+		td a {
+			background-color: $primary-color;
+			border-radius: 50%;
+			height: 2.5em;
+			padding: 0.5em;
+			width: 2.5em;
+		}
+		
+		caption, td a {
+			color: $white;
+		}
+		
+		td#prev {
+			text-align: left;
+		}
+		
+		td#next {
+			text-align: right;
+		}
+		
+		td#prev a,
+		td#next a {
+			border-radius: 2px;
+		}
 	}
 
 }

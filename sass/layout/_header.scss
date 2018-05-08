@@ -75,6 +75,11 @@
 	list-style: none;
 	margin: 0px;
 	padding: 1em;
+	
+	li {
+		@include margin-two-values(0.5em, 0);
+	}
+	
 }
 
 @media screen and (min-width: 37.5em) {

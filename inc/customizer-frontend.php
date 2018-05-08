@@ -145,6 +145,11 @@ blockquote, q, .wp-block-pullquote {
 	background-color: ' . $primary_color_1 . ';
 }
 
+.widget .calendar_wrap caption,
+.widget .calendar_wrap td a {
+	background-color: ' . $primary_color_1 . ';
+}
+
 .site-footer {
 	background-color: ' . $primary_color_1 . ';
 }
@@ -411,6 +416,13 @@ mark, ins {
 .widget li a:hover,
 .widget li a:focus {
   color: ' . $accent_color_3 . ';
+}
+
+.widget .recentcomments a:hover,
+.widget .recentcomments a:focus,
+.widget ul li .rsswidget:hover,
+.widget ul li .rsswidget:focus {
+	border-bottom-color: ' . $accent_color_3 . ';
 }
 
 @media screen and (min-width: 37.5em) {
@@ -966,6 +978,11 @@ a:focus {
 	color: #000000;
 }
 
+.widget .calendar_wrap caption,
+.widget .calendar_wrap td a {
+	color: #000000;
+}
+
 .comment-navigation .nav-previous a:link,
 .comment-navigation .nav-previous a:visited,
 .comment-navigation .nav-next a:link,
@@ -1040,13 +1057,16 @@ a:focus {
 }
 
 .site-footer a:link,
-.site-footer a:visited {
+.site-footer a:visited,
+.site-footer .widget li a:link,
+.site-footer .widget li a:visited {
 	color: rgba(0, 0, 0, 0.87);
 }
 
 .site-footer a:hover,
 .site-footer a:focus {
 	color: #000000;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.87);
 }
 
 #infinite-handle span {

@@ -141,12 +141,16 @@
 			sidebar.setAttribute( 'aria-expanded', 'false' );
 			// Absolutely positioned sidebar flows outside of its container, adding space below the footer
 			// So, the sidebar's max height is set to the same as the body.
-			sidebar.style.maxHeight = (bodyElHeight - window.outerHeight) + 'px';
+			if ( bodyElHeight > window.outerHeight ) {
+				sidebar.style.maxHeight = ( bodyElHeight - window.outerHeight ) + 'px';
+			} else {
+				sidebar.style.maxHeight = bodyElHeight + 'px';
+			}
 			
 			
 			// set initial menu state here, instead of CSS file, in case JavaScript is turned off in browser.
-			sidebar.classList.add('hide');
-			toggleButton.appendChild(chevronLeft);
+			sidebar.classList.add( 'hide' );
+			toggleButton.appendChild( chevronLeft );
 			toggleButton.setAttribute( 'title', 'Click or press Enter to open/close the sidebar.' );
 			
 			toggleButton.onclick = function() {

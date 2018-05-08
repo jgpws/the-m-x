@@ -717,15 +717,14 @@ a:hover, a:active {
 }
 .main-navigation li {
   position: relative;
-}
-.main-navigation a:link,
-.main-navigation a:visited {
-  color: rgba(0, 0, 0, 0.87);
   display: block;
   font-weight: 500;
   min-height: 3em;
   padding: 0.5em 0;
-  text-decoration: none;
+}
+.main-navigation a:link,
+.main-navigation a:visited {
+  font-weight: 500;
 }
 .main-navigation a:hover,
 .main-navigation a:focus {
@@ -738,18 +737,23 @@ a:hover, a:active {
   color: #ffa000;
 }
 
-.widget li a:link,
-.widget li a:visited {
-  color: rgba(0, 0, 0, 0.87);
+.widget li {
   display: block;
   font-weight: 500;
   min-height: 3em;
   padding: 0.5em 0;
-  text-decoration: none;
+}
+.widget li a:link,
+.widget li a:visited {
+  color: rgba(0, 0, 0, 0.87);
 }
 .widget li a:hover,
 .widget li a:focus {
   color: #ff6f00;
+}
+.widget li .children,
+.widget li .sub-menu {
+  padding-top: 1em;
 }
 
 /* Box shadow values are from the codepen at the following address */
@@ -853,10 +857,14 @@ a:hover, a:active {
   .site-header .main-navigation {
     background-color: #3e2723;
   }
+  .site-header .main-navigation li {
+    padding: 0px;
+  }
   .site-header .main-navigation a:link,
   .site-header .main-navigation a:visited {
     border-bottom-color: transparent;
     color: rgba(255, 255, 255, 0.7);
+    display: block;
     height: 3rem;
     padding: 0.75em 1em;
     text-transform: uppercase;
@@ -1218,6 +1226,9 @@ a:hover, a:active {
   margin: 0px;
   padding: 1em;
 }
+#menu-social-items li {
+  margin: 0.5em 0;
+}
 
 @media screen and (min-width: 37.5em) {
   #header-button-panel .menu-social-media-icons-container {
@@ -1282,17 +1293,92 @@ html.skrollr-mobile {
 }
 
 /* Refer to menu section for widget link styling */
+/* Refer to footer section for footer widget link styling */
+#secondary {
+  overflow-x: hidden;
+}
+
 .widget {
   margin: 0 0 1.5em;
   /* Make sure select elements fit in widgets. */
+  /* For specific widgets */
 }
 .widget select {
   max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .widget ul {
   list-style: none;
   margin: 0;
   padding: 0 1rem;
+}
+.widget .recentcomments a:link,
+.widget .recentcomments a:visited,
+.widget ul li .rsswidget:link,
+.widget ul li .rsswidget:visited {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+.widget .recentcomments a:hover,
+.widget .recentcomments a:focus,
+.widget ul li .rsswidget:hover,
+.widget ul li .rsswidget:focus {
+  border-bottom-color: #ff6f00;
+}
+.widget .rsswidget {
+  font-weight: 600;
+}
+.widget .rss-date {
+  text-transform: uppercase;
+}
+.widget .search-field {
+  width: calc(100% - 4em);
+}
+.widget .wp-caption {
+  max-width: 100%;
+}
+.widget .calendar_wrap {
+  font-weight: 500;
+  margin: 0px -0.5em 1em 12.5%;
+  width: calc(100% + 1em);
+}
+.widget .calendar_wrap caption {
+  background-color: #795548;
+  font-size: 32px;
+  font-size: 2rem;
+  margin: 0px 0.5em 1em calc(-12.5% - 1em);
+  padding-left: 2rem;
+  text-align: left;
+  width: calc(100% + 2em);
+}
+.widget .calendar_wrap #wp-calendar {
+  max-width: 75%;
+}
+.widget .calendar_wrap td, .widget .calendar_wrap th {
+  height: 1.5em;
+  padding: 0.5em;
+  width: 1.5em;
+}
+.widget .calendar_wrap td a {
+  background-color: #795548;
+  border-radius: 50%;
+  height: 2.5em;
+  padding: 0.5em;
+  width: 2.5em;
+}
+.widget .calendar_wrap caption, .widget .calendar_wrap td a {
+  color: #ffffff;
+}
+.widget .calendar_wrap td#prev {
+  text-align: left;
+}
+.widget .calendar_wrap td#next {
+  text-align: right;
+}
+.widget .calendar_wrap td#prev a,
+.widget .calendar_wrap td#next a {
+  border-radius: 2px;
 }
 
 /* Override column-1 in jgd-material-grid.css */
@@ -2041,14 +2127,51 @@ iframe.twitter-tweet {
   position: relative;
 }
 .site-footer a:link,
-.site-footer a:visited {
+.site-footer a:visited,
+.site-footer .widget li a:link,
+.site-footer .widget li a:visited {
   color: rgba(255, 255, 255, 0.87);
+}
+.site-footer a:link,
+.site-footer a:visited {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 .site-footer a:hover,
 .site-footer a:focus {
   color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.site-footer .widget li a:link,
+.site-footer .widget li a:visited {
+  display: inline-block;
+}
+.site-footer ol, .site-footer ul {
+  padding: 0 1em 1em 3em;
+}
+.site-footer ol {
+  margin: 0px;
+}
+.site-footer ul {
+  list-style-type: disc;
 }
 
+@media screen and (min-width: 48em) {
+  .site-footer .footer-widget-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+  }
+  .site-footer .widget {
+    margin: 0px auto;
+    padding: 1em;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 80em) {
+  .site-footer .widget {
+    width: 33%;
+  }
+}
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/

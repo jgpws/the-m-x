@@ -49,7 +49,7 @@ function the_mx_setup() {
 	);
 	add_theme_support( 'custom-logo', $defaults );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'the-mx' ),
 		'social' => esc_html__( 'Social Profiles', 'the-mx' ),
@@ -150,7 +150,7 @@ function the_mx_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'the-mx' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets for the Sidebar here.', 'the-mx' ),
+		'description'   => esc_html__( 'Add widgets to the Sidebar.', 'the-mx' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s jgd-column-1">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -162,6 +162,16 @@ function the_mx_widgets_init() {
 		'id'				=> 'hero-image-widget',
 		'description'	=> esc_html__( 'Add widget to be displayed above Hero (header) Image.', 'the-mx' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s jgd-column-1">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	
+	register_sidebar( array(
+		'name'			=> esc_html__( 'Footer Widgets', 'the-mx' ),
+		'id'				=> 'footer-widget-area',
+		'description'	=> esc_html__( 'Add widgets to the Footer.', 'the-mx' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
