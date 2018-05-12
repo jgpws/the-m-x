@@ -183,7 +183,7 @@ add_action( 'widgets_init', 'the_mx_widgets_init' );
  * Enqueue scripts and styles.
  */
 
-function the_mx_scripts() {
+function the_mx_enqueue_scripts() {
 	wp_enqueue_style( 'the-mx-style', get_stylesheet_uri() );
 	
 	// Enqueue this for now; may be added to the Customizer later
@@ -207,6 +207,8 @@ function the_mx_scripts() {
 	
 	$parameters = array(
 		'sliderControl' => get_theme_mod( 'the_mx_single_slider' ),
+		'primaryColor3' => esc_html( get_theme_mod( 'the_mx_custom_primary_3' ) ),
+		'customColors' => get_theme_mod( 'the_mx_color_scheme' ),
 	);
 	wp_localize_script( 'the-mx-scripts', 'mxScriptParams', $parameters );
 
@@ -219,6 +221,8 @@ function the_mx_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
+	wp_enqueue_style( 'the-mx-preloader', get_template_directory_uri() . '/css/spinner.css' );
 	
 	if ( get_theme_mod( 'the_mx_color_scheme' ) == 'blue_gray' ) {
 		wp_enqueue_style( 'the-mx-color-bluegray', get_template_directory_uri() . '/css/alt-color-scheme-bluegray.css', array( 'the-mx-style' ), '' );
@@ -264,7 +268,7 @@ function the_mx_scripts() {
 		wp_enqueue_script( 'the-mx-ripple-animation-js', get_template_directory_uri() . '/js/ripple.min.js', array( 'jquery' ), '', true );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'the_mx_scripts' );
+add_action( 'wp_enqueue_scripts', 'the_mx_enqueue_scripts' );
 
 /**
  * Colorbox content
@@ -334,11 +338,29 @@ function the_mx_add_slider_class( $classes ) {
 }
 add_filter( 'body_class', 'the_mx_add_slider_class' );
 
-function the_mx_add_grid_default( $classes ) {
-	$classes[] = 'jgd-column-1';
-	return $classes;
+function the_mx_add_grid_layouts( $classes ) {
+	$grid_layout = get_theme_mod( 'the_mx_layout' );
+	if( $grid_layout != '' ) {
+		switch ( $grid_layout ) { // opens switch
+			case 'centered':
+				$classes[] = 'three-fourths-centered-r';
+				return $classes;
+			break;
+			case 'wide':
+				$classes[] = 'jgd-column-1';
+				return $classes;
+			break;
+			case 'twobytwo':
+				$classes[] = 'two-by-two-centered-r';
+				return $classes;
+			break;
+			default:
+				$classes[] = 'jgd-column-1';
+				return $classes;
+		} // closes switch
+	}
 }
-add_filter( 'post_class', 'the_mx_add_grid_default' );
+add_filter( 'post_class', 'the_mx_add_grid_layouts' );
 
 function the_mx_add_animate_class( $classes ) {
 	if( get_theme_mod( 'the_mx_animate_css' ) == 1 ) {

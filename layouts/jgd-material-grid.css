@@ -23,7 +23,11 @@
 .jgd-columns-5,
 .jgd-columns-6,
 .jgd-columns-7,
-.jgd-columns-8 {
+.jgd-columns-8,
+.one-half-centered-r,
+.three-fourths-centered-r,
+.two-thirds-centered-r,
+.two-by-two-centered-r {
 	margin: 0 1%; /* fallback for browsers that don't support calc */
 	margin: 0 0.5em;
 }
@@ -36,14 +40,22 @@
 .jgd-columns-7,
 .jgd-columns-8,
 .one-half-centered,
+.one-half-centered-r,
 .three-fourths-centered,
+.three-fourths-centered-r,
 .two-thirds-centered,
-.two-by-two-centered {
+.two-thirds-centered-r,
+.two-by-two-centered,
+.two-by-two-centered-r {
 	box-sizing: border-box;
 	padding: 1em;
 	/*background-color: #e0e0e0;*/ /* for testing */
 }
-.jgd-column-1 {
+.jgd-column-1,
+.one-half-centered-r,
+.three-fourths-centered-r,
+.two-thirds-centered-r,
+.two-by-two-centered-r {
 	width: 98%; /* fallback for browsers that don't support calc */
 	width: calc(100% - 1em);
 }
@@ -80,17 +92,21 @@
 }
 
 @media (min-width: 45em) { /* ~720px; These classes work best for large tablets+ */
-	.one-half-centered {
+	.one-half-centered,
+	.one-half-centered-r {
 		width: 48%;
 		width: calc(50% - 1em);
 		margin: 0 25% 0 25%;
 	}
-	.three-fourths-centered {
+	.three-fourths-centered,
+	.three-fourths-centered-r,
+	.two-by-two-centered-r {
 		width: 73%;
 		width: calc(75% - 1em);
 		margin: 0 12.5% 0 12.5%;
 	}
-	.two-thirds-centered {
+	.two-thirds-centered,
+	.two-thirds-centered-r {
 		width: 64.66%;
 		width: calc(66.66% - 1em);
 		margin: 0 16.66% 0 16.66%;
@@ -120,8 +136,11 @@
 	.jgd-columns-7,
 	.jgd-columns-8,
 	.one-half-centered,
+	.one-half-centered-r
 	.three-fourths-centered,
-	.two-thirds-centered {
+	.three-fourths-centered-r
+	.two-thirds-centered,
+	.two-thirds-centered-r {
 		padding: 1.5em;
 	}
 	.jgd-column-1 {
@@ -164,19 +183,24 @@
 		width: 6.33%;
 		width: calc(8.33% - 1.5em);
 	}
-	.one-half-centered {
+	.one-half-centered,
+	.one-half-centered-r {
 		width: calc(50% - 1.5em);
 	}
-	.three-fourths-centered {
+	.three-fourths-centered,
+	.three-fourths-centered-r,
+	.two-by-two-centered-r {
 		width: calc(75% - 1.5em);
 	}
-	.two-thirds-centered {
+	.two-thirds-centered,
+	.two-thirds-centered-r {
 		width: calc(66.66% - 1.5em);
 	}
 }
 
 @media (min-width: 80em) { /* ~1280px */
-	.two-by-two-centered {
+	.two-by-two-centered,
+	.two-by-two-centered-r {
 		margin: 0 0.75em;
 		padding: 1.5em;
 		width: 48%;

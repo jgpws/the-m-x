@@ -12,6 +12,14 @@
 	var menuItems = $('.main-navigation ul li a');
 	var sidebarItems = $('#secondary ul li a');
 	
+	var preloadDiv = $('#loader-wrapper');
+	var bodyDiv = $('body');
+	
+	$(window).load(function () {
+		preloadDiv.hide();
+		bodyDiv.addClass('animated fadeIn');
+	});
+	
 	function animateSearchbar() {
 		// Search
 		var searchButton = $('.search-toggle');

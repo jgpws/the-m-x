@@ -285,11 +285,21 @@ article.page,
 }
 
 @media (min-width: 52.5em) {
-	.alignfull {
+	.three-fourths-centered-r .alignfull {
+		@include margin-two-values(1em, -1em);
+	}
+	
+	.three-fourths-centered-r .wp-block-image.alignfull {
+		width: calc(100% + 2em);
+	}
+	
+	.two-by-two-centered-r .alignfull,
+	.jgd-column-1 .alignfull {
 		@include margin-two-values(1em, -1.5em);
 	}
 	
-	.wp-block-image.alignfull {
+	.two-by-two-centered-r .wp-block-image.alignfull,
+	.jgd-column-1 .wp-block-image.alignfull {
 		width: calc(100% + 3em);
 	}
 }

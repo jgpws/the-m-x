@@ -11,6 +11,74 @@
 	var headerPanel = document.getElementById( 'header-button-panel' );
 	var socialContainer = document.getElementById( 'menu-social' );
 	
+	
+	/* Functions to convert hex values to RGB values
+	 * http://www.javascripter.net/faq/hextorgb.htm
+	 */
+	function hexToR(h) {
+		return parseInt((cutHex(h)).substring(0, 2), 16);
+	}
+	
+	function hexToG(h) {
+		return parseInt((cutHex(h)).substring(2, 4), 16);
+	}
+	
+	function hexToB(h) {
+		return parseInt((cutHex(h)).substring(4, 6), 16);
+	}
+	
+	
+	console.log(hexToR(mxScriptParams.primaryColor3));
+	console.log(hexToG(mxScriptParams.primaryColor3));
+	console.log(hexToB(mxScriptParams.primaryColor3));
+	
+	
+	function cutHex(h) {
+		return (h.charAt(0)==="#") ? h.substring(1,7) : h;
+	}
+	
+	
+	function metaLinksRGBA() {
+		var metaLinksCss = 	'.cat-links a:link,\n' + 
+									'.cat-links a:visited,\n' + 
+									'.tags-links a:link,\n' + 
+									'.tags-links a:visited,\n' +
+									'.edit-link a:link,\n' +
+									'.edit-link a:visited,\n' +
+									'.comments-link a:link,\n' +
+									'.comments-link a:visited,\n' +
+									'.posted-on a:link,\n' +
+									'.posted-on a:visited {\n' +
+										'\tbackground-color: rgba(' + hexToR(mxScriptParams.primaryColor3) + ', ' + hexToG(mxScriptParams.primaryColor3) + ', ' + hexToB(mxScriptParams.primaryColor3) + ', 0.54);' +
+									'\n}\n\n' +
+			
+									'.cat-links a:hover,\n' +
+									'.cat-links a:focus,\n' +
+									'.tags-links a:hover,\n' +
+									'.tags-links a:focus,\n' + 
+									'.edit-link a:hover,\n' +
+									'.edit-link a:focus,\n' +
+									'.comments-link a:hover,\n' +
+									'.comments-link a:focus,\n' +
+									'.posted-on a:hover,\n' +
+									'.posted-on a:focus {\n' +
+										'\tbackground-color: rgba(' + hexToR(mxScriptParams.primaryColor3) + ', ' + hexToG(mxScriptParams.primaryColor3) + ', ' + hexToB(mxScriptParams.primaryColor3) + ', 0.7);' +
+									'\n}';
+	
+		var metaLinksStyle = document.createElement( 'style' );
+		
+		if ( mxScriptParams.customColors === 'custom' ) {
+			if ( metaLinksStyle.styleSheet ) {
+				metaLinksStyle.styleSheet.cssText = metaLinksCss;
+			} else {
+				metaLinksStyle.appendChild( document.createTextNode( metaLinksCss ) );
+			}
+			document.getElementsByTagName( 'head' )[0].appendChild( metaLinksStyle );
+		}
+	}
+	window.onload = metaLinksRGBA();
+	
+	
 	function toggleSocialPanel() {
 		/* Toggle social media button panel */
 		var socialToggleButton;

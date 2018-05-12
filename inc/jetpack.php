@@ -16,9 +16,10 @@
 function the_mx_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'render'    => 'the_mx_infinite_scroll_render',
-		'footer'    => 'page',
+		'container'			=> 'primary',
+		'render'				=> 'the_mx_infinite_scroll_render',
+		'footer_widgets'	=> 'footer-widget-area',
+		'footer'		 		=> 'page',
 	) );
 
 	// Add theme support for Responsive Videos.

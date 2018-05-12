@@ -1,11 +1,11 @@
 .post.jgd-column-1,
-.post.three-fourths-centered,
-.post.two-by-two-centered,
+.post.three-fourths-centered-r,
+.post.two-by-two-centered-r,
 article.page.jgd-column-1,
 .single .post.jgd-column-1,
-.single .post.three-fourths-centered,
+.single .post.three-fourths-centered-r,
 article.page.jgd-column-1,
-article.page.three-fourths-centered {
+article.page.three-fourths-centered-r {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
@@ -72,27 +72,27 @@ article.page.three-fourths-centered {
 		width: 75%;
 	}
 	
-	.three-fourths-centered .post,
-	.three-fourths-centered .page {
+	.three-fourths-centered-r .post,
+	.three-fourths-centered-r .page {
 		max-width: 80em;
 	}
 	
-	.three-fourths-centered .page-content,
-	.three-fourths-centered .entry-content,
-	.three-fourths-centered .entry-summary {
+	.three-fourths-centered-r .page-content,
+	.three-fourths-centered-r .entry-content,
+	.three-fourths-centered-r .entry-summary {
 		margin: 0 auto;
 	}
 	
-	.three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
+	.three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
 	.jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
-	.three-fourths-centered .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
+	.three-fourths-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
 	.jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
 		margin-left: auto;
 		margin-right: auto;
 	}
 	
-	.three-fourths-centered .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
-	.three-fourths-centered .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
+	.three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
+	.three-fourths-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
 		max-width: 75%;
 	}
 	
@@ -101,11 +101,11 @@ article.page.three-fourths-centered {
 		max-width: 50%;
 	}
 	
-	.three-fourths-centered .alignwide {
+	.three-fourths-centered-r .alignwide {
 		margin: 1em 4em;
 	}
 	
-	.three-fourths-centered .wp-block-cover-image.alignwide {
+	.three-fourths-centered-r .wp-block-cover-image.alignwide {
 		max-width: calc(100% - 8em);
 	}
 	
@@ -128,5 +128,32 @@ article.page.three-fourths-centered {
 	.single-format-gallery .post.jgd-column-1 {
 		margin-left: 12.5%;
 		margin-right: 12.5%;
+	}
+}
+
+@media screen and (min-width: 45em) {
+	.infinite-wrap {
+		margin-left: 12.5%;
+		margin-right: 12.5%;
+	}
+}
+
+/* Make .two-by-two-centered-r emulate .jgd-column-1 for post formats over ~1280px */
+@media screen and (min-width: 80em) {
+	.blog .sticky.two-by-two-centered-r,
+	.archive .sticky.two-by-two-centered-r,
+	.search .two-by-two-centered-r,
+	article[class*="format-"]:not(.format-standard).two-by-two-centered-r {
+		width: 100%;
+		width: calc(100% - 1.5em);
+	}
+	
+	.blog .sticky.two-by-two-centered-r .entry-content,
+	.archive .sticky.two-by-two-centered-r .entry-content,
+	.blog .sticky.two-by-two-centered-r .entry-summary,
+	.archive .sticky.two-by-two-centered-r .entry-summary {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 50%;
 	}
 }

@@ -1,4 +1,11 @@
 /* Blue Gray alternate color scheme */
+
+/* Spinner */
+.lds-ring div {
+	border-color: #607d8b transparent transparent transparent;
+}
+
+/* General */
 body, pre {
 	background-color: #eceff1;
 }

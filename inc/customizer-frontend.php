@@ -205,10 +205,40 @@ a:focus {
 		if( $primary_color_3 != '' ) {
 			$primary_color_3_css = '
 /* Primary Color 3 */
+.lds-ring div {
+	border-color: ' . $primary_color_3 . ' transparent transparent transparent !important;
+}
+
 @media screen and (min-width: 37.5em) {
 	.site-header .main-navigation {
 		background-color: ' . $primary_color_3 . ';
 	}
+}
+
+.cat-links a:link,
+.cat-links a:visited,
+.tags-links a:link,
+.tags-links a:visited,
+.edit-link a:link,
+.edit-link a:visited,
+.comments-link a:link,
+.comments-link a:visited,
+.posted-on a:link,
+.posted-on a:visited {
+	background-color: ' . $primary_color_3 . ';
+}
+
+.cat-links a:hover,
+.cat-links a:focus,
+.tags-links a:hover,
+.tags-links a:focus,
+.edit-link a:hover,
+.edit-link a:focus,
+.comments-link a:hover,
+.comments-link a:focus,
+.posted-on a:hover,
+.posted-on a:focus {
+	background-color: ' . $primary_color_3 . ';
 }
 
 .mejs-container,
@@ -438,32 +468,6 @@ mark, ins {
 		
 		$misc_css = '
 /* Miscellaneous */
-.cat-links a:link,
-.cat-links a:visited,
-.tags-links a:link,
-.tags-links a:visited,
-.edit-link a:link,
-.edit-link a:visited,
-.comments-link a:link,
-.comments-link a:visited,
-.posted-on a:link,
-.posted-on a:visited {
-	background-color: rgba(0, 0, 0, 0.54);
-}
-
-.cat-links a:hover,
-.cat-links a:focus,
-.tags-links a:hover,
-.tags-links a:focus,
-.edit-link a:hover,
-.edit-link a:focus,
-.comments-link a:hover,
-.comments-link a:focus,
-.posted-on a:hover,
-.posted-on a:focus {
-	background-color: rgba(0, 0, 0, 0.7);
-}
-
 #cboxClose {
 	background: url(' . get_template_directory_uri() . '/css/images/ic_cancel_white_24px.svg) no-repeat center center !important;
 }
@@ -918,7 +922,7 @@ a:focus {
 .sticky .edit-link a:visited,
 .sticky .posted-on a:link,
 .sticky .posted-on a:visited {
-	color: rgba(255, 255, 255, 0.87);
+	color: rgba(0, 0, 0, 0.87);
 }
 
 .sticky .cat-links a:hover,
@@ -929,7 +933,20 @@ a:focus {
 .sticky .edit-link a:focus,
 .sticky .posted-on a:hover,
 .sticky .posted-on a:focus {
-	color: rgba(255, 255, 255, 0.87) !important;
+	color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.cat-links a:link,
+.cat-links a:visited,
+.tags-links a:link,
+.tags-links a:visited,
+.edit-link a:link,
+.edit-link a:visited,
+.comments-link a:link,
+.comments-link a:visited,
+.posted-on a:link,
+.posted-on a:visited {
+	color: rgba(0, 0, 0, 0.87);
 }
 
 .site-title a:link,
