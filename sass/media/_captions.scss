@@ -7,7 +7,7 @@
 	}
 
 	.wp-caption-text {
-		margin: 0.8075em 0;
+		padding: 0.8075em 0;
 	}
 }
 
@@ -16,7 +16,15 @@
 }
 
 .wp-caption-text,
+.wp-block-image figcaption,
 .gallery-caption {
 	@include font-size(0.75);
 	font-weight: $font__weight-heavy;
+}
+
+.wp-block-image figcaption {
+	background-color: $white;
+	color: $primary-text-color;
+	margin-top: 0px;
+	padding: 0.8075em 0;
 }

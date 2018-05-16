@@ -45,8 +45,13 @@ blockquote, q, .wp-block-pullquote {
 }
 
 .wp-block-pullquote > p,
-.wp-block-pullquote cite {
+.wp-block-pullquote cite,
+.wp-block-quote cite {
 	color: $primary-text-color;
+}
+
+.wp-block-quote cite {
+	font-style: italic;
 }
 
 .wp-block-pullquote > p {

@@ -1,0 +1,123 @@
+/* Stylesheet for the Gutenberg editor backend
+ *
+ * based on the tutorial Creating theme editor styles for Gutenberg by Florian Brinkmann
+ * https://florianbrinkmann.com/en/4544/editor-styles-gutenberg/
+ */
+ 
+.blocks-rich-text__tinymce.mce-content-body,
+.wp-block-quote .blocks-rich-text__tinymce.mce-content-body p {
+	line-height: 1.5;
+}
+
+.edit-post-visual-editor,
+.edit-post-visual-editor p,
+.editor-post-title .editor-post-title__input {
+	font-family: "Raleway", sans-serif;
+}
+
+.edit-post-visual-editor,
+.edit-post-visual-editor p {
+	font-size: 0.875rem;
+}
+
+.wp-block-heading .blocks-rich-text__tinymce.mce-content-body {
+	line-height: 1.2;
+	margin: 2rem 0 1rem;
+}
+
+.wp-block-heading h1,
+.wp-block-heading h2 {
+	font-weight: 400;
+}
+
+.wp-block-heading h3,
+.wp-block-heading h4,
+.wp-block-heading h5 {
+	font-weight: 500;
+}
+
+.wp-block-heading h6 {
+	font-weight: 600;
+}
+
+.wp-block-heading h1 {
+	font-size: 6rem;
+}
+
+.wp-block-heading h2 {
+	font-size: 3.75rem;
+}
+
+.blocks-rich-text__tinymce a {
+	color: #795548;
+}
+
+.edit-post-visual-editor .editor-post-title {
+	max-width: 100%;
+}
+
+.editor-post-title .editor-post-title__input {
+	font-weight: 500;
+	font-size: 2.125rem;
+	line-height: 2rem;
+}
+
+.wp-block-cover-image .wp-block-cover-image-text {
+	font-size: 2em;
+}
+
+.wp-block-image {
+	background-color: #3e2723;
+}
+
+.wp-block-image img {
+	margin: 0px auto;
+	width: auto;
+}
+
+.wp-block-image figcaption {
+	background-color: #ffffff;
+	color: rgba(0, 0, 0, 0.87);
+	font-weight: 600;
+	margin-top: 0px;
+	padding: 0.8075em 0;
+}
+
+.wp-block-quote:not(.is-large) {
+	border-left: 5px solid #795548;
+	font-weight: 500;
+	padding-left: 1.25rem;
+}
+
+.wp-block-pullquote {
+	border-top: transparent;
+	border-bottom: transparent;
+	border-left: 5px solid #795548;
+}
+
+.wp-block-pullquote p {
+	font-weight: 500;
+}
+
+.wp-block-separator {
+	background-color: rgba(0, 0, 0, 0.54);
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-block-button .wp-block-button__link {
+	background-color: #ffc107;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	color: rgba(0, 0, 0, 0.87);
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.wp-block-button .wp-block-button__link:hover {
+	background-color: #ffa000;
+	color: rgba(0, 0, 0, 0.87);
+}

@@ -189,13 +189,13 @@ function the_mx_enqueue_scripts() {
 	// Enqueue this for now; may be added to the Customizer later
 	wp_enqueue_style( 'the-mx-right-sidebar-overlay', get_template_directory_uri() . '/layouts/content-sidebar-overlay.css', array( 'the-mx-style' ) );
 	
-	wp_enqueue_style( 'the-mx-grid', get_template_directory_uri() . '/layouts/jgd-material-grid.css', array( 'the-mx-style') );
-	
 	wp_enqueue_style( 'the-mx-material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 	
 	wp_enqueue_style( 'the-mx-social-icons', get_template_directory_uri() . '/css/themify-icons.css', false );
 	
 	wp_enqueue_style( 'the-mx-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,500,300', false );
+	
+	wp_enqueue_style( 'the-mx-grid', get_template_directory_uri() . '/layouts/jgd-material-grid.css', array( 'the-mx-style') );
 	
 	wp_enqueue_script( 'the-mx-grid-js', get_template_directory_uri() . '/js/jgd-grid.js', array(), '', true );
 	$parameters = array(
@@ -269,6 +269,12 @@ function the_mx_enqueue_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'the_mx_enqueue_scripts' );
+
+/* For the Gutenberg editor styles */
+function the_mx_add_gutenberg_styles() {
+	wp_enqueue_style( 'the-mx-gutenberg-styles', get_theme_file_uri( '/css/gutenberg-editor-styles.css' ), false );
+}
+add_action( 'enqueue_block_editor_assets', 'the_mx_add_gutenberg_styles' );
 
 /**
  * Colorbox content

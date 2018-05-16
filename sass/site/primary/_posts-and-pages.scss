@@ -10,6 +10,16 @@ article.page,
 	box-shadow: $box-shadow-small;
 }
 
+.post:hover,
+article.page:hover,
+.single .post:hover,
+.search .post.format-gallery:hover,
+.search .post.format-image:hover,
+.search .post.format-video:hover,
+.search .post.format-audio:hover {
+	box-shadow: $box-shadow-large;
+}
+
 /*.page-content,*/
 .entry-content,
 .entry-summary {
@@ -116,7 +126,7 @@ article.page,
 	}
 	
 	.has-post-thumbnail .entry-title {
-		top: -4.765rem;
+		top: -3.765rem;
 		width: 100%;
 	}
 	

@@ -288,9 +288,55 @@ textarea {
   line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   clear: both;
+  line-height: 1.2;
+  margin: 2rem 0 1rem;
+}
+
+h1 {
+  font-size: 96px;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: -0.016rem;
+}
+
+h2 {
+  font-size: 60px;
+  font-size: 3.75rem;
+  font-weight: 400;
+  letter-spacing: 0.008rem;
+}
+
+h3 {
+  font-size: 48px;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 34px;
+  font-size: 2.125rem;
+  font-weight: 500;
+  letter-spacing: 0.007rem;
+}
+
+h5 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
+  letter-spacing: 0.007rem;
 }
 
 p {
@@ -391,8 +437,13 @@ blockquote:before, blockquote:after, q:before, q:after, .wp-block-pullquote:befo
 }
 
 .wp-block-pullquote > p,
-.wp-block-pullquote cite {
+.wp-block-pullquote cite,
+.wp-block-quote cite {
   color: rgba(0, 0, 0, 0.87);
+}
+
+.wp-block-quote cite {
+  font-style: italic;
 }
 
 .wp-block-pullquote > p {
@@ -1414,6 +1465,16 @@ article.page,
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+.post:hover,
+article.page:hover,
+.single .post:hover,
+.search .post.format-gallery:hover,
+.search .post.format-image:hover,
+.search .post.format-video:hover,
+.search .post.format-audio:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
 /*.page-content,*/
 .entry-content,
 .entry-summary {
@@ -1526,7 +1587,7 @@ article.page,
   margin-top: 3.165rem;
 }
 .single .has-post-thumbnail .entry-title {
-  top: -4.765rem;
+  top: -3.765rem;
   width: 100%;
 }
 
@@ -2244,6 +2305,12 @@ object {
   max-width: 100%;
 }
 
+/* Gutenberg */
+@media screen and (min-width: 80em) {
+  .wp-block-embed iframe {
+    margin: 0 auto !important;
+  }
+}
 /*--------------------------------------------------------------
 ## Custom Header
 --------------------------------------------------------------*/
@@ -2403,7 +2470,7 @@ img.wp-post-image {
   margin-right: auto;
 }
 .wp-caption .wp-caption-text {
-  margin: 0.8075em 0;
+  padding: 0.8075em 0;
 }
 
 .wp-caption-text {
@@ -2411,10 +2478,18 @@ img.wp-post-image {
 }
 
 .wp-caption-text,
+.wp-block-image figcaption,
 .gallery-caption {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: 600;
+}
+
+.wp-block-image figcaption {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
+  margin-top: 0px;
+  padding: 0.8075em 0;
 }
 
 /*--------------------------------------------------------------
