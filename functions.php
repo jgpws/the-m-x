@@ -368,6 +368,16 @@ function the_mx_add_grid_layouts( $classes ) {
 }
 add_filter( 'post_class', 'the_mx_add_grid_layouts' );
 
+function the_mx_add_imagegrid_layout_class( $classes ) {
+	if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
+		$classes[] = 'imagegrid';
+		return $classes;
+	} else {
+		return $classes;
+	}
+}
+add_filter( 'body_class', 'the_mx_add_imagegrid_layout_class' );
+
 function the_mx_add_animate_class( $classes ) {
 	if( get_theme_mod( 'the_mx_animate_css' ) == 1 ) {
 		$classes[] = 'animate';

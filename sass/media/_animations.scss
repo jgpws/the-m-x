@@ -22,7 +22,9 @@
 .animate a:visited,
 .animate button,
 .animate input[type="submit"],
-.animate .gallery-item {
+.animate .gallery-item,
+.animate .post,
+.animate .page {
 	transition-duration: 1s;
 }
 

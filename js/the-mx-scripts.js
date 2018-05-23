@@ -210,7 +210,8 @@
 			// Absolutely positioned sidebar flows outside of its container, adding space below the footer
 			// So, the sidebar's max height is set to the same as the body.
 			if ( bodyElHeight > window.outerHeight ) {
-				sidebar.style.maxHeight = ( bodyElHeight - window.outerHeight ) + 'px';
+				//sidebar.style.maxHeight = ( bodyElHeight - window.outerHeight ) + 'px';
+				sidebar.style.maxHeight = window.outerHeight + 'px';
 			} else {
 				sidebar.style.maxHeight = bodyElHeight + 'px';
 			}

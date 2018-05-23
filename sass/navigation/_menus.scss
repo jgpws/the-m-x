@@ -114,11 +114,6 @@
 				color: $accent-color-darker;
 			}
 		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
 	}
 	
 	li {
@@ -129,6 +124,7 @@
 	a:link,
 	a:visited {
 		font-weight: $font__weight-bold;
+		color: $primary-text-color;
 	}
 	
 	a:hover,
@@ -333,7 +329,6 @@
 			.sub-menu {
 				box-shadow: $box-shadow-medium;
 				display: block;
-				@include hide-offscreen;
 				top: 3rem;
 			}
 			
@@ -354,11 +349,6 @@
 			.sub-menu a:focus {
 				color: $accent-color-darker;
 				border-bottom-color: transparent;
-			}
-			
-			.sub-menu.toggled-submenu,
-			.children.toggled-submenu {
-				left: 0;
 			}
 			
 			.children ul,

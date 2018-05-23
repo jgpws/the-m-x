@@ -66,17 +66,13 @@ function the_mx_imagegrid() {
 		</div>
 	<?php
 	if( is_single() ) { ?>
+			<footer class="entry-footer">
+				<?php the_mx_entry_footer(); ?>
+			</footer><!-- .entry-footer -->
 		</article>
 	<?php
 	} else { ?>
 		</div>
-	<?php
-	}
-	
-	if( is_single() ) { ?>
-		<footer class="entry-footer">
-			<?php the_mx_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
 	<?php
 	}
 }

@@ -1092,22 +1092,6 @@ a:focus {
 	
 		wp_add_inline_style( 'the-mx-style', $reverse_supporting_color_css );
 	}
-	
-	if( $layout == 'imagegrid' ) {
-		$layout_css = '
-.jgd-grid-wrap {
-	flex-direction: column;
-}
-
-@media screen and (min-width: 37.5em) {
-	.jgd-grid-wrap {
-		flex-direction: row;
-		justify-content: flex-start;
-	}
-}
-';
-		wp_add_inline_style( 'the-mx-grid', $layout_css );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'the_mx_frontend_customizer_styles' );
 ?>

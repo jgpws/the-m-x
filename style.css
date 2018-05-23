@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/tag/the-m-x/
 Author: Jason G. Designs
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.0.6
+Version: 1.0.7
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: the-mx
@@ -762,10 +762,6 @@ a:hover, a:active {
   border-bottom: transparent;
   color: #ff6f00;
 }
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
-}
 .main-navigation li {
   position: relative;
   display: block;
@@ -776,6 +772,7 @@ a:hover, a:active {
 .main-navigation a:link,
 .main-navigation a:visited {
   font-weight: 500;
+  color: rgba(0, 0, 0, 0.87);
 }
 .main-navigation a:hover,
 .main-navigation a:focus {
@@ -955,8 +952,6 @@ a:hover, a:active {
   .site-header .main-navigation .sub-menu {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: block;
-    position: absolute !important;
-    left: -9999em;
     top: 3rem;
   }
   .site-header .main-navigation .children a:link,
@@ -975,10 +970,6 @@ a:hover, a:active {
   .site-header .main-navigation .sub-menu a:focus {
     color: #ff6f00;
     border-bottom-color: transparent;
-  }
-  .site-header .main-navigation .sub-menu.toggled-submenu,
-  .site-header .main-navigation .children.toggled-submenu {
-    left: 0;
   }
   .site-header .main-navigation .children ul,
   .site-header .main-navigation .sub-menu ul {
@@ -1391,32 +1382,32 @@ html.skrollr-mobile {
 }
 .widget .calendar_wrap {
   font-weight: 500;
-  margin: 0px -0.5em 1em 12.5%;
-  width: calc(100% + 1em);
+  width: 100%;
 }
 .widget .calendar_wrap caption {
   background-color: #795548;
   font-size: 32px;
   font-size: 2rem;
-  margin: 0px 0.5em 1em calc(-12.5% - 1em);
+  margin: 0px -2.5em 1em -2.5em;
   padding-left: 2rem;
   text-align: left;
-  width: calc(100% + 2em);
 }
 .widget .calendar_wrap #wp-calendar {
   max-width: 75%;
+  margin-left: 12.5%;
 }
 .widget .calendar_wrap td, .widget .calendar_wrap th {
   height: 1.5em;
   padding: 0.5em;
+  text-align: center;
   width: 1.5em;
 }
 .widget .calendar_wrap td a {
   background-color: #795548;
   border-radius: 50%;
-  height: 2.5em;
-  padding: 0.5em;
-  width: 2.5em;
+  display: inline-table;
+  height: 1.5em;
+  width: 1.5em;
 }
 .widget .calendar_wrap caption, .widget .calendar_wrap td a {
   color: #ffffff;
@@ -1430,6 +1421,10 @@ html.skrollr-mobile {
 .widget .calendar_wrap td#prev a,
 .widget .calendar_wrap td#next a {
   border-radius: 2px;
+  display: inline-block;
+  height: auto;
+  padding: 0.5em;
+  width: auto;
 }
 
 /* Override column-1 in jgd-material-grid.css */
@@ -1486,24 +1481,29 @@ article.page:hover,
 }
 
 .entry-title,
-.page-title {
+.page-title,
+.widget-title {
   font-size: 24px;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 2rem;
 }
 .entry-title a:link,
-.page-title a:link {
+.page-title a:link,
+.widget-title a:link {
   color: #795548;
 }
 .entry-title a:visited,
-.page-title a:visited {
+.page-title a:visited,
+.widget-title a:visited {
   color: #a1887f;
 }
 .entry-title a:hover,
 .entry-title a:focus,
 .page-title a:hover,
-.page-title a:focus {
+.page-title a:focus,
+.widget-title a:hover,
+.widget-title a:focus {
   color: #5d4037;
 }
 
@@ -2730,7 +2730,9 @@ img.wp-post-image {
 .animate a:visited,
 .animate button,
 .animate input[type="submit"],
-.animate .gallery-item {
+.animate .gallery-item,
+.animate .post,
+.animate .page {
   transition-duration: 1s;
 }
 
@@ -2961,6 +2963,18 @@ article.page.three-fourths-centered-r {
   position: absolute;
 }
 
+.blog.imagegrid main.jgd-grid-wrap,
+.archive.imagegrid main.jgd-grid-wrap {
+  flex-direction: column;
+}
+
+@media screen and (min-width: 37.5em) {
+  .blog.imagegrid main.jgd-grid-wrap,
+  .archive.imagegrid main.jgd-grid-wrap {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
 @media screen and (min-width: 80em) {
   .tile {
     min-width: 300px;

@@ -60,34 +60,34 @@
 	
 	.calendar_wrap {
 		font-weight: $font__weight-bold;
-		@include margin-four-values(0px, -0.5em, 1em, 12.5%);
-		width: calc(100% + 1em);
+		width: 100%;
 		
 		caption {
 			background-color: $primary-color;
 			@include font-size(2);
-			@include margin-four-values(0px, 0.5em, 1em, calc(-12.5% - 1em));
+			@include margin-four-values(0px, -2.5em, 1em, -2.5em);
 			padding-left: 2rem;
 			text-align: left;
-			width: calc(100% + 2em);
 		}
 		
 		#wp-calendar {
 			max-width: 75%;
+			margin-left: 12.5%;
 		}
 		
 		td, th {
 			height: 1.5em;
 			padding: 0.5em;
+			text-align: center;
 			width: 1.5em;
 		}
 		
 		td a {
 			background-color: $primary-color;
 			border-radius: 50%;
-			height: 2.5em;
-			padding: 0.5em;
-			width: 2.5em;
+			display: inline-table;
+			height: 1.5em;
+			width: 1.5em;
 		}
 		
 		caption, td a {
@@ -105,6 +105,10 @@
 		td#prev a,
 		td#next a {
 			border-radius: 2px;
+			display: inline-block;
+			height: auto;
+			padding: 0.5em;
+			width: auto;
 		}
 	}
 

@@ -52,6 +52,19 @@
 	
 }
 
+.blog.imagegrid main.jgd-grid-wrap,
+.archive.imagegrid main.jgd-grid-wrap {
+	flex-direction: column;
+}
+
+@media screen and (min-width: 37.5em) {
+	.blog.imagegrid main.jgd-grid-wrap,
+	.archive.imagegrid main.jgd-grid-wrap {
+		flex-direction: row;
+		justify-content: center;
+	}
+}
+
 @media screen and (min-width: 80em) {
 	.tile {
 		min-width: 300px;
