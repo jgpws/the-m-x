@@ -22,6 +22,14 @@ article.page.three-fourths-centered-r {
 	order: 1; /* first in order */
 }
 
+.page-template-page_landing #header-button-panel {
+	order: 3;
+}
+
+.page-template-page_landing .site-branding {
+	order: 2;
+}
+
 #custom-header {
 	order: 4; /* fourth in order */
 }

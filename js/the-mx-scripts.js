@@ -254,38 +254,42 @@
 		
 		if ( document.body.contains( headerPanel ) ) { // check if headerPanel exists
 			
-			// Create and add searchToggleButton to header button panel
-			searchToggleButton = document.createElement( 'button' );
-			searchIcon = document.createElement( 'i' );
-			sIconContent = document.createTextNode( 'search' );
+			if ( document.body.classList.contains( 'page-template-page_landing' ) ) {
+				// show nothing
+			} else {
+				// Create and add searchToggleButton to header button panel
+				searchToggleButton = document.createElement( 'button' );
+				searchIcon = document.createElement( 'i' );
+				sIconContent = document.createTextNode( 'search' );
+				
+				headerPanel.appendChild(searchToggleButton);
+				searchToggleButton.appendChild(searchIcon);
+				searchToggleButton.classList.add( 'search-toggle' );
+				
+				searchIcon.appendChild(sIconContent);
+				searchIcon.classList.add( 'material-icons' );
 			
-			headerPanel.appendChild(searchToggleButton);
-			searchToggleButton.appendChild(searchIcon);
-			searchToggleButton.classList.add( 'search-toggle' );
 			
-			searchIcon.appendChild(sIconContent);
-			searchIcon.classList.add( 'material-icons' );
+				// Get the first instance of searchform (class) within .header-button-panel
+				searchContainer = document.getElementById( 'header-button-panel' ).getElementsByClassName( 'searchform' )[0];
+				toggleSearch = document.getElementById( 'header-button-panel' ).getElementsByClassName( 'search-toggle' )[0];
+				searchField = document.getElementsByClassName( 'search-field' )[0];
 			
+				// Set initial search field state here, instead of CSS file, in case JavaScript is turned off in browser.
+				searchContainer.setAttribute( 'aria-expanded', 'false' );
+				searchContainer.classList.add('hide');
 			
-			// Get the first instance of searchform (class) within .header-button-panel
-			searchContainer = document.getElementById( 'header-button-panel' ).getElementsByClassName( 'searchform' )[0];
-			toggleSearch = document.getElementById( 'header-button-panel' ).getElementsByClassName( 'search-toggle' )[0];
-			searchField = document.getElementsByClassName( 'search-field' )[0];
-			
-			// Set initial search field state here, instead of CSS file, in case JavaScript is turned off in browser.
-			searchContainer.setAttribute( 'aria-expanded', 'false' );
-			searchContainer.classList.add('hide');
-			
-			// Toggle search field
-			toggleSearch.onclick = function() {
-				if ( -1 !== searchContainer.className.indexOf( 'toggled' ) ) {
-					searchContainer.className = searchContainer.className.replace( ' toggled', '' );
-					searchContainer.classList.add('hide');
-					searchContainer.setAttribute( 'aria-expanded', 'false' );
-				} else {
-					searchContainer.className += ' toggled';
-					searchContainer.classList.remove('hide');
-					searchContainer.setAttribute( 'aria-expanded', 'true' );
+				// Toggle search field
+				toggleSearch.onclick = function() {
+					if ( -1 !== searchContainer.className.indexOf( 'toggled' ) ) {
+						searchContainer.className = searchContainer.className.replace( ' toggled', '' );
+						searchContainer.classList.add('hide');
+						searchContainer.setAttribute( 'aria-expanded', 'false' );
+					} else {
+						searchContainer.className += ' toggled';
+						searchContainer.classList.remove('hide');
+						searchContainer.setAttribute( 'aria-expanded', 'true' );
+					}
 				}
 			}
 		

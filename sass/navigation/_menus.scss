@@ -260,6 +260,16 @@
 	box-shadow: none;
 }
 
+/* Page Templates */
+.page-template-page_landing #header-button-panel {
+	padding: 0.5em;
+	width: 25%;
+}
+
+.page-template-page_landing .site-branding {
+	width: 75%;
+}
+
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
@@ -400,6 +410,30 @@
 		display: inline-block;
 	}
 	
+}
+
+@media screen and (min-width: 48em) {
+	.page-template-page_landing {
+		
+		.site-header {
+		
+			.site-branding {
+				width: 50%;
+			}
+		
+			#header-button-panel {
+				height: 4rem;
+				width: 50%;
+				
+				.menu-social-media-icons-container {
+					margin-top: 0px;
+					position: static;
+				}
+			}
+			
+		}
+	
+	}
 }
 
 @media screen and (min-width: 80em) {

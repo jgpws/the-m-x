@@ -1,6 +1,7 @@
 <?php
 /**
- * Function used for rendering of an image grid when "Image grid" is chosen in the Customizer
+ * Functions used for rendering of an image grid when "Image grid" is chosen in the Customizer.
+ * Secondary functions for the Image Grid page template.
  * posts only show Featured Images and titles
  */
  
@@ -48,8 +49,7 @@ function the_mx_imagegrid() {
 						<?php the_post_thumbnail( 'gallery-thumb' ); ?>
 					</div>
 					<div class="scrim"></div>
-					</a>
-				<?php
+					</a><?php
 				}
 			} else {
 				the_content( sprintf(
@@ -76,3 +76,4 @@ function the_mx_imagegrid() {
 	<?php
 	}
 }
+?>

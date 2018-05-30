@@ -633,8 +633,7 @@ body.attachment.custom-background.colorbox .entry-attachment-image p {
 .blog [class*="format-"] .comments-link a:visited,
 .blog [class*="format-"] .posted-on a:link,
 .blog [class*="format-"] .posted-on a:visited {
-	background-color: rgba(255, 255, 255, 0.54);
-	color: rgba(0, 0, 0, 0.87);
+	color: rgba(255, 255, 255, 0.87);
 }
 
 .blog .format-standard .cat-links a:link,
@@ -649,7 +648,6 @@ body.attachment.custom-background.colorbox .entry-attachment-image p {
 .blog .format-standard .posted-on a:visited,
 .blog .format-image.has-post-thumbnail .posted-on a:link,
 .blog .format-image.has-post-thumbnail .posted-on a:visited {
-	background-color: rgba(0, 0, 0, 0.54);
 	color: rgba(255, 255, 255, 0.87);
 }
 
@@ -661,65 +659,6 @@ body.attachment.custom-background.colorbox .entry-attachment-image p {
 .blog .format-gallery .edit-link a:visited,
 .blog .format-gallery .posted-on a:link,
 .blog .format-gallery .posted-on a:visited {
-	background-color: rgba(0, 0, 0, 0.54);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.blog .format-link .posted-on a:link,
-.blog .format-link .posted-on a:visited,
-.blog .format-link .edit-link a:link,
-.blog .format-link .edit-link a:visited {
-	background-color: rgba(0, 0, 0, 0.54);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.blog [class*="format-"] .cat-links a:hover,
-.blog [class*="format-"] .cat-links a:focus,
-.blog [class*="format-"] .tags-links a:hover,
-.blog [class*="format-"] .tags-links a:focus,
-.blog [class*="format-"] .edit-link a:hover,
-.blog [class*="format-"] .edit-link a:focus,
-.blog [class*="format-"] .comments-link a:hover,
-.blog [class*="format-"] .comments-link a:focus,
-.blog [class*="format-"] .posted-on a:hover,
-.blog [class*="format-"] .posted-on a:focus {
-	background-color: rgba(255, 255, 255, 0.7);
-	color: rgba(0, 0, 0, 0.87);
-}
-
-.blog .format-standard .cat-links a:hover,
-.blog .format-standard .cat-links a:focus,
-.blog .format-standard .tags-links a:hover,
-.blog .format-standard .tags-links a:focus,
-.blog .format-standard .edit-link a:hover,
-.blog .format-standard .edit-link a:focus,
-.blog .format-standard .comments-link a:hover,
-.blog .format-standard .comments-link a:focus,
-.blog .format-standard .posted-on a:hover,
-.blog .format-standard .posted-on a:focus,
-.blog .format-image.has-post-thumbnail .posted-on a:hover,
-.blog .format-image.has-post-thumbnail .posted-on a:focus {
-	background-color: rgba(0, 0, 0, 0.7);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.blog .format-gallery .cat-links a:hover,
-.blog .format-gallery .cat-links a:focus,
-.blog .format-gallery .tags-links a:hover,
-.blog .format-gallery .tags-links a:focus,
-.blog .format-gallery .edit-link a:hover,
-.blog .format-gallery .edit-link a:focus,
-.blog .format-gallery .posted-on a:hover,
-.blog .format-gallery .posted-on a:focus {
-	background-color: rgba(0, 0, 0, 0.7);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.blog .format-link .posted-on a:hover,
-.blog .format-link .posted-on a:focus,
-.blog .format-link .edit-link a:hover,
-.blog .format-link .edit-link a:focus {
-	background-color: rgba(0, 0, 0, 0.7);
 	color: rgba(255, 255, 255, 0.87);
 }
 
@@ -732,106 +671,6 @@ body.attachment.custom-background.colorbox .entry-attachment-image p {
 .blog .format-gallery .material-icons,
 .blog .format-link .material-icons {
 	color: rgba(0, 0, 0, 0.54);
-}
-
-.archive [class*="format-"] .cat-links a:link,
-.archive [class*="format-"] .cat-links a:visited,
-.archive [class*="format-"] .tags-links a:link,
-.archive [class*="format-"] .tags-links a:visited,
-.archive [class*="format-"] .edit-link a:link,
-.archive [class*="format-"] .edit-link a:visited,
-.archive [class*="format-"] .comments-link a:link,
-.archive [class*="format-"] .comments-link a:visited,
-.archive [class*="format-"] .posted-on a:link,
-.archive [class*="format-"] .posted-on a:visited {
-	background-color: rgba(255, 255, 255, 0.54);
-	color: rgba(0, 0, 0, 0.87);
-}
-
-.archive .format-standard .cat-links a:link,
-.archive .format-standard .cat-links a:visited,
-.archive .format-standard .tags-links a:link,
-.archive .format-standard .tags-links a:visited,
-.archive .format-standard .edit-link a:link,
-.archive .format-standard .edit-link a:visited,
-.archive .format-standard .comments-link a:link,
-.archive .format-standard .comments-link a:visited,
-.archive .format-standard .posted-on a:link,
-.archive .format-standard .posted-on a:visited,
-.archive .format-image.has-post-thumbnail .posted-on a:link,
-.archive .format-image.has-post-thumbnail .posted-on a:visited {
-	background-color: rgba(0, 0, 0, 0.54);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.archive .format-gallery .cat-links a:link,
-.archive .format-gallery .cat-links a:visited,
-.archive .format-gallery .tags-links a:link,
-.archive .format-gallery .tags-links a:visited,
-.archive .format-gallery .edit-link a:link,
-.archive .format-gallery .edit-link a:visited,
-.archive .format-gallery .posted-on a:link,
-.archive .format-gallery .posted-on a:visited {
-	background-color: rgba(0, 0, 0, 0.54);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.archive .format-link .posted-on a:link,
-.archive .format-link .posted-on a:visited,
-.archive .format-link .edit-link a:link,
-.archive .format-link .edit-link a:visited {
-	background-color: rgba(0, 0, 0, 0.54);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.archive [class*="format-"] .cat-links a:hover,
-.archive [class*="format-"] .cat-links a:focus,
-.archive [class*="format-"] .tags-links a:hover,
-.archive [class*="format-"] .tags-links a:focus,
-.archive [class*="format-"] .edit-link a:hover,
-.archive [class*="format-"] .edit-link a:focus,
-.archive [class*="format-"] .comments-link a:hover,
-.archive [class*="format-"] .comments-link a:focus,
-.archive [class*="format-"] .posted-on a:hover,
-.archive [class*="format-"] .posted-on a:focus {
-	background-color: rgba(255, 255, 255, 0.7);
-	color: rgba(0, 0, 0, 0.87);
-}
-
-.archive .format-standard .cat-links a:hover,
-.archive .format-standard .cat-links a:focus,
-.archive .format-standard .tags-links a:hover,
-.archive .format-standard .tags-links a:focus,
-.archive .format-standard .edit-link a:hover,
-.archive .format-standard .edit-link a:focus,
-.archive .format-standard .comments-link a:hover,
-.archive .format-standard .comments-link a:focus,
-.archive .format-standard .posted-on a:hover,
-.archive .format-standard .posted-on a:focus,
-.archive .format-image.has-post-thumbnail .posted-on a:hover,
-.archive .format-image.has-post-thumbnail .posted-on a:focus {
-	background-color: rgba(0, 0, 0, 0.7);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.archive .format-gallery .cat-links a:hover,
-.archive .format-gallery .cat-links a:focus,
-.archive .format-gallery .tags-links a:hover,
-.archive .format-gallery .tags-links a:focus,
-.archive .format-gallery .edit-link a:hover,
-.archive .format-gallery .edit-link a:focus,
-.archive .format-gallery .posted-on a:hover,
-.archive .format-gallery .posted-on a:focus {
-	background-color: rgba(0, 0, 0, 0.7);
-	color: rgba(255, 255, 255, 0.87);
-}
-
-.archive .format-link .posted-on a:hover,
-.archive .format-link .posted-on a:focus,
-.archive .format-link .edit-link a:hover,
-.archive .format-link .edit-link a:focus {
-	background-color: rgba(0, 0, 0, 0.7);
-	color: rgba(255, 255, 255, 0.87);
 }
 
 .archive [class*="format-"] .material-icons,

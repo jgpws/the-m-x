@@ -317,6 +317,51 @@ require get_template_directory() . '/inc/post-format-functions.php';
 
 require get_template_directory() . '/inc/imagegrid-function.php';
 
+function the_mx_imagegrid_postnum_switcher() {
+	// This is used with the posts_per_page parameter in page-templates/page_image_grid.php
+	$imagegrid_postcount = get_theme_mod( 'the_mx_select_cat_numposts' );
+	switch( $imagegrid_postcount ) {
+		case 'one':
+			return 1;
+		break;
+		case 'two':
+			return 2;
+		break;
+		case 'three':
+			return 3;
+		break;
+		case 'four':
+			return 4;
+		break;
+		case 'five':
+			return 5;
+		break;
+		case 'six':
+			return 6;
+		break;
+		case 'seven':
+			return 7;
+		break;
+		case 'eight':
+			return 8;
+		break;
+		case 'nine':
+			return 9;
+		break;
+		case 'ten':
+			return 10;
+		break;
+		case 'eleven':
+			return 11;
+		break;
+		case 'twelve':
+			return 12;
+		break;
+		default:
+			return -1;
+	}
+}
+
 /**
  * Load Jetpack compatibility file.
  */

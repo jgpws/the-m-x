@@ -20,10 +20,20 @@ article.page:hover,
 	box-shadow: $box-shadow-large;
 }
 
-/*.page-content,*/
 .entry-content,
 .entry-summary {
 	@include padding-two-values(1.5em, 0);
+}
+
+@media screen and (min-width: 80em) {
+	.jgd-column-1 .entry-title,
+	.three-fourths-centered-r .entry-title,
+	.jgd-column-1 .entry-meta,
+	.three-fourths-centered-r .entry-meta,
+	.jgd-column-1 .entry-footer,
+	.three-fourths-centered-r .entry-footer {
+		@include padding-two-values(0px, 12.5%);
+	}
 }
 
 .page-header {
@@ -32,7 +42,9 @@ article.page:hover,
 
 .entry-title,
 .page-title,
-.widget-title {
+.widget-title,
+.entry-title-imagegrid,
+.template-entry-title {
 	@include font-size(1.5);
 	font-weight: $font__weight-bold;
 	line-height: 2rem;
@@ -55,6 +67,16 @@ article.page:hover,
 .single .entry-title,
 .page .entry-title {
 	@include font-size(2.125);
+}
+
+.blog .entry-title,
+.archive .entry-title,
+.search .entry-title {
+	margin-top: 1rem;
+}
+
+.template-entry-title {
+	width: 100%;
 }
 
 .search .entry-title {
@@ -86,7 +108,35 @@ article.page:hover,
 	margin-bottom: 1.5em;
 }
 
+.imagegrid-wrap.jgd-grid-wrap {
+	justify-content: center;
+}
+
+.landing-to-parent {
+	@include padding-two-values(0px, 1em);
+	text-align: center;
+}
+
+.landing-to-parent a:link,
+.landing-to-parent a:visited {
+	color: $primary-text-color-white;
+	font-weight: $font__weight-bold;
+}
+
+.landing-to-parent a:hover,
+.landing-to-parent a:focus {
+	color: $white;
+}
+
+.page-template-page_landing article.page {
+	@include no-card-style;
+}
+
 @media screen and (min-width: 37.5em) {
+	.landing-to-parent {
+		text-align: left;
+	}
+	
 	.search .featured-image {
 		background-color: transparent;
 		@include margin-four-values(2em, 0, 1em, -1em);

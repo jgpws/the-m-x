@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/tag/the-m-x/
 Author: Jason G. Designs
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.0.7
+Version: 1.0.8
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: the-mx
@@ -891,6 +891,16 @@ a:hover, a:active {
   box-shadow: none;
 }
 
+/* Page Templates */
+.page-template-page_landing #header-button-panel {
+  padding: 0.5em;
+  width: 25%;
+}
+
+.page-template-page_landing .site-branding {
+  width: 75%;
+}
+
 @media screen and (min-width: 37.5em) {
   .menu-toggle {
     display: none;
@@ -1009,6 +1019,19 @@ a:hover, a:active {
 
   .error404 .widget li a {
     display: inline-block;
+  }
+}
+@media screen and (min-width: 48em) {
+  .page-template-page_landing .site-header .site-branding {
+    width: 50%;
+  }
+  .page-template-page_landing .site-header #header-button-panel {
+    height: 4rem;
+    width: 50%;
+  }
+  .page-template-page_landing .site-header #header-button-panel .menu-social-media-icons-container {
+    margin-top: 0px;
+    position: static;
   }
 }
 @media screen and (min-width: 80em) {
@@ -1470,19 +1493,30 @@ article.page:hover,
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-/*.page-content,*/
 .entry-content,
 .entry-summary {
   padding: 1.5em 0;
 }
 
+@media screen and (min-width: 80em) {
+  .jgd-column-1 .entry-title,
+  .three-fourths-centered-r .entry-title,
+  .jgd-column-1 .entry-meta,
+  .three-fourths-centered-r .entry-meta,
+  .jgd-column-1 .entry-footer,
+  .three-fourths-centered-r .entry-footer {
+    padding: 0px 12.5%;
+  }
+}
 .page-header {
   width: 100%;
 }
 
 .entry-title,
 .page-title,
-.widget-title {
+.widget-title,
+.entry-title-imagegrid,
+.template-entry-title {
   font-size: 24px;
   font-size: 1.5rem;
   font-weight: 500;
@@ -1490,12 +1524,16 @@ article.page:hover,
 }
 .entry-title a:link,
 .page-title a:link,
-.widget-title a:link {
+.widget-title a:link,
+.entry-title-imagegrid a:link,
+.template-entry-title a:link {
   color: #795548;
 }
 .entry-title a:visited,
 .page-title a:visited,
-.widget-title a:visited {
+.widget-title a:visited,
+.entry-title-imagegrid a:visited,
+.template-entry-title a:visited {
   color: #a1887f;
 }
 .entry-title a:hover,
@@ -1503,7 +1541,11 @@ article.page:hover,
 .page-title a:hover,
 .page-title a:focus,
 .widget-title a:hover,
-.widget-title a:focus {
+.widget-title a:focus,
+.entry-title-imagegrid a:hover,
+.entry-title-imagegrid a:focus,
+.template-entry-title a:hover,
+.template-entry-title a:focus {
   color: #5d4037;
 }
 
@@ -1511,6 +1553,16 @@ article.page:hover,
 .page .entry-title {
   font-size: 34px;
   font-size: 2.125rem;
+}
+
+.blog .entry-title,
+.archive .entry-title,
+.search .entry-title {
+  margin-top: 1rem;
+}
+
+.template-entry-title {
+  width: 100%;
 }
 
 .search .entry-title {
@@ -1551,7 +1603,36 @@ article.page:hover,
   margin-bottom: 1.5em;
 }
 
+.imagegrid-wrap.jgd-grid-wrap {
+  justify-content: center;
+}
+
+.landing-to-parent {
+  padding: 0px 1em;
+  text-align: center;
+}
+
+.landing-to-parent a:link,
+.landing-to-parent a:visited {
+  color: rgba(255, 255, 255, 0.87);
+  font-weight: 500;
+}
+
+.landing-to-parent a:hover,
+.landing-to-parent a:focus {
+  color: #ffffff;
+}
+
+.page-template-page_landing article.page {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 @media screen and (min-width: 37.5em) {
+  .landing-to-parent {
+    text-align: left;
+  }
+
   .search .featured-image {
     background-color: transparent;
     margin: 2em 0 1em -1em;
@@ -2732,7 +2813,8 @@ img.wp-post-image {
 .animate input[type="submit"],
 .animate .gallery-item,
 .animate .post,
-.animate .page {
+.animate .page,
+.animate .tile {
   transition-duration: 1s;
 }
 
@@ -2780,6 +2862,14 @@ article.page.three-fourths-centered-r {
 .main-navigation {
   order: 1;
   /* first in order */
+}
+
+.page-template-page_landing #header-button-panel {
+  order: 3;
+}
+
+.page-template-page_landing .site-branding {
+  order: 2;
 }
 
 #custom-header {
@@ -2919,17 +3009,28 @@ article.page.three-fourths-centered-r {
 ## Customizer Layouts
 --------------------------------------------------------------*/
 .tile {
+  background-color: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   height: 300px;
   margin: 1em auto;
   min-width: 240px;
   position: relative;
+}
+.tile:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.page-template-page_image-grid .tile {
+  background-color: transparent;
+  box-shadow: none;
 }
 .tile .entry-header {
   position: absolute;
   bottom: 0;
   z-index: 100;
 }
-.tile .entry-title {
+.tile .entry-title,
+.tile .entry-title-imagegrid {
   font-size: 16px;
   font-size: 1rem;
   margin: 0.5rem 1rem;
@@ -2939,11 +3040,15 @@ article.page.three-fourths-centered-r {
   width: 200px;
 }
 .tile .entry-title a:link,
-.tile .entry-title a:visited {
+.tile .entry-title a:visited,
+.tile .entry-title-imagegrid a:link,
+.tile .entry-title-imagegrid a:visited {
   color: rgba(0, 0, 0, 0.87);
 }
 .tile .entry-title a:hover,
-.tile .entry-title a:focus {
+.tile .entry-title a:focus,
+.tile .entry-title-imagegrid a:hover,
+.tile .entry-title-imagegrid a:focus {
   color: #000000;
 }
 .tile .featured-image {
@@ -2955,11 +3060,6 @@ article.page.three-fourths-centered-r {
   height: 3rem;
   left: 1em;
   max-width: 240px;
-  position: absolute;
-}
-.tile img {
-  bottom: 0;
-  left: 0;
   position: absolute;
 }
 
@@ -2975,6 +3075,11 @@ article.page.three-fourths-centered-r {
     justify-content: center;
   }
 }
+@media screen and (min-width: 52.5em) {
+  .tile .scrim {
+    left: 1.5em;
+  }
+}
 @media screen and (min-width: 80em) {
   .tile {
     min-width: 300px;
@@ -2984,7 +3089,6 @@ article.page.three-fourths-centered-r {
     width: 260px;
   }
   .tile .scrim {
-    left: 1.5em;
     max-width: 300px;
   }
 }

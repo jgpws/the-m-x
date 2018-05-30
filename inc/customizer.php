@@ -372,6 +372,74 @@ function the_mx_customize_register( $wp_customize ) {
 		)
 	);
 	
+	/* Page Template Settings */
+	require_once get_stylesheet_directory() . '/inc/dropdown-category.php';
+	
+	$wp_customize->add_panel(
+		'the_mx_page_templates', array(
+			'title' => __( 'Page Template Customizations', 'the-mx' ),
+			//'priority' => 125,
+			'description' => __( 'In this section are customizations for some of the page templates that can be applied to a custom home page.', 'the-mx' ),
+			'active_callback' => 'the_mx_page_callback',
+		)
+	);
+	
+	$wp_customize->add_section(
+		'the_mx_imagegrid_template', array(
+			'title' => __( 'Image Grid', 'jgd-bizelite' ),
+			//'priority' => 125,
+			'description' => __( 'Customize the Image Grid page template.', 'jgd-bizelite' ),
+			'panel' => 'the_mx_page_templates',
+			'active_callback' => 'the_mx_page_callback',
+		)
+	);
+	
+	$wp_customize->add_setting(
+		'the_mx_cat_dropdown_1', array(
+			'type' => 'theme_mod',
+			'default' => 0,
+			'sanitize_callback' => 'absint',
+		)
+	);
+	
+	$wp_customize->add_control( new The_MX_Category_Control( $wp_customize,
+		'the_mx_cat_dropdown_1', array(
+			'section' => 'the_mx_imagegrid_template',
+			'label' => __( 'Choose a category of posts to display on the Image Grid page', 'the-mx' ),
+		)
+	) );
+	
+	$wp_customize->add_setting(
+		'the_mx_select_cat_numposts', array(
+			'type' => 'theme_mod',
+			'default' => 'all',
+			'sanitize_callback' => 'the_mx_sanitize_cat_numposts',
+		)
+	);
+	
+	$wp_customize->add_control(
+		'the_mx_select_cat_numposts', array(
+			'section' => 'the_mx_imagegrid_template',
+			'label' => __( 'Choose the number of posts to show', 'the-mx' ),
+			'type' => 'select',
+			'choices' => array(
+				'all' => __( 'Show all image grid posts', 'the-mx' ),
+				'one' => '1',
+				'two' => '2',
+				'three' => '3',
+				'four' => '4',
+				'five' => '5',
+				'six' => '6',
+				'seven' => '7',
+				'eight' => '8',
+				'nine' => '9',
+				'ten' => '10',
+				'eleven' => '11',
+				'twelve' => '12',
+			)
+		)
+	);
+	
 	/* Gallery Settings */
 	$wp_customize->add_section(
 		'the_mx_gallery_settings', array(
@@ -443,7 +511,7 @@ function the_mx_customize_register( $wp_customize ) {
 		'the_mx_gal_col_count', array(
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'default' => 3,
+			'default' => 'three',
 			'sanitize_callback' => 'the_mx_sanitize_colchoices',
 			'sanitize_js_callback' => 'the_mx_sanitize_colchoices',
 		)
@@ -485,7 +553,7 @@ function the_mx_customize_register( $wp_customize ) {
 			'label' => __( 'Limit the number of gallery thumbnails on posts/pages*', 'the-mx' ),
 			'section' => 'the_mx_gallery_settings',
 			'choices' => array(
-				'default' => 'Select number of gallery thumbnails',
+				'default' => __( 'Select number of gallery thumbnails', 'the-mx' ),
 				'one' => '1',
 				'two' => '2',
 				'three' => '3',
@@ -629,6 +697,13 @@ function the_mx_sanitize_thumbschoices( $input ) {
 	return $input;
 }
 
+function the_mx_sanitize_cat_numposts( $input ) {
+	if( !in_array( $input, array( 'all', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve' ) ) ) {
+		$input = 'all';
+	}
+	return $input;
+}
+
 function the_mx_sanitize_herocolors( $input ) {
 	if( !in_array( $input, array( 'white', 'black' ) ) ) {
 		$input = 'white';
@@ -641,4 +716,8 @@ function the_mx_sanitize_heroalign( $input ) {
 		$input = 'center';
 	}
 	return $input;
+}
+
+function the_mx_page_callback() {
+	return is_page();
 }
