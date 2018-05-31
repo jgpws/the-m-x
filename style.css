@@ -1056,7 +1056,6 @@ a:hover, a:active {
 .site-main .post-navigation,
 .site-main .images-navigation {
   background-color: #a1887f;
-  margin: 0 0 1.5em;
   margin: 0 -0.5em;
   padding: 1em;
   overflow: hidden;
@@ -1103,9 +1102,13 @@ a:hover, a:active {
   vertical-align: bottom;
 }
 
+@media (min-width: 37.5em) {
+  .site-main .comment-navigation {
+    border-radius: 2px;
+  }
+}
 @media (min-width: 52.5em) {
   /* ~840px; */
-  .site-main .comment-navigation,
   .site-main .posts-navigation,
   .site-main .post-navigation,
   .site-main .images-navigation {
@@ -1515,8 +1518,8 @@ article.page:hover,
 .entry-title,
 .page-title,
 .widget-title,
-.entry-title-imagegrid,
-.template-entry-title {
+.comments-title,
+.entry-title-imagegrid {
   font-size: 24px;
   font-size: 1.5rem;
   font-weight: 500;
@@ -1525,15 +1528,15 @@ article.page:hover,
 .entry-title a:link,
 .page-title a:link,
 .widget-title a:link,
-.entry-title-imagegrid a:link,
-.template-entry-title a:link {
+.comments-title a:link,
+.entry-title-imagegrid a:link {
   color: #795548;
 }
 .entry-title a:visited,
 .page-title a:visited,
 .widget-title a:visited,
-.entry-title-imagegrid a:visited,
-.template-entry-title a:visited {
+.comments-title a:visited,
+.entry-title-imagegrid a:visited {
   color: #a1887f;
 }
 .entry-title a:hover,
@@ -1542,10 +1545,10 @@ article.page:hover,
 .page-title a:focus,
 .widget-title a:hover,
 .widget-title a:focus,
+.comments-title a:hover,
+.comments-title a:focus,
 .entry-title-imagegrid a:hover,
-.entry-title-imagegrid a:focus,
-.template-entry-title a:hover,
-.template-entry-title a:focus {
+.entry-title-imagegrid a:focus {
   color: #5d4037;
 }
 
@@ -2193,12 +2196,12 @@ iframe.twitter-tweet {
 --------------------------------------------------------------*/
 .comments-area {
   background-color: #ffffff;
-  padding: 1rem 12.5%;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   width: 100%;
 }
-
-.comments-area .navigation {
-  border-radius: 2px;
+.comments-area:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .comment-list li {
@@ -2814,7 +2817,8 @@ img.wp-post-image {
 .animate .gallery-item,
 .animate .post,
 .animate .page,
-.animate .tile {
+.animate .tile,
+.animate .comments-area {
   transition-duration: 1s;
 }
 
@@ -2834,6 +2838,26 @@ img.wp-post-image {
   animation-duration: 3s;
 }
 
+.headroom {
+  position: fixed;
+  width: 100%;
+  will-change: transform;
+  transition: transform 200ms linear;
+}
+
+.headroom--pinned {
+  transform: translateY(0%);
+}
+
+.headroom--unpinned {
+  transform: translateY(-100%);
+}
+
+/* Move content down the height of the header to suit the fixed header */
+.headroom + .site-content {
+  padding-top: 4rem;
+}
+
 /*--------------------------------------------------------------
 ## For jgd-material-grid
 --------------------------------------------------------------*/
@@ -2844,11 +2868,24 @@ article.page.jgd-column-1,
 .single .post.jgd-column-1,
 .single .post.three-fourths-centered-r,
 article.page.jgd-column-1,
-article.page.three-fourths-centered-r {
+article.page.three-fourths-centered-r,
+.comments-area.three-fourths-centered-r,
+.comments-area.jgd-column-1 {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
+.comments-area.three-fourths-centered-r {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@media screen and (min-width: 48em) {
+  .comments-area.jgd-column-1 {
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+  }
+}
 #header-button-panel {
   order: 2;
   /* second in order */

@@ -61,7 +61,7 @@ function the_mx_customize_register( $wp_customize ) {
 			$wp_customize,
 			'the_mx_custom_primary_1', array(
 				'label' => __( 'Primary Color 1', 'the-mx' ),
-				'description' => __( 'Color for the title bar, footer, entry-title links, etc.', 'the-mx' ),
+				'description' => __( 'Color for the title bar, footer, links, etc.', 'the-mx' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_primary_1',
 				//'active_callback' => 'the_mx_show_custom_colors',
@@ -84,7 +84,7 @@ function the_mx_customize_register( $wp_customize ) {
 			$wp_customize,
 			'the_mx_custom_primary_2', array(
 				'label' => __( 'Primary Color 2', 'the-mx' ),
-				'description' => __( 'Color for the header button panel, etc.', 'the-mx' ),
+				'description' => __( 'Color for the header button panel, link hover, etc.', 'the-mx' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_primary_2',
 			)
@@ -172,7 +172,7 @@ function the_mx_customize_register( $wp_customize ) {
 			$wp_customize,
 			'the_mx_custom_accent_2', array(
 				'label' => __( 'Accent Color 2', 'the-mx' ),
-				'description' => __( 'Link colors, button hover colors, etc.', 'the-mx' ),
+				'description' => __( 'Button hover colors, etc.', 'the-mx' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_accent_2',
 			)
@@ -194,7 +194,7 @@ function the_mx_customize_register( $wp_customize ) {
 			$wp_customize,
 			'the_mx_custom_accent_3', array(
 				'label' => __( 'Accent Color 3', 'the-mx' ),
-				'description' => __( 'Link hover colors, etc.', 'the-mx' ),
+				'description' => __( 'Navigation and widget link hover colors, etc.', 'the-mx' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_accent_3',
 			)

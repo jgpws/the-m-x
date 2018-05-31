@@ -25,7 +25,8 @@
 .animate .gallery-item,
 .animate .post,
 .animate .page,
-.animate .tile {
+.animate .tile,
+.animate .comments-area {
 	transition-duration: 1s;
 }
 
@@ -44,4 +45,25 @@
 // For Colorbox
 .animate #cboxLoadedContent.fadeIn {
 	animation-duration: 3s;
+}
+
+// For Headroom
+.headroom {
+	position: fixed;
+	width: 100%;
+	will-change: transform;
+	transition: transform 200ms linear;
+}
+
+.headroom--pinned {
+	transform: translateY(0%);
+}
+
+.headroom--unpinned {
+	transform: translateY(-100%);
+}
+
+/* Move content down the height of the header to suit the fixed header */
+.headroom + .site-content {
+	padding-top: 4rem;
 }

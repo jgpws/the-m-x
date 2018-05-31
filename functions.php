@@ -203,6 +203,10 @@ function the_mx_enqueue_scripts() {
 	);
 	wp_localize_script( 'the-mx-grid-js', 'jgdGridParams', $parameters );
 	
+	if( is_page_template( 'page-templates/page_landing.php' ) ) {
+		wp_enqueue_script( 'the-mx-headroom', get_template_directory_uri() . '/js/headroom.min.js', array(), '20180530', true );
+	}
+	
 	wp_enqueue_script( 'the-mx-scripts', get_template_directory_uri() . '/js/the-mx-scripts.js', array(), '', true );
 	
 	$parameters = array(

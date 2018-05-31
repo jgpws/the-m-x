@@ -360,6 +360,17 @@
 			desktopNavButtons();
 		}, 250 );
 	}
+	
+	
+	function disappearingHeader() {
+		if ( document.body.classList.contains( 'page-template-page_landing' ) ) {
+			var theHeader = document.querySelector( '#masthead' );
+			
+			var headroom = new Headroom( theHeader );
+			headroom.init();
+		}
+	}
+	window.onload = disappearingHeader();
 
 
 	function skrollrAnimations() {

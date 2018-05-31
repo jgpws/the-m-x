@@ -5,9 +5,23 @@ article.page.jgd-column-1,
 .single .post.jgd-column-1,
 .single .post.three-fourths-centered-r,
 article.page.jgd-column-1,
-article.page.three-fourths-centered-r {
+article.page.three-fourths-centered-r,
+.comments-area.three-fourths-centered-r,
+.comments-area.jgd-column-1 {
 	margin-top: 1em;
 	margin-bottom: 1em;
+}
+
+.comments-area.three-fourths-centered-r {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+@media screen and (min-width: 48em) {
+	.comments-area.jgd-column-1 {
+		padding-left: 12.5%;
+		padding-right: 12.5%;
+	}
 }
 
 #header-button-panel {

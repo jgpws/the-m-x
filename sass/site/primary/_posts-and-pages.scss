@@ -43,8 +43,8 @@ article.page:hover,
 .entry-title,
 .page-title,
 .widget-title,
-.entry-title-imagegrid,
-.template-entry-title {
+.comments-title,
+.entry-title-imagegrid {
 	@include font-size(1.5);
 	font-weight: $font__weight-bold;
 	line-height: 2rem;

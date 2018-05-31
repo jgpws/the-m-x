@@ -14,6 +14,7 @@
 		var pageContainer = document.querySelector( '.page article.page' );
 	 	var stickyContainers = document.querySelectorAll( '.blog .sticky, .archive .sticky' );
 	 	var singlePostContainer = document.querySelector( '.single .post' );
+	 	var commentsContainer = document.querySelector( '.single .comments-area' );
 	 	var bodyTag = document.getElementsByTagName( 'body' )[0];
 
  		if ( windowWidth >= 1280 ) {
@@ -41,6 +42,11 @@
 					stickyContainers[i].classList.remove( 'jgd-column-1' );
 				}
 			}
+			
+			if ( jgdGridParams.layouts === 'wide' ) {
+				commentsContainer.classList.add( 'jgd-column-1' );
+				commentsContainer.classList.remove( 'three-fourths-centered-r' );
+			}
  		} else if ( windowWidth <= 1279 && windowWidth >= 720 ) {
  			console.log('Window size is greater than 720');
  			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
@@ -50,6 +56,11 @@
 					stickyContainers[i].classList.remove( 'two-by-two-centered-r' );
 				}
 			}
+			
+			if ( jgdGridParams.layouts === 'wide' ) {
+				commentsContainer.classList.add( 'jgd-column-1' );
+				commentsContainer.classList.remove( 'three-fourths-centered-r' );
+			}
  		} else {
  			console.log('Window size is less than 720');
  			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
@@ -58,6 +69,11 @@
 					stickyContainers[i].classList.remove( 'three-fourths-centered-r' );
 					stickyContainers[i].classList.remove( 'two-by-two-centered-r' );
 				}
+			}
+			
+			if ( jgdGridParams.layouts === 'wide' ) {
+				commentsContainer.classList.add( 'jgd-column-1' );
+				commentsContainer.classList.remove( 'three-fourths-centered-r' );
 			}
  		}
  	}

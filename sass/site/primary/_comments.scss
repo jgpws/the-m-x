@@ -1,11 +1,13 @@
 .comments-area {
 	background-color: $white;
-	@include padding-two-values(1rem, 12.5%);
-	width: 100%;
-}
-
-.comments-area .navigation {
 	border-radius: 2px;
+	box-shadow: $box-shadow-small;
+	width: 100%;
+	
+	&:hover {
+		box-shadow: $box-shadow-large;
+	}
+	
 }
 
 .comment-list li {

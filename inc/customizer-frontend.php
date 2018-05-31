@@ -476,7 +476,8 @@ mark, ins {
 	background:url(' . get_template_directory_uri() . '/css/images/ic_cancel_white_hover_24px.svg) no-repeat center center !important;
 }
 
-pre {
+pre,
+.bypostauthor .comment-content {
 	background-color: #' . $bg_color . ';
 }
 
@@ -688,7 +689,8 @@ body.attachment.custom-background.colorbox .entry-attachment-image p {
 .archive .wp-caption-text,
 .search .no-results,
 .search .no-results input.search-field,
-pre {
+pre,
+.comment-content {
 	color: rgba(255, 255, 255, 0.87);
 }
 
