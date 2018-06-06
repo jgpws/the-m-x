@@ -8,6 +8,7 @@
 (function() {
 	// Global variables
 	var windowWidth = window.innerWidth;
+	var bodyElHeight = document.getElementsByTagName( 'body' )[0].clientHeight;
 	var headerPanel = document.getElementById( 'header-button-panel' );
 	var socialContainer = document.getElementById( 'menu-social' );
 	
@@ -28,9 +29,9 @@
 	}
 	
 	
-	console.log(hexToR(mxScriptParams.primaryColor3));
-	console.log(hexToG(mxScriptParams.primaryColor3));
-	console.log(hexToB(mxScriptParams.primaryColor3));
+	//console.log(hexToR(mxScriptParams.primaryColor3));
+	//console.log(hexToG(mxScriptParams.primaryColor3));
+	//console.log(hexToB(mxScriptParams.primaryColor3));
 	
 	
 	function cutHex(h) {
@@ -173,9 +174,8 @@
 		/* Toggle sidebar script */
 		var container, toggleButton, sidebar, chevronLeft, chevronRight;
 		//var bodyEl = document.getElementsByTagName( 'body' )[0];
-		var bodyElHeight = document.getElementsByTagName( 'body' )[0].clientHeight;
-		console.log(bodyElHeight);
-		console.log(window.outerHeight);
+		console.log( 'body height is: ' + bodyElHeight );
+		console.log( 'window height is: ' + window.outerHeight );
 		
 		container = document.getElementById( 'content' );
 		if ( ! container ) {
@@ -245,6 +245,48 @@
 		}
 	}
 	window.onload = toggleSidebar();
+	
+	
+	function addOverlayToSidebar(e) {
+		/* Add a "scrim" div to the bottom of the sidebar when Overlay design is used (sidebar slides in/out) */
+		
+		var overlayStylesheet = document.head.querySelector( 'link[href*="/layouts/content-sidebar-overlay.css"]' );
+		var theSidebar = document.querySelector( '#secondary' );
+		
+		if ( overlayStylesheet !== '' ) {
+			theSidebar.insertAdjacentHTML( 'beforeend', '<div class="scrim"></div>' );
+		}
+		
+		var theScrim = document.querySelector( '#secondary .scrim' );
+		
+		function animateScrim() {
+			theScrim.classList.add( 'animated' );
+			if ( window.pageYOffset > theSidebar.getBoundingClientRect().height - window.innerHeight ) {
+				theScrim.style.opacity = '0';
+				theScrim.style.transitionDuration = '1s';
+			} else {
+				theScrim.style.opacity = '1';
+				theScrim.style.transitionDuration = '0.5s';
+			}
+		}
+		
+		function scrimTimeout() {
+			scrTimeout = setTimeout( animateScrim, 250 );
+		}
+		
+		if ( bodyElHeight > window.outerHeight ) {
+			console.log( theSidebar.getBoundingClientRect().height );
+			theScrim.style.position = 'fixed';
+			theScrim.style.bottom =  '0px';
+			window.addEventListener( 'scroll', scrimTimeout );
+		} else {
+			console.log( document.body.clientHeight );
+			console.log( theSidebar.getBoundingClientRect().height );
+			theScrim.style.position = 'fixed';
+			theScrim.style.bottom = document.body.clientHeight - theSidebar.getBoundingClientRect().height + 'px';
+		}
+	}
+	window.onload = addOverlayToSidebar();
 	
 	
 	function toggleSearchbar() {

@@ -70,5 +70,12 @@
 	<?php 
 		endwhile; ?>
 		</div><?php
+		$morebutton = get_theme_mod( 'the_mx_add_showmore_button' );
+		$cat_id = intval( get_theme_mod( 'the_mx_cat_dropdown_1' ) );
+		$cat_link = get_category_link( $cat_id );
+		
+		if( $morebutton == 1 ) { ?>
+		<a href="<?php echo esc_url( $cat_link ); ?>" class="more-link"><?php the_mx_showmore_title_render(); ?></a>
+		<?php }
 	endif ?>
 </article><!-- #post-## -->

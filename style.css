@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/tag/the-m-x/
 Author: Jason G. Designs
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.0.8
+Version: 1.0.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: the-mx
@@ -1931,15 +1931,6 @@ body.attachment.colorbox img {
   padding-top: 0;
 }
 
-/* Removes admin bar css in attachment pages with colorbox enabled */
-body.attachment.admin-bar.colorbox #wpadminbar {
-  display: none;
-}
-
-body.attachment.admin-bar.colorbox {
-  margin-top: -46px;
-}
-
 @media screen and (min-width: 37.5em) {
   body.attachment.colorbox .entry-attachment-image {
     margin-left: -1em;
@@ -1952,11 +1943,6 @@ body.attachment.admin-bar.colorbox {
     margin-left: -1.5em;
     margin-right: -1.5em;
     width: calc(100% + 3em);
-  }
-}
-@media screen and (min-width: 783px) {
-  body.attachment.admin-bar.colorbox {
-    margin-top: -32px;
   }
 }
 /*--------------------------------------------------------------
@@ -2515,7 +2501,12 @@ object {
   margin: -1em;
 }
 
-.scrim {
+.imagegrid .featured-image,
+.page-template-page_image-grid .featured-image {
+  margin: 0px;
+}
+
+.has-post-thumbnail .scrim {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
   bottom: 0;
   height: 33%;
@@ -2524,8 +2515,8 @@ object {
 }
 
 .featured-image,
-.scrim {
-  width: calc(100% + 2em);
+.has-post-thumbnail .scrim {
+  width: auto;
 }
 
 img.wp-post-image {
@@ -2534,13 +2525,6 @@ img.wp-post-image {
   margin-right: auto;
 }
 
-@media screen and (min-width: 52.5em) {
-  .featured-image,
-  .scrim {
-    width: calc(100% + 3em);
-    margin: -1.5em -1.5em 0 -1.5em;
-  }
-}
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -2970,7 +2954,7 @@ article.page.three-fourths-centered-r,
     margin: 0 auto;
   }
 
-  .three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
+  .three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
   .jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
   .three-fourths-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
   .jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
@@ -3051,8 +3035,8 @@ article.page.three-fourths-centered-r,
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   height: 300px;
   margin: 1em auto;
-  min-width: 240px;
   position: relative;
+  width: 240px;
 }
 .tile:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -3088,16 +3072,19 @@ article.page.three-fourths-centered-r,
 .tile .entry-title-imagegrid a:focus {
   color: #000000;
 }
+.tile .entry-content {
+  padding: 0px;
+}
 .tile .featured-image {
   background-color: transparent;
 }
 .tile .scrim {
   background-color: rgba(255, 255, 255, 0.7);
   background-image: none;
+  bottom: 0px;
   height: 3rem;
-  left: 1em;
-  max-width: 240px;
   position: absolute;
+  width: 100%;
 }
 
 .blog.imagegrid main.jgd-grid-wrap,
@@ -3112,21 +3099,31 @@ article.page.three-fourths-centered-r,
     justify-content: center;
   }
 }
-@media screen and (min-width: 52.5em) {
-  .tile .scrim {
-    left: 1.5em;
+.page-template-page_image-grid .more-link {
+  display: block;
+  text-align: center;
+}
+
+@media screen and (min-width: 37.5em) {
+  .tile {
+    width: 300px;
+  }
+
+  .page-template-page_image-grid .more-link {
+    margin: 0px 12.5%;
   }
 }
 @media screen and (min-width: 80em) {
   .tile {
-    min-width: 300px;
     margin: 1.5em;
   }
-  .tile .entry-title {
-    width: 260px;
+  .tile .entry-title,
+  .tile .entry-title-imagegrid {
+    width: 240px;
   }
-  .tile .scrim {
-    max-width: 300px;
+
+  .page-template-page_image-grid .more-link {
+    margin: 0px 25%;
   }
 }
 

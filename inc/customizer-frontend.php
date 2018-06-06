@@ -935,4 +935,14 @@ a:focus {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'the_mx_frontend_customizer_styles' );
+
+function the_mx_showmore_title_render() {
+	// shows either a default or a custom title in the Image Grid page template
+	$more_button_title = esc_html( get_theme_mod( 'the_mx_customize_showmore_title' ) );
+	if( $more_button_title != '' ) {
+		echo $more_button_title;
+	} else {
+		echo __( 'More posts', 'the-mx' );
+	}
+}
 ?>

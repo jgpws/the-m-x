@@ -51,7 +51,7 @@ global $post;
 					<?php 
 					} ?>
 				<?php else: ?>
-					<a href="<?php echo wp_get_attachment_url($post->id); ?>" title="<?php echo wp_specialchars( get_the_title($post->id), 1 ); ?>" rel="attachment"><?php echo basename($post->guid); ?></a>
+					<a href="<?php echo wp_get_attachment_url($post->id); ?>" title="<?php echo esc_html( get_the_title($post->id), 1 ); ?>" rel="attachment"><?php echo basename($post->guid); ?></a>
 				<?php endif; ?>
 				</div>
 				<?php the_content(); ?>

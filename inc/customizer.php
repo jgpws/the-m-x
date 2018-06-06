@@ -17,7 +17,7 @@ function the_mx_customize_register( $wp_customize ) {
 	
 	$wp_customize->get_section( 'colors' )->title = __( 'Color Schemes', 'the-mx' );
 	$wp_customize->get_section( 'colors' )->description = sprintf(
-		__('%1$sChoose an alternate color scheme.%2$s %1$sFor more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.%2$s %1$s* To restore the default background color: While under the Custom color scheme, Select Color, then select Default.%2$s', 'the-mx' ), 
+		__('%1$sChoose an alternate color scheme.%2$s %1$sFor more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.%2$s %1$s* To restore the default background color: Select Color, then select Default.%2$s', 'the-mx' ), 
 		'<p>', '</p>', '<a href="https://material.io/guidelines/style/color.html#color-color-palette">', '</a>' );
 		
 	$wp_customize->remove_control( 'header_textcolor' );
@@ -386,9 +386,9 @@ function the_mx_customize_register( $wp_customize ) {
 	
 	$wp_customize->add_section(
 		'the_mx_imagegrid_template', array(
-			'title' => __( 'Image Grid', 'jgd-bizelite' ),
+			'title' => __( 'Image Grid', 'the-mx' ),
 			//'priority' => 125,
-			'description' => __( 'Customize the Image Grid page template.', 'jgd-bizelite' ),
+			'description' => __( 'Customize the Image Grid page template.', 'the-mx' ),
 			'panel' => 'the_mx_page_templates',
 			'active_callback' => 'the_mx_page_callback',
 		)
@@ -439,6 +439,47 @@ function the_mx_customize_register( $wp_customize ) {
 			)
 		)
 	);
+	
+	$wp_customize->add_setting(
+		'the_mx_add_showmore_button', array(
+			'type' => 'theme_mod',
+			'default' => 0,
+			'transport' => 'postMessage',
+			'sanitize_callback' => 'the_mx_sanitize_checkbox',
+		)
+	);
+	
+	$wp_customize->add_control(
+		'the_mx_add_showmore_button', array(
+			'section' => 'the_mx_imagegrid_template',
+			'label' => __( 'More posts', 'the-mx' ),
+			'description' => sprintf( __( 'Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts\' category page.', 'the-mx' ), '<strong>', '</strong>' ),
+			'type' => 'checkbox',
+		)
+	);
+	
+	$wp_customize->add_setting(
+		'the_mx_customize_showmore_title', array(
+			'type' => 'theme_mod',
+			'default' => __( 'More Posts', 'the-mx' ),
+			'transport' => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	
+	$wp_customize->add_control(
+		'the_mx_customize_showmore_title', array(
+			'section' => 'the_mx_imagegrid_template',
+			'label' => __( 'Change the title of the More Posts button', 'the-mx' ),
+			'type' => 'text',
+		)
+	);
+	
+	$wp_customize->selective_refresh->add_partial( 'the_mx_customize_showmore_title', array(
+		'selector' => '.page-template-page_image-grid .more-link',
+		'container_inclusive' => false,
+		'render_callback' => 'the_mx_showmore_title_render', // in customizer-frontend.php
+	) );
 	
 	/* Gallery Settings */
 	$wp_customize->add_section(
@@ -643,10 +684,6 @@ function the_mx_customizer_controls() {
 add_action( 'customize_controls_enqueue_scripts', 'the_mx_customizer_controls' );
 
 /* Sanitization functions */
-/*function the_mx_sanitize_text( $input ) {
-	return sanitize_text_field( $input );
-}*/
-
 function the_mx_sanitize_checkbox( $input ) {
 	if( $input == 1 ) {
 		return 1;

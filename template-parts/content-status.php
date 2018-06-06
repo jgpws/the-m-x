@@ -23,7 +23,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			<?php
 				the_content( sprintf(
 					/* translators: %s: Name of current post. */
-					__( 'Continue reading', '', 'the-mx' ),
+					__( 'Continue reading %s...', 'the-mx' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
 	

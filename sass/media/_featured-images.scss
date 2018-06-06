@@ -51,7 +51,12 @@
 	margin: -1em;
 }
 
-.scrim {
+.imagegrid .featured-image,
+.page-template-page_image-grid .featured-image {
+	margin: 0px;
+}
+
+.has-post-thumbnail .scrim {
 	background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
 	bottom: 0;
 	height: 33%;
@@ -60,18 +65,10 @@
 }
 
 .featured-image,
-.scrim {
-	width: calc(100% + 2em);
+.has-post-thumbnail .scrim {
+	width: auto;
 }
 
 img.wp-post-image {
 	@include center-block;
-}
-
-@media screen and (min-width: 52.5em) {
-	.featured-image,
-	.scrim {
-		width: calc(100% + 3em);
-		@include margin-four-values(-1.5em, -1.5em, 0, -1.5em);
-	}
 }

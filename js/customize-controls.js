@@ -16,17 +16,14 @@
 				'the_mx_custom_accent_2',
 				'the_mx_custom_accent_3',
 			];
-			var bgColorControlId = '#customize-control-background_color';
 			
 			if ( wp.customize.instance( 'the_mx_color_scheme' ).get() === 'custom' ) {
 				$.each( colorControlIds, function ( i, value ) {	
 					$( '#customize-control-' + value ).show();
-					$( bgColorControlId ).show();
 				} );
 			} else {
 				$.each( colorControlIds, function ( i, value ) { 
 					$( '#customize-control-' + value ).hide();
-					$( bgColorControlId ).hide();
 					//console.log( '#customize-control-' + value );
 				} );
 			}
@@ -39,6 +36,23 @@
 		
 		// ... and on radio button change
 		$( '#customize-control-the_mx_color_scheme' ).on( 'change', hideShowColorControls );
+		
+		function hideShowCustomMoreTitle() {
+			var imgGridMoreLink = $( '#customize-control-the_mx_customize_showmore_title' );
+			
+			if ( wp.customize.instance( 'the_mx_add_showmore_button' ).get() === true ) {
+				imgGridMoreLink.show();
+			} else {
+				imgGridMoreLink.hide();
+			}
+			
+			return hideShowCustomMoreTitle;
+		}
+		
+		hideShowCustomMoreTitle();
+		
+		$( '#customize-control-the_mx_add_showmore_button' ).on( 'change', hideShowCustomMoreTitle );
+		
 	} );
 
 } ) (jQuery);

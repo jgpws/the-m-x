@@ -18,7 +18,7 @@
 	 	var bodyTag = document.getElementsByTagName( 'body' )[0];
 
  		if ( windowWidth >= 1280 ) {
- 			console.log('Window size is greater than 1280');
+ 			console.log( 'Window size is greater than 1280' );
 			if ( document.body.contains( singlePostContainer ) ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					singlePostContainer.classList.add( 'three-fourths-centered-r' );
@@ -43,12 +43,12 @@
 				}
 			}
 			
-			if ( jgdGridParams.layouts === 'wide' ) {
+			if ( jgdGridParams.layouts === 'wide' && commentsContainer ) {
 				commentsContainer.classList.add( 'jgd-column-1' );
 				commentsContainer.classList.remove( 'three-fourths-centered-r' );
 			}
  		} else if ( windowWidth <= 1279 && windowWidth >= 720 ) {
- 			console.log('Window size is greater than 720');
+ 			console.log( 'Window size is greater than 720' );
  			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					stickyContainers[i].classList.add( 'three-fourths-centered-r' );
@@ -57,7 +57,7 @@
 				}
 			}
 			
-			if ( jgdGridParams.layouts === 'wide' ) {
+			if ( jgdGridParams.layouts === 'wide' && commentsContainer ) {
 				commentsContainer.classList.add( 'jgd-column-1' );
 				commentsContainer.classList.remove( 'three-fourths-centered-r' );
 			}
@@ -71,7 +71,7 @@
 				}
 			}
 			
-			if ( jgdGridParams.layouts === 'wide' ) {
+			if ( jgdGridParams.layouts === 'wide' && commentsContainer ) {
 				commentsContainer.classList.add( 'jgd-column-1' );
 				commentsContainer.classList.remove( 'three-fourths-centered-r' );
 			}

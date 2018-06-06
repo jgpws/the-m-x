@@ -441,15 +441,6 @@ body.attachment.colorbox img {
 	padding-top: 0;
 }
 
-/* Removes admin bar css in attachment pages with colorbox enabled */
-body.attachment.admin-bar.colorbox #wpadminbar {
-	display: none;
-}
-
-body.attachment.admin-bar.colorbox {
-	margin-top: -46px;
-}
-
 @media screen and (min-width: 37.5em) {
 	body.attachment.colorbox .entry-attachment-image {
 		margin-left: -1em;
@@ -463,11 +454,5 @@ body.attachment.admin-bar.colorbox {
 		margin-left: -1.5em;
 		margin-right: -1.5em;
 		width: calc(100% + 3em);
-	}
-}
-
-@media screen and (min-width: 783px) {
-	body.attachment.admin-bar.colorbox {
-		margin-top: -32px;
 	}
 }

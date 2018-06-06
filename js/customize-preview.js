@@ -136,6 +136,18 @@
 				
 			}
 		} );
+		
+		// For the More Posts button in the Image Grid page template
+		wp.customize( 'the_mx_add_showmore_button', function ( value ) {
+			value.bind( function( to ) { 
+				if ( true === to ) {
+					$( '.page-template-page_image-grid .more-link' ).show();
+					console.log(to);
+				} else {
+					$( '.page-template-page_image-grid .more-link' ).hide();
+				}
+			} );
+		} );
 	} );
 	
 	/* Open the theme's Sidebar when sidebar control is open */

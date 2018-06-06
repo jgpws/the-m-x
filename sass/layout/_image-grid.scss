@@ -4,8 +4,8 @@
 	box-shadow: $box-shadow-small;
 	height: 300px;
 	margin: 1em auto;
-	min-width: 240px;
 	position: relative;
+	width: 240px;
 	
 	&:hover {
 		box-shadow: $box-shadow-large;
@@ -39,6 +39,11 @@
 		a:focus {
 			color: $black;
 		}
+
+	}
+	
+	.entry-content {
+		padding: 0px;
 	}
 	
 	.featured-image {
@@ -48,10 +53,10 @@
 	.scrim {
 		background-color: $primary-text-color-medium-white;
 		background-image: none;
+		bottom: 0px;
 		height: 3rem;
-		left: 1em;
-		max-width: 240px;
 		position: absolute;
+		width: 100%;
 	}
 }
 
@@ -68,24 +73,33 @@
 	}
 }
 
-@media screen and (min-width: 52.5em) {
-	.tile .scrim {
-		left: 1.5em;
+.page-template-page_image-grid .more-link {
+	display: block;
+	text-align: center;
+}
+
+@media screen and (min-width: 37.5em) {
+	.tile {
+		width: 300px;
+	}
+	
+	.page-template-page_image-grid .more-link {
+		@include margin-two-values(0px, 12.5%);
 	}
 }
 
 @media screen and (min-width: 80em) {
 	.tile {
-		min-width: 300px;
 		margin: 1.5em;
 		
-		.entry-title {
-			width: 260px;
+		.entry-title,
+		.entry-title-imagegrid {
+			width: 240px;
 		}
-		
-		.scrim {
-			max-width: 300px;
-		}
+	}
+	
+	.page-template-page_image-grid .more-link {
+		@include margin-two-values(0px, 25%);
 	}
 }
 
