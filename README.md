@@ -31,7 +31,7 @@ In the Customizer:
 
 * Under **Animation**, right now, animations on scroll (with Skrollr.js) do not play nicely with Colorbox. To enable Colorbox, go to **Gallery Settings** and check **Enable/disable Colorbox for the gallery**. Skrollr uses a method when in mobile, it fixes the viewport in place and scrolls the content using CSS transforms. Fixed type elements such as Colorbox popups are fixed to the scroll location. Thus, the popups don't appear on screen when they are scrolled out of view. I tested this in Firefox and Chromium. Chromium places the popups on screen but in its scroll location, while Firefox doesn't place them on screen at all. Temporarily, until I fix this, one on these features should be used *or* the other.
 
-* More features are on the way! I still need to add a few Page Templates (dependent on whether Gutenberg will support page templates on launch).
+* More features are on the way! ~~I still need to add a few Page Templates (dependent on whether Gutenberg will support page templates on launch).~~ Two page templates have been added: Landing page and Image Grid.
 
 ___
 
@@ -42,6 +42,28 @@ Fixes:
 * Some small CSS tweaks to make the theme look better were made, including shrinking the width of the content area for the standard layout (Centered layout). This provides a shorter line length across.
 
 * Even though I shrank the entire content area, elements that have .alignfull and .alignwide applied in Gutenberg still span past the content area's boundaries.
+
+___
+
+Optional fixes:
+
+On the last update, I ran The M.X. through Theme Check in preparation for wp.org. One thing that is not allowed is hiding the admin bar for any purpose. So I removed the CSS code that hides the admin bar in Colorbox windows. It made since to originally hide the admin bar there, as it only shows an attachment page or an image. To restore this functionality, you can add the CSS code below to the WordPress **Additional CSS** section in the Customizer.
+
+```
+body.attachment.admin-bar.colorbox #wpadminbar {
+  display: none;
+}
+
+body.attachment.admin-bar.colorbox {
+  margin-top: -46px;
+}
+
+@media screen and (min-width: 783px) {
+  body.attachment.admin-bar.colorbox {
+    margin-top: -32px;
+  }
+}
+```
 
 ___
 
