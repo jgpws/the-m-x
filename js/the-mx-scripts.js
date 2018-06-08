@@ -84,11 +84,10 @@
 		/* Toggle social media button panel */
 		var socialToggleButton;
 		
-		if ( document.body.contains( socialContainer ) ) {
+		if ( socialContainer ) {
 			socialContainer.insertAdjacentHTML( 'beforebegin', '<button class="social-toggle" id="social-button"><i class="material-icons">people</i></button>' );
+			socialToggleButton = document.getElementById( 'social-button' );
 		}
-		
-		socialToggleButton = document.getElementById( 'social-button' );
 		
 		if ( windowWidth < 768 ) {
 			socialContainer.classList.add( 'hide' );
@@ -104,7 +103,11 @@
 				}
 			}
 		} else {
-			socialToggleButton.style.display = 'none';
+			if ( socialToggleButton ) {
+				if ( socialContainer ) {
+					socialToggleButton.style.display = 'none';
+				}
+			}
 		}
 	}
 	window.onload = toggleSocialPanel();
