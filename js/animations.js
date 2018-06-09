@@ -63,7 +63,8 @@
 		var menuButton = $( '.main-navigation .menu-toggle' );
 		var menuDropdownButton = $( '.main-navigation .menu-down-arrow' );
 		var menu = $( '.main-navigation .menu-down-arrow + ul' );
-		var subMenuButton = $( '.main-navigation .menu-down-arrow .menu-down-arrow' ); // two levels deep
+		var subMenuButton = $( '.main-navigation .children .menu-down-arrow' );
+		var customSubMenuButton = $( '.main-navigation .sub-menu .menu-down-arrow' );
 		var subMenu = $( '.main-navigation .menu-down-arrow + ul ul' );
 		var mobileMenu = $( '#primary-menu .nav-menu' );
 		var mobileSubmenu = $( '#primary-menu .nav-menu ul' );
@@ -77,32 +78,47 @@
 		mobileMenuCustom.addClass( 'animated' );
 	
 		if ( windowWidth >= 600 ) {
-			// Hide the menu on load with jQuery
-			menu.addClass( 'hide' );
-			mobileMenu.addClass( 'hide' );
-			
 			// https://medium.com/@oscarmwana/toggling-animate-css-with-jquery-972415aa0a71
 			menuDropdownButton.on( 'click', function() {
 				// $(this) = button with .menu-down-arrow class; next() = the next item, represented by menu variable
 				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
-					$(this).next().addClass( 'fadeInUp' ).removeClass( 'hide' ).one( animationEnd, function() {
+					$(this).next().addClass( 'fadeInUp' ).css( 'left', 'auto' ).one( animationEnd, function() {
 						$(this).removeClass( 'fadeInUp' );
 						//console.log($(this));
 					} );
-					subMenu.removeClass( 'animated fadeOutDown fadeInUp' );
 				} else {
-					$(this).next().addClass( 'fadeOutDown' ).one( animationEnd, function() {
-						$(this).addClass( 'hide' ).removeClass( 'fadeOutDown' );
+					$(this).next().addClass( 'fadeOutDown' ).css( 'left', 'auto' ).one( animationEnd, function() {
+						$(this).removeClass( 'fadeOutDown' ).css( 'left', '-9999em' );
 						//console.log($(this));
 					} );
-					
-					// Remove all classes related to hiding and showing on menus two levels deep
-					// as the second click cancels out the first menu
-					subMenu.removeClass( 'animated fadeOutDown fadeInUp' );
-					subMenu.addClass( 'hide' );
 				}
 				$(this).toggleClass( 'rotate180' );
-			});
+			} );
+			subMenu.click( function( e ) { 
+				e.stopPropagation();
+				console.log($(this));
+			} );
+			
+			// For page menu fallback
+			subMenuButton.click( function( e ) {
+				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
+					$(this).next().css( 'left', '25%' );
+				} else {
+					$(this).next().css( 'left', '25%' );
+				}
+			} );
+			
+			// For custom menus
+			customSubMenuButton.click( function( e ) {
+				e.stopPropagation();
+				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
+					$(this).next().css( 'left', '25%' );
+					
+				} else {
+					$(this).next().css( 'left', '25%' );
+				}
+			} );
+			console.log(customSubMenuButton);
 		} 
 		
 		if(windowWidth < 600) {
@@ -135,7 +151,7 @@
 	}
 	window.onload = animateMenu();
 	window.onresize = function() {
-		timeOut = setTimeout( function() { // Delay rendering/event so that event doesn't fire multiple times
+		var timeOut = setTimeout( function() { // Delay rendering/event so that event doesn't fire multiple times
 			animateMenu();
 		}, 250 );
 		

@@ -60,20 +60,17 @@ function the_mx_add_grid_layouts( $classes ) {
 		switch ( $grid_layout ) { // opens switch
 			case 'centered':
 				$classes[] = 'three-fourths-centered-r';
-				return $classes;
 			break;
 			case 'wide':
 				$classes[] = 'jgd-column-1';
-				return $classes;
 			break;
 			case 'twobytwo':
 				$classes[] = 'two-by-two-centered-r';
-				return $classes;
 			break;
 			default:
 				$classes[] = 'jgd-column-1';
-				return $classes;
 		} // closes switch
+		return $classes;
 	}
 }
 add_filter( 'post_class', 'the_mx_add_grid_layouts' );

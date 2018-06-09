@@ -340,6 +340,12 @@
 				box-shadow: $box-shadow-medium;
 				display: block;
 				top: 3rem;
+				left: -9999em;
+			}
+			
+			.children.toggled-submenu,
+			.sub-menu.toggled-submenu {
+				left: auto;
 			}
 			
 			.children a:link,
@@ -358,7 +364,7 @@
 			.sub-menu a:hover,
 			.sub-menu a:focus {
 				color: $accent-color-darker;
-				border-bottom-color: transparent;
+				border-bottom: none;
 			}
 			
 			.children ul,
@@ -405,6 +411,12 @@
 		}
 	
 	}
+	
+	// Animations require sub menus to have a persistent left position; hiding on load is done in animations.js
+	/*.animate .site-header .main-navigation .children,
+	.animate .site-header .main-navigation .sub-menu {
+		left: auto;
+	}*/
 	
 	.error404 .widget li a {
 		display: inline-block;
