@@ -3,7 +3,21 @@
 ( function( $ ) { // opens document ready function
 	
 	// Global variables
-	var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+	//var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+	var animationEnd = ( function( el ) {
+		var animations = {
+			'animation': 'animationend',
+			'OAnimation': 'oAnimationEnd',
+			'MozAnimation': 'mozAnimationEnd',
+			'WebkitAnimation': 'webkitAnimationEnd',
+		};
+		
+		for (var t in animations) {
+			if (el.style[t] !== undefined) {
+				return animations[t];
+			}
+		}
+	} )( document.createElement( 'div' ) );
 	var windowWidth = $( window ).width();
 	
 	// Shared global variables
@@ -82,14 +96,14 @@
 			menuDropdownButton.on( 'click', function() {
 				// $(this) = button with .menu-down-arrow class; next() = the next item, represented by menu variable
 				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
-					$(this).next().addClass( 'fadeInUp' ).css( 'left', 'auto' ).one( animationEnd, function() {
+					$(this).next().addClass( 'fadeInUp' ).one( animationEnd, function() {
 						$(this).removeClass( 'fadeInUp' );
-						//console.log($(this));
+						console.log($(this));
 					} );
 				} else {
-					$(this).next().addClass( 'fadeOutDown' ).css( 'left', 'auto' ).one( animationEnd, function() {
-						$(this).removeClass( 'fadeOutDown' ).css( 'left', '-9999em' );
-						//console.log($(this));
+					$(this).next().addClass( 'fadeOutDown toggled-submenu' ).one( animationEnd, function() {
+						$(this).removeClass( 'fadeOutDown toggled-submenu' ); // .toggled-submenu class must remain while animation is playing, then removed, otherwise the animation disappears immediately on second click
+						console.log($(this));
 					} );
 				}
 				$(this).toggleClass( 'rotate180' );
@@ -102,9 +116,9 @@
 			// For page menu fallback
 			subMenuButton.click( function( e ) {
 				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
-					$(this).next().css( 'left', '25%' );
+					//$(this).next().css( 'left', '25%' );
 				} else {
-					$(this).next().css( 'left', '25%' );
+					//$(this).next().css( 'left', '25%' );
 				}
 			} );
 			
@@ -112,10 +126,10 @@
 			customSubMenuButton.click( function( e ) {
 				e.stopPropagation();
 				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
-					$(this).next().css( 'left', '25%' );
+					//$(this).next().css( 'left', '25%' );
 					
 				} else {
-					$(this).next().css( 'left', '25%' );
+					//$(this).next().css( 'left', '25%' );
 				}
 			} );
 			console.log(customSubMenuButton);
