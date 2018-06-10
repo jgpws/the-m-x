@@ -29,11 +29,6 @@
 	var preloadDiv = $( '#loader-wrapper' );
 	var bodyDiv = $( 'body' );
 	
-	$(window).load(function () {
-		preloadDiv.hide();
-		bodyDiv.addClass( 'animated fadeIn' );
-	});
-	
 	function animateSearchbar() {
 		// Search
 		var searchButton = $( '.search-toggle' );
@@ -69,7 +64,6 @@
 			}
 		} );
 	}
-	window.onload = animateSearchbar();
 	
 	function animateMenu() {
 		// Menus
@@ -108,31 +102,6 @@
 				}
 				$(this).toggleClass( 'rotate180' );
 			} );
-			subMenu.click( function( e ) { 
-				e.stopPropagation();
-				console.log($(this));
-			} );
-			
-			// For page menu fallback
-			subMenuButton.click( function( e ) {
-				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
-					//$(this).next().css( 'left', '25%' );
-				} else {
-					//$(this).next().css( 'left', '25%' );
-				}
-			} );
-			
-			// For custom menus
-			customSubMenuButton.click( function( e ) {
-				e.stopPropagation();
-				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
-					//$(this).next().css( 'left', '25%' );
-					
-				} else {
-					//$(this).next().css( 'left', '25%' );
-				}
-			} );
-			console.log(customSubMenuButton);
 		} 
 		
 		if(windowWidth < 600) {
@@ -163,16 +132,6 @@
 			} );
 		}
 	}
-	window.onload = animateMenu();
-	window.onresize = function() {
-		var timeOut = setTimeout( function() { // Delay rendering/event so that event doesn't fire multiple times
-			animateMenu();
-		}, 250 );
-		
-		if ( timeOut != null ) {
-			clearTimeout( timeOut );
-		}
-	}
 	
 	function animateSidebar() {
 		// Sidebar
@@ -193,7 +152,6 @@
 			}
 		} );
 	}
-	window.onload = animateSidebar();
 	
 	function animateCboxSlides() {
 		// For animations between Colorbox slides
@@ -213,7 +171,6 @@
 			} );
 		} );
 	}
-	window.onload = animateCboxSlides();
 	
 	function countSlides( obj ) {
 		var counter = 0;
@@ -340,7 +297,6 @@
 			} );
 		} );
 	}
-	window.onload = animateSlidesOnclick();
 	
 	function animateSlideshows() {
 		var startShwBtn1 = $( '#gallery-1 + .slider-button-panel .slider-startshow' );
@@ -449,7 +405,6 @@
 			};
 		} );
 	}
-	window.onload = animateSlideshows();
 	
 	function addMaterialInk() {
 
@@ -458,6 +413,26 @@
 		$( sidebarItems ).addClass( 'material-ripple' );
 		$( 'button:not(.menu-down-arrow), input[type="button"]' ).addClass( 'material-ripple' );
 	}
-	window.onload = addMaterialInk();
+	
+	$( window ).on( 'load', function () {
+		preloadDiv.hide();
+		bodyDiv.addClass( 'animated fadeIn' );
+		animateSearchbar();
+		animateMenu();
+		animateSidebar();
+		animateSlidesOnclick();
+		animateSlideshows();
+		animateCboxSlides();
+		addMaterialInk();
+	} );
+	window.onresize = function() {
+		var timeOut = setTimeout( function() { // Delay rendering/event so that event doesn't fire multiple times
+			animateMenu();
+		}, 250 );
+		
+		if ( timeOut != null ) {
+			clearTimeout( timeOut );
+		}
+	}
 	
 } )( jQuery );

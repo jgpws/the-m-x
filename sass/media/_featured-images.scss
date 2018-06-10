@@ -7,6 +7,7 @@
 	
 	.entry-title {
 		bottom: 3em;
+		margin: 0px;
 	}
 	
 	.entry-title,
@@ -54,6 +55,7 @@
 .imagegrid .featured-image,
 .page-template-page_image-grid .featured-image {
 	margin: 0px;
+	width: auto;
 }
 
 .has-post-thumbnail .scrim {
@@ -66,7 +68,15 @@
 
 .featured-image,
 .has-post-thumbnail .scrim {
-	width: auto;
+	width: calc(100% + 2em);
+	@include margin-four-values(-1.5em, -1.5em, 0, -1.5em);
+}
+
+@media screen and (min-width: 52.5em) {
+	.featured-image,
+	.has-post-thumbnail .scrim {
+		width: calc(100% + 3em);
+	}
 }
 
 img.wp-post-image {

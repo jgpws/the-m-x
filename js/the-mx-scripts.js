@@ -77,7 +77,6 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( metaLinksStyle );
 		}
 	}
-	window.onload = metaLinksRGBA();
 	
 	
 	function toggleSocialPanel() {
@@ -87,30 +86,29 @@
 		if ( socialContainer ) {
 			socialContainer.insertAdjacentHTML( 'beforebegin', '<button class="social-toggle" id="social-button"><i class="material-icons">people</i></button>' );
 			socialToggleButton = document.getElementById( 'social-button' );
-		}
 		
-		if ( windowWidth < 768 ) {
-			socialContainer.classList.add( 'hide' );
-			socialToggleButton.onclick = function() {
-				if ( -1 !== socialContainer.className.indexOf( 'toggled' ) ) {
-					socialContainer.className = socialContainer.className.replace( ' toggled', '' );
-					socialContainer.classList.add( 'hide' );
-					socialContainer.setAttribute( 'aria-expanded', 'false' );
-				} else {
-					socialContainer.className += ' toggled';
-					socialContainer.classList.remove( 'hide' );
-					socialContainer.setAttribute( 'aria-expanded', 'true' );
+			if ( windowWidth < 768 ) {
+				socialContainer.classList.add( 'hide' );
+				socialToggleButton.onclick = function() {
+					if ( -1 !== socialContainer.className.indexOf( 'toggled' ) ) {
+						socialContainer.className = socialContainer.className.replace( ' toggled', '' );
+						socialContainer.classList.add( 'hide' );
+						socialContainer.setAttribute( 'aria-expanded', 'false' );
+					} else {
+						socialContainer.className += ' toggled';
+						socialContainer.classList.remove( 'hide' );
+						socialContainer.setAttribute( 'aria-expanded', 'true' );
+					}
 				}
-			}
-		} else {
-			if ( socialToggleButton ) {
-				if ( socialContainer ) {
-					socialToggleButton.style.display = 'none';
+			} else {
+				if ( socialToggleButton ) {
+					if ( socialContainer ) {
+						socialToggleButton.style.display = 'none';
+					}
 				}
 			}
 		}
 	}
-	window.onload = toggleSocialPanel();
 	
 	
 	function socialMediaButtons() {
@@ -170,7 +168,6 @@
 			}
 		}
 	}
-	window.onload = socialMediaButtons();
 	
 	
 	function toggleSidebar() {
@@ -247,7 +244,6 @@
 		
 		}
 	}
-	window.onload = toggleSidebar();
 	
 	
 	function addOverlayToSidebar(e) {
@@ -290,7 +286,6 @@
 			}
 		}
 	}
-	window.onload = addOverlayToSidebar();
 	
 	
 	function toggleSearchbar() {
@@ -341,7 +336,6 @@
 		
 		}
 	}
-	window.onload = toggleSearchbar();
 	
 	
 	function desktopNavButtons() {
@@ -396,14 +390,13 @@
 			
 		}
 	}
-	window.onload = desktopNavButtons();
 	window.onresize = function() {
 		if ( timeOut != null ) {
 			clearTimeout( timeOut );
 		}
 		
 		var timeOut = setTimeout( function() { // Delay rendering/event so that event doesn't fire multiple times
-			desktopNavButtons();
+			desktopNavButtons;
 		}, 250 );
 	}
 	
@@ -416,7 +409,7 @@
 			headroom.init();
 		}
 	}
-	window.onload = disappearingHeader();
+	//window.onload = disappearingHeader();
 
 
 	function skrollrAnimations() {
@@ -516,7 +509,7 @@
 			}
 		}
 	}
-	window.onload = skrollrAnimations();
+	//window.onload = skrollrAnimations();
 	
 	
 	/* For slider option in the Customizer */
@@ -591,7 +584,7 @@
 		}
 	}
 	
-	window.onload = showFirstSlide();
+	//window.onload = showFirstSlide();
 	
 	for (var i = 0, len = gallery.length; i < len; i++) {
 		// Add slider controls to each gallery
@@ -667,7 +660,7 @@
 	var currentSlide4 = showSlide(slides[3]);
 	var currentSlide5 = showSlide(slides[4]);
 	
-	function addClickEvents() {
+	function addSlideClickEvents() {
 		if (sliderNext[0]) {
 			sliderNext[0].addEventListener('click', function() {
 				slides[0][currentSlide1.showPrevious()].classList.add('hide');
@@ -740,7 +733,7 @@
 			});
 		}
 	}
-	window.onload = addClickEvents();
+	//window.onload = addClickEvents();
 	
 	function addSlideshowEvents() {
 		var isPlaying = false;
@@ -878,6 +871,23 @@
 			});
 		}
 	}
-	window.onload = addSlideshowEvents();
+	//window.onload = addSlideshowEvents();
+	
+	function theMXInit() {
+		metaLinksRGBA();
+		toggleSocialPanel();
+		socialMediaButtons();
+		toggleSidebar();
+		addOverlayToSidebar();
+		toggleSearchbar();
+		desktopNavButtons();
+		disappearingHeader();
+		showFirstSlide();
+		addSlideClickEvents()
+		addSlideshowEvents();
+	}
+	document.addEventListener( 'DOMContentLoaded', theMXInit );
+	window.onload = skrollrAnimations();
+	console.log(window.onload);
 	
 })();

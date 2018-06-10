@@ -1237,6 +1237,8 @@ a:hover, a:active {
 }
 
 .site-title {
+  font-size: 2.125rem;
+  /* ~34px */
   padding-top: 0.5em;
 }
 
@@ -1247,8 +1249,6 @@ a:hover, a:active {
 
 .site-title a:link,
 .site-title a:visited {
-  font-size: 2.125rem;
-  /* ~34px */
   font-weight: 400;
   line-height: 2.5rem;
   /* ~40px */
@@ -2462,6 +2462,7 @@ object {
 .format-standard.has-post-thumbnail .entry-title,
 .format-image.has-post-thumbnail .entry-title {
   bottom: 3em;
+  margin: 0px;
 }
 .format-standard.has-post-thumbnail .entry-title,
 .format-standard.has-post-thumbnail .entry-meta,
@@ -2513,6 +2514,7 @@ object {
 .imagegrid .featured-image,
 .page-template-page_image-grid .featured-image {
   margin: 0px;
+  width: auto;
 }
 
 .has-post-thumbnail .scrim {
@@ -2525,9 +2527,16 @@ object {
 
 .featured-image,
 .has-post-thumbnail .scrim {
-  width: auto;
+  width: calc(100% + 2em);
+  margin: -1.5em -1.5em 0 -1.5em;
 }
 
+@media screen and (min-width: 52.5em) {
+  .featured-image,
+  .has-post-thumbnail .scrim {
+    width: calc(100% + 3em);
+  }
+}
 img.wp-post-image {
   display: block;
   margin-left: auto;
