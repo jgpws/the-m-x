@@ -69,13 +69,15 @@
 .featured-image,
 .has-post-thumbnail .scrim {
 	width: calc(100% + 2em);
-	@include margin-four-values(-1.5em, -1.5em, 0, -1.5em);
 }
 
 @media screen and (min-width: 52.5em) {
-	.featured-image,
-	.has-post-thumbnail .scrim {
+	.jgd-column-1 .featured-image,
+	.two-by-two-centered-r .featured-image,
+	.jgd-column-1.has-post-thumbnail .scrim,
+	.two-by-two-centered-r.has-post-thumbnail .scrim {
 		width: calc(100% + 3em);
+		@include margin-four-values(-1.5em, -1.5em, 0, -1.5em);
 	}
 }
 

@@ -184,6 +184,10 @@ article.page:hover,
 }
 
 .more-link {
+	display: inline-block;
+	@include margin-four-values(0px, 0.5em, 0.5em, 0.5em);
+	vertical-align: top;
+	
 	&:link,
 	&:visited {
 		@include link-button-style;
