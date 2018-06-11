@@ -293,6 +293,10 @@ a:active {
 	color: #ffffff;
 }
 
+.gallery-icon.portrait {
+	background-color: #eceff1;
+}
+
 /* Attachment pages */
 body.attachment.colorbox .entry-attachment-image p {
   background-color: #eceff1;

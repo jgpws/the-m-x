@@ -477,7 +477,8 @@ mark, ins {
 }
 
 pre,
-.bypostauthor .comment-content {
+.bypostauthor .comment-content,
+.gallery-icon.portrait {
 	background-color: #' . $bg_color . ';
 }
 

@@ -16,6 +16,11 @@
 	
 	img {
 		display: block;
+		@include margin-two-values(0px, auto);
+	}
+	
+	.gallery-icon.portrait {
+		background-color: $primary-color-pale;
 	}
 	
 	&:hover,
@@ -217,11 +222,13 @@
 }
 
 @media screen and (min-width: 52.5em) {
-	.single.slider .gallery,
-	.single.slider .slider-button-panel {
+	.single.slider .jgd-column-1 .gallery,
+	.single.slider .two-by-two-centered-r .gallery,
+	.single.slider .jgd-column-1 .slider-button-panel,
+	.single.slider .two-by-two-centered-r .slider-button-panel {
 		margin-left: -1.5em;
 		margin-right: -1.5em;
-		max-width: calc(100% + 3em) !important;
+		max-width: calc(100% + 3em);
 	}
 }
 
