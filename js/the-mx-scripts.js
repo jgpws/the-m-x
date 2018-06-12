@@ -8,6 +8,7 @@
 (function() {
 	// Global variables
 	var windowWidth = window.innerWidth;
+	var windowHeight = window.innerHeight;
 	var bodyElHeight = document.getElementsByTagName( 'body' )[0].clientHeight;
 	var headerPanel = document.getElementById( 'header-button-panel' );
 	var socialContainer = document.getElementById( 'menu-social' );
@@ -431,6 +432,7 @@
 		if ( document.body.classList.contains( 'skrollr-animate' ) ) {
 			// For article "cards"
 			if ( mxSkrollrParams.layout_type === 'centered' || mxSkrollrParams.layout_type === 'wide' ) {
+				//if ( windowWidth ) {
 				for ( var i = 1; i < card.length; i++ ) {
 					card[i].setAttribute( 'data-0-bottom-center', 'opacity: 0' );
 					card[i].setAttribute( 'data--200-bottom-center', 'opacity: 1.0' );
@@ -445,7 +447,11 @@
 				
 				for ( var i = 1; i < cardHeader.length; i++ ) {
 					cardHeader[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-12.5%); opacity: 0' );
-					cardHeader[i].setAttribute( 'data-288-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					if ( windowHeight < 769 ) {
+						cardHeader[i].setAttribute( 'data-144-center-center', 'transform: translate(0%); opacity: 1.0' );
+					} else {
+						cardHeader[i].setAttribute( 'data-288-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					}
 					cardHeader[cardHeader.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
 				
@@ -457,7 +463,11 @@
 				
 				for ( var i = 1; i < cardFooter.length; i++ ) {
 					cardFooter[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-12.5%); opacity: 0' );
-					cardFooter[i].setAttribute( 'data-288-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					if ( windowHeight < 769 ) {
+						cardFooter[i].setAttribute( 'data-144-center-center', 'transform: translate(0%); opacity: 1.0' );
+					} else {
+						cardFooter[i].setAttribute( 'data-288-center-center', 'transform: translateX(0%); opacity: 1.0' );
+					}
 					cardFooter[cardFooter.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
 			} else if (mxSkrollrParams.layout_type === 'twobytwo') {

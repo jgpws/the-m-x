@@ -764,14 +764,13 @@ a:hover, a:active {
 }
 .main-navigation li {
   position: relative;
+}
+.main-navigation a:link,
+.main-navigation a:visited {
   display: block;
   font-weight: 500;
   min-height: 3em;
   padding: 0.5em 0;
-}
-.main-navigation a:link,
-.main-navigation a:visited {
-  font-weight: 500;
   color: rgba(0, 0, 0, 0.87);
 }
 .main-navigation a:hover,
@@ -1759,6 +1758,7 @@ article.page:hover,
   font-weight: 500;
   padding: 0.25em 0.5em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .cat-links a:hover, .cat-links a:focus,
 .tags-links a:hover,
@@ -2683,7 +2683,7 @@ img.wp-post-image {
   }
 }
 .gallery-caption {
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   bottom: 0;
   color: rgba(255, 255, 255, 0.87);
   display: block;

@@ -254,6 +254,7 @@ article.page:hover,
 	&:link,
 	&:visited {
 		@include link-highlight-style;
+		white-space: nowrap;
 	}
 	
 	&:hover,

@@ -47,7 +47,13 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 				
 				if( !empty( $embeds ) ) {
 					$first_embed = $embeds[0];
-					echo $first_embed;
+					if( class_exists( 'Jetpack' ) ) { ?>
+						<div class="jetpack-video-wrapper">
+							<?php echo $first_embed; ?>
+						</div><?php
+					} else {
+						echo $first_embed;
+					}
 				}
 			} else {
 				the_content( sprintf(

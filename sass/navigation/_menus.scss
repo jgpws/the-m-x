@@ -118,12 +118,12 @@
 	
 	li {
 		position: relative;
-		@include vertical-menu;
+		//@include vertical-menu;
 	}
 	
 	a:link,
 	a:visited {
-		font-weight: $font__weight-bold;
+		@include vertical-menu;
 		color: $primary-text-color;
 	}
 	
