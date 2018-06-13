@@ -11,6 +11,7 @@
 
 .format-gallery .entry-title .material-icons,
 .format-image:not(.has-post-thumbnail) .entry-title .material-icons,
+.single .format-image.has-post-thumbnail .entry-title .material-icons,
 .format-audio .entry-title .material-icons,
 .format-video .entry-title .material-icons {
 	@include font-size(2.81);
@@ -41,7 +42,7 @@
 }
 
 .format-image.has-post-thumbnail .entry-header {
-	margin-bottom: 2em;
+	margin-top: 4.175rem;
 }
 
 .format-image.has-post-thumbnail .entry-title .material-icons {
@@ -50,7 +51,7 @@
 
 .single .format-image.has-post-thumbnail .entry-title {
 	@include large-centered-text;
-	top: -5.765rem;
+	top: -3.765rem;
 }
 
 .blog .format-image.has-post-thumbnail .featured-image {
@@ -59,8 +60,7 @@
 
 @media screen and (min-width: 80em) {
 	.blog .format-image img,
-	.archive .format-image img,
-	.search .format-image img {
+	.archive .format-image img {
 		@include center-block;
 		max-width: 800px;
 	}

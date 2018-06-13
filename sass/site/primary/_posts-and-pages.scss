@@ -43,6 +43,7 @@ article.page:hover,
 .entry-title,
 .page-title,
 .widget-title,
+.widgettitle,
 .comments-title,
 .entry-title-imagegrid {
 	@include font-size(1.5);
@@ -85,7 +86,8 @@ article.page:hover,
 
 .search .cat-links,
 .search .tags-links,
-.search .posted-on {
+.search .posted-on,
+.search .format-image.has-post-thumbnail .posted-on {
 	margin-bottom: 0;
 	
 	a:link,
@@ -98,6 +100,15 @@ article.page:hover,
 		@include restore-link-hover-style;
 	}
 	
+}
+
+.search .featured-image {
+	background-color: transparent;
+}
+
+.search .featured-image,
+.search .jgd-column-1 .featured-image {
+	margin: 2em -1em 1em;
 }
 
 .search .no-results {
@@ -137,7 +148,7 @@ article.page:hover,
 		text-align: left;
 	}
 	
-	.search .featured-image {
+	.search .jgd-column-1 .featured-image {
 		background-color: transparent;
 		@include margin-four-values(2em, 0, 1em, -1em);
 	}
@@ -161,26 +172,16 @@ article.page:hover,
 
 @media (min-width: 80em) {
 	.search .featured-image {
-		@include margin-four-values(2em, 0, 1em, -1.5em);
 		width: 33%;
+	}
+	
+	.search .jgd-column-1 .featured-image {
+		@include margin-four-values(2em, 0, 1em, -1.5em);
 	}
 	
 	.search .featured-image + .entry-summary {
 		width: 68%;
 	}
-}
-
-.single {
-
-	.featured-image {
-		margin-top: 3.165rem;
-	}
-	
-	.has-post-thumbnail .entry-title {
-		top: -3.765rem;
-		width: 100%;
-	}
-	
 }
 
 .more-link {
@@ -239,7 +240,8 @@ article.page:hover,
 .byline .material-icons,
 .posted-on .material-icons,
 .image-size-meta .material-icons,
-.entry-title .material-icons {
+.entry-title .material-icons,
+.single .format-image.has-post-thumbnail .entry-title .material-icons {
 	color: $primary-text-color-medium;
 	margin-right: 0.5em;
 	vertical-align: bottom;

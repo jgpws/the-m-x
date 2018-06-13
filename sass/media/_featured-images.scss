@@ -7,7 +7,7 @@
 	
 	.entry-title {
 		bottom: 3em;
-		margin: 0px;
+		z-index: 100;
 	}
 	
 	.entry-title,
@@ -29,9 +29,12 @@
 
 }
 
-.single .format-standard.has-post-thumbnail .entry-title,
 .single .format-image.has-post-thumbnail .entry-title {
-	color: rgba(0, 0, 0, 0.87);
+	margin: 0px;
+}
+
+.single .format-image.has-post-thumbnail .entry-footer {
+	margin-top: 2em;
 }
 
 .format-standard.has-post-thumbnail .entry-meta {
