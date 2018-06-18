@@ -1,6 +1,6 @@
 # The M.X.
 
-Visit The M.X. temporary [Homepage](http://www.jasong-designs.com/tag/the-m-x/) for more information including images.
+* [The M.X. Homepage](https://www.jasong-designs.com/2018/06/07/the-m-x/)
 
 The M.X. stands for *The Modern Experience*.
 
