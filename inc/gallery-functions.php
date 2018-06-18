@@ -3,9 +3,20 @@
 /**
  * Functions for Galleries and the Gallery Post Format
  */
+ 
+function the_mx_get_gallery_atts() {
+	/* This function gets the gallery IDs from the shortcode */
+	global $post;
+	
+	$post_content = $post->post_content;
+	preg_match('/\[gallery.*ids=.(.*).\]/', $post_content, $ids);
+	$images_id = $ids[1];
+	
+	return $images_id;
+}
 
-/* Function that replaces column count functionality */
 function the_mx_gal_colcount_switcher() {
+	/* Function that replaces column count functionality */
 	$gallery_columncount = get_theme_mod( 'the_mx_gal_col_count' );
 	switch( $gallery_columncount ) {
 		case 'one':
@@ -40,88 +51,90 @@ function the_mx_gal_colcount_switcher() {
 	}
 }
 
-/* Function to limit gallery thumbnails by number */
 function the_mx_number_thumbs_switcher() {
+	/* Function to limit gallery thumbnails by number */
+	
 	$gallery_thumbcount = get_theme_mod( 'the_mx_limit_gal_thumbs' );
+	$init_ids = the_mx_get_gallery_atts();
+	$expl_ids = explode( ',', $init_ids ); // $expl_ids = Exploded ids; impl_ids = Imploded ids
+	$impl_ids = implode( ',', $expl_ids );
+	
 	switch( $gallery_thumbcount ) {
 		case 'one':
-			return 1;
+			return $expl_ids[0];
 		break;
 		case 'two':
-			return 2;
+			$expl_ids = array_slice( $expl_ids, 0, 2 );
+			$impl_ids = implode( ',', $expl_ids );
+			//print_r( $expl_ids );
+			//echo '<br>';
+			//print_r( $impl_ids );
+			//echo '<br>';
+			return $impl_ids;
 		break;
 		case 'three':
-			return 3;
+			$expl_ids = array_slice( $expl_ids, 0, 3 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'four':
-			return 4;
+			$expl_ids = array_slice( $expl_ids, 0, 4 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'five':
-			return 5;
+			$expl_ids = array_slice( $expl_ids, 0, 5 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'six':
-			return 6;
+			$expl_ids = array_slice( $expl_ids, 0, 6 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'seven':
-			return 7;
+			$expl_ids = array_slice( $expl_ids, 0, 7 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'eight':
-			return 8;
+			$expl_ids = array_slice( $expl_ids, 0, 8 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'nine':
-			return 9;
+			$expl_ids = array_slice( $expl_ids, 0, 9 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'ten':
-			return 10;
+			$expl_ids = array_slice( $expl_ids, 0, 10 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'eleven':
-			return 11;
+			$expl_ids = array_slice( $expl_ids, 0, 11 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		case 'twelve':
-			return 12;
+			$expl_ids = array_slice( $expl_ids, 0, 12 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 		break;
 		default:
-			return 6;
+			$expl_ids = array_slice( $expl_ids, 0, 6 );
+			$impl_ids = implode( ',', $expl_ids );
+			return $impl_ids;
 	}
-}
-
-// Function for limiting Gallery ID length (in the Gallery post format).
-// see http://www.webgurus.biz/how-to-limit-wordpress-gallery-thumbnails-in-the-loop/
-function the_mx_get_limited_gallery_ids() {
-	$mx_thumbcount = the_mx_number_thumbs_switcher();
-	global $wpdb, $post;
-		$ids = '';
-		$counter = 0;
-		//$number_of_posts = 6;
-		$args = array(
-			'post_type' => 'attachment',
-			'numberposts' => $mx_thumbcount,
-			'order' => 'ASC',
-			'post_status' => null,
-			'post_parent' => $post->ID,
-		);
-		$attachments = get_posts($args);
-		if($attachments) {
-			foreach ($attachments as $attachment) {
-			
-				if($counter != 0) {
-					$ids .= ','.$attachment->ID;
-				} else {
-					$ids .= $attachment->ID;
-				}
-				$counter++;
-			
-			}
-		}
-		return $ids;
 }
 
 /* Function to filter gallery shortcode display only in Gallery Post Format */
 function the_mx_limited_gallery( $attr ) {
 	$post = get_post();
-	$attachment_ids = the_mx_get_limited_gallery_ids();
 	$link_image_to = the_mx_medialink_switcher(); // Customizer controls
 	$mx_colcount = the_mx_gal_colcount_switcher(); // Customizer controls
+	$mx_thumbcount = the_mx_number_thumbs_switcher(); // Customizer controls
 	if( get_post_format() == 'gallery' ) { // opens gallery post format check
 	
 		if( !is_single() ) { // opens non single page if statement
@@ -136,11 +149,6 @@ function the_mx_limited_gallery( $attr ) {
 				}
 				$attr['include'] = $attr['ids'];
 			}
-			
-			//$output = apply_filters( 'post_gallery', '', $attr, $instance );
-			/*if ( $output != '' ) {
-				return $output;
-			}*/
 		
 			// setup shortcode attributes
 			$atts = null;
@@ -152,7 +160,7 @@ function the_mx_limited_gallery( $attr ) {
 				'icontag' => 'div',
 				'captiontag' => 'figcaption',
 				'columns' => $mx_colcount,
-				'include' => $attachment_ids,
+				'include' => $mx_thumbcount,
 				'size' => 'gallery-thumb',
 				'link' => $link_image_to,
 			), $atts );
