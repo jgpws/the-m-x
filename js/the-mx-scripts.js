@@ -175,8 +175,8 @@
 		/* Toggle sidebar script */
 		var container, toggleButton, sidebar, chevronLeft, chevronRight;
 		//var bodyEl = document.getElementsByTagName( 'body' )[0];
-		console.log( 'body height is: ' + bodyElHeight );
-		console.log( 'window height is: ' + window.outerHeight );
+		//console.log( 'body height is: ' + bodyElHeight );
+		//console.log( 'window height is: ' + window.outerHeight );
 		
 		container = document.getElementById( 'content' );
 		if ( ! container ) {
@@ -275,7 +275,7 @@
 			}
 			
 			if ( bodyElHeight > window.outerHeight ) {
-				console.log( theSidebar.getBoundingClientRect().height );
+				//console.log( 'sidebar height is: ' + theSidebar.getBoundingClientRect().height );
 				theScrim.style.position = 'fixed';
 				theScrim.style.bottom =  '0px';
 				window.addEventListener( 'scroll', scrimTimeout );
@@ -519,14 +519,13 @@
 			}
 		}
 	}
-	//window.onload = skrollrAnimations();
 	
 	
 	/* For slider option in the Customizer */
 	
 	// Supports up to five galleries
 	
-	// Setup variables
+	// Setup global variables for the gallery
 	var gallery = document.querySelectorAll('.single.slider .gallery');
 	
 	var galleries = [	document.querySelector('.single.slider #gallery-1'),
@@ -593,8 +592,6 @@
 			}
 		}
 	}
-	
-	//window.onload = showFirstSlide();
 	
 	for (var i = 0, len = gallery.length; i < len; i++) {
 		// Add slider controls to each gallery
@@ -743,7 +740,6 @@
 			});
 		}
 	}
-	//window.onload = addClickEvents();
 	
 	function addSlideshowEvents() {
 		var isPlaying = false;
@@ -881,7 +877,6 @@
 			});
 		}
 	}
-	//window.onload = addSlideshowEvents();
 	
 	function theMXInit() {
 		metaLinksRGBA();
@@ -898,6 +893,5 @@
 	}
 	document.addEventListener( 'DOMContentLoaded', theMXInit );
 	window.onload = skrollrAnimations();
-	console.log(window.onload);
 	
 })();

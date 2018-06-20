@@ -92,12 +92,12 @@
 				if ( $(this).next().hasClass( 'toggled-submenu' ) ) {
 					$(this).next().addClass( 'fadeInUp' ).one( animationEnd, function() {
 						$(this).removeClass( 'fadeInUp' );
-						console.log($(this));
+						//console.log($(this));
 					} );
 				} else {
 					$(this).next().addClass( 'fadeOutDown toggled-submenu' ).one( animationEnd, function() {
 						$(this).removeClass( 'fadeOutDown toggled-submenu' ); // .toggled-submenu class must remain while animation is playing, then removed, otherwise the animation disappears immediately on second click
-						console.log($(this));
+						//console.log($(this));
 					} );
 				}
 				$(this).toggleClass( 'rotate180' );

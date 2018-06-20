@@ -58,9 +58,8 @@
 	height: 3rem;
 	left: 0px;
 	margin-left: 0.5em;
-	max-width: 75%;
 	position: absolute;
-	width: 100%;
+	width: calc(100% - 4.5rem);
 	z-index: 500;
 	
 	&.hide {
@@ -259,6 +258,8 @@
 
 .menu-down-arrow {
 	box-shadow: none;
+	position: absolute;
+	left: -9999em;
 }
 
 /* Page Templates */
@@ -276,12 +277,17 @@
 		display: none;
 	}
 	
+	.menu-down-arrow {
+		position: static;
+	}
+	
 	.site-header {
 		
 		#header-button-panel .searchform {
 			background-color: transparent;
 			max-width: 50%;
 			position: static;
+			width: auto;
 			z-index: 0;
 		}
 	

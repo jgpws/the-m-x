@@ -18,7 +18,7 @@
 	 	var bodyTag = document.getElementsByTagName( 'body' )[0];
 
  		if ( windowWidth >= 1280 ) {
- 			console.log( 'Window size is greater than 1280' );
+ 			//console.log( 'Window size is greater than 1280' );
 			if ( document.body.contains( singlePostContainer ) ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					singlePostContainer.classList.add( 'three-fourths-centered-r' );

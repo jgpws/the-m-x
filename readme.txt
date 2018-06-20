@@ -51,7 +51,7 @@ Hi. I'm a starter theme called The M.X., or underscores, if you like. I'm a them
 
 = Does this theme support any plugins? =
 
-The M.X. includes support for Infinite Scroll in Jetpack.
+The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
@@ -62,3 +62,8 @@ The M.X. includes support for Infinite Scroll in Jetpack.
 
 * Based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
+
+== Notes ==
+
+* CSS for style.css minified with CSS Minifier https://cssminifier.com/
+* JS for the-mx-scripts.js, animations.js, restore-js.js and jgd-grid.js minified with Minify https://www.minifier.org/

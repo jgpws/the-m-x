@@ -147,7 +147,7 @@ function the_mx_limited_gallery( $attr ) {
 			$atts = null;
 			$atts = shortcode_atts( array(
 				'order' => 'ASC',
-				'orderby' => 'menu_order ID',
+				'orderby' => 'post__in',
 				'id' => $post ? $post->ID : 0,
 				'itemtag' => 'figure',
 				'icontag' => 'div',
