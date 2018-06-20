@@ -3,17 +3,6 @@
 /**
  * Functions for Galleries and the Gallery Post Format
  */
- 
-function the_mx_get_gallery_atts() {
-	/* This function gets the gallery IDs from the shortcode */
-	global $post;
-	
-	$post_content = $post->post_content;
-	preg_match('/\[gallery.*ids=.(.*).\]/', $post_content, $ids);
-	$images_id = $ids[1];
-	
-	return $images_id;
-}
 
 function the_mx_gal_colcount_switcher() {
 	/* Function that replaces column count functionality */
@@ -51,81 +40,85 @@ function the_mx_gal_colcount_switcher() {
 	}
 }
 
+function the_mx_get_gallery_atts() {
+	/* This function gets the gallery IDs from the shortcode */
+	global $post;
+	
+	$post_content = $post->post_content;
+	preg_match('/\[gallery.*ids=.(.*).\]/', $post_content, $ids);
+	$images_id = $ids[1];
+	
+	return $images_id;
+}
+
+function the_mx_limit_ids( $length ) {
+	/* Helper function to grab supplied ids and limit them via array_slice */
+	/* Returns a string of comma separated ids at the length specified */
+	
+	// Get ids from the_mx_get_gallery_atts() (regular expression results)
+	$init_ids = the_mx_get_gallery_atts();
+	
+	// Turn the comma separated string into an array
+	$expl_ids = explode( ',', $init_ids );
+	
+	// Chop up the exploded array from the end; length equals the total number of ids
+	$expl_ids = array_slice( $expl_ids, 0, $length );
+	
+	// Turn the array back into a comma separated string
+	$impl_ids = implode( ',', $expl_ids );
+	
+	// For debugging
+	/*print_r( $expl_ids );
+	echo '<br>';
+	print_r( $impl_ids );
+	echo '<br>';*/
+	
+	return $impl_ids;
+}
+
 function the_mx_number_thumbs_switcher() {
 	/* Function to limit gallery thumbnails by number */
-	
 	$gallery_thumbcount = get_theme_mod( 'the_mx_limit_gal_thumbs' );
-	$init_ids = the_mx_get_gallery_atts();
-	$expl_ids = explode( ',', $init_ids ); // $expl_ids = Exploded ids; impl_ids = Imploded ids
-	$impl_ids = implode( ',', $expl_ids );
 	
 	switch( $gallery_thumbcount ) {
 		case 'one':
-			return $expl_ids[0];
+			return the_mx_limit_ids(1);
 		break;
 		case 'two':
-			$expl_ids = array_slice( $expl_ids, 0, 2 );
-			$impl_ids = implode( ',', $expl_ids );
-			//print_r( $expl_ids );
-			//echo '<br>';
-			//print_r( $impl_ids );
-			//echo '<br>';
-			return $impl_ids;
+			return the_mx_limit_ids(2);
 		break;
 		case 'three':
-			$expl_ids = array_slice( $expl_ids, 0, 3 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(3);
 		break;
 		case 'four':
-			$expl_ids = array_slice( $expl_ids, 0, 4 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(4);
 		break;
 		case 'five':
-			$expl_ids = array_slice( $expl_ids, 0, 5 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(5);
 		break;
 		case 'six':
-			$expl_ids = array_slice( $expl_ids, 0, 6 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(6);
 		break;
 		case 'seven':
-			$expl_ids = array_slice( $expl_ids, 0, 7 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(7);
 		break;
 		case 'eight':
-			$expl_ids = array_slice( $expl_ids, 0, 8 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(8);
 		break;
 		case 'nine':
-			$expl_ids = array_slice( $expl_ids, 0, 9 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(9);
 		break;
 		case 'ten':
-			$expl_ids = array_slice( $expl_ids, 0, 10 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(10);
 		break;
 		case 'eleven':
-			$expl_ids = array_slice( $expl_ids, 0, 11 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(11);
 		break;
 		case 'twelve':
-			$expl_ids = array_slice( $expl_ids, 0, 12 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(12);
 		break;
 		default:
-			$expl_ids = array_slice( $expl_ids, 0, 6 );
-			$impl_ids = implode( ',', $expl_ids );
-			return $impl_ids;
+			return the_mx_limit_ids(6);
 	}
 }
 

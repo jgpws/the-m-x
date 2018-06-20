@@ -114,6 +114,18 @@ function the_mx_setup() {
 endif;
 add_action( 'after_setup_theme', 'the_mx_setup' );
 
+/*function the_mx_get_option_defaults() {
+	// Set up default theme modifications
+	$defaults = array(
+		/* Colors */
+		//'the_mx_color_scheme' => 'brown',
+		
+		/* Layouts */
+		//'the_mx_layout' => 'centered',
+	/*);
+	return apply_filters( 'the_mx_option_defaults', $default );
+}*/
+
 function the_mx_image_sizes( $sizes ) {
 	$addsizes = array(
 		'gallery-thumb' => __( 'Gallery Thumbnail (300 x 300, hard cropped)', 'the-mx' ),
@@ -184,7 +196,8 @@ add_action( 'widgets_init', 'the_mx_widgets_init' );
  */
 
 function the_mx_enqueue_scripts() {
-	wp_enqueue_style( 'the-mx-style', get_stylesheet_uri() );
+	//wp_enqueue_style( 'the-mx-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
 	
 	// Enqueue this for now; may be added to the Customizer later
 	wp_enqueue_style( 'the-mx-right-sidebar-overlay', get_template_directory_uri() . '/layouts/content-sidebar-overlay.css', array( 'the-mx-style' ) );
@@ -197,7 +210,7 @@ function the_mx_enqueue_scripts() {
 	
 	wp_enqueue_style( 'the-mx-grid', get_template_directory_uri() . '/layouts/jgd-material-grid.css', array( 'the-mx-style') );
 	
-	wp_enqueue_script( 'the-mx-grid-js', get_template_directory_uri() . '/js/jgd-grid.js', array(), '', true );
+	wp_enqueue_script( 'the-mx-grid-js', get_template_directory_uri() . '/js/jgd-grid.min.js', array(), '', true );
 	$parameters = array(
 		'layouts' => get_theme_mod( 'the_mx_layout' ),
 	);
@@ -207,7 +220,7 @@ function the_mx_enqueue_scripts() {
 		wp_enqueue_script( 'the-mx-headroom', get_template_directory_uri() . '/js/headroom.min.js', array(), '20180530', true );
 	}
 	
-	wp_enqueue_script( 'the-mx-scripts', get_template_directory_uri() . '/js/the-mx-scripts.js', array(), '', true );
+	wp_enqueue_script( 'the-mx-scripts', get_template_directory_uri() . '/js/the-mx-scripts.min.js', array(), '', true );
 	
 	$parameters = array(
 		'sliderControl' => get_theme_mod( 'the_mx_single_slider' ),
@@ -267,7 +280,7 @@ function the_mx_enqueue_scripts() {
 	
 	if( get_theme_mod( 'the_mx_animate_css' ) == 1 ) {
 		wp_enqueue_style( 'the-mx-animations', get_template_directory_uri() . '/css/animate.css-master/animate.min.css', array(), '' );
-		wp_enqueue_script( 'the-mx-animations-js', get_template_directory_uri() . '/js/animations.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'the-mx-animations-js', get_template_directory_uri() . '/js/animations.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_style( 'the-mx-ripple-animation', get_template_directory_uri() . '/css/ripple.min.css', array(), '' );
 		wp_enqueue_script( 'the-mx-ripple-animation-js', get_template_directory_uri() . '/js/ripple.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_style( 'the-mx-preloader', get_template_directory_uri() . '/css/spinner.css' );

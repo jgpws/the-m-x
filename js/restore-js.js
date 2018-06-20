@@ -19,11 +19,6 @@
 		var infSearch = document.querySelectorAll( '.search .infinite-wrap .post, .search .infinite-wrap .page' );
 		var infStickyArticles = document.querySelectorAll( '.infinite-wrap .post.sticky' );
 		
-		/*for ( var i = 0; i < infWrap.length; i++ ) {
-			infWrap[i].classList.add( 'jgd-grid-wrap' );
-			console.log(infWrap);
-		}*/
-		
 		if ( windowWidth >= 1280 ) {
 			for ( var i = 0; i < infStickyArticles.length; i++ ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
@@ -54,8 +49,7 @@
 	}
 
 	function addSkrollrEffects() {
-		//var windowWidth = window.innerWidth;
-		console.log('addSkrollrEffects is loaded');
+		//console.log('addSkrollrEffects is loaded');
 		
 		var infCardHeader = document.querySelectorAll( '.home .infinite-wrap .format-standard:not(.has-post-thumbnail) .entry-header' );
 		var infCardContent = document.querySelectorAll( '.home .infinite-wrap .format-standard .entry-content, .home .infinite-wrap .format-standard .entry-summary' );
@@ -128,11 +122,5 @@
 		
 		return addSkrollrEffects;
 	}
-	
-	/*function throttledFuncs() {
-		$( window ).scroll( $.throttle( 200, addJGDGrid ) );
-		console.log( 'addJGDGrid is throttled.' );
-		$( window ).scroll( $.throttle( 1000, addSkrollrEffects ) );
-	}*/
 
 } )( jQuery );

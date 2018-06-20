@@ -128,6 +128,18 @@
 	padding: 0.5em;
 	position: absolute;
 	width: 100%;
+	
+	a:link,
+	a:visited {
+		color: $primary-text-color-white;
+		border-bottom: 1px solid $primary-text-color-faded;
+	}
+	
+	a:hover,
+	a:focus {
+		color: $white;
+	}
+	
 }
 
 /* Gutenberg galleries */

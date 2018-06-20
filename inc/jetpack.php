@@ -45,7 +45,7 @@ function the_mx_infinite_scroll_render() {
  * Script to reload the theme's Javascript for infinite scroll
  */
 function the_mx_enqueue_jetpack_scripts() {
-	wp_enqueue_script( 'the-mx-restore-js', get_template_directory_uri() . '/js/restore-js.js', array( 'jquery', 'the-mx-scripts', 'the-mx-skrollr' ), '', true );
+	wp_enqueue_script( 'the-mx-restore-js', get_template_directory_uri() . '/js/restore-js.min.js', array( 'jquery', 'the-mx-scripts', 'the-mx-skrollr' ), '', true );
 	$parameters = array(
 		'layouts' => get_theme_mod( 'the_mx_layout' ),
 	);
