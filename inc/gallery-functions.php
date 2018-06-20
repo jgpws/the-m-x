@@ -62,7 +62,7 @@ function the_mx_limit_ids( $length ) {
 	$expl_ids = explode( ',', $init_ids );
 	
 	// Chop up the exploded array from the end; length equals the total number of ids
-	$expl_ids = array_slice( $expl_ids, 0, $length );
+	$expl_ids = array_slice( $expl_ids, 0, intval( $length ) );
 	
 	// Turn the array back into a comma separated string
 	$impl_ids = implode( ',', $expl_ids );
