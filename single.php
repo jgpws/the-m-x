@@ -17,8 +17,8 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', get_post_format() );
 
 			the_post_navigation( array(
-				'prev_text' => __( '<i class="material-icons">arrow_back</i>Previous Posts', 'the-mx' ),
-				'next_text' => __( 'Next Posts<i class="material-icons">arrow_forward</i>', 'the-mx' ),
+				'prev_text' => __( '<i class="material-icons">arrow_back</i>Previous Posts', 'the-m-x' ),
+				'next_text' => __( 'Next Posts<i class="material-icons">arrow_forward</i>', 'the-m-x' ),
 			) );
 
 			// If comments are open or we have at least one comment, load up the comment template.

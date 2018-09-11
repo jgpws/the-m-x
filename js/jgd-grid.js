@@ -48,7 +48,7 @@
 				commentsContainer.classList.remove( 'three-fourths-centered-r' );
 			}
  		} else if ( windowWidth <= 1279 && windowWidth >= 720 ) {
- 			console.log( 'Window size is greater than 720' );
+ 			//console.log( 'Window size is greater than 720' );
  			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					stickyContainers[i].classList.add( 'three-fourths-centered-r' );
@@ -62,7 +62,7 @@
 				commentsContainer.classList.remove( 'three-fourths-centered-r' );
 			}
  		} else {
- 			console.log('Window size is less than 720');
+ 			//console.log('Window size is less than 720');
  			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					stickyContainers[i].classList.add( 'jgd-column-1' );

@@ -68,8 +68,11 @@ function the_mx_add_grid_layouts( $classes ) {
 				$classes[] = 'two-by-two-centered-r';
 			break;
 			default:
-				$classes[] = 'jgd-column-1';
+				$classes[] = 'three-fourths-centered-r';
 		} // closes switch
+		return $classes;
+	} else { // default when no theme mods have been set
+		$classes[] = 'three-fourths-centered-r';
 		return $classes;
 	}
 }

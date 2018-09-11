@@ -24,7 +24,7 @@
 <body <?php body_class(); ?> id="skrollr-body">
 <?php get_template_part( 'template-parts/loader' ); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'the-mx' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'the-m-x' ); ?></a>
 
 	<header id="masthead" class="site-header jgd-grid-wrap" role="banner">
 		<div class="site-branding jgd-grid">
@@ -68,7 +68,7 @@
 		<?php endif; // End header image check. ?>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" title="<?php esc_attr_e( 'Toggle the navigation menu', 'the-mx' ) ?>"><i class="material-icons">menu</i></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" title="<?php esc_attr_e( 'Toggle the navigation menu', 'the-m-x' ) ?>"><i class="material-icons">menu</i></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

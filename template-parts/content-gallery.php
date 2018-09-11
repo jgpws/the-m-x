@@ -38,12 +38,12 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 				if( is_single() ) {
 					the_content();
 					wp_link_pages( array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-mx' ),
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-m-x' ),
 						'after'  => '</div>',
 					) );
 				} else {
 					echo get_post_gallery(); ?>
-					<div class="more-images-link"><a href="<?php the_permalink(); ?>"><?php _e( 'More images', 'the-mx' ); ?></a></div>
+					<div class="more-images-link"><a href="<?php the_permalink(); ?>"><?php _e( 'More images', 'the-m-x' ); ?></a></div>
 				<?php
 				} // ends else ?>
 		</div><!-- .entry-content -->

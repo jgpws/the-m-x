@@ -417,14 +417,14 @@
 	/* For skroller.js effects */
 	
 		var galleryItem = document.querySelectorAll( '.blog .gallery-item' );
-		var entryTitle = document.querySelectorAll( '.home .format-gallery .entry-title, .home .format-image:not(.has-post-thumbnail) .entry-title, .home .format-audio .entry-title, .home .format-video .entry-title, .archive .format-gallery .entry-title, .archive .format-image:not(.has-post-thumbnail) .entry-title, .archive .format-audio .entry-title, .archive .format-video .entry-title' );
+		var entryTitle = document.querySelectorAll( '.blog .format-gallery .entry-title, .blog .format-image:not(.has-post-thumbnail) .entry-title, .blog .format-audio .entry-title, .blog .format-video .entry-title, .archive .format-gallery .entry-title, .archive .format-image:not(.has-post-thumbnail) .entry-title, .archive .format-audio .entry-title, .archive .format-video .entry-title' );
 		var entryTitleSingle = document.querySelector( '.single .format-gallery .entry-title, .single .format-image .entry-title' );
 		var entryTitlePage = document.querySelector( '.page .format-gallery .entry-title' );
-		var card = document.querySelectorAll( '.home .post.format-standard, .home .post.format-link' );
-		var cardPf = document.querySelectorAll( '.home .post.format-aside, .home .post.format-status, .home .post.format-link, .home .post.format-quote' );
-		var cardHeader = document.querySelectorAll( '.home .format-standard:not(.has-post-thumbnail) .entry-header' );
-		var cardContent = document.querySelectorAll( '.home .format-standard .entry-content, .home .format-standard .entry-summary' );
-		var cardFooter = document.querySelectorAll( '.home .format-standard .entry-footer' );
+		var card = document.querySelectorAll( '.blog .post.format-standard, .blog .post.format-link' );
+		var cardPf = document.querySelectorAll( '.blog .post.format-aside, .blog .post.format-status, .blog .post.format-link, .blog .post.format-quote' );
+		var cardHeader = document.querySelectorAll( '.blog .format-standard:not(.has-post-thumbnail) .entry-header' );
+		var cardContent = document.querySelectorAll( '.blog .format-standard .entry-content, .blog .format-standard .entry-summary' );
+		var cardFooter = document.querySelectorAll( '.blog .format-standard .entry-footer' );
 		
 		// If skrollr animations are checked in the customizer, the class skrollr-animate is added to the body via functions.php
 		 // Slide in each post part when scrolling to center

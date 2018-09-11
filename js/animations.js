@@ -67,6 +67,7 @@
 	
 	function animateMenu() {
 		// Menus
+		var windowWidth = $( window ).width();
 		var mainMenu = $( '.main-navigation' );
 		var menuButton = $( '.main-navigation .menu-toggle' );
 		var menuDropdownButton = $( '.main-navigation .menu-down-arrow' );

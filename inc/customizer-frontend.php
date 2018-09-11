@@ -943,7 +943,7 @@ function the_mx_showmore_title_render() {
 	if( $more_button_title != '' ) {
 		echo $more_button_title;
 	} else {
-		echo __( 'More posts', 'the-mx' );
+		echo __( 'More posts', 'the-m-x' );
 	}
 }
 ?>

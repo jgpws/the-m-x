@@ -40,7 +40,7 @@ function the_mx_gal_colcount_switcher() {
 	}
 }
 
-function the_mx_get_gallery_atts() {
+function the_mx_get_gallery_ids() {
 	/* This function gets the gallery IDs from the shortcode */
 	global $post;
 	
@@ -55,8 +55,8 @@ function the_mx_limit_ids( $length ) {
 	/* Helper function to grab supplied ids and limit them via array_slice */
 	/* Returns a string of comma separated ids at the length specified */
 	
-	// Get ids from the_mx_get_gallery_atts() (regular expression results)
-	$init_ids = the_mx_get_gallery_atts();
+	// Get ids from the_mx_get_gallery_ids() (regular expression results)
+	$init_ids = the_mx_get_gallery_ids();
 	
 	// Turn the comma separated string into an array
 	$expl_ids = explode( ',', $init_ids );
@@ -267,9 +267,8 @@ function the_mx_limited_gallery( $attr ) {
 }
 add_filter( 'post_gallery', 'the_mx_limited_gallery', 10, 1 );
 
-//add_shortcode( 'gallery', 'the_mx_limited_gallery' );
 
-/* Function to use 300 x 300 size images by default via a filter */
+/* Function to use 300 x 300 size images by default via a filter and switch between large and thumbnail images in single posts when 'Enable the gallery to be shown as a slider' is checked in the Customizer */
 // see https://amethystwebsitedesign.com/how-to-get-larger-images-in-a-wordpress-gallery/
 function the_mx_gallery_atts( $out, $pairs, $atts ) {
 	$link_image_to = the_mx_medialink_switcher();
@@ -292,20 +291,5 @@ function the_mx_gallery_atts( $out, $pairs, $atts ) {
 	return $out;
 }
 add_filter( 'shortcode_atts_gallery', 'the_mx_gallery_atts', 10, 3 );
-
-/* Function that switches between large and thumbnail images in single posts when 'Enable the gallery to be shown as a slider' is checked in the Customizer */
-
-/*function the_mx_large_gal_imgs() {
-	if( shortcode_exists( 'gallery' ) ) {
-		if( 'the_mx_single_slider' == 1 && is_single() ) {
-			shortcode_atts( array(
-					'size' => 'large'
-				)
-			);
-		}
-	}
-	
-}
-add_filter( 'shortcode_atts_gallery', 'the_mx_large_gal_imgs' );*/
 
 ?>

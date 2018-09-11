@@ -20,7 +20,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					the_content();
 				} else {
 					the_title( '<h2 class="entry-title"><i class="material-icons">link</i><a href="' . esc_url( the_mx_get_link_url() ) . '">', '</a></h2>' ); ?>
-					<p><a href="<?php the_permalink(); ?>"><?php _e( 'View the full post', 'the-mx' ); ?></a></p>
+					<p><a href="<?php the_permalink(); ?>"><?php _e( 'View the full post', 'the-m-x' ); ?></a></p>
 				<?php	
 				} ?>
 			</header><!-- .entry-header -->
@@ -41,7 +41,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 						);
 		
 						$posted_on = sprintf(
-							esc_html_x( '%s', 'post date', 'the-mx' ),
+							esc_html_x( '%s', 'post date', 'the-m-x' ),
 							'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 						); 
 						
@@ -51,7 +51,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'the-mx' ),
+					esc_html__( 'Edit %s', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				),
 				'<div class="edit-link"><i class="material-icons">mode_edit</i>',

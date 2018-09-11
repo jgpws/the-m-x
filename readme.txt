@@ -1,7 +1,7 @@
 === The M.X. ===
 
 Contributors: automattic
-Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments, one-column, right-sidebar, flexible-header, custom-colors, custom-header, featured-images, sticky-post, theme-options, threaded-comments, blog
+Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready
 
 Requires at least: 4.0
 Tested up to: 4.4.2
@@ -9,7 +9,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A starter theme called The M.X., or underscores.
+The M.X., based on Underscores.
 
 The M.X. bundles the following third party resources:
 
@@ -67,3 +67,4 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 * CSS for style.css minified with CSS Minifier https://cssminifier.com/
 * JS for the-mx-scripts.js, animations.js, restore-js.js and jgd-grid.js minified with Minify https://www.minifier.org/
+* Sass files are compiled with Ruby on the command line.

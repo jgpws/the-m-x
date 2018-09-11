@@ -15,9 +15,9 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	
-	$wp_customize->get_section( 'colors' )->title = __( 'Color Schemes', 'the-mx' );
+	$wp_customize->get_section( 'colors' )->title = __( 'Color Schemes', 'the-m-x' );
 	$wp_customize->get_section( 'colors' )->description = sprintf(
-		__('%1$sChoose an alternate color scheme.%2$s %1$sFor more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.%2$s %1$s* To restore the default background color: Select Color, then select Default.%2$s', 'the-mx' ), 
+		__('%1$sChoose an alternate color scheme.%2$s %1$sFor more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.%2$s %1$s* To restore the default background color: Select Color, then select Default.%2$s', 'the-m-x' ), 
 		'<p>', '</p>', '<a href="https://material.io/guidelines/style/color.html#color-color-palette">', '</a>' );
 		
 	$wp_customize->remove_control( 'header_textcolor' );
@@ -36,12 +36,12 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_color_scheme', array(
 			'type' => 'radio',
-			'label' => __( 'Color Scheme', 'the-mx' ),
+			'label' => __( 'Color Scheme', 'the-m-x' ),
 			'section' => 'colors',
 			'choices' => array(
-				'brown' => __( 'Brown', 'the-mx' ),
-				'blue_gray' => __( 'Blue Gray', 'the-mx' ),
-				'custom' => __( 'Custom', 'the-mx' ),
+				'brown' => __( 'Brown', 'the-m-x' ),
+				'blue_gray' => __( 'Blue Gray', 'the-m-x' ),
+				'custom' => __( 'Custom', 'the-m-x' ),
 			),
 		)
 	);
@@ -60,8 +60,8 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_custom_primary_1', array(
-				'label' => __( 'Primary Color 1', 'the-mx' ),
-				'description' => __( 'Color for the title bar, footer, links, etc.', 'the-mx' ),
+				'label' => __( 'Primary Color 1', 'the-m-x' ),
+				'description' => __( 'Color for the title bar, footer, links, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_primary_1',
 				//'active_callback' => 'the_mx_show_custom_colors',
@@ -83,8 +83,8 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_custom_primary_2', array(
-				'label' => __( 'Primary Color 2', 'the-mx' ),
-				'description' => __( 'Color for the header button panel, link hover, etc.', 'the-mx' ),
+				'label' => __( 'Primary Color 2', 'the-m-x' ),
+				'description' => __( 'Color for the header button panel, link hover, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_primary_2',
 			)
@@ -105,8 +105,8 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_custom_primary_3', array(
-				'label' => __( 'Primary Color 3', 'the-mx' ),
-				'description' => __( 'Color for main site navigation in desktop view, etc.', 'the-mx' ),
+				'label' => __( 'Primary Color 3', 'the-m-x' ),
+				'description' => __( 'Color for main site navigation in desktop view, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_primary_3',
 			)
@@ -127,8 +127,8 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_custom_primary_4', array(
-				'label' => __( 'Primary Color 4', 'the-mx' ),
-				'description' => __( 'Color behind content navigation bar, etc.', 'the-mx' ),
+				'label' => __( 'Primary Color 4', 'the-m-x' ),
+				'description' => __( 'Color behind content navigation bar, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_primary_4',
 			)
@@ -149,8 +149,8 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_custom_accent_1', array(
-				'label' => __( 'Accent Color 1', 'the-mx' ),
-				'description' => __( 'Button colors, etc.', 'the-mx' ),
+				'label' => __( 'Accent Color 1', 'the-m-x' ),
+				'description' => __( 'Button colors, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_accent_1',
 			)
@@ -171,8 +171,8 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_custom_accent_2', array(
-				'label' => __( 'Accent Color 2', 'the-mx' ),
-				'description' => __( 'Button hover colors, etc.', 'the-mx' ),
+				'label' => __( 'Accent Color 2', 'the-m-x' ),
+				'description' => __( 'Button hover colors, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_accent_2',
 			)
@@ -193,8 +193,8 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_custom_accent_3', array(
-				'label' => __( 'Accent Color 3', 'the-mx' ),
-				'description' => __( 'Navigation and widget link hover colors, etc.', 'the-mx' ),
+				'label' => __( 'Accent Color 3', 'the-m-x' ),
+				'description' => __( 'Navigation and widget link hover colors, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_custom_accent_3',
 			)
@@ -214,8 +214,8 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_reverse_textcolor', array(
 			'type' => 'checkbox',
-			'label' => __( 'Reverse text against the background to white.', 'the-mx' ),
-			'description' => __( 'Use this setting when text is set against a dark background, as some Post Format styling is placed in front of the background.', 'the-mx' ),
+			'label' => __( 'Reverse text against the background to white.', 'the-m-x' ),
+			'description' => __( 'Use this setting when text is set against a dark background, as some Post Format styling is placed in front of the background.', 'the-m-x' ),
 			'section' => 'colors',
 			'settings' => 'the_mx_reverse_textcolor',
 		)
@@ -234,8 +234,8 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_reverse_supporting_color', array(
 			'type' => 'checkbox',
-			'label' => __( 'Reverse supporting colors to black.', 'the-mx' ),
-			'description' => __( 'Use this setting if all four primary colors are set to a very light color.', 'the-mx' ),
+			'label' => __( 'Reverse supporting colors to black.', 'the-m-x' ),
+			'description' => __( 'Use this setting if all four primary colors are set to a very light color.', 'the-m-x' ),
 			'section' => 'colors',
 			'settings' => 'the_mx_reverse_supporting_color',
 		)
@@ -244,7 +244,7 @@ function the_mx_customize_register( $wp_customize ) {
 	/* Header images settings */
 	// Change title of Header Image section to Hero Image
 	// from http://natko.com/changing-default-wordpress-theme-customization-api-sections/
-	$wp_customize->get_section('header_image')->title = __( 'Hero Image', 'the-mx' );
+	$wp_customize->get_section('header_image')->title = __( 'Hero Image', 'the-m-x' );
 	
 	$wp_customize->add_setting(
 		'the_mx_herotext_color', array(
@@ -260,13 +260,13 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_herotext_color', array(
 			'type' => 'radio',
-			'label' => __( 'Choose hero image text color.', 'the-mx' ),
-			'description' => sprintf(__( '%1$sUse this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section.%2$s %1$sWhite text is best used for an image with a dark background, while black text works with images with a light background.%2$s', 'the-mx' ), '<p>', '</p>', '<a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">', '</a>' ),
+			'label' => __( 'Choose hero image text color.', 'the-m-x' ),
+			'description' => sprintf(__( '%1$sUse this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section.%2$s %1$sWhite text is best used for an image with a dark background, while black text works with images with a light background.%2$s', 'the-m-x' ), '<p>', '</p>', '<a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">', '</a>' ),
 			'section' => 'header_image',
 			'priority' => 40,
 			'choices' => array(
-				'white' => __( 'White text', 'the-mx' ),
-				'black' => __( 'Black text', 'the-mx' ),
+				'white' => __( 'White text', 'the-m-x' ),
+				'black' => __( 'Black text', 'the-m-x' ),
 			),
 		)	
 	);
@@ -285,13 +285,13 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_herotext_alignment', array(
 			'type' => 'radio',
-			'label' => __( 'Align the hero image text.', 'the-mx' ),
+			'label' => __( 'Align the hero image text.', 'the-m-x' ),
 			'section' => 'header_image',
 			'priority' => 50,
 			'choices' => array(
-				'left' => __( 'Left', 'the-mx' ),
-				'center' => __( 'Center', 'the-mx' ),
-				'right' => __( 'Right', 'the-mx' ),
+				'left' => __( 'Left', 'the-m-x' ),
+				'center' => __( 'Center', 'the-m-x' ),
+				'right' => __( 'Right', 'the-m-x' ),
 			),
 		)	
 	);
@@ -310,7 +310,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_homepage_only', array(
 			'type' => 'checkbox',
-			'label' => __( 'Display Hero Image on the home page only.', 'the-mx' ),
+			'label' => __( 'Display Hero Image on the home page only.', 'the-m-x' ),
 			'section' => 'header_image',
 			'priority' => 50,
 		)
@@ -319,7 +319,7 @@ function the_mx_customize_register( $wp_customize ) {
 	/* Layout settings */
 	$wp_customize->add_section(
 		'the_mx_layout_section', array(
-			'title' => __( 'Layout', 'the-mx' ),
+			'title' => __( 'Layout', 'the-m-x' ),
 			'priority' => 65,
 		)
 	);
@@ -338,14 +338,14 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_layout', array(
 			'type' => 'radio',
-			'label' => __( 'Choose between three layouts for the blog pages.', 'the-mx' ),
-			'description' => __( '* The Centered, Wide and Two by two layouts affect widths 1280px and above.', 'the-mx' ),
+			'label' => __( 'Choose between three layouts for the blog pages.', 'the-m-x' ),
+			'description' => __( '* The Centered, Wide and Two by two layouts affect widths 1280px and above.', 'the-m-x' ),
 			'section' => 'the_mx_layout_section',
 			'choices' => array(
-				'centered' => __( 'Centered- Posts stacked vertically.', 'the-mx' ),
-				'wide' => __( 'Wide- Posts stacked vertically with a wide content area.', 'the-mx' ),
-				'twobytwo' => __( 'Two by two- A grid of posts two across the screen', 'the-mx' ),
-				'imagegrid' => __( 'Image grid- A grid designed for image or gallery posts, supporting only featured images and captions.', 'the-mx' ),
+				'centered' => __( 'Centered- Posts stacked vertically.', 'the-m-x' ),
+				'wide' => __( 'Wide- Posts stacked vertically with a wide content area.', 'the-m-x' ),
+				'twobytwo' => __( 'Two by two- A grid of posts two across the screen', 'the-m-x' ),
+				'imagegrid' => __( 'Image grid- A grid designed for image or gallery posts, supporting only featured images and captions.', 'the-m-x' ),
 			),
 		)
 	);
@@ -362,12 +362,12 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_contentlength_choices', array(
 			'type' => 'radio',
-			'label' => __( 'Content Length', 'the-mx' ),
-			'description' => __( 'Choose between full length content or excerpts on the blog posts page.', 'the-mx' ),
+			'label' => __( 'Content Length', 'the-m-x' ),
+			'description' => __( 'Choose between full length content or excerpts on the blog posts page.', 'the-m-x' ),
 			'section' => 'the_mx_layout_section',
 			'choices' => array(
-				'full' => __( 'Full Content', 'the-mx' ),
-				'excerpt' => __( 'Excerpt', 'the-mx' ),
+				'full' => __( 'Full Content', 'the-m-x' ),
+				'excerpt' => __( 'Excerpt', 'the-m-x' ),
 			),
 		)
 	);
@@ -377,18 +377,18 @@ function the_mx_customize_register( $wp_customize ) {
 	
 	$wp_customize->add_panel(
 		'the_mx_page_templates', array(
-			'title' => __( 'Page Template Customizations', 'the-mx' ),
+			'title' => __( 'Page Template Customizations', 'the-m-x' ),
 			//'priority' => 125,
-			'description' => __( 'In this section are customizations for some of the page templates that can be applied to a custom home page.', 'the-mx' ),
+			'description' => __( 'In this section are customizations for some of the page templates that can be applied to a custom home page.', 'the-m-x' ),
 			'active_callback' => 'the_mx_page_callback',
 		)
 	);
 	
 	$wp_customize->add_section(
 		'the_mx_imagegrid_template', array(
-			'title' => __( 'Image Grid', 'the-mx' ),
+			'title' => __( 'Image Grid', 'the-m-x' ),
 			//'priority' => 125,
-			'description' => __( 'Customize the Image Grid page template.', 'the-mx' ),
+			'description' => __( 'Customize the Image Grid page template.', 'the-m-x' ),
 			'panel' => 'the_mx_page_templates',
 			'active_callback' => 'the_mx_page_callback',
 		)
@@ -405,7 +405,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new The_MX_Category_Control( $wp_customize,
 		'the_mx_cat_dropdown_1', array(
 			'section' => 'the_mx_imagegrid_template',
-			'label' => __( 'Choose a category of posts to display on the Image Grid page', 'the-mx' ),
+			'label' => __( 'Choose a category of posts to display on the Image Grid page', 'the-m-x' ),
 		)
 	) );
 	
@@ -420,10 +420,10 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_select_cat_numposts', array(
 			'section' => 'the_mx_imagegrid_template',
-			'label' => __( 'Choose the number of posts to show', 'the-mx' ),
+			'label' => __( 'Choose the number of posts to show', 'the-m-x' ),
 			'type' => 'select',
 			'choices' => array(
-				'all' => __( 'Show all image grid posts', 'the-mx' ),
+				'all' => __( 'Show all image grid posts', 'the-m-x' ),
 				'one' => '1',
 				'two' => '2',
 				'three' => '3',
@@ -452,8 +452,8 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_add_showmore_button', array(
 			'section' => 'the_mx_imagegrid_template',
-			'label' => __( 'More posts', 'the-mx' ),
-			'description' => sprintf( __( 'Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts\' category page.', 'the-mx' ), '<strong>', '</strong>' ),
+			'label' => __( 'More posts', 'the-m-x' ),
+			'description' => sprintf( __( 'Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts\' category page.', 'the-m-x' ), '<strong>', '</strong>' ),
 			'type' => 'checkbox',
 		)
 	);
@@ -461,7 +461,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'the_mx_customize_showmore_title', array(
 			'type' => 'theme_mod',
-			'default' => __( 'More Posts', 'the-mx' ),
+			'default' => __( 'More Posts', 'the-m-x' ),
 			'transport' => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
@@ -470,7 +470,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_customize_showmore_title', array(
 			'section' => 'the_mx_imagegrid_template',
-			'label' => __( 'Change the title of the More Posts button', 'the-mx' ),
+			'label' => __( 'Change the title of the More Posts button', 'the-m-x' ),
 			'type' => 'text',
 		)
 	);
@@ -484,8 +484,8 @@ function the_mx_customize_register( $wp_customize ) {
 	/* Gallery Settings */
 	$wp_customize->add_section(
 		'the_mx_gallery_settings', array(
-			'title' => __( 'Gallery Settings', 'the-mx' ),
-			'description' => sprintf( __( '%1$s* In order to use these options, a post with a gallery must be saved with the Gallery post format.%2$s%1$s** This setting disables Colorbox on single posts.', 'the-mx' ), '<p>', '</p>' ),
+			'title' => __( 'Gallery Settings', 'the-m-x' ),
+			'description' => sprintf( __( '%1$s* In order to use these options, a post with a gallery must be saved with the Gallery post format.%2$s%1$s** This setting disables Colorbox on single posts.', 'the-m-x' ), '<p>', '</p>' ),
 		)
 	);
 	
@@ -502,8 +502,8 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_enable_colorbox', array(
 			'type' => 'checkbox',
-			'label' => __( 'Enable/disable Colorbox for the gallery', 'the-mx' ),
-			'description' => __( 'Enable or disable Colorbox overlay for the WordPress gallery. Check to enable and uncheck to disable.', 'the-mx' ),
+			'label' => __( 'Enable/disable Colorbox for the gallery', 'the-m-x' ),
+			'description' => __( 'Enable or disable Colorbox overlay for the WordPress gallery. Check to enable and uncheck to disable.', 'the-m-x' ),
 			'section' => 'the_mx_gallery_settings',
 		)
 	);
@@ -521,7 +521,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_single_slider', array(
 			'type' => 'checkbox',
-			'label' => __( 'Enable/disable the gallery to be shown as a slider on single posts.**', 'the-mx' ),
+			'label' => __( 'Enable/disable the gallery to be shown as a slider on single posts.**', 'the-m-x' ),
 			'section' => 'the_mx_gallery_settings',
 		)
 	);
@@ -539,11 +539,11 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_media_link_to', array(
 			'type' => 'radio',
-			'label' => __( 'Link to a media file or attachment page*', 'the-mx' ),
+			'label' => __( 'Link to a media file or attachment page*', 'the-m-x' ),
 			'section' => 'the_mx_gallery_settings',
 			'choices' => array(
-				'attachment' => __( 'Attachment page ( default )', 'the-mx' ),
-				'file' => __( 'Media File', 'the-mx' ),
+				'attachment' => __( 'Attachment page ( default )', 'the-m-x' ),
+				'file' => __( 'Media File', 'the-m-x' ),
 			),
 		)
 	);
@@ -561,10 +561,10 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_gal_col_count', array(
 			'type' => 'select',
-			'label' => __( 'Change the column count*', 'the-mx' ),
+			'label' => __( 'Change the column count*', 'the-m-x' ),
 			'section' => 'the_mx_gallery_settings',
 			'choices' => array(
-				'default' => __( 'Select a column number', 'the-mx' ),
+				'default' => __( 'Select a column number', 'the-m-x' ),
 				'one' => '1',
 				'two' => '2',
 				'three' => '3',
@@ -591,10 +591,10 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_limit_gal_thumbs', array(
 			'type' => 'select',
-			'label' => __( 'Limit the number of gallery thumbnails on posts/pages*', 'the-mx' ),
+			'label' => __( 'Limit the number of gallery thumbnails on posts/pages*', 'the-m-x' ),
 			'section' => 'the_mx_gallery_settings',
 			'choices' => array(
-				'default' => __( 'Select number of gallery thumbnails', 'the-mx' ),
+				'default' => __( 'Select number of gallery thumbnails', 'the-m-x' ),
 				'one' => '1',
 				'two' => '2',
 				'three' => '3',
@@ -614,8 +614,8 @@ function the_mx_customize_register( $wp_customize ) {
 	/* Animation */
 	$wp_customize->add_section(
 		'the_mx_animation_settings', array(
-			'title' => __( 'Animation', 'the-mx' ),
-			'description' => __( 'In this section, you can enable skrollr and animate.css animations.', 'the-mx' ),
+			'title' => __( 'Animation', 'the-m-x' ),
+			'description' => __( 'In this section, you can enable skrollr and animate.css animations.', 'the-m-x' ),
 		)
 	);
 	
@@ -632,7 +632,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_skrollr_animations', array(
 			'type' => 'checkbox',
-			'label' => __( 'Enable animations on scroll, including fade-in of gallery images (with skrollr.js) on the blog homepage.', 'the-mx' ),
+			'label' => __( 'Enable animations on scroll, including fade-in of gallery images (with skrollr.js) on the blog homepage.', 'the-m-x' ),
 			'section' => 'the_mx_animation_settings',
 		)
 	);
@@ -650,7 +650,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_animate_css', array(
 			'type' => 'checkbox',
-			'label' => __('Enable simple animations with animate.css and CSS3.', 'the-mx'),
+			'label' => __('Enable simple animations with animate.css and CSS3.', 'the-m-x'),
 			'section' => 'the_mx_animation_settings',
 		)
 	);

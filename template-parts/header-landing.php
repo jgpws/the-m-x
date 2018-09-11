@@ -24,7 +24,7 @@
 <body <?php body_class(); ?> id="skrollr-body">
 <?php get_template_part( 'template-parts/loader' ); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'the-mx' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'the-m-x' ); ?></a>
 
 	<header id="masthead" class="site-header jgd-grid-wrap" role="banner">
 		<div class="site-branding jgd-grid">

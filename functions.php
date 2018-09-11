@@ -22,7 +22,7 @@ function the_mx_setup() {
 	 * If you're building a theme based on The M.X., use a find and replace
 	 * to change 'the-mx' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'the-mx', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'the-m-x', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -51,8 +51,8 @@ function the_mx_setup() {
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'the-mx' ),
-		'social' => esc_html__( 'Social Profiles', 'the-mx' ),
+		'primary' => esc_html__( 'Primary', 'the-m-x' ),
+		'social' => esc_html__( 'Social Profiles', 'the-m-x' ),
 	) );
 
 	/*
@@ -114,21 +114,9 @@ function the_mx_setup() {
 endif;
 add_action( 'after_setup_theme', 'the_mx_setup' );
 
-/*function the_mx_get_option_defaults() {
-	// Set up default theme modifications
-	$defaults = array(
-		/* Colors */
-		//'the_mx_color_scheme' => 'brown',
-		
-		/* Layouts */
-		//'the_mx_layout' => 'centered',
-	/*);
-	return apply_filters( 'the_mx_option_defaults', $default );
-}*/
-
 function the_mx_image_sizes( $sizes ) {
 	$addsizes = array(
-		'gallery-thumb' => __( 'Gallery Thumbnail (300 x 300, hard cropped)', 'the-mx' ),
+		'gallery-thumb' => __( 'Gallery Thumbnail (300 x 300, hard cropped)', 'the-m-x' ),
 	);
 	$newsizes = array_merge( $sizes, $addsizes );
 	return $newsizes;
@@ -160,9 +148,9 @@ add_action( 'after_setup_theme', 'the_mx_content_width', 0 );
  */
 function the_mx_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'the-mx' ),
+		'name'          => esc_html__( 'Sidebar', 'the-m-x' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets to the Sidebar.', 'the-mx' ),
+		'description'   => esc_html__( 'Add widgets to the Sidebar.', 'the-m-x' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s jgd-column-1">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -170,9 +158,9 @@ function the_mx_widgets_init() {
 	) );
 	
 	register_sidebar( array(
-		'name' 			=> esc_html__( 'Hero Image Widget', 'the-mx' ),
+		'name' 			=> esc_html__( 'Hero Image Widget', 'the-m-x' ),
 		'id'				=> 'hero-image-widget',
-		'description'	=> esc_html__( 'Add widget to be displayed above Hero (header) Image.', 'the-mx' ),
+		'description'	=> esc_html__( 'Add widget to be displayed above Hero (header) Image.', 'the-m-x' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s jgd-column-1">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -180,9 +168,9 @@ function the_mx_widgets_init() {
 	) );
 	
 	register_sidebar( array(
-		'name'			=> esc_html__( 'Footer Widgets', 'the-mx' ),
+		'name'			=> esc_html__( 'Footer Widgets', 'the-m-x' ),
 		'id'				=> 'footer-widget-area',
-		'description'	=> esc_html__( 'Add widgets to the Footer.', 'the-mx' ),
+		'description'	=> esc_html__( 'Add widgets to the Footer.', 'the-m-x' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -279,8 +267,8 @@ function the_mx_enqueue_scripts() {
 	}
 	
 	if( get_theme_mod( 'the_mx_animate_css' ) == 1 ) {
-		wp_enqueue_style( 'the-mx-animations', get_template_directory_uri() . '/css/animate.css-master/animate.min.css', array(), '' );
-		wp_enqueue_script( 'the-mx-animations-js', get_template_directory_uri() . '/js/animations.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_style( 'the-mx-animations', get_template_directory_uri() . '/css/animate.min.css', array(), '' );
+		wp_enqueue_script( 'the-mx-animations-js', get_template_directory_uri() . '/js/animations.js', array( 'jquery' ), '', true );
 		wp_enqueue_style( 'the-mx-ripple-animation', get_template_directory_uri() . '/css/ripple.min.css', array(), '' );
 		wp_enqueue_script( 'the-mx-ripple-animation-js', get_template_directory_uri() . '/js/ripple.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_style( 'the-mx-preloader', get_template_directory_uri() . '/css/spinner.css' );

@@ -20,9 +20,9 @@
 				<?php dynamic_sidebar( 'footer-widget-area' ); ?>
 			</div>
 			<?php } ?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'the-mx' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'the-mx' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'the-m-x' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'the-m-x' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'the-mx' ), 'the-mx', '<a href="http://www.jasong-designs.com" rel="designer">Jason G. Designs</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'the-m-x' ), 'The M.X.', '<a href="http://www.jasong-designs.com" rel="designer">Jason G. Designs</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

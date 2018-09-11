@@ -24,12 +24,12 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			<?php
 				the_content( sprintf(
 					/* translators: %s: Name of current post. */
-					__( 'Continue reading %s...', 'the-mx' ),
+					__( 'Continue reading %s...', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
 	
 				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-mx' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-m-x' ),
 					'after'  => '</div>',
 				) );
 			?>
@@ -51,7 +51,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					);
 	
 					$posted_on = sprintf(
-						esc_html_x( '%s', 'post date', 'the-mx' ),
+						esc_html_x( '%s', 'post date', 'the-m-x' ),
 						'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 					); 
 					
@@ -61,7 +61,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			edit_post_link(
 				sprintf(
 					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'the-mx' ),
+					esc_html__( 'Edit %s', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				),
 				'<div class="edit-link"><i class="material-icons">mode_edit</i>',

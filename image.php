@@ -25,7 +25,7 @@ get_header(); ?>
 		<?php
 		while ( have_posts() ) : the_post(); ?>
 		
-			<div class="return-to-parent"><?php echo sprintf(__( '%1$sReturn to:%2$s', 'the-mx' ), '<span class="return-to-text">', '</span>' ); ?> <a href="<?php echo get_permalink( $post->post_parent ); ?>"><?php echo get_the_title( $post->post_parent ); ?></a></div>
+			<div class="return-to-parent"><?php echo sprintf(__( '%1$sReturn to:%2$s', 'the-m-x' ), '<span class="return-to-text">', '</span>' ); ?> <a href="<?php echo get_permalink( $post->post_parent ); ?>"><?php echo get_the_title( $post->post_parent ); ?></a></div>
 		
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			
