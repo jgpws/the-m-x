@@ -236,7 +236,7 @@ add_action( 'widgets_init', 'the_mx_widgets_init' );
 
 function the_mx_enqueue_scripts() {
 	//wp_enqueue_style( 'the-mx-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
 	
 	// Enqueue this for now; may be added to the Customizer later
 	wp_enqueue_style( 'the-mx-right-sidebar-overlay', get_template_directory_uri() . '/layouts/content-sidebar-overlay.css', array( 'the-mx-style' ) );
