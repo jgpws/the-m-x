@@ -25,13 +25,13 @@ get_header(); ?>
 		<?php
 		while ( have_posts() ) : the_post(); ?>
 		
-			<div class="return-to-parent"><?php echo sprintf(__( '%1$sReturn to:%2$s', 'the-m-x' ), '<span class="return-to-text">', '</span>' ); ?> <a href="<?php echo get_permalink( $post->post_parent ); ?>"><?php echo get_the_title( $post->post_parent ); ?></a></div>
+			<div class="return-to-parent"><?php echo sprintf( '%1$s' . __( 'Return to:', 'the-m-x' ) . '%2$s', '<span class="return-to-text">', '</span>' ); ?> <a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>"><?php echo get_the_title( $post->post_parent ); ?></a></div>
 		
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			
 			<nav class="images-navigation">
-				<div class="nav-previous"><?php previous_image_link( false, '<i class="material-icons">arrow_back</i>' ); ?></div>
-				<div class="nav-next"><?php next_image_link( false, '<i class="material-icons">arrow_forward</i>' ); ?></div>
+				<div class="nav-previous"><?php previous_image_link( false, '<i class="material-icons">' . __( 'arrow_back', 'the-m-x' ) . '</i>' ); ?></div>
+				<div class="nav-next"><?php next_image_link( false, '<i class="material-icons">' . __( 'arrow_forward', 'the-m-x' ) . '</i>' ); ?></div>
 			</nav>
 			
 			<div class="entry-content jgd-grid">
@@ -65,7 +65,7 @@ get_header(); ?>
 				
 				<div class="entry-image-meta">
 					<?php the_mx_posted_on(); ?>
-					<div class="image-size-meta"><i class="material-icons">image</i><?php echo $att_image[1]; ?> x <?php echo $att_image[2]; ?></div>
+					<div class="image-size-meta"><i class="material-icons"><?php _e( 'image', 'the-m-x' ); ?></i><?php echo $att_image[1]; ?> x <?php echo $att_image[2]; ?></div>
 				</div>
 			</footer>
 			

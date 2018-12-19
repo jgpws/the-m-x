@@ -20,9 +20,9 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 		<header class="entry-header">
 			<?php
 				if ( is_single() ) {
-					the_title( '<h1 class="entry-title"><i class="material-icons">view_comfy</i>', '</h1>' );
+					the_title( '<h1 class="entry-title"><i class="material-icons">' . __( 'view_comfy', 'the-m-x' ) . '</i>', '</h1>' );
 				} else {
-					the_title( '<h2 class="entry-title"><i class="material-icons">view_comfy</i>', '</h2>' );
+					the_title( '<h2 class="entry-title"><i class="material-icons">' . __( 'view_comfy', 'the-m-x' ) . '</i>', '</h2>' );
 				}
 	
 			if ( 'post' === get_post_type() ) : ?>

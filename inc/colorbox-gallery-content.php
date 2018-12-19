@@ -42,7 +42,7 @@ global $post;
 				<div class="entry-attachment-image">
 				<?php if( wp_attachment_is_image( $post->id ) ) : $att_image = wp_get_attachment_image_src( $post->id, 'full' ); ?>
 					<p>
-					<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo $att_image[1]; ?>" height="<?php echo $att_image[2]; ?>" alt="<?php echo esc_attr( $post->post_excerpt ); ?>">
+					<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_url( $att_image[1] ); ?>" height="<?php echo esc_url( $att_image[2] ); ?>" alt="<?php echo esc_attr( $post->post_excerpt ); ?>">
 					</p>
 					<?php
 					$caption = $post->post_excerpt;
@@ -65,7 +65,7 @@ global $post;
 				
 				<div class="entry-image-meta">
 					<?php the_mx_posted_on(); ?>
-					<div class="image-size-meta"><i class="material-icons">image</i><?php echo $att_image[1]; ?> x <?php echo $att_image[2]; ?> pixels</div>
+					<div class="image-size-meta"><i class="material-icons"><?php _e( 'image', 'the-m-x' ); ?></i><?php echo $att_image[1]; ?> x <?php echo $att_image[2]; ?> <?php _e( 'pixels', 'the-m-x' ); ?></div>
 				</div>
 			</footer>
 			

@@ -34,7 +34,7 @@ function the_mx_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<div class="byline"><i class="material-icons">person</i>' . $byline . '</div><div class="posted-on"><i class="material-icons">schedule</i>' . $posted_on . '</div>'; // WPCS: XSS OK.
+	echo '<div class="byline"><i class="material-icons">' . __( 'person', 'the-m-x' ) . '</i>' . $byline . '</div><div class="posted-on"><i class="material-icons">' . __( 'schedule', 'the-m-x' ) . '</i>' . $posted_on . '</div>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -49,18 +49,18 @@ function the_mx_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ' ', 'the-m-x' ) );
 		if ( $categories_list && the_mx_categorized_blog() ) {
-			printf( '<div class="cat-links"><i class="material-icons">folder</i>' . esc_html__( '%1$s', 'the-m-x' ) . '</div>', $categories_list ); // WPCS: XSS OK.
+			printf( '<div class="cat-links"><i class="material-icons">' . __( 'folder', 'the-m-x' ) . '</i>' . esc_html__( '%1$s', 'the-m-x' ) . '</div>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ' ', 'the-m-x' ) );
 		if ( $tags_list ) {
-			printf( '<div class="tags-links"><i class="material-icons">bookmark</i>' . esc_html__( '%1$s', 'the-m-x' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			printf( '<div class="tags-links"><i class="material-icons">' . __( 'bookmark', 'the-m-x' ) . '</i>' . esc_html__( '%1$s', 'the-m-x' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<div class="comments-link"><i class="material-icons">comment</i>';
+		echo '<div class="comments-link"><i class="material-icons">' . __( 'comment', 'the-m-x' ) . '</i>';
 		/* translators: %s: post title */
 		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'the-m-x' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</div>';
@@ -72,7 +72,7 @@ function the_mx_entry_footer() {
 			esc_html__( 'Edit %s', 'the-m-x' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
-		'<div class="edit-link"><i class="material-icons">mode_edit</i>',
+		'<div class="edit-link"><i class="material-icons">' . __( 'mode_edit', 'the-m-x' ) . '</i>',
 		'</div>'
 	);
 }

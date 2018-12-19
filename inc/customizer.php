@@ -17,7 +17,7 @@ function the_mx_customize_register( $wp_customize ) {
 	
 	$wp_customize->get_section( 'colors' )->title = __( 'Color Schemes', 'the-m-x' );
 	$wp_customize->get_section( 'colors' )->description = sprintf(
-		__('%1$sChoose an alternate color scheme.%2$s %1$sFor more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.%2$s %1$s* To restore the default background color: Select Color, then select Default.%2$s', 'the-m-x' ), 
+		'%1$s' . __( 'Choose an alternate color scheme.', 'the-m-x' ) . '%2$s %1$s' . __( 'For more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.', 'the-m-x' ) . '%2$s %1$s' . __( '* To restore the default background color: Select Color, then select Default.', 'the-m-x' ) . '%2$s', 
 		'<p>', '</p>', '<a href="https://material.io/guidelines/style/color.html#color-color-palette">', '</a>' );
 		
 	$wp_customize->remove_control( 'header_textcolor' );
@@ -261,7 +261,9 @@ function the_mx_customize_register( $wp_customize ) {
 		'the_mx_herotext_color', array(
 			'type' => 'radio',
 			'label' => __( 'Choose hero image text color.', 'the-m-x' ),
-			'description' => sprintf(__( '%1$sUse this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section.%2$s %1$sWhite text is best used for an image with a dark background, while black text works with images with a light background.%2$s', 'the-m-x' ), '<p>', '</p>', '<a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">', '</a>' ),
+			'description' => sprintf(
+			/* translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a> */
+			'%1$s' . __( 'Use this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section.'. 'the-m-x' ) . '%2$s %1$s' . __( 'White text is best used for an image with a dark background, while black text works with images with a light background.', 'the-m-x' ) . '%2$s', '<p>', '</p>', '<a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">', '</a>' ),
 			'section' => 'header_image',
 			'priority' => 40,
 			'choices' => array(
@@ -453,7 +455,9 @@ function the_mx_customize_register( $wp_customize ) {
 		'the_mx_add_showmore_button', array(
 			'section' => 'the_mx_imagegrid_template',
 			'label' => __( 'More posts', 'the-m-x' ),
-			'description' => sprintf( __( 'Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts\' category page.', 'the-m-x' ), '<strong>', '</strong>' ),
+			'description' => sprintf( 
+			/* translators: %1$s, %2$s: <strong>, </strong> */
+			__( 'Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts\' category page.', 'the-m-x' ), '<strong>', '</strong>' ),
 			'type' => 'checkbox',
 		)
 	);
@@ -485,7 +489,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'the_mx_gallery_settings', array(
 			'title' => __( 'Gallery Settings', 'the-m-x' ),
-			'description' => sprintf( __( '%1$s* In order to use these options, a post with a gallery must be saved with the Gallery post format.%2$s%1$s** This setting disables Colorbox on single posts.', 'the-m-x' ), '<p>', '</p>' ),
+			'description' => sprintf( '%1$s' . __( '* In order to use these options, a post with a gallery must be saved with the Gallery post format.', 'the-m-x' ) . '%2$s%1$s' . __( '** This setting disables Colorbox on single posts.', 'the-m-x' ), '<p>', '</p>' ),
 		)
 	);
 	

@@ -5,7 +5,7 @@ Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featur
 
 Requires at least: 4.0
 Tested up to: 4.4.2
-Stable tag: 1.0.12
+Stable tag: 1.0.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.0.13 - December 18 2018 =
+Updated frontend and backend styles for Gutenberg's newest iteration; regenerated the theme .pot file for translation; Added a proper theme URI; Adjusted the heading font sizes for responsive viewports; Various small fixes
+
 = 1.0.12 - November 14 2018 =
 * Updated readme.txt file
 
@@ -30,10 +33,12 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Resources ==
 
+* Material Design Icons, Copyright 2018 Google, Apache 2.0, http://google.github.io/material-design-icons/
 * Animate.css, Copyright 2018 Daniel Eden, MIT, https://daneden.github.io/animate.css/
 * Colorbox, Copyright 2016 Jack Moore, MIT, http://www.jacklmoore.com/colorbox/
 * jQuery throttle/debounce, Copyright 2010 "Cowboy" Ben Alman, MIT/GPL2, http://benalman.com/projects/jquery-throttle-debounce-plugin/
 * Skrollr, Copyright 2012-2014 Alexander Prinzhorn (@Prinzhorn), MIT, https://prinzhorn.github.io/skrollr/
+* headroom.js Copyright (c) 2013 Nick Williams, MIT, https://wicky.nillia.ms/headroom.js/
 
 == Credits ==
 

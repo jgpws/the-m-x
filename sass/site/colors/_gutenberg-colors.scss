@@ -1,0 +1,201 @@
+/* Gutenberg color classes for the front end */
+.has-white-background-color,
+.wp-block-button__link.has-white-background-color,
+.wp-block-button__link.has-white-background-color:hover,
+.wp-block-button__link.has-white-background-color:focus {
+	background-color: $white;
+}
+
+.has-white-color,
+.wp-block-button__link.has-white-color,
+.wp-block-button__link.has-white-color:hover,
+.wp-block-button__link.has-white-color:focus {
+	color: $white;
+}
+
+.has-brown-50-background-color,
+.wp-block-button__link.has-brown-50-background-color {
+	background-color: $primary-color-pale;
+}
+
+.wp-block-button__link.has-brown-50-background-color:hover,
+.wp-block-button__link.has-brown-50-background-color:focus {
+	background-color: #bcaaa4;
+}
+
+.has-brown-50-color,
+.wp-block-button__link.has-brown-50-color,
+.wp-block-button__link.has-brown-50-color:hover,
+.wp-block-button__link.has-brown-50-color:focus {
+	color: $primary-color-pale;
+}
+
+.has-brown-300-background-color,
+.wp-block-button__link.has-brown-300-background-color {
+	background-color: $primary-color-medium;
+}
+
+.wp-block-button__link.has-brown-300-background-color:hover,
+.wp-block-button__link.has-brown-300-background-color:focus {
+	background-color: $primary-color;
+}
+
+.has-brown-300-color,
+.wp-block-button__link.has-brown-300-color,
+.wp-block-button__link.has-brown-300-color:hover,
+.wp-block-button__link.has-brown-300-color:focus {
+	color: $primary-color-medium;
+}
+
+.has-brown-500-background-color,
+.wp-block-button__link.has-brown-500-background-color {
+	background-color: $primary-color;
+}
+
+.wp-block-button__link.has-brown-500-background-color:hover,
+.wp-block-button__link.has-brown-500-background-color:focus {
+	background-color: $primary-color-dark;
+}
+
+.has-brown-500-color,
+.wp-block-button__link.has-brown-500-color,
+.wp-block-button__link.has-brown-500-color:hover,
+.wp-block-button__link.has-brown-500-color:focus {
+	color: $primary-color;
+}
+
+.has-brown-700-background-color,
+.wp-block-button__link.has-brown-700-background-color {
+	background-color: $primary-color-dark;
+}
+
+.wp-block-button__link.has-brown-700-background-color:hover,
+.wp-block-button__link.has-brown-700-background-color:focus {
+	background-color: $primary-color-darker;
+}
+
+.has-brown-700-color,
+.wp-block-button__link.has-brown-700-color,
+.wp-block-button__link.has-brown-700-color:hover,
+.wp-block-button__link.has-brown-700-color:focus {
+	color: $primary-color-dark;
+}
+
+.has-brown-900-background-color,
+.wp-block-button__link.has-brown-900-background-color {
+	background-color: $primary-color-darker;
+}
+
+.wp-block-button__link.has-brown-900-background-color:hover,
+.wp-block-button__link.has-brown-900-background-color:focus {
+	background-color: $black;
+}
+
+.has-brown-900-color,
+.wp-block-button__link.has-brown-900-color,
+.wp-block-button__link.has-brown-900-color:hover,
+.wp-block-button__link.has-brown-900-color:focus {
+	color: $primary-color-darker;
+}
+
+.has-amber-500-background-color,
+.wp-block-button__link.has-amber-500-background-color {
+	background-color: $accent-color;
+}
+
+.wp-block-button__link.has-amber-500-background-color:hover,
+.wp-block-button__link.has-amber-500-background-color:focus {
+	background-color: $accent-color-dark;
+}
+
+.has-amber-500-color,
+.wp-block-button__link.has-amber-500-color,
+.wp-block-button__link.has-amber-500-color:hover,
+.wp-block-button__link.has-amber-500-color:focus {
+	color: $accent-color;
+}
+
+.has-blue-gray-50-background-color,
+.wp-block-button__link.has-blue-gray-50-background-color {
+	background-color: #eceff1;
+}
+
+.wp-block-button__link.has-blue-gray-50-background-color:hover,
+.wp-block-button__link.has-blue-gray-50-background-color:focus {
+	background-color: #b0bec5;
+}
+
+.has-blue-gray-50-color,
+.wp-block-button__link.has-blue-gray-50-color,
+.wp-block-button__link.has-blue-gray-50-color:hover,
+.wp-block-button__link.has-blue-gray-50-color:focus {
+	color: #eceff1;
+}
+
+.has-blue-gray-300-background-color,
+.wp-block-button__link.has-blue-gray-300-background-color {
+	background-color: #90a4ae;
+}
+
+.wp-block-button__link.has-blue-gray-300-background-color:hover,
+.wp-block-button__link.has-blue-gray-300-background-color:focus {
+	background-color: #607d8b;
+}
+
+.has-blue-gray-300-color,
+.wp-block-button__link.has-blue-gray-300-color,
+.wp-block-button__link.has-blue-gray-300-color:hover,
+.wp-block-button__link.has-blue-gray-300-color:focus {
+	color: #90a4ae;
+}
+
+.has-blue-gray-500-background-color,
+.wp-block-button__link.has-blue-gray-500-background-color {
+	background-color: #607d8b;
+}
+
+.wp-block-button__link.has-blue-gray-500-background-color:hover,
+.wp-block-button__link.has-blue-gray-500-background-color:focus {
+	background-color: #455a64;
+}
+
+.has-blue-gray-500-color,
+.wp-block-button__link.has-blue-gray-500-color,
+.wp-block-button__link.has-blue-gray-500-color:hover,
+.wp-block-button__link.has-blue-gray-500-color:focus {
+	color: #607d8b;
+}
+
+.has-blue-gray-700-background-color,
+.wp-block-button__link.has-blue-gray-700-background-color {
+	background-color: #455a64;
+}
+
+.wp-block-button__link.has-blue-gray-700-background-color:hover,
+.wp-block-button__link.has-blue-gray-700-background-color:focus {
+	background-color: #263238;
+}
+
+.has-blue-gray-700-color,
+.wp-block-button__link.has-blue-gray-700-color,
+.wp-block-button__link.has-blue-gray-700-color:hover,
+.wp-block-button__link.has-blue-gray-700-color:focus {
+	color: #455a64;
+}
+
+.has-blue-gray-900-background-color,
+.wp-block-button__link.has-blue-gray-900-background-color {
+	background-color: #263238;
+}
+
+.wp-block-button__link.has-blue-gray-900-background-color:hover,
+.wp-block-button__link.has-blue-gray-900-background-color:focus {
+	background-color: $black;
+}
+
+.has-blue-gray-900-color,
+.wp-block-button__link.has-blue-gray-900-color,
+.wp-block-button__link.has-blue-gray-900-color:hover,
+.wp-block-button__link.has-blue-gray-900-color:focus {
+	color: #263238;
+}

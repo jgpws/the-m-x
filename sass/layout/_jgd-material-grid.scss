@@ -105,8 +105,8 @@ article.page.three-fourths-centered-r,
 		margin: 0 auto;
 	}
 	
-	.three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
-	.jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
+	.three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link),
+	.jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link),
 	.three-fourths-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.slider-button-panel),
 	.jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
 		margin-left: auto;
@@ -127,7 +127,7 @@ article.page.three-fourths-centered-r,
 		margin: 1em 4em;
 	}
 	
-	.three-fourths-centered-r .wp-block-cover-image.alignwide {
+	.three-fourths-centered-r .wp-block-cover.alignwide {
 		max-width: calc(100% - 8em);
 	}
 	
@@ -135,7 +135,7 @@ article.page.three-fourths-centered-r,
 		margin: 1em 8em;
 	}
 	
-	.jgd-column-1 .wp-block-cover-image.alignwide {
+	.jgd-column-1 .wp-block-cover.alignwide {
 		max-width: calc(100% - 16em);
 	}
 	

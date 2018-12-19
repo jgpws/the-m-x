@@ -22,7 +22,7 @@ function the_mx_setup() {
 	 * If you're building a theme based on The M.X., use a find and replace
 	 * to change 'the-mx' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'the-m-x', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'the-m-x', get_template_directory() . '/languages/' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -97,18 +97,69 @@ function the_mx_setup() {
 	// Support for Gutenberg
 	add_theme_support( 'align-wide' );
 	
-	add_theme_support( 'editor-color-palette',
-		'#ffffff',
-		'#efebe9',
-		'#a1887f',
-		'#795548',
-		'#5d4037',
-		'#3e2723',
-		'#eceff1',
-		'#90a4ae',
-		'#607d8b',
-		'#455a64',
-		'#263238'
+	add_theme_support( 
+		'editor-color-palette', array(
+			array(
+				'name' => esc_html__( 'White', 'the-m-x' ),
+				'slug' => 'white',
+				'color' => '#ffffff',
+			),
+			array(
+				'name' => esc_html__( 'Brown 50', 'the-m-x' ),
+				'slug' => 'brown-50',
+				'color' => '#efebe9',
+			),
+			array(
+				'name' => esc_html__( 'Brown 300', 'the-m-x' ),
+				'slug' => 'brown-300',
+				'color' => '#a1887f',
+			),
+			array(
+				'name' => esc_html__( 'Brown 500', 'the-m-x' ),
+				'slug' => 'brown-500',
+				'color' => '#795548',
+			),
+			array(
+				'name' => esc_html__( 'Brown 700', 'the-m-x' ),
+				'slug' => 'brown-700',
+				'color' => '#5d4037',
+			),
+			array(
+				'name' => esc_html__( 'Brown 900', 'the-m-x' ),
+				'slug' => 'brown-900',
+				'color' => '#3e2723',
+			),
+			array(
+				'name' => esc_html__( 'Amber 500', 'the-m-x' ),
+				'slug' => 'amber-500',
+				'color' => '#ffc107',
+			),
+			array(
+				'name' => esc_html__( 'Blue Gray 50', 'the-m-x' ),
+				'slug' => 'blue-gray-50',
+				'color' => '#eceff1',
+			),
+			array(
+				'name' => esc_html__( 'Blue Gray 300', 'the-m-x' ),
+				'slug' => 'blue-gray-300',
+				'color' => '#90a4ae',
+			),
+			array(
+				'name' => esc_html__( 'Blue Gray 500', 'the-m-x' ),
+				'slug' => 'blue-gray-500',
+				'color' => '#607d8b',
+			),
+			array(
+				'name' => esc_html__( 'Blue Gray 700', 'the-m-x' ),
+				'slug' => 'blue-gray-700',
+				'color' => '#455a64',
+			),
+			array(
+				'name' => esc_html__( 'Blue Gray 900', 'the-m-x' ),
+				'slug' => 'blue-gray-900',
+				'color' => '#263238',
+			)
+		)
 	);
 }
 endif;
@@ -185,7 +236,7 @@ add_action( 'widgets_init', 'the_mx_widgets_init' );
 
 function the_mx_enqueue_scripts() {
 	//wp_enqueue_style( 'the-mx-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
+	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.css' );
 	
 	// Enqueue this for now; may be added to the Customizer later
 	wp_enqueue_style( 'the-mx-right-sidebar-overlay', get_template_directory_uri() . '/layouts/content-sidebar-overlay.css', array( 'the-mx-style' ) );

@@ -45,8 +45,11 @@ function the_mx_get_gallery_ids() {
 	global $post;
 	
 	$post_content = $post->post_content;
-	preg_match('/\[gallery.*ids=.(.*).\]/', $post_content, $ids);
-	$images_id = $ids[1];
+	if ( preg_match('/\[gallery.*ids=.(.*).\]/', $post_content, $ids) ) {
+		$images_id = $ids[1];
+	} else {
+		$images_id = null;
+	}
 	
 	return $images_id;
 }

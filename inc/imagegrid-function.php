@@ -44,7 +44,7 @@ function the_mx_imagegrid() {
 			if( !is_single() ) {
 				// show post thumbnail in content on all pages except single
 				if( has_post_thumbnail() ) { ?>
-					<a href="<?php esc_url( the_permalink() ); ?>">
+					<a href="<?php the_permalink(); ?>">
 					<div class="featured-image">
 						<?php the_post_thumbnail( 'gallery-thumb' ); ?>
 					</div>

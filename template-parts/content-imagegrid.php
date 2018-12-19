@@ -58,7 +58,7 @@
 			</header>
 			<div class="entry-content">
 				<?php if( has_post_thumbnail() ) { ?>
-					<a href="<?php esc_url( the_permalink() ); ?>">
+					<a href="<?php the_permalink(); ?>">
 					<div class="featured-image">
 						<?php the_post_thumbnail( 'gallery-thumb' ); ?>
 					</div>

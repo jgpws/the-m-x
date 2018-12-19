@@ -22,7 +22,7 @@ class The_MX_Category_Control extends WP_Customize_Control {
 			endif;
 			
 			if( !empty( $this->description ) ) :
-				?><span class="description customize-control-description"><?php echo $this->description; ?></span><?php
+				?><span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span><?php
 			endif;
 			
 			$dropdown_args = wp_parse_args( $this->dropdown_args, array(

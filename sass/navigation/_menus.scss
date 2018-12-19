@@ -431,11 +431,17 @@
 	
 }
 
+.page-template-page_landing {
+	.site-header {
+		z-index: 100;
+	}
+}
+
 @media screen and (min-width: 48em) {
 	.page-template-page_landing {
 		
 		.site-header {
-		
+			
 			.site-branding {
 				width: 50%;
 			}

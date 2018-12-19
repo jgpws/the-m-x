@@ -1,0 +1,682 @@
+# Copyright (C) 2018 Jason G. Designs
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: The M.X. 1.0.13\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/the-m-x\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2018-12-19T19:30:01+00:00\n"
+"PO-Revision-Date: 2018-12-19T19:30:01+00:00\n"
+"X-Generator: WP-CLI 2.0.1\n"
+"X-Domain: the-m-x\n"
+
+#. Theme Name of the theme
+msgid "The M.X."
+msgstr ""
+
+#. Theme URI of the theme
+msgid "http://www.jasong-designs.com/2018/06/07/the-m-x/"
+msgstr ""
+
+#. Description of the theme
+msgid "The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette."
+msgstr ""
+
+#. Author of the theme
+msgid "Jason G. Designs"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://www.jasong-designs.com"
+msgstr ""
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: 404.php:33
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: 404.php:51
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: single.php:20
+#: image.php:33
+#: index.php:23
+#: index.php:48
+msgid "arrow_back"
+msgstr ""
+
+#: single.php:20
+#: index.php:23
+#: index.php:48
+msgid "Previous Posts"
+msgstr ""
+
+#: single.php:21
+#: index.php:24
+#: index.php:49
+msgid "Next Posts"
+msgstr ""
+
+#: single.php:21
+#: image.php:34
+#: index.php:24
+#: index.php:49
+msgid "arrow_forward"
+msgstr ""
+
+#: searchform.php:10
+#: searchform.php:11
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:11
+msgctxt "placeholder"
+msgid "Search..."
+msgstr ""
+
+#: search.php:19
+msgid "Search Results for: "
+msgstr ""
+
+#: header.php:27
+#: inc/colorbox-gallery-content.php:29
+#: template-parts/header-landing.php:27
+#: template-parts/header-none.php:25
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:71
+msgid "Toggle the navigation menu"
+msgstr ""
+
+#: functions.php:54
+msgid "Primary"
+msgstr ""
+
+#: functions.php:55
+msgid "Social Profiles"
+msgstr ""
+
+#: functions.php:103
+msgid "White"
+msgstr ""
+
+#: functions.php:108
+msgid "Brown 50"
+msgstr ""
+
+#: functions.php:113
+msgid "Brown 300"
+msgstr ""
+
+#: functions.php:118
+msgid "Brown 500"
+msgstr ""
+
+#: functions.php:123
+msgid "Brown 700"
+msgstr ""
+
+#: functions.php:128
+msgid "Brown 900"
+msgstr ""
+
+#: functions.php:133
+msgid "Amber 500"
+msgstr ""
+
+#: functions.php:138
+msgid "Blue Gray 50"
+msgstr ""
+
+#: functions.php:143
+msgid "Blue Gray 300"
+msgstr ""
+
+#: functions.php:148
+msgid "Blue Gray 500"
+msgstr ""
+
+#: functions.php:153
+msgid "Blue Gray 700"
+msgstr ""
+
+#: functions.php:158
+msgid "Blue Gray 900"
+msgstr ""
+
+#: functions.php:170
+msgid "Gallery Thumbnail (300 x 300, hard cropped)"
+msgstr ""
+
+#: functions.php:202
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:204
+msgid "Add widgets to the Sidebar."
+msgstr ""
+
+#: functions.php:212
+msgid "Hero Image Widget"
+msgstr ""
+
+#: functions.php:214
+msgid "Add widget to be displayed above Hero (header) Image."
+msgstr ""
+
+#: functions.php:222
+msgid "Footer Widgets"
+msgstr ""
+
+#: functions.php:224
+msgid "Add widgets to the Footer."
+msgstr ""
+
+#: image.php:28
+msgid "Return to:"
+msgstr ""
+
+#: image.php:68
+#: inc/colorbox-gallery-content.php:68
+#: template-parts/content-image.php:17
+#: template-parts/content-image.php:29
+#: template-parts/content-image.php:31
+msgid "image"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Image Grid Page"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Landing Page"
+msgstr ""
+
+#: footer.php:23
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: footer.php:23
+msgid "Proudly powered by %s"
+msgstr ""
+
+#. translators: %1$s: The M.X. %2$s: http://www.jasong-designs.com
+#: footer.php:27
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: comments.php:31
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+
+#: comments.php:40
+#: comments.php:61
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43
+#: comments.php:64
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:44
+#: comments.php:65
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:78
+msgid "Comments are closed."
+msgstr ""
+
+#: inc/customizer.php:18
+msgid "Color Schemes"
+msgstr ""
+
+#: inc/customizer.php:20
+msgid "Choose an alternate color scheme."
+msgstr ""
+
+#: inc/customizer.php:20
+msgid "For more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline."
+msgstr ""
+
+#: inc/customizer.php:20
+msgid "* To restore the default background color: Select Color, then select Default."
+msgstr ""
+
+#: inc/customizer.php:39
+msgid "Color Scheme"
+msgstr ""
+
+#: inc/customizer.php:42
+msgid "Brown"
+msgstr ""
+
+#: inc/customizer.php:43
+msgid "Blue Gray"
+msgstr ""
+
+#: inc/customizer.php:44
+msgid "Custom"
+msgstr ""
+
+#: inc/customizer.php:63
+msgid "Primary Color 1"
+msgstr ""
+
+#: inc/customizer.php:64
+msgid "Color for the title bar, footer, links, etc."
+msgstr ""
+
+#: inc/customizer.php:86
+msgid "Primary Color 2"
+msgstr ""
+
+#: inc/customizer.php:87
+msgid "Color for the header button panel, link hover, etc."
+msgstr ""
+
+#: inc/customizer.php:108
+msgid "Primary Color 3"
+msgstr ""
+
+#: inc/customizer.php:109
+msgid "Color for main site navigation in desktop view, etc."
+msgstr ""
+
+#: inc/customizer.php:130
+msgid "Primary Color 4"
+msgstr ""
+
+#: inc/customizer.php:131
+msgid "Color behind content navigation bar, etc."
+msgstr ""
+
+#: inc/customizer.php:152
+msgid "Accent Color 1"
+msgstr ""
+
+#: inc/customizer.php:153
+msgid "Button colors, etc."
+msgstr ""
+
+#: inc/customizer.php:174
+msgid "Accent Color 2"
+msgstr ""
+
+#: inc/customizer.php:175
+msgid "Button hover colors, etc."
+msgstr ""
+
+#: inc/customizer.php:196
+msgid "Accent Color 3"
+msgstr ""
+
+#: inc/customizer.php:197
+msgid "Navigation and widget link hover colors, etc."
+msgstr ""
+
+#: inc/customizer.php:217
+msgid "Reverse text against the background to white."
+msgstr ""
+
+#: inc/customizer.php:218
+msgid "Use this setting when text is set against a dark background, as some Post Format styling is placed in front of the background."
+msgstr ""
+
+#: inc/customizer.php:237
+msgid "Reverse supporting colors to black."
+msgstr ""
+
+#: inc/customizer.php:238
+msgid "Use this setting if all four primary colors are set to a very light color."
+msgstr ""
+
+#: inc/customizer.php:247
+msgid "Hero Image"
+msgstr ""
+
+#: inc/customizer.php:263
+msgid "Choose hero image text color."
+msgstr ""
+
+#. translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a>
+#: inc/customizer.php:266
+msgid "White text is best used for an image with a dark background, while black text works with images with a light background."
+msgstr ""
+
+#: inc/customizer.php:270
+msgid "White text"
+msgstr ""
+
+#: inc/customizer.php:271
+msgid "Black text"
+msgstr ""
+
+#: inc/customizer.php:290
+msgid "Align the hero image text."
+msgstr ""
+
+#: inc/customizer.php:294
+msgid "Left"
+msgstr ""
+
+#: inc/customizer.php:295
+msgid "Center"
+msgstr ""
+
+#: inc/customizer.php:296
+msgid "Right"
+msgstr ""
+
+#: inc/customizer.php:315
+msgid "Display Hero Image on the home page only."
+msgstr ""
+
+#: inc/customizer.php:324
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer.php:343
+msgid "Choose between three layouts for the blog pages."
+msgstr ""
+
+#: inc/customizer.php:344
+msgid "* The Centered, Wide and Two by two layouts affect widths 1280px and above."
+msgstr ""
+
+#: inc/customizer.php:347
+msgid "Centered- Posts stacked vertically."
+msgstr ""
+
+#: inc/customizer.php:348
+msgid "Wide- Posts stacked vertically with a wide content area."
+msgstr ""
+
+#: inc/customizer.php:349
+msgid "Two by two- A grid of posts two across the screen"
+msgstr ""
+
+#: inc/customizer.php:350
+msgid "Image grid- A grid designed for image or gallery posts, supporting only featured images and captions."
+msgstr ""
+
+#: inc/customizer.php:367
+msgid "Content Length"
+msgstr ""
+
+#: inc/customizer.php:368
+msgid "Choose between full length content or excerpts on the blog posts page."
+msgstr ""
+
+#: inc/customizer.php:371
+msgid "Full Content"
+msgstr ""
+
+#: inc/customizer.php:372
+msgid "Excerpt"
+msgstr ""
+
+#: inc/customizer.php:382
+msgid "Page Template Customizations"
+msgstr ""
+
+#: inc/customizer.php:384
+msgid "In this section are customizations for some of the page templates that can be applied to a custom home page."
+msgstr ""
+
+#: inc/customizer.php:391
+msgid "Image Grid"
+msgstr ""
+
+#: inc/customizer.php:393
+msgid "Customize the Image Grid page template."
+msgstr ""
+
+#: inc/customizer.php:410
+msgid "Choose a category of posts to display on the Image Grid page"
+msgstr ""
+
+#: inc/customizer.php:425
+msgid "Choose the number of posts to show"
+msgstr ""
+
+#: inc/customizer.php:428
+msgid "Show all image grid posts"
+msgstr ""
+
+#: inc/customizer.php:457
+#: inc/customizer-frontend.php:946
+msgid "More posts"
+msgstr ""
+
+#. translators: %1$s, %2$s: <strong>, </strong>
+#: inc/customizer.php:460
+msgid "Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts' category page."
+msgstr ""
+
+#: inc/customizer.php:468
+msgid "More Posts"
+msgstr ""
+
+#: inc/customizer.php:477
+msgid "Change the title of the More Posts button"
+msgstr ""
+
+#: inc/customizer.php:491
+msgid "Gallery Settings"
+msgstr ""
+
+#: inc/customizer.php:492
+msgid "* In order to use these options, a post with a gallery must be saved with the Gallery post format."
+msgstr ""
+
+#: inc/customizer.php:492
+msgid "** This setting disables Colorbox on single posts."
+msgstr ""
+
+#: inc/customizer.php:509
+msgid "Enable/disable Colorbox for the gallery"
+msgstr ""
+
+#: inc/customizer.php:510
+msgid "Enable or disable Colorbox overlay for the WordPress gallery. Check to enable and uncheck to disable."
+msgstr ""
+
+#: inc/customizer.php:528
+msgid "Enable/disable the gallery to be shown as a slider on single posts.**"
+msgstr ""
+
+#: inc/customizer.php:546
+msgid "Link to a media file or attachment page*"
+msgstr ""
+
+#: inc/customizer.php:549
+msgid "Attachment page ( default )"
+msgstr ""
+
+#: inc/customizer.php:550
+msgid "Media File"
+msgstr ""
+
+#: inc/customizer.php:568
+msgid "Change the column count*"
+msgstr ""
+
+#: inc/customizer.php:571
+msgid "Select a column number"
+msgstr ""
+
+#: inc/customizer.php:598
+msgid "Limit the number of gallery thumbnails on posts/pages*"
+msgstr ""
+
+#: inc/customizer.php:601
+msgid "Select number of gallery thumbnails"
+msgstr ""
+
+#: inc/customizer.php:621
+msgid "Animation"
+msgstr ""
+
+#: inc/customizer.php:622
+msgid "In this section, you can enable skrollr and animate.css animations."
+msgstr ""
+
+#: inc/customizer.php:639
+msgid "Enable animations on scroll, including fade-in of gallery images (with skrollr.js) on the blog homepage."
+msgstr ""
+
+#: inc/customizer.php:657
+msgid "Enable simple animations with animate.css and CSS3."
+msgstr ""
+
+#: inc/colorbox-gallery-content.php:68
+msgid "pixels"
+msgstr ""
+
+#: inc/template-tags.php:28
+#: template-parts/content-aside.php:55
+#: template-parts/content-link.php:44
+#: template-parts/content-quote.php:54
+msgctxt "post date"
+msgid "%s"
+msgstr ""
+
+#: inc/template-tags.php:33
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#: inc/template-tags.php:37
+msgid "person"
+msgstr ""
+
+#: inc/template-tags.php:37
+msgid "schedule"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:50
+#: inc/template-tags.php:56
+msgid " "
+msgstr ""
+
+#: inc/template-tags.php:52
+msgid "folder"
+msgstr ""
+
+#: inc/template-tags.php:52
+#: inc/template-tags.php:58
+msgid "%1$s"
+msgstr ""
+
+#: inc/template-tags.php:58
+msgid "bookmark"
+msgstr ""
+
+#: inc/template-tags.php:63
+msgid "comment"
+msgstr ""
+
+#. translators: %s: post title
+#: inc/template-tags.php:65
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:72
+#: template-parts/content-imagegrid.php:33
+#: template-parts/content-aside.php:65
+#: template-parts/content-link.php:54
+#: template-parts/content-status.php:45
+#: template-parts/content-page.php:33
+#: template-parts/content-quote.php:64
+msgid "Edit %s"
+msgstr ""
+
+#: inc/template-tags.php:75
+msgid "mode_edit"
+msgstr ""
+
+#. translators: %s: Name of current post.
+#: inc/imagegrid-function.php:57
+#: template-parts/content-aside.php:26
+#: template-parts/content-image.php:80
+#: template-parts/content-audio.php:42
+#: template-parts/content-status.php:26
+#: template-parts/content-quote.php:27
+#: template-parts/content.php:47
+#: template-parts/content-video.php:61
+msgid "Continue reading %s..."
+msgstr ""
+
+#: inc/imagegrid-function.php:62
+#: template-parts/content-imagegrid.php:22
+#: template-parts/content-aside.php:31
+#: template-parts/content-image.php:85
+#: template-parts/content-audio.php:47
+#: template-parts/content-status.php:31
+#: template-parts/content-page.php:22
+#: template-parts/content-quote.php:32
+#: template-parts/content.php:52
+#: template-parts/content-video.php:66
+#: template-parts/content-gallery.php:41
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-aside.php:35
+#: template-parts/content-link.php:23
+msgid "View the full post"
+msgstr ""
+
+#: template-parts/content-audio.php:25
+#: template-parts/content-audio.php:27
+msgid "radio"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:21
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:25
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:31
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/content-video.php:27
+msgid "movie"
+msgstr ""
+
+#: template-parts/content-gallery.php:23
+#: template-parts/content-gallery.php:25
+msgid "view_comfy"
+msgstr ""
+
+#: template-parts/content-gallery.php:46
+msgid "More images"
+msgstr ""
