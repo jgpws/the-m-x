@@ -31,10 +31,18 @@
 }
 
 .animate .site-header .main-navigation a:link,
-.animate .site-header .main-navigation a:visited {
+.animate .site-header .main-navigation a:visited,
+.animate .comment-form-comment,
+.animate .comment-form-author,
+.animate .comment-form-email,
+.animate .comment-form-url {
 	transition-property: all;
 	transition-duration: 0.25s;
 	transition-timing-function: linear;
+}
+
+.animate .isActive {
+	border-bottom-color: $accent-color;
 }
 
 .animate .main-navigation ul ul a:hover,

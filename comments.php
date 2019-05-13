@@ -27,11 +27,21 @@ if ( post_password_required() ) {
 	if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'the-m-x' ) ),
-					number_format_i18n( get_comments_number() ),
-					'<span>' . get_the_title() . '</span>'
+			$the_m_x_comment_count = get_comments_number();
+			if( '1' === $the_m_x_comment_count ) {
+				printf(
+					/* translators: 1: title */
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'the-m-x' ),
+					'<span>' . esc_html( get_the_title() ) . '</span>'
 				);
+			} else {
+				printf( // WPCS: XSS OK.
+					/* translators: 1: comment count number, 2: title. */
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $the_m_x_comment_count, 'comments title', 'the-m-x' ) ),
+					esc_html( number_format_i18n( $the_m_x_comment_count ) ),
+					'<span>' . esc_html( get_the_title() ) . '</span>'
+				);
+			}
 			?>
 		</h2>
 

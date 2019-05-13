@@ -94,6 +94,11 @@ a:active {
 	background-color: #455a64;
 }
 
+#header-button-panel .search-field,
+.animate .isActive {
+	border-bottom-color: #795548;
+}
+
 .site-branding {
 	background-color: #607d8b;
 }

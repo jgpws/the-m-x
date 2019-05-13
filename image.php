@@ -25,7 +25,7 @@ get_header(); ?>
 		<?php
 		while ( have_posts() ) : the_post(); ?>
 		
-			<div class="return-to-parent"><?php echo sprintf( '%1$s' . __( 'Return to:', 'the-m-x' ) . '%2$s', '<span class="return-to-text">', '</span>' ); ?> <a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>"><?php echo get_the_title( $post->post_parent ); ?></a></div>
+			<div class="return-to-parent"><?php echo sprintf( '%1$s' . esc_html__( 'Return to:', 'the-m-x' ) . '%2$s', '<span class="return-to-text">', '</span>' ); ?> <a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>"><?php echo esc_html( get_the_title( $post->post_parent ) ); ?></a></div>
 		
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			
@@ -39,9 +39,9 @@ get_header(); ?>
 				<?php if( wp_attachment_is_image( $post->id ) ) : $att_image = wp_get_attachment_image_src( $post->id, 'full' ); ?>
 					<p>
 					<?php if( get_theme_mod( 'the_mx_single_slider' ) == 1 ) { ?>
-						<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo $att_image[1]; ?>" height="<?php echo $att_image[2]; ?>" alt="<?php echo esc_attr( $post->post_excerpt ); ?>">
+						<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" alt="<?php echo esc_attr( $post->post_excerpt ); ?>">
 					<?php } else { ?>
-						<a href="<?php echo wp_get_attachment_url($post->id); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo $att_image[1]; ?>" height="<?php echo $att_image[2]; ?>" class="attachment-medium" alt="<?php echo esc_attr( $post->post_excerpt ); ?>"></a>
+						<a href="<?php echo esc_url( wp_get_attachment_url($post->id) ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" class="attachment-medium" alt="<?php echo esc_attr( $post->post_excerpt ); ?>"></a>
 					<?php } ?>
 					</p>
 					<?php
@@ -51,7 +51,7 @@ get_header(); ?>
 					<?php 
 					} ?>
 				<?php else: ?>
-					<a href="<?php echo wp_get_attachment_url($post->id); ?>" title="<?php echo esc_html( get_the_title($post->id), 1 ); ?>" rel="attachment"><?php echo basename($post->guid); ?></a>
+					<a href="<?php echo esc_url( wp_get_attachment_url($post->id) ); ?>" title="<?php echo esc_html( get_the_title($post->id), 1 ); ?>" rel="attachment"><?php echo esc_html( basename($post->guid) ); ?></a>
 				<?php endif; ?>
 				</div>
 				<?php the_content(); ?>
@@ -60,12 +60,12 @@ get_header(); ?>
 			<footer class="entry-footer jgd-grid">
 				<h2 class="image-title"><?php 
 					$image_title = get_the_title($post->id);
-					echo $image_title;
+					echo esc_html( $image_title );
 				 ?></h2>
 				
 				<div class="entry-image-meta">
 					<?php the_mx_posted_on(); ?>
-					<div class="image-size-meta"><i class="material-icons"><?php _e( 'image', 'the-m-x' ); ?></i><?php echo $att_image[1]; ?> x <?php echo $att_image[2]; ?></div>
+					<div class="image-size-meta"><i class="material-icons"><?php esc_html_e( 'image', 'the-m-x' ); ?></i><?php echo esc_html( $att_image[1] ); ?> x <?php echo esc_html( $att_image[2] ); ?></div>
 				</div>
 			</footer>
 			

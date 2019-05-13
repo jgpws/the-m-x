@@ -1,3 +1,9 @@
+input,
+label,
+textarea {
+	font-size: 125%;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -15,12 +21,13 @@ input[type="datetime-local"],
 input[type="color"],
 textarea,
 select {
-	background: transparent;
-	color: $color__text-input;
-	border-top: $color__border-input;
-	border-right: $color__border-input;
+	background-color: $pale-gray;
+	border-top: transparent;
+	border-right: transparent;
 	border-bottom: 2px solid $accent-color;
-	border-left: $color__border-input;
+	border-left: transparent;
+	border-radius: 2px 2px 0 0;
+	color: $color__text-input;
 
 	&:focus {
 		color: $color__text-input-focus;
@@ -45,8 +52,9 @@ input[type="week"],
 input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
-input[type="color"] {
-	padding: 3px;
+input[type="color"],
+textarea {
+	padding: 10px;
 }
 
 input[type="button"],
@@ -55,7 +63,102 @@ input[type="submit"] {
 	background: $color__background-button;
 }
 
+label {
+	margin: 0 0.5em;
+}
+
 textarea {
 	padding-left: 3px;
 	width: 100%;
+}
+
+/* Comment Forms */
+
+.comment-form-comment,
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+	background-color: $pale-gray;
+	border-radius: 8px 8px 0 0;
+	margin-bottom: 1em;
+	padding-bottom: 10px;
+	position: relative;
+	color: $color__text-input;
+	border-bottom: 2px solid $pale-black;
+	
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="url"],
+	textarea {
+		background-color: transparent;
+		border: transparent;
+		padding: 10px 12px;
+	}
+	
+	label {
+		margin: 0;
+		padding: 12px 12px 0 12px;
+		position: absolute;
+	}
+	
+	input,
+	label,
+	textarea {
+		width: 100%;
+	}
+}
+
+/* Searchfield in header */
+
+#header-button-panel .searchform {
+	@include flex-row-right-aligned;
+	background-color: $primary-color-dark;
+	align-items: flex-end;
+	height: 3rem;
+	left: 0px;
+	margin-left: 0.5em;
+	position: absolute;
+	width: calc(100% - 4.5rem);
+	z-index: 500;
+	
+	input,
+	label {
+		@include font-size(0.875);
+	}
+	
+	&.hide {
+		left: -9999em;
+	}
+	
+}
+
+#header-button-panel .search-field {
+	background-color: transparent;
+	border-top: $color__border-input;
+	border-right: $color__border-input;
+	border-bottom: 2px solid $accent-color;
+	border-left: $color__border-input;
+	color: $primary-text-color-white;
+	margin-bottom: 0;
+	width: 95%; /* fallback for browsers that don't support calc */
+	width: calc(100% - 0.5em);
+
+	&:focus {
+		color: $white;
+	}
+}
+
+#header-button-panel input.search-field::-webkit-input-placeholder {
+	color: $primary-text-color-faded;
+}
+
+#header-button-panel input.search-field::-moz-placeholder {
+	color: $primary-text-color-faded;
+	font-weight: $font__weight-heavy;
+	opacity: 1;
+}
+
+#header-button-panel input.search-field::-ms-input-placeholder {
+	color: $primary-text-color-faded;
 }

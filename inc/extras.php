@@ -77,3 +77,10 @@ function the_mx_add_grid_layouts( $classes ) {
 	}
 }
 add_filter( 'post_class', 'the_mx_add_grid_layouts' );
+
+function the_mx_pingback_header() {
+	if( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+	}
+}
+add_action( 'wp_head', 'the_mx_pingback_header' );

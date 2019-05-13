@@ -20,7 +20,12 @@
 				<?php dynamic_sidebar( 'footer-widget-area' ); ?>
 			</div>
 			<?php } ?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'the-m-x' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'the-m-x' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'the-m-x' ) ); ?>">
+			<?php printf( 
+				/* translators: %s: WordPress */
+				esc_html__( 'Proudly powered by %s', 'the-m-x' ), 'WordPress' 
+			); ?>
+			</a>
 			<span class="sep"> | </span>
 			<?php printf( 
 			/* translators: %1$s: The M.X. %2$s: http://www.jasong-designs.com */

@@ -11,7 +11,7 @@
 		box-shadow: $box-shadow-large;
 	}
 	
-	.page-template-page_image-grid & {
+	.page-template-template-image-grid & {
 		@include no-card-style;
 	}
 	
@@ -58,6 +58,11 @@
 		position: absolute;
 		width: 100%;
 	}
+	
+	.size-gallery-thumb {
+		max-height: 300px;
+		width: auto;
+	}
 }
 
 .blog.imagegrid main.jgd-grid-wrap,
@@ -73,8 +78,9 @@
 	}
 }
 
-.page-template-page_image-grid .more-link {
+.page-template-template-image-grid .more-link {
 	display: block;
+	margin-left: 0;
 	text-align: center;
 }
 
@@ -98,8 +104,7 @@
 		}
 	}
 	
-	.page-template-page_image-grid .more-link {
+	.page-template-template-image-grid .more-link {
 		margin: 0px 25% 0.5em;
 	}
 }
-

@@ -17,6 +17,7 @@ function the_mx_customize_register( $wp_customize ) {
 	
 	$wp_customize->get_section( 'colors' )->title = __( 'Color Schemes', 'the-m-x' );
 	$wp_customize->get_section( 'colors' )->description = sprintf(
+	/* translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag */
 		'%1$s' . __( 'Choose an alternate color scheme.', 'the-m-x' ) . '%2$s %1$s' . __( 'For more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.', 'the-m-x' ) . '%2$s %1$s' . __( '* To restore the default background color: Select Color, then select Default.', 'the-m-x' ) . '%2$s', 
 		'<p>', '</p>', '<a href="https://material.io/guidelines/style/color.html#color-color-palette">', '</a>' );
 		
@@ -139,7 +140,7 @@ function the_mx_customize_register( $wp_customize ) {
 		'the_mx_custom_accent_1', array(
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'default' => '#ffa000',
+			'default' => '#ffc107',
 			'transport' => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
@@ -263,7 +264,7 @@ function the_mx_customize_register( $wp_customize ) {
 			'label' => __( 'Choose hero image text color.', 'the-m-x' ),
 			'description' => sprintf(
 			/* translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a> */
-			'%1$s' . __( 'Use this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section.'. 'the-m-x' ) . '%2$s %1$s' . __( 'White text is best used for an image with a dark background, while black text works with images with a light background.', 'the-m-x' ) . '%2$s', '<p>', '</p>', '<a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">', '</a>' ),
+			'%1$s' . __( 'Use this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section.', 'the-m-x' ) . '%2$s %1$s' . __( 'White text is best used for an image with a dark background, while black text works with images with a light background.', 'the-m-x' ) . '%2$s', '<p>', '</p>', '<a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">', '</a>' ),
 			'section' => 'header_image',
 			'priority' => 40,
 			'choices' => array(
@@ -654,7 +655,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'the_mx_animate_css', array(
 			'type' => 'checkbox',
-			'label' => __('Enable simple animations with animate.css and CSS3.', 'the-m-x'),
+			'label' => __( 'Enable simple animations with animate.css and CSS3.', 'the-m-x' ),
 			'section' => 'the_mx_animation_settings',
 		)
 	);

@@ -25,16 +25,18 @@ function the_mx_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( '%s', 'post date', 'the-m-x' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		/* translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag */
+		esc_html_x( '%2$sPosted on%3$s%1$s', 'post date', 'the-m-x' ),
+		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>', '<span class="screen-reader-text">', '</span>'
 	);
 
 	$byline = sprintf(
+		/* translators: %s: Post author title */
 		esc_html_x( 'by %s', 'post author', 'the-m-x' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<div class="byline"><i class="material-icons">' . __( 'person', 'the-m-x' ) . '</i>' . $byline . '</div><div class="posted-on"><i class="material-icons">' . __( 'schedule', 'the-m-x' ) . '</i>' . $posted_on . '</div>'; // WPCS: XSS OK.
+	echo '<div class="byline"><i class="material-icons">' . esc_html__( 'person', 'the-m-x' ) . '</i>' . $byline . '</div><div class="posted-on"><i class="material-icons">' . esc_html__( 'schedule', 'the-m-x' ) . '</i>' . $posted_on . '</div>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -46,21 +48,26 @@ if ( ! function_exists( 'the_mx_entry_footer' ) ) :
 function the_mx_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ' ', 'the-m-x' ) );
+		$categories_list = get_the_category_list( esc_html( ' ' ) );
 		if ( $categories_list && the_mx_categorized_blog() ) {
-			printf( '<div class="cat-links"><i class="material-icons">' . __( 'folder', 'the-m-x' ) . '</i>' . esc_html__( '%1$s', 'the-m-x' ) . '</div>', $categories_list ); // WPCS: XSS OK.
+			printf(
+				/* translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag */
+				'<div class="cat-links"><i class="material-icons">' . esc_html__( 'folder', 'the-m-x' ) . '</i>' . esc_html__( '%2$sPosted in %3$s%1$s', 'the-m-x' ) . '</div>', $categories_list, '<span class="screen-reader-text">', '</span>' 
+			); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ' ', 'the-m-x' ) );
+		$tags_list = get_the_tag_list( '', esc_html( ' ' ) );
 		if ( $tags_list ) {
-			printf( '<div class="tags-links"><i class="material-icons">' . __( 'bookmark', 'the-m-x' ) . '</i>' . esc_html__( '%1$s', 'the-m-x' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			printf(
+				/* translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag */
+				'<div class="tags-links"><i class="material-icons">' . esc_html__( 'bookmark', 'the-m-x' ) . '</i>' . esc_html__( '%2$sTagged %3$s%1$s', 'the-m-x' ) . '</div>', $tags_list, '<span class="screen-reader-text">', '</span>' 
+			); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<div class="comments-link"><i class="material-icons">' . __( 'comment', 'the-m-x' ) . '</i>';
+		echo '<div class="comments-link"><i class="material-icons">' . esc_html__( 'comment', 'the-m-x' ) . '</i>';
 		/* translators: %s: post title */
 		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'the-m-x' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</div>';

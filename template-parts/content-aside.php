@@ -32,7 +32,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					'after'  => '</div>',
 				) ); 
 				if( !is_single() ) { ?>
-					<p class="view-full-post-link"><a href="<?php the_permalink(); ?>"><?php _e( 'View the full post', 'the-m-x' ); ?></a></p>
+					<p class="view-full-post-link"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'View the full post', 'the-m-x' ); ?></a></p>
 				<?php
 				} ?>
 		</div><!-- .entry-content -->
@@ -52,11 +52,12 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					);
 	
 					$posted_on = sprintf(
-						esc_html_x( '%s', 'post date', 'the-m-x' ),
-						'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-					); 
+		/* translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag */
+					esc_html_x( '%2$sPosted on%3$s%1$s', 'post date', 'the-m-x' ),
+					'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>', '<span class="screen-reader-text">', '</span>'
+					);
 					
-					echo '<div class="posted-on"><i class="material-icons">schedule</i>' . $posted_on . '</div>'; // WPCS: XSS OK. ?>
+					echo '<div class="posted-on"><i class="material-icons">' . esc_html__( 'schedule', 'the-m-x' ) . '</i>' . $posted_on . '</div>'; // WPCS: XSS OK. ?>
 			</div><!-- .entry-meta -->
 			<?php endif;
 			edit_post_link(
@@ -65,11 +66,11 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					esc_html__( 'Edit %s', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				),
-				'<div class="edit-link"><i class="material-icons">mode_edit</i>',
+				'<div class="edit-link"><i class="material-icons">' . esc_html__( 'mode_edit', 'the-m-x' ) . '</i>',
 				'</div>'
 			); ?>
 		</footer><!-- .entry-footer -->
 	</article><!-- #post-## -->
 <?php
 }
-?>
+

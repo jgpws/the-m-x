@@ -10,11 +10,12 @@ html {
 
 body {
 	background-color: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	overflow-x: hidden;
 	touch-action: none;
 }
 
 /* Styling from Materialize CSS; see http://materializecss.com/typography.html. */
-blockquote, q, .wp-block-pullquote {
+blockquote, .wp-block-pullquote {
 	border-left: 5px solid $primary-color;
 	font-weight: $font__weight-bold;
 	@include margin-two-values(1.25em, 0);

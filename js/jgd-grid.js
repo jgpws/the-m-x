@@ -3,7 +3,9 @@
  *
  * This script adds extra options to control the theme layout
  * It is used with jgd-material-grid.css
- * License: GPLv3
+ * Copyright 2016-2019, Jason G. Designs
+ *
+ * License: GNU GPL, version 3
  */
  
  document.addEventListener('DOMContentLoaded', function () {

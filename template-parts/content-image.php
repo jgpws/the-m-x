@@ -26,9 +26,9 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 		<?php
 		if ( !is_single() ) {
 			if( has_post_thumbnail() ) {
-				the_title( '<h2 class="entry-title"><i class="material-icons">'. __( 'image', 'the-m-x' ) . '</i><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				the_title( '<h2 class="entry-title"><i class="material-icons">'. esc_html__( 'image', 'the-m-x' ) . '</i><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			} else {
-				the_title( '<h2 class="entry-title"><i class="material-icons">' . __( 'image', 'the-m-x' ) . '</i>', '</h2>' );
+				the_title( '<h2 class="entry-title"><i class="material-icons">' . esc_html__( 'image', 'the-m-x' ) . '</i>', '</h2>' );
 			}
 		}
 	
@@ -55,7 +55,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 						$first_caption = $caption_matches[2][0];
 						$first_img = $caption_matches[3][0];
 						echo '<a href="' . esc_url( get_the_permalink() ) . '">' . $first_img . '</a>' . "\n" .
-						'<p class="wp-caption-text">' . $first_caption . '</p>';
+						'<p class="wp-caption-text">' . esc_html( $first_caption ) . '</p>';
 					}
 				} else {
 				// Find first image with no caption

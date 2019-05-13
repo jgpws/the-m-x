@@ -38,15 +38,15 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 		<div class="entry-content">
 			<?php
 			if( !is_single() ) {
-				global $post;
-				$post_id = '';
+				//global $post;
+				$the_m_x_vid_post_id = '';
 				
-				$post = get_post( $post_id );
-				$content = apply_filters( 'the_content', $post->post_content );
-				$embeds = get_media_embedded_in_content( $content );
+				$the_m_x_post = get_post( $the_m_x_vid_post_id );
+				$the_m_x_content = apply_filters( 'the_content', $the_m_x_post->post_content );
+				$the_m_x_embeds = get_media_embedded_in_content( $the_m_x_content );
 				
-				if( !empty( $embeds ) ) {
-					$first_embed = $embeds[0];
+				if( !empty( $the_m_x_embeds ) ) {
+					$first_embed = $the_m_x_embeds[0];
 					if( class_exists( 'Jetpack' ) ) { ?>
 						<div class="jetpack-video-wrapper">
 							<?php echo $first_embed; ?>

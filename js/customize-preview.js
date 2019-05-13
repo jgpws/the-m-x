@@ -150,9 +150,4 @@
 		} );
 	} );
 	
-	/* Open the theme's Sidebar when sidebar control is open */
-	if ( $( '#sub-accordion-section-sidebar-widgets-sidebar-1' ).is( 'open' ) ) {
-		$( '#secondary' ).css( { 'display' : 'flex' } );
-	}
-	console.log( mxControlParams.sidebar_widget );
 } )( jQuery );

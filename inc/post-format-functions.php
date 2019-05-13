@@ -35,4 +35,3 @@ function the_mx_wrap_quote() {
 	
 	return $content;
 }
-?>

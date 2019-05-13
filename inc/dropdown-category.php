@@ -54,4 +54,3 @@ class The_MX_Category_Control extends WP_Customize_Control {
 	}
 
 }
-?>

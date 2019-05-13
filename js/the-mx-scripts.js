@@ -85,7 +85,7 @@
 		var socialToggleButton;
 		
 		if ( socialContainer ) {
-			socialContainer.insertAdjacentHTML( 'beforebegin', '<button class="social-toggle" id="social-button"><i class="material-icons">people</i></button>' );
+			socialContainer.insertAdjacentHTML( 'beforebegin', '<button class="social-toggle" id="social-button"><i class="material-icons">&#xE7FD;</i></button>' );
 			socialToggleButton = document.getElementById( 'social-button' );
 		
 			if ( windowWidth < 768 ) {
@@ -296,7 +296,7 @@
 		
 		if ( document.body.contains( headerPanel ) ) { // check if headerPanel exists
 			
-			if ( document.body.classList.contains( 'page-template-page_landing' ) ) {
+			if ( document.body.classList.contains( 'page-template-template-landing' ) ) {
 				// show nothing
 			} else {
 				// Create and add searchToggleButton to header button panel
@@ -403,7 +403,7 @@
 	
 	
 	function disappearingHeader() {
-		if ( document.body.classList.contains( 'page-template-page_landing' ) ) {
+		if ( document.body.classList.contains( 'page-template-template-landing' ) ) {
 			var theHeader = document.querySelector( '#masthead' );
 			
 			var headroom = new Headroom( theHeader );

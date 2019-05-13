@@ -43,7 +43,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					) );
 				} else {
 					echo get_post_gallery(); ?>
-					<div class="more-images-link"><a href="<?php the_permalink(); ?>"><?php _e( 'More images', 'the-m-x' ); ?></a></div>
+					<div class="more-images-link"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'More images', 'the-m-x' ); ?></a></div>
 				<?php
 				} // ends else ?>
 		</div><!-- .entry-content -->

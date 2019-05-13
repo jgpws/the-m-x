@@ -157,7 +157,7 @@ function the_mx_limited_gallery( $attr ) {
 				'captiontag' => 'figcaption',
 				'columns' => $mx_colcount,
 				'include' => $mx_thumbcount,
-				'size' => 'gallery-thumb',
+				'size' => 'the-mx-gallery-thumb',
 				'link' => $link_image_to,
 			), $atts );
 				
@@ -283,7 +283,7 @@ function the_mx_gallery_atts( $out, $pairs, $atts ) {
 		), $atts );
 	} else {
 		$atts = shortcode_atts( array(
-			'size' => 'gallery-thumb',
+			'size' => 'the-mx-gallery-thumb',
 			'link' => $link_image_to,
 		), $atts );
 	}
@@ -294,5 +294,3 @@ function the_mx_gallery_atts( $out, $pairs, $atts ) {
 	return $out;
 }
 add_filter( 'shortcode_atts_gallery', 'the_mx_gallery_atts', 10, 3 );
-
-?>

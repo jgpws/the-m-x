@@ -1,5 +1,6 @@
 .format-standard.has-post-thumbnail,
-.format-image.has-post-thumbnail {
+.format-image.has-post-thumbnail,
+.type-page.has-post-thumbnail {
 
 	.entry-header {
 		position: relative;
@@ -28,6 +29,10 @@
 		padding-top: 1rem;
 	}
 
+}
+
+.type-page.has-post-thumbnail .entry-title {
+	bottom: 0.5em;
 }
 
 .single .format-image.has-post-thumbnail .entry-title {
@@ -60,6 +65,11 @@
 .page-template-page_image-grid .featured-image {
 	margin: 0px;
 	width: auto;
+}
+
+.single.imagegrid .featured-image,
+.single.page-template-page_image-grid .featured-image {
+	margin: -1em;
 }
 
 .has-post-thumbnail .scrim {

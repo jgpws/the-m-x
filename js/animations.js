@@ -154,6 +154,63 @@
 		} );
 	}
 	
+	function animateFormLabels() {
+		var commentTextarea = $( '.comment-form-comment' );
+		var commentAuthor = $( '.comment-form-author' );
+		var commentEmail = $( '.comment-form-email' );
+		var commentUrl = $( '.comment-form-url' );
+		
+		var commentLabel = $( '.comment-form-comment label' );
+		var commentAuthorLabel = $( '.comment-form-author label' );
+		var commentEmailLabel = $( '.comment-form-email label' );
+		var commentUrlLabel = $( '.comment-form-url label' );
+		
+		commentLabel.addClass( 'animated' );
+		commentAuthorLabel.addClass( 'animated' );
+		commentEmailLabel.addClass( 'animated' );
+		commentUrlLabel.addClass( 'animated' );
+		
+		commentTextarea.on( 'focusin', function() {
+			commentLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
+			commentTextarea.addClass( 'isActive' );
+		} );
+		
+		commentTextarea.on( 'focusout', function() { 
+			commentLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
+			commentTextarea.removeClass( 'isActive' );
+		} );
+		
+		commentAuthor.on( 'focusin', function() {
+			commentAuthorLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
+			commentAuthor.addClass( 'isActive' );
+		} );
+		
+		commentAuthor.on( 'focusout', function() { 
+			commentAuthorLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
+			commentAuthor.removeClass( 'isActive' );
+		} );
+		
+		commentEmail.on( 'focusin', function() {
+			commentEmailLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
+			commentEmail.addClass( 'isActive' );
+		} );
+		
+		commentEmail.on( 'focusout', function() { 
+			commentEmailLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
+			commentEmail.removeClass( 'isActive' );
+		} );
+		
+		commentUrl.on( 'focusin', function() {
+			commentUrlLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
+			commentUrl.addClass( 'isActive' );
+		} );
+		
+		commentUrl.on( 'focusout', function() { 
+			commentUrlLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
+			commentUrl.removeClass( 'isActive' );
+		} );
+	}
+	
 	function animateCboxSlides() {
 		// For animations between Colorbox slides
 		var colorboxNext = $( '#cboxNext' );
@@ -421,6 +478,7 @@
 		animateSearchbar();
 		animateMenu();
 		animateSidebar();
+		animateFormLabels();
 		animateSlidesOnclick();
 		animateSlideshows();
 		animateCboxSlides();

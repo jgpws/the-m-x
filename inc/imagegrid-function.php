@@ -17,9 +17,7 @@ function the_mx_imagegrid() {
 			<?php if( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
 				
-				if( has_post_format( 'gallery' ) ) { // Gallery post format on single post only
-					// show nothing
-				} else {
+				if( ! has_post_format( 'gallery' ) ) { // Gallery post format is not active on single post only
 					if( has_post_thumbnail() ) { ?>
 					<div class="featured-image">
 						<?php the_post_thumbnail( 'large' ); ?>

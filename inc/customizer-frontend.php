@@ -74,20 +74,18 @@ function the_mx_frontend_customizer_styles() {
 	}
 }';
 	wp_add_inline_style( 'the-mx-style', $hero_widgets_align_css );
-	} else {
-		
 	}
 	
 	$is_custom_colors = get_theme_mod( 'the_mx_color_scheme' );
 	
 	if( $is_custom_colors == 'custom' ) {
-		$primary_color_1 = esc_html( get_theme_mod( 'the_mx_custom_primary_1' ) );
-		$primary_color_2 = esc_html( get_theme_mod( 'the_mx_custom_primary_2' ) );
-		$primary_color_3 = esc_html( get_theme_mod( 'the_mx_custom_primary_3' ) );
-		$primary_color_4 = esc_html( get_theme_mod( 'the_mx_custom_primary_4' ) );
-		$accent_color_1 = esc_html( get_theme_mod( 'the_mx_custom_accent_1' ) );
-		$accent_color_2 = esc_html( get_theme_mod( 'the_mx_custom_accent_2' ) );
-		$accent_color_3 = esc_html( get_theme_mod( 'the_mx_custom_accent_3' ) );
+		$primary_color_1 = esc_html( get_theme_mod( 'the_mx_custom_primary_1', '#795548' ) );
+		$primary_color_2 = esc_html( get_theme_mod( 'the_mx_custom_primary_2', '#5d4037' ) );
+		$primary_color_3 = esc_html( get_theme_mod( 'the_mx_custom_primary_3', '#3e2723' ) );
+		$primary_color_4 = esc_html( get_theme_mod( 'the_mx_custom_primary_4', '#a1887f' ) );
+		$accent_color_1 = esc_html( get_theme_mod( 'the_mx_custom_accent_1', '#ffc107' ) );
+		$accent_color_2 = esc_html( get_theme_mod( 'the_mx_custom_accent_2', '#ffa000' ) );
+		$accent_color_3 = esc_html( get_theme_mod( 'the_mx_custom_accent_3', '#ff6f00' ) );
 		$misc_css = '';
 		$bg_color = get_background_color();
 		
@@ -326,7 +324,9 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea,
-select {
+select,
+#header-button-panel .search-field,
+.animate .isActive {
 	border-bottom-color: ' . $accent_color_1 . ';
 }
 
@@ -719,6 +719,10 @@ pre,
 	font-weight: 600;
 	opacity: 1;
 }
+
+.page-template-template-landing {
+	color: rgba(255, 255, 255, 0.87);
+}
 ';
 		wp_add_inline_style( 'the-mx-style', $reverse_text_color_css );
 	}
@@ -939,11 +943,10 @@ add_action( 'wp_enqueue_scripts', 'the_mx_frontend_customizer_styles' );
 
 function the_mx_showmore_title_render() {
 	// shows either a default or a custom title in the Image Grid page template
-	$more_button_title = esc_html( get_theme_mod( 'the_mx_customize_showmore_title' ) );
+	$more_button_title = get_theme_mod( 'the_mx_customize_showmore_title' );
 	if( $more_button_title != '' ) {
-		echo $more_button_title;
+		echo esc_html( $more_button_title );
 	} else {
-		echo __( 'More posts', 'the-m-x' );
+		echo esc_html__( 'More posts', 'the-m-x' );
 	}
 }
-?>

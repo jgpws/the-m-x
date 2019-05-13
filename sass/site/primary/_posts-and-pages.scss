@@ -34,6 +34,13 @@ article.page:hover,
 	.three-fourths-centered-r .entry-footer {
 		@include padding-two-values(0px, 12.5%);
 	}
+	
+	.format-aside.three-fourths-centered-r .entry-meta,
+	.format-link.three-fourths-centered-r .entry-meta,
+	.format-quote.three-fourths-centered-r .entry-meta,
+	.format-status.three-fourths-centered-r .entry-meta {
+		padding: 0px;
+	}
 }
 
 .page-header {
@@ -111,6 +118,12 @@ article.page:hover,
 	margin: 2em -1em 1em;
 }
 
+@media screen and (min-width: 37.5em) {
+	.search .featured-image + .entry-summary p {
+		margin: 0 1em;
+	}
+}
+
 .search .no-results {
 	width: 100%;
 }
@@ -139,7 +152,7 @@ article.page:hover,
 	color: $white;
 }
 
-.page-template-page_landing article.page {
+.page-template-template-landing article.page {
 	@include no-card-style;
 }
 
@@ -445,16 +458,16 @@ article.page:hover,
 	@include center-block;
 }
 
-.page-template-page_landing .alignwide {
+.page-template-template-landing .alignwide {
 	width: auto;
 }
 
-.page-template-page_landing .alignfull {
+.page-template-template-landing .alignfull {
 	@include margin-two-values(1em, -2em);
 }
 
 @media (min-width: 45em) {
-	.page-template-page_landing {
+	.page-template-template-landing {
 		
 		.alignwide {
 			@include margin-two-values(1em, calc(25% - 25vw));
@@ -472,14 +485,9 @@ article.page:hover,
 		@include margin-two-values(1em, -1.5em);
 	}
 	
-	.page-template-page_landing .jgd-column-1 .alignfull {
+	.page-template-template-landing .jgd-column-1 .alignfull {
 		@include margin-two-values(1em, calc(52.5% - 52.5vw));
 	}
-	
-	/*.two-by-two-centered-r .wp-block-image.alignfull,
-	.jgd-column-1 .wp-block-image.alignfull {
-		width: calc(100% + 3em);
-	}*/
 }
 
 @media (min-width: 80em) {
@@ -491,10 +499,10 @@ article.page:hover,
 		@include margin-two-values(1em, -1.5em);
 	}
 	
-	.page-template-page_landing .three-fourths-centered-r .alignwide,
-	.page-template-page_landing .jgd-column-1 .alignwide,
-	.page-template-page_landing .three-fourths-centered-r .wp-block-cover.alignwide,
-	.page-template-page_landing .jgd-column-1 .wp-block-cover.alignwide {
+	.page-template-template-landing .three-fourths-centered-r .alignwide,
+	.page-template-template-landing .jgd-column-1 .alignwide,
+	.page-template-template-landing .three-fourths-centered-r .wp-block-cover.alignwide,
+	.page-template-template-landing .jgd-column-1 .wp-block-cover.alignwide {
 		@include margin-two-values(1em, calc(25% - 25vw));
 		max-width: 1000%;
 	}
