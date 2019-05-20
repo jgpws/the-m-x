@@ -12,7 +12,6 @@
  */
 
 function the_mx_cbox_content() {
-global $post;	
 	
 ?>
 <!DOCTYPE html>
@@ -40,18 +39,18 @@ global $post;
 			
 			<div class="entry-content jgd-grid">
 				<div class="entry-attachment-image">
-				<?php if( wp_attachment_is_image( $post->id ) ) : $att_image = wp_get_attachment_image_src( $post->id, 'full' ); ?>
+				<?php if( wp_attachment_is_image( get_the_ID() ) ) : $att_image = wp_get_attachment_image_src( get_the_ID(), 'full' ); ?>
 					<p>
-					<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" alt="<?php echo esc_attr( $post->post_excerpt ); ?>">
+					<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" alt="<?php echo esc_attr( get_the_excerpt() ); ?>">
 					</p>
 					<?php
-					$caption = $post->post_excerpt;
+					$caption = get_the_excerpt();
 					if( $caption != '' ) { ?>
-						<div class="wp-caption-text"><?php echo esc_html( $post->post_excerpt ); ?></div>
+						<div class="wp-caption-text"><?php echo esc_html( get_the_excerpt() ); ?></div>
 					<?php 
 					} ?>
 				<?php else: ?>
-					<a href="<?php echo esc_url( wp_get_attachment_url($post->id) ); ?>" title="<?php echo esc_html( get_the_title($post->id), 1 ); ?>" rel="attachment"><?php echo esc_html( basename($post->guid) ); ?></a>
+					<a href="<?php echo esc_url( wp_get_attachment_url( get_the_ID() ) ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo esc_html( basename( wp_get_attachment_url() ) ); ?></a>
 				<?php endif; ?>
 				</div>
 				<?php the_content(); ?>
@@ -59,7 +58,7 @@ global $post;
 			
 			<footer class="entry-footer jgd-grid">
 				<h2 class="image-title"><?php 
-					$image_title = get_the_title( $post->id );
+					$image_title = get_the_title( get_the_ID() );
 					echo esc_html( $image_title );
 				 ?></h2>
 				

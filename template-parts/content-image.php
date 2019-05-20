@@ -14,7 +14,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 
 	<header class="entry-header">
 		<?php if( is_single() ) {
-			the_title( '<h1 class="entry-title"><i class="material-icons">' . __( 'image', 'the-m-x' ) . '</i>', '</h1>' );
+			the_title( '<h1 class="entry-title"><i class="material-icons">' . esc_html__( 'image', 'the-m-x' ) . '</i>', '</h1>' );
 		} ?>
 		<?php if( has_post_thumbnail() ) { ?>
 		<div class="featured-image">

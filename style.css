@@ -1,12 +1,12 @@
 /*
 Theme Name: The M.X.
 Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
-Author: Jason G. Designs
+Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.0.19
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Version: 1.0.21
+License: GNU General Public License v3 or later
+License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
 Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 
@@ -1335,12 +1335,12 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 .site-header {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  z-index: 100;
 }
 
 .site-title {
   font-size: 2.125rem;
   /* ~34px */
+  line-height: 2.5rem;
   padding-top: 0.5em;
 }
 
@@ -1352,8 +1352,6 @@ a:hover, a:active {
 .site-title a:link,
 .site-title a:visited {
   font-weight: 400;
-  line-height: 2.5rem;
-  /* ~40px */
   color: rgba(255, 255, 255, 0.87);
 }
 
@@ -1973,6 +1971,9 @@ article.page:hover,
   color: #ffffff;
 }
 
+.page-template-template-landing .site-header {
+  z-index: 100;
+}
 .page-template-template-landing article.page {
   background-color: transparent;
   box-shadow: none;

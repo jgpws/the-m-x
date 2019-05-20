@@ -152,8 +152,14 @@ article.page:hover,
 	color: $white;
 }
 
-.page-template-template-landing article.page {
-	@include no-card-style;
+.page-template-template-landing {
+	.site-header {
+		z-index: 100;
+	}
+	
+	article.page {
+		@include no-card-style;
+	}
 }
 
 @media screen and (min-width: 37.5em) {

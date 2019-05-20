@@ -68,8 +68,22 @@ function the_mx_entry_footer() {
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<div class="comments-link"><i class="material-icons">' . esc_html__( 'comment', 'the-m-x' ) . '</i>';
-		/* translators: %s: post title */
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'the-m-x' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+		/* translators: %s: post title, %1$s: hide text with .screen-reader-text class <span> tag, %2$s: closing </span> tag */
+		comments_popup_link( 
+			sprintf( 
+				wp_kses( 
+					esc_html__( 'Leave a Comment%2$s on %s%3$s', 'the-m-x' ), 
+					array( 
+						'span' => array( 
+							'class' => array() 
+						),
+					) 
+				), 
+				esc_html( get_the_title() ),
+				'<span class="screen-reader-text">',
+				'</span>' 
+			) 
+		);
 		echo '</div>';
 	}
 

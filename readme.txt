@@ -1,18 +1,21 @@
 === The M.X. ===
 
-Contributors: Jason G. Designs
+Contributors: jgpws
 Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 Requires at least: 4.0
-Requires PHP: 5.2.4
-Tested up to: 4.9.9
-Stable tag: 1.0.15
+Requires PHP: 5.6
+Tested up to: 5.1.1
+Stable tag: 1.0.21
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
+
+== Copyright ==
 
 The M.X. WordPress Theme, Copyright 2016-2019 Jason G. Designs
 The M.X. is distributed under the terms of the GNU GPL.
 
 == Description ==
+
 The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
 
 == Frequently Asked Questions ==
@@ -52,20 +55,19 @@ Updated frontend and backend styles for Gutenberg's newest iteration; regenerate
 = 1.0 =
 * Initial release
 
-== Resources ==
+== Credits ==
 
+* The M.X. is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
 * Material Design Icons, Copyright 2018 Google, Apache 2.0, http://google.github.io/material-design-icons/
 * Themify Icons, Copyright 2019 Lally Elias, SIL Open Font License, https://github.com/lykmapipo/themify-icons
 * Animate.css, Copyright 2018 Daniel Eden, MIT, https://daneden.github.io/animate.css/
 * Colorbox, Copyright 2016 Jack Moore, MIT, http://www.jacklmoore.com/colorbox/
 * jQuery throttle/debounce, Copyright 2010 "Cowboy" Ben Alman, MIT/GPL2, http://benalman.com/projects/jquery-throttle-debounce-plugin/
 * Skrollr, Copyright 2012-2014 Alexander Prinzhorn (@Prinzhorn), MIT, https://prinzhorn.github.io/skrollr/
+* Ripple.js Copyright (c) 2014 Jacob Kelley, MIT, https://github.com/jakiestfu/Ripple.js
+* Spinner.css Copyright (c) 2014-2017 loading.io, CC0, https://loading.io/css/
 * headroom.js Copyright (c) 2013 Nick Williams, MIT, https://wicky.nillia.ms/headroom.js/
-
-== Credits ==
-
-* Based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
 
 == About the Screenshot ==
 

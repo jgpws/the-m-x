@@ -22,9 +22,9 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			<?php } ?>
 			<?php
 				if ( is_single() ) {
-					the_title( '<h1 class="entry-title"><i class="material-icons">' . __( 'radio', 'the-m-x' ) . '</i>', '</h1>' );
+					the_title( '<h1 class="entry-title"><i class="material-icons">' . esc_html__( 'radio', 'the-m-x' ) . '</i>', '</h1>' );
 				} else {
-					the_title( '<h2 class="entry-title"><i class="material-icons">' . __( 'radio', 'the-m-x' ) . '</i>', '</h2>' );
+					the_title( '<h2 class="entry-title"><i class="material-icons">' . esc_html__( 'radio', 'the-m-x' ) . '</i>', '</h2>' );
 				}
 	
 			if ( 'post' === get_post_type() ) : ?>
@@ -39,7 +39,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			<?php
 				the_content( sprintf(
 					/* translators: %s: Name of current post. */
-					__( 'Continue reading %s...', 'the-m-x' ),
+					esc_html__( 'Continue reading %s...', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
 	

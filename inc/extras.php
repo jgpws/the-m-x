@@ -55,7 +55,7 @@ add_filter( 'body_class', 'the_mx_body_classes' );
 
 function the_mx_add_grid_layouts( $classes ) {
 	// Switches post classes dependent on layout choices in the Customizer
-	$grid_layout = get_theme_mod( 'the_mx_layout' );
+	$grid_layout = get_theme_mod( 'the_mx_layout', 'centered' );
 	if( $grid_layout != '' ) {
 		switch ( $grid_layout ) { // opens switch
 			case 'centered':

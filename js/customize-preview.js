@@ -141,10 +141,10 @@
 		wp.customize( 'the_mx_add_showmore_button', function ( value ) {
 			value.bind( function( to ) { 
 				if ( true === to ) {
-					$( '.page-template-page_image-grid .more-link' ).show();
+					$( '.page-template-template-image-grid .more-link' ).show();
 					console.log(to);
 				} else {
-					$( '.page-template-page_image-grid .more-link' ).hide();
+					$( '.page-template-template-image-grid .more-link' ).hide();
 				}
 			} );
 		} );

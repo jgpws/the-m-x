@@ -17,8 +17,12 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', get_post_format() );
 
 			the_post_navigation( array(
-				'prev_text' => sprintf( '%1$s' . __( 'arrow_back', 'the-m-x' ) . '%2$s' . __( 'Previous Posts', 'the-m-x' ), '<i class="material-icons">', '</i>' ),
-				'next_text' => sprintf( __( 'Next Posts', 'the-m-x' ) . '%1$s' . __( 'arrow_forward', 'the-m-x' ) . '%2$s', '<i class="material-icons">', '</i>' ),
+				'prev_text' => sprintf( 
+					/* translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag */
+					'%1$s' . esc_html__( 'arrow_back', 'the-m-x' ) . '%2$s' . esc_html__( 'Previous Posts', 'the-m-x' ), '<i class="material-icons">', '</i>' ),
+				'next_text' => sprintf( 
+					/* translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag */
+					esc_html__( 'Next Posts', 'the-m-x' ) . '%1$s' . esc_html__( 'arrow_forward', 'the-m-x' ) . '%2$s', '<i class="material-icons">', '</i>' ),
 			) );
 
 			// If comments are open or we have at least one comment, load up the comment template.

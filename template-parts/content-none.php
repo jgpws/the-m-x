@@ -18,11 +18,19 @@
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( 
-				/* translators: %1$s: Link to new post in WordPress */
-				wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'the-m-x' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+			<?php printf(
+				'<p>' . wp_kses( 
+					sprintf(
+					/* translators: %1$s: Link to new post in WordPress, %2$s: closing </a> tag */
+					esc_html__( 'Ready to publish your first post?', 'the-m-x' ) . '%1$s' . esc_html__( 'Get started here', 'the-m-x' ) . '%2$s', '<a href="' . esc_url( admin_url( 'post-new.php' ) ) '">', '</a>', ), 
+				array( 
+					'a' => array( 
+						'href' => array(), 
+					), 
+				) . '</p>',
+			);
 
-		<?php elseif ( is_search() ) : ?>
+		elseif ( is_search() ) : ?>
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'the-m-x' ); ?></p>
 			<?php

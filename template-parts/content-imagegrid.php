@@ -43,7 +43,7 @@
 	$imagegrid_postcount = the_mx_imagegrid_postnum_switcher();
 	
 	$args = array(
-		'cat' => intval( get_theme_mod( 'the_mx_cat_dropdown_1' ) ),
+		'cat' => intval( get_theme_mod( 'the_mx_cat_dropdown_1', 0 ) ),
 		'posts_per_page' => $imagegrid_postcount,
 	);
 	
@@ -70,7 +70,7 @@
 	<?php 
 		endwhile; ?>
 		</div><?php
-		$morebutton = get_theme_mod( 'the_mx_add_showmore_button' );
+		$morebutton = get_theme_mod( 'the_mx_add_showmore_button', 0 );
 		$the_m_x_cat_id = intval( get_theme_mod( 'the_mx_cat_dropdown_1' ) );
 		$the_m_x_cat_link = get_category_link( $the_m_x_cat_id );
 		

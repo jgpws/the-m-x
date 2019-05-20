@@ -6,7 +6,7 @@
 
 function the_mx_gal_colcount_switcher() {
 	/* Function that replaces column count functionality */
-	$gallery_columncount = get_theme_mod( 'the_mx_gal_col_count' );
+	$gallery_columncount = get_theme_mod( 'the_mx_gal_col_count', 'three' );
 	switch( $gallery_columncount ) {
 		case 'one':
 			return 1;
@@ -70,18 +70,12 @@ function the_mx_limit_ids( $length ) {
 	// Turn the array back into a comma separated string
 	$impl_ids = implode( ',', $expl_ids );
 	
-	// For debugging
-	/*print_r( $expl_ids );
-	echo '<br>';
-	print_r( $impl_ids );
-	echo '<br>';*/
-	
 	return $impl_ids;
 }
 
 function the_mx_number_thumbs_switcher() {
 	/* Function to limit gallery thumbnails by number */
-	$gallery_thumbcount = get_theme_mod( 'the_mx_limit_gal_thumbs' );
+	$gallery_thumbcount = get_theme_mod( 'the_mx_limit_gal_thumbs', 'six' );
 	
 	switch( $gallery_thumbcount ) {
 		case 'one':

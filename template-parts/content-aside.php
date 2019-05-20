@@ -39,8 +39,11 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 		<footer class="entry-footer">
 			<?php if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+				<?php 
+					/* translators: %1$s: Posted datetime attribute, %2$s: post published date, $3$s: Updated datetime attribute, $4$s: Post updated date */
+					$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 					if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+						/* translators: %1$s: Posted datetime attribute, %2$s: post published date, $3$s: Updated datetime attribute, $4$s: Post updated date */
 						$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 					}
 	
