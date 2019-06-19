@@ -24,7 +24,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			<?php } ?>
 			<?php
 				if ( !is_single() ) {
-					the_title( '<h2 class="entry-title"><i class="material-icons">' . esc_html__( 'movie', 'the-m-x' ) . '</i>', '</h2>' );
+					the_title( '<h2 class="entry-title"><i class="material-icons">movie</i>', '</h2>' );
 				}
 			
 				if ( 'post' === get_post_type() ) { ?>

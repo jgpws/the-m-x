@@ -2,15 +2,15 @@
 # This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: The M.X. 1.0.21\n"
+"Project-Id-Version: The M.X. 1.0.22\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/the-m-x\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-05-20T21:12:40+00:00\n"
-"PO-Revision-Date: 2019-05-20T21:12:40+00:00\n"
+"POT-Creation-Date: 2019-06-06T22:14:49+00:00\n"
+"PO-Revision-Date: 2019-06-06T22:14:49+00:00\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: the-m-x\n"
 
@@ -52,37 +52,26 @@ msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
 #. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
-#. translators: %1$s: opening <i> tag, %2$s: closing </i> tag
 #: single.php:22
-#: image.php:36
-#: index.php:25
-#: index.php:54
 msgid "arrow_back"
 msgstr ""
 
 #. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
-#. translators: %1$s: opening <i> tag, %2$s: closing </i> tag
 #: single.php:22
-#: index.php:25
-#: index.php:54
+#: index.php:23
+#: index.php:48
 msgid "Previous Posts"
 msgstr ""
 
 #. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
-#. translators: %1$s: opening <i> tag, %2$s: closing </i> tag
 #: single.php:25
-#: index.php:28
-#: index.php:57
+#: index.php:24
+#: index.php:49
 msgid "Next Posts"
 msgstr ""
 
 #. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
-#. translators: %1$s: opening <i> tag, %2$s: closing </i> tag
 #: single.php:25
-#: searchform.php:13
-#: image.php:37
-#: index.php:28
-#: index.php:57
 msgid "arrow_forward"
 msgstr ""
 
@@ -96,7 +85,8 @@ msgctxt "placeholder"
 msgid "Search..."
 msgstr ""
 
-#: search.php:19
+#. translators: %s: Search query results
+#: search.php:22
 msgid "Search Results for: "
 msgstr ""
 
@@ -123,79 +113,79 @@ msgstr ""
 msgid "Social Profiles"
 msgstr ""
 
-#: functions.php:103
+#: functions.php:99
 msgid "White"
 msgstr ""
 
-#: functions.php:108
+#: functions.php:104
 msgid "Brown 50"
 msgstr ""
 
-#: functions.php:113
+#: functions.php:109
 msgid "Brown 300"
 msgstr ""
 
-#: functions.php:118
+#: functions.php:114
 msgid "Brown 500"
 msgstr ""
 
-#: functions.php:123
+#: functions.php:119
 msgid "Brown 700"
 msgstr ""
 
-#: functions.php:128
+#: functions.php:124
 msgid "Brown 900"
 msgstr ""
 
-#: functions.php:133
+#: functions.php:129
 msgid "Amber 500"
 msgstr ""
 
-#: functions.php:138
+#: functions.php:134
 msgid "Blue Gray 50"
 msgstr ""
 
-#: functions.php:143
+#: functions.php:139
 msgid "Blue Gray 300"
 msgstr ""
 
-#: functions.php:148
+#: functions.php:144
 msgid "Blue Gray 500"
 msgstr ""
 
-#: functions.php:153
+#: functions.php:149
 msgid "Blue Gray 700"
 msgstr ""
 
-#: functions.php:158
+#: functions.php:154
 msgid "Blue Gray 900"
 msgstr ""
 
-#: functions.php:170
+#: functions.php:166
 msgid "Gallery Thumbnail (300 x 300, hard cropped)"
 msgstr ""
 
-#: functions.php:202
+#: functions.php:198
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:204
+#: functions.php:200
 msgid "Add widgets to the Sidebar."
 msgstr ""
 
-#: functions.php:212
+#: functions.php:208
 msgid "Hero Image Widget"
 msgstr ""
 
-#: functions.php:214
+#: functions.php:210
 msgid "Add widget to be displayed above Hero (header) Image."
 msgstr ""
 
-#: functions.php:222
+#: functions.php:218
 msgid "Footer Widgets"
 msgstr ""
 
-#: functions.php:224
+#: functions.php:220
 msgid "Add widgets to the Footer."
 msgstr ""
 
@@ -204,24 +194,12 @@ msgstr ""
 msgid "Return to:"
 msgstr ""
 
-#: image.php:71
-#: inc/colorbox-gallery-content.php:67
-#: template-parts/content-image.php:17
-#: template-parts/content-image.php:29
-#: template-parts/content-image.php:31
-msgid "image"
-msgstr ""
-
 #. Template Name of the theme
 msgid "Image Grid Page"
 msgstr ""
 
 #. Template Name of the theme
 msgid "Landing Page"
-msgstr ""
-
-#: footer.php:23
-msgid "https://wordpress.org/"
 msgstr ""
 
 #. translators: %s: WordPress
@@ -490,6 +468,75 @@ msgstr ""
 msgid "Show all image grid posts"
 msgstr ""
 
+#: inc/customizer.php:426
+#: inc/customizer.php:569
+#: inc/customizer.php:599
+msgid "1"
+msgstr ""
+
+#: inc/customizer.php:427
+#: inc/customizer.php:570
+#: inc/customizer.php:600
+msgid "2"
+msgstr ""
+
+#: inc/customizer.php:428
+#: inc/customizer.php:571
+#: inc/customizer.php:601
+msgid "3"
+msgstr ""
+
+#: inc/customizer.php:429
+#: inc/customizer.php:572
+#: inc/customizer.php:602
+msgid "4"
+msgstr ""
+
+#: inc/customizer.php:430
+#: inc/customizer.php:573
+#: inc/customizer.php:603
+msgid "5"
+msgstr ""
+
+#: inc/customizer.php:431
+#: inc/customizer.php:574
+#: inc/customizer.php:604
+msgid "6"
+msgstr ""
+
+#: inc/customizer.php:432
+#: inc/customizer.php:575
+#: inc/customizer.php:605
+msgid "7"
+msgstr ""
+
+#: inc/customizer.php:433
+#: inc/customizer.php:576
+#: inc/customizer.php:606
+msgid "8"
+msgstr ""
+
+#: inc/customizer.php:434
+#: inc/customizer.php:577
+#: inc/customizer.php:607
+msgid "9"
+msgstr ""
+
+#: inc/customizer.php:435
+#: inc/customizer.php:608
+msgid "10"
+msgstr ""
+
+#: inc/customizer.php:436
+#: inc/customizer.php:609
+msgid "11"
+msgstr ""
+
+#: inc/customizer.php:437
+#: inc/customizer.php:610
+msgid "12"
+msgstr ""
+
 #: inc/customizer.php:454
 #: inc/customizer-frontend.php:950
 msgid "More posts"
@@ -514,7 +561,7 @@ msgid "Gallery Settings"
 msgstr ""
 
 #: inc/customizer.php:489
-msgid "* In order to use these options, a post with a gallery must be saved with the Gallery post format."
+msgid "* These settings only apply to galleries displayed on the blog index page. The Gallery post format must be applied to a post containing the gallery."
 msgstr ""
 
 #: inc/customizer.php:489
@@ -582,76 +629,44 @@ msgid "pixels"
 msgstr ""
 
 #. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
-#: inc/template-tags.php:31
-#: template-parts/content-aside.php:59
-#: template-parts/content-link.php:48
+#: inc/template-tags.php:29
+#: template-parts/content-aside.php:57
+#: template-parts/content-link.php:47
 #: template-parts/content-quote.php:56
 msgctxt "post date"
 msgid "%2$sPosted on%3$s%1$s"
 msgstr ""
 
 #. translators: %s: Post author title
-#: inc/template-tags.php:37
+#: inc/template-tags.php:35
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:41
-msgid "person"
-msgstr ""
-
-#: inc/template-tags.php:41
-#: template-parts/content-aside.php:63
-#: template-parts/content-link.php:52
-#: template-parts/content-quote.php:60
-msgid "schedule"
-msgstr ""
-
 #. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
-#: inc/template-tags.php:57
-msgid "folder"
-msgstr ""
-
-#. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
-#: inc/template-tags.php:57
+#: inc/template-tags.php:55
 msgid "%2$sPosted in %3$s%1$s"
 msgstr ""
 
 #. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
-#: inc/template-tags.php:66
-msgid "bookmark"
-msgstr ""
-
-#. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
-#: inc/template-tags.php:66
+#: inc/template-tags.php:64
 msgid "%2$sTagged %3$s%1$s"
 msgstr ""
 
-#: inc/template-tags.php:72
-msgid "comment"
-msgstr ""
-
-#: inc/template-tags.php:77
-msgid "Leave a Comment%2$s on %s%3$s"
+#. translators: 1: post title, 2: hide text with .screen-reader-text class <span> tag, 3: closing </span> tag
+#: inc/template-tags.php:75
+msgid "Leave a Comment%2$s on %1$s%3$s"
 msgstr ""
 
 #. translators: %s: Name of current post
-#: inc/template-tags.php:95
+#: inc/template-tags.php:93
 #: template-parts/content-imagegrid.php:33
-#: template-parts/content-aside.php:69
-#: template-parts/content-link.php:58
+#: template-parts/content-aside.php:67
+#: template-parts/content-link.php:57
 #: template-parts/content-status.php:45
 #: template-parts/content-page.php:39
 #: template-parts/content-quote.php:66
 msgid "Edit %s"
-msgstr ""
-
-#: inc/template-tags.php:98
-#: template-parts/content-aside.php:72
-#: template-parts/content-link.php:61
-#: template-parts/content-status.php:48
-#: template-parts/content-quote.php:69
-msgid "mode_edit"
 msgstr ""
 
 #. translators: %s: Name of current post.
@@ -685,11 +700,6 @@ msgstr ""
 msgid "View the full post"
 msgstr ""
 
-#: template-parts/content-audio.php:25
-#: template-parts/content-audio.php:27
-msgid "radio"
-msgstr ""
-
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
@@ -710,20 +720,6 @@ msgstr ""
 
 #: template-parts/content-none.php:41
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr ""
-
-#: template-parts/content-link.php:19
-#: template-parts/content-link.php:22
-msgid "link"
-msgstr ""
-
-#: template-parts/content-video.php:27
-msgid "movie"
-msgstr ""
-
-#: template-parts/content-gallery.php:23
-#: template-parts/content-gallery.php:25
-msgid "view_comfy"
 msgstr ""
 
 #: template-parts/content-gallery.php:46

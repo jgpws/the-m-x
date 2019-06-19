@@ -18,7 +18,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->get_section( 'colors' )->title = esc_html__( 'Color Schemes', 'the-m-x' );
 	$wp_customize->get_section( 'colors' )->description = sprintf(
 	/* translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag */
-		'%1$s' . esc_html__( 'Choose an alternate color scheme.', 'the-m-x' ) . '%2$s %1$s' . __( 'For more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.', 'the-m-x' ) . '%2$s %1$s' . esc_html__( '* To restore the default background color: Select Color, then select Default.', 'the-m-x' ) . '%2$s', 
+		'%1$s' . esc_html__( 'Choose an alternate color scheme.', 'the-m-x' ) . '%2$s %1$s' . esc_html__( 'For more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline.', 'the-m-x' ) . '%2$s %1$s' . esc_html__( '* To restore the default background color: Select Color, then select Default.', 'the-m-x' ) . '%2$s', 
 		'<p>', '</p>', '<a href="https://material.io/guidelines/style/color.html#color-color-palette">', '</a>' );
 	
 	$wp_customize->add_setting(
@@ -423,18 +423,18 @@ function the_mx_customize_register( $wp_customize ) {
 			'type' => 'select',
 			'choices' => array(
 				'all' => esc_html__( 'Show all image grid posts', 'the-m-x' ),
-				'one' => esc_html( '1' ),
-				'two' => esc_html( '2' ),
-				'three' => esc_html( '3' ),
-				'four' => esc_html( '4' ),
-				'five' => esc_html( '5' ),
-				'six' => esc_html( '6' ),
-				'seven' => esc_html( '7' ),
-				'eight' => esc_html( '8' ),
-				'nine' => esc_html( '9' ),
-				'ten' => esc_html( '10' ),
-				'eleven' => esc_html( '11' ),
-				'twelve' => esc_html( '12' ),
+				'one' => esc_html__( '1', 'the-m-x' ),
+				'two' => esc_html__( '2', 'the-m-x' ),
+				'three' => esc_html__( '3', 'the-m-x' ),
+				'four' => esc_html__( '4', 'the-m-x' ),
+				'five' => esc_html__( '5', 'the-m-x' ),
+				'six' => esc_html__( '6', 'the-m-x' ),
+				'seven' => esc_html__( '7', 'the-m-x' ),
+				'eight' => esc_html__( '8', 'the-m-x' ),
+				'nine' => esc_html__( '9', 'the-m-x' ),
+				'ten' => esc_html__( '10', 'the-m-x' ),
+				'eleven' => esc_html__( '11', 'the-m-x' ),
+				'twelve' => esc_html__( '12', 'the-m-x' ),
 			)
 		)
 	);
@@ -486,7 +486,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'the_mx_gallery_settings', array(
 			'title' => esc_html__( 'Gallery Settings', 'the-m-x' ),
-			'description' => sprintf( '%1$s' . esc_html__( '* In order to use these options, a post with a gallery must be saved with the Gallery post format.', 'the-m-x' ) . '%2$s%1$s' . esc_html__( '** This setting disables Colorbox on single posts.', 'the-m-x' ), '<p>', '</p>' ),
+			'description' => sprintf( '%1$s' . esc_html__( '* These settings only apply to galleries displayed on the blog index page. The Gallery post format must be applied to a post containing the gallery.', 'the-m-x' ) . '%2$s%1$s' . esc_html__( '** This setting disables Colorbox on single posts.', 'the-m-x' ), '<p>', '</p>' ),
 		)
 	);
 	
@@ -566,15 +566,15 @@ function the_mx_customize_register( $wp_customize ) {
 			'section' => 'the_mx_gallery_settings',
 			'choices' => array(
 				'default' => esc_html__( 'Select a column number', 'the-m-x' ),
-				'one' => esc_html( '1' ),
-				'two' => esc_html( '2' ),
-				'three' => esc_html( '3' ),
-				'four' => esc_html( '4' ),
-				'five' => esc_html( '5' ),
-				'six' => esc_html( '6' ),
-				'seven' => esc_html( '7' ),
-				'eight' => esc_html( '8' ),
-				'nine' => esc_html( '9' ),
+				'one' => esc_html__( '1', 'the-m-x' ),
+				'two' => esc_html__( '2', 'the-m-x' ),
+				'three' => esc_html__( '3', 'the-m-x' ),
+				'four' => esc_html__( '4', 'the-m-x' ),
+				'five' => esc_html__( '5', 'the-m-x' ),
+				'six' => esc_html__( '6', 'the-m-x' ),
+				'seven' => esc_html__( '7', 'the-m-x' ),
+				'eight' => esc_html__( '8', 'the-m-x' ),
+				'nine' => esc_html__( '9', 'the-m-x' ),
 			),
 		)
 	);
@@ -596,18 +596,18 @@ function the_mx_customize_register( $wp_customize ) {
 			'section' => 'the_mx_gallery_settings',
 			'choices' => array(
 				'default' => esc_html__( 'Select number of gallery thumbnails', 'the-m-x' ),
-				'one' => esc_html( '1' ),
-				'two' => esc_html( '2' ),
-				'three' => esc_html( '3' ),
-				'four' => esc_html( '4' ),
-				'five' => esc_html( '5' ),
-				'six' => esc_html( '6' ),
-				'seven' => esc_html( '7' ),
-				'eight' => esc_html( '8' ),
-				'nine' => esc_html( '9' ),
-				'ten' => esc_html( '10' ),
-				'eleven' => esc_html( '11' ),
-				'twelve' => esc_html( '12' ),
+				'one' => esc_html__( '1', 'the-m-x' ),
+				'two' => esc_html__( '2', 'the-m-x' ),
+				'three' => esc_html__( '3', 'the-m-x' ),
+				'four' => esc_html__( '4', 'the-m-x' ),
+				'five' => esc_html__( '5', 'the-m-x' ),
+				'six' => esc_html__( '6', 'the-m-x' ),
+				'seven' => esc_html__( '7', 'the-m-x' ),
+				'eight' => esc_html__( '8', 'the-m-x' ),
+				'nine' => esc_html__( '9', 'the-m-x' ),
+				'ten' => esc_html__( '10', 'the-m-x' ),
+				'eleven' => esc_html__( '11', 'the-m-x' ),
+				'twelve' => esc_html__( '12', 'the-m-x' ),
 			),
 		)
 	);
@@ -642,7 +642,7 @@ function the_mx_customize_register( $wp_customize ) {
 		'the_mx_animate_css', array(
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'default' => 0,
+			'default' => 1,
 			'sanitize_callback' => 'the_mx_sanitize_checkbox',
 			'sanitize_js_callback' => 'the_mx_sanitize_checkbox',
 		)

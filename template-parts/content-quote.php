@@ -45,9 +45,9 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					}
 	
 					$time_string = sprintf( $time_string,
-						esc_attr( get_the_date( 'c' ) ),
+						esc_attr( get_the_date( DATE_W3C ) ),
 						esc_html( get_the_date() ),
-						esc_attr( get_the_modified_date( 'c' ) ),
+						esc_attr( get_the_modified_date( DATE_W3C ) ),
 						esc_html( get_the_modified_date() )
 					);
 	
@@ -57,7 +57,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 						'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>', '<span class="screen-reader-text">', '</span>'
 					);
 					
-					echo '<div class="posted-on"><i class="material-icons">' . esc_html__( 'schedule', 'the-m-x' ) . '</i>' . $posted_on . '</div>'; // WPCS: XSS OK. ?>
+					echo '<div class="posted-on"><i class="material-icons">schedule</i>' . $posted_on . '</div>'; // WPCS: XSS OK. ?>
 			</div><!-- .entry-meta -->
 			<?php endif;
 			edit_post_link(
@@ -66,7 +66,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					esc_html__( 'Edit %s', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				),
-				'<div class="edit-link"><i class="material-icons">' . esc_html__( 'mode_edit', 'the-m-x' ) . '</i>',
+				'<div class="edit-link"><i class="material-icons">mode_edit</i>',
 				'</div>'
 			); ?>
 		</footer><!-- .entry-footer -->

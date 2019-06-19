@@ -20,12 +20,8 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) :
 			the_posts_navigation( array(
-				'prev_text' => sprintf( 
-					/* translators: %1$s: opening <i> tag, %2$s: closing </i> tag */
-					'%1$s' . esc_html__( 'arrow_back', 'the-m-x' ) . '%2$s' . esc_html__( 'Previous Posts', 'the-m-x' ), '<i class="material-icons">', '</i>' ),
-				'next_text' => sprintf( 
-					/* translators: %1$s: opening <i> tag, %2$s: closing </i> tag */
-					esc_html__( 'Next Posts', 'the-m-x' ) . '%1$s' . esc_html__( 'arrow_forward', 'the-m-x' ) . '%2$s', '<i class="material-icons">', '</i>' ),
+				'prev_text' => '<i class="material-icons">arrow_back</i>' . esc_html__( 'Previous Posts', 'the-m-x' ),
+				'next_text' => esc_html__( 'Next Posts', 'the-m-x' ) . '<i class="material-icons">arrow_forward</i>'
 			) );
 
 			if ( is_home() && ! is_front_page() ) : ?>
@@ -49,12 +45,8 @@ get_header(); ?>
 			endwhile;
 
 			the_posts_navigation( array(
-				'prev_text' => sprintf( 
-					/* translators: %1$s: opening <i> tag, %2$s: closing </i> tag */
-					'%1$s' . esc_html__( 'arrow_back', 'the-m-x' ) . '%2$s' . esc_html__( 'Previous Posts', 'the-m-x' ), '<i class="material-icons">', '</i>' ),
-				'next_text' => sprintf( 
-					/* translators: %1$s: opening <i> tag, %2$s: closing </i> tag */
-					esc_html__( 'Next Posts', 'the-m-x' ) . '%1$s' . esc_html__( 'arrow_forward', 'the-m-x' ) . '%2$s', '<i class="material-icons">', '</i>' ),
+				'prev_text' => '<i class="material-icons">arrow_back</i>' . esc_html__( 'Previous Posts', 'the-m-x' ),
+				'next_text' => esc_html__( 'Next Posts', 'the-m-x' ) . '<i class="material-icons">arrow_forward</i>'
 			) );
 
 		else :

@@ -18,9 +18,9 @@ function the_mx_posted_on() {
 	}
 
 	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
+		esc_attr( get_the_date( DATE_W3C ) ),
 		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_attr( get_the_modified_date( DATE_W3C ) ),
 		esc_html( get_the_modified_date() )
 	);
 
@@ -36,7 +36,7 @@ function the_mx_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<div class="byline"><i class="material-icons">' . esc_html__( 'person', 'the-m-x' ) . '</i>' . $byline . '</div><div class="posted-on"><i class="material-icons">' . esc_html__( 'schedule', 'the-m-x' ) . '</i>' . $posted_on . '</div>'; // WPCS: XSS OK.
+	echo '<div class="byline"><i class="material-icons">person</i>' . $byline . '</div><div class="posted-on"><i class="material-icons">schedule</i>' . $posted_on . '</div>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -52,7 +52,7 @@ function the_mx_entry_footer() {
 		if ( $categories_list && the_mx_categorized_blog() ) {
 			printf(
 				/* translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag */
-				'<div class="cat-links"><i class="material-icons">' . esc_html__( 'folder', 'the-m-x' ) . '</i>' . esc_html__( '%2$sPosted in %3$s%1$s', 'the-m-x' ) . '</div>', $categories_list, '<span class="screen-reader-text">', '</span>' 
+				'<div class="cat-links"><i class="material-icons">folder</i>' . esc_html__( '%2$sPosted in %3$s%1$s', 'the-m-x' ) . '</div>', $categories_list, '<span class="screen-reader-text">', '</span>' 
 			); // WPCS: XSS OK.
 		}
 
@@ -61,18 +61,18 @@ function the_mx_entry_footer() {
 		if ( $tags_list ) {
 			printf(
 				/* translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag */
-				'<div class="tags-links"><i class="material-icons">' . esc_html__( 'bookmark', 'the-m-x' ) . '</i>' . esc_html__( '%2$sTagged %3$s%1$s', 'the-m-x' ) . '</div>', $tags_list, '<span class="screen-reader-text">', '</span>' 
+				'<div class="tags-links"><i class="material-icons">bookmark</i>' . esc_html__( '%2$sTagged %3$s%1$s', 'the-m-x' ) . '</div>', $tags_list, '<span class="screen-reader-text">', '</span>' 
 			); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<div class="comments-link"><i class="material-icons">' . esc_html__( 'comment', 'the-m-x' ) . '</i>';
-		/* translators: %s: post title, %1$s: hide text with .screen-reader-text class <span> tag, %2$s: closing </span> tag */
+		echo '<div class="comments-link"><i class="material-icons">comment</i>';
 		comments_popup_link( 
 			sprintf( 
 				wp_kses( 
-					esc_html__( 'Leave a Comment%2$s on %s%3$s', 'the-m-x' ), 
+					/* translators: 1: post title, 2: hide text with .screen-reader-text class <span> tag, 3: closing </span> tag */
+					esc_html__( 'Leave a Comment%2$s on %1$s%3$s', 'the-m-x' ), 
 					array( 
 						'span' => array( 
 							'class' => array() 
@@ -93,7 +93,7 @@ function the_mx_entry_footer() {
 			esc_html__( 'Edit %s', 'the-m-x' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
-		'<div class="edit-link"><i class="material-icons">' . __( 'mode_edit', 'the-m-x' ) . '</i>',
+		'<div class="edit-link"><i class="material-icons">mode_edit</i>',
 		'</div>'
 	);
 }

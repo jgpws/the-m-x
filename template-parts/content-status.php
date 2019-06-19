@@ -45,7 +45,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					esc_html__( 'Edit %s', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				),
-				'<div class="edit-link"><i class="material-icons">' . esc_html__( 'mode_edit', 'the-m-x' ) . '</i>',
+				'<div class="edit-link"><i class="material-icons">mode_edit</i>',
 				'</div>'
 			); ?>
 		</footer><!-- .entry-footer -->

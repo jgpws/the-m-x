@@ -5,7 +5,7 @@ Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featur
 Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.1.1
-Stable tag: 1.0.21
+Stable tag: 1.0.24
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -25,6 +25,18 @@ The M.X. stands for The Modern Experience. Give your content a trendy new style 
 The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
+
+= 1.0.24 June 12 2019 =
+Fixed issue where theme body did not scroll inside of an iframe; CSS Animations are now turned on by default
+
+= 1.0.23 June 05 2019 =
+Added action and method attributes to searchform.php, etc.
+
+= 1.0.22 - May 30 2019 =
+Fixed PHP error; Background Color functionality is now working; Fixed cropping error when an image is chosen in the Customizer
+
+= 1.0.21 - May 19 2019 =
+More data escaping and translating
 
 = 1.0.19 - May 13 2019 =
 Added license for spinner.css file; fixed escaping issues; changed custom page template titles; regenerated pot file 

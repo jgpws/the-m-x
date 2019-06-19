@@ -20,7 +20,7 @@
 				<?php dynamic_sidebar( 'footer-widget-area' ); ?>
 			</div>
 			<?php } ?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'the-m-x' ) ); ?>">
+			<a href="<?php echo esc_url( 'https://wordpress.org/' ); ?>">
 			<?php printf( 
 				/* translators: %s: WordPress */
 				esc_html__( 'Proudly powered by %s', 'the-m-x' ), 'WordPress' 

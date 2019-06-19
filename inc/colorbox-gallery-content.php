@@ -41,12 +41,12 @@ function the_mx_cbox_content() {
 				<div class="entry-attachment-image">
 				<?php if( wp_attachment_is_image( get_the_ID() ) ) : $att_image = wp_get_attachment_image_src( get_the_ID(), 'full' ); ?>
 					<p>
-					<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" alt="<?php echo esc_attr( get_the_excerpt() ); ?>">
+					<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" alt="<?php echo esc_attr( get_post_meta( get_the_ID(), '_wp_attachment_image_alt', true ) ); ?>">
 					</p>
 					<?php
 					$caption = get_the_excerpt();
 					if( $caption != '' ) { ?>
-						<div class="wp-caption-text"><?php echo esc_html( get_the_excerpt() ); ?></div>
+						<div class="wp-caption-text"><?php echo esc_html( $caption ); ?></div>
 					<?php 
 					} ?>
 				<?php else: ?>
@@ -64,7 +64,7 @@ function the_mx_cbox_content() {
 				
 				<div class="entry-image-meta">
 					<?php the_mx_posted_on(); ?>
-					<div class="image-size-meta"><i class="material-icons"><?php esc_html_e( 'image', 'the-m-x' ); ?></i><?php echo esc_html( $att_image[1] ); ?> x <?php echo esc_html( $att_image[2] ); ?> <?php esc_html_e( 'pixels', 'the-m-x' ); ?></div>
+					<div class="image-size-meta"><i class="material-icons">image</i><?php echo esc_html( $att_image[1] ); ?> x <?php echo esc_html( $att_image[2] ); ?> <?php esc_html_e( 'pixels', 'the-m-x' ); ?></div>
 				</div>
 			</footer>
 			

@@ -25,7 +25,7 @@ function the_mx_custom_header_setup() {
 		'default-image'          => '',
 		'default-text-color'     => '#ffffff',
 		'width'                  => 1920,
-		'height'                 => 0,
+		'height'                 => 540,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'the_mx_header_style',
 	) ) );

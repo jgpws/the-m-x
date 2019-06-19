@@ -107,6 +107,10 @@ textarea {
 	textarea {
 		width: 100%;
 	}
+	
+	fieldset {
+		border-color: $pale-gray;
+	}
 }
 
 /* Searchfield in header */

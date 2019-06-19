@@ -33,8 +33,8 @@ get_header(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			
 			<nav class="images-navigation">
-				<div class="nav-previous"><?php previous_image_link( false, '<i class="material-icons">' . esc_html__( 'arrow_back', 'the-m-x' ) . '</i>' ); ?></div>
-				<div class="nav-next"><?php next_image_link( false, '<i class="material-icons">' . esc_html__( 'arrow_forward', 'the-m-x' ) . '</i>' ); ?></div>
+				<div class="nav-previous"><?php previous_image_link( false, '<i class="material-icons">arrow_back</i>' ); ?></div>
+				<div class="nav-next"><?php next_image_link( false, '<i class="material-icons">arrow_forward</i>' ); ?></div>
 			</nav>
 			
 			<div class="entry-content jgd-grid">
@@ -42,9 +42,9 @@ get_header(); ?>
 				<?php if( wp_attachment_is_image( get_the_ID() ) ) : $att_image = wp_get_attachment_image_src( get_the_ID(), 'full' ); ?>
 					<p>
 					<?php if( get_theme_mod( 'the_mx_single_slider' ) == 1 ) { ?>
-						<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" alt="<?php echo esc_attr( get_the_excerpt() ); ?>">
+						<img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" alt="<?php echo esc_attr( get_post_meta( get_the_ID(), '_wp_attachment_image_alt', true ) ); ?>">
 					<?php } else { ?>
-						<a href="<?php echo esc_url( wp_get_attachment_url( get_the_ID() ) ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" class="attachment-medium" alt="<?php echo esc_attr( get_the_excerpt() ); ?>"></a>
+						<a href="<?php echo esc_url( wp_get_attachment_url( get_the_ID() ) ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><img src="<?php echo esc_url( $att_image[0] ); ?>" width="<?php echo esc_attr( $att_image[1] ); ?>" height="<?php echo esc_attr( $att_image[2] ); ?>" class="attachment-medium" alt="<?php echo esc_attr( get_post_meta( get_the_ID(), '_wp_attachment_image_alt', true ) ); ?>"></a>
 					<?php } ?>
 					</p>
 					<?php
@@ -68,7 +68,7 @@ get_header(); ?>
 				
 				<div class="entry-image-meta">
 					<?php the_mx_posted_on(); ?>
-					<div class="image-size-meta"><i class="material-icons"><?php esc_html_e( 'image', 'the-m-x' ); ?></i><?php echo esc_html( $att_image[1] ); ?> x <?php echo esc_html( $att_image[2] ); ?></div>
+					<div class="image-size-meta"><i class="material-icons">image</i><?php echo esc_html( $att_image[1] ); ?> x <?php echo esc_html( $att_image[2] ); ?></div>
 				</div>
 			</footer>
 			
