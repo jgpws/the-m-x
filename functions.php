@@ -232,7 +232,7 @@ add_action( 'widgets_init', 'the_mx_widgets_init' );
 
 function the_mx_enqueue_scripts() {
 	//wp_enqueue_style( 'the-mx-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
 	
 	// Enqueue this for now; may be added to the Customizer later
 	wp_enqueue_style( 'the-mx-right-sidebar-overlay', get_template_directory_uri() . '/layouts/content-sidebar-overlay.css', array( 'the-mx-style' ) );
@@ -311,7 +311,8 @@ function the_mx_enqueue_scripts() {
 		wp_localize_script( 'the-mx-scripts', 'mxSkrollrParams', $parameters );
 	}
 	
-	if( get_theme_mod( 'the_mx_animate_css' ) == 1 ) {
+	$mx_animate = get_theme_mod( 'the_mx_animate_css', 1 );
+	if( $mx_animate ) {
 		wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.min.css', array(), '' );
 		wp_enqueue_script( 'the-mx-animations', get_template_directory_uri() . '/js/animations.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_style( 'ripple', get_template_directory_uri() . '/css/ripple.min.css', array(), '' );

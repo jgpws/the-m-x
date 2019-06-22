@@ -5,7 +5,7 @@ Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featur
 Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.1.1
-Stable tag: 1.0.24
+Stable tag: 1.0.25
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -25,6 +25,9 @@ The M.X. stands for The Modern Experience. Give your content a trendy new style 
 The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
+
+= 1.0.25 June 21 2019 =
+Fixed issues where default animations were not showing on front end; Where Colorbox links to has been made more specific.
 
 = 1.0.24 June 12 2019 =
 Fixed issue where theme body did not scroll inside of an iframe; CSS Animations are now turned on by default

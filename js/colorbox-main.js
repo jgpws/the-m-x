@@ -7,7 +7,7 @@
 	
 	/* Jetpack tiled gallery compatible */
 	if ( colorboxParams.link_to === 'attachment' && windowWidth >= 600 ) {
-		$( '.gallery-item a, .tiled-gallery-item a' ).colorbox({
+		$( '.gallery-icon a, .tiled-gallery-item a' ).colorbox({
 			rel: 'gal',
 			iframe: 'true',
 			innerHeight: '75%',
@@ -15,14 +15,14 @@
 			opacity: '0.75'
 		});
 	} else if ( colorboxParams.link_to === 'attachment' && windowWidth < 600 ) {
-		$( '.gallery-item a, .tiled-gallery-item a' ).colorbox({
+		$( '.gallery-icon a, .tiled-gallery-item a' ).colorbox({
 			rel: 'gal',
 			iframe: 'true',
 			innerHeight: '75%',
 			innerWidth: '100%'
 		});
 	} else {
-		$( '.gallery-item a, .tiled-gallery-item a' ).colorbox({
+		$( '.gallery-icon a, .tiled-gallery-item a' ).colorbox({
 			rel:'gal',
 			maxHeight: '75%',
 			maxWidth: '100%',
@@ -34,7 +34,7 @@
 	$(document).on( 'cbox_open', function() {
 		$( 'body' ).css({ overflow: 'hidden' });
 	}).on( 'cbox_closed', function() {
-		$( 'body' ).css({ overflow: '' });
+		$( 'body' ).css({ overflow: 'auto' });
 	});
 	
 } ) (jQuery);

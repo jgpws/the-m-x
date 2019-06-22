@@ -322,6 +322,16 @@ article.page:hover,
 		color: $white;
 	}
 	
+	a.more-link:link,
+	a.more-link:visited {
+		color: $primary-text-color;
+	}
+	
+	a.more-link:hover,
+	a.more-link:focus {
+		color: $black;
+	}
+	
 	.material-icons {
 		color: $white;
 	}

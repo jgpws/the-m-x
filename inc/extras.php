@@ -40,7 +40,7 @@ function the_mx_body_classes( $classes ) {
 	}
 	
 	// Adds the class .animate for CSS3 animations
-	if( get_theme_mod( 'the_mx_animate_css' ) == 1 ) {
+	if( get_theme_mod( 'the_mx_animate_css', 1 ) == 1 ) {
 		$classes[] = 'animate';
 	}
 	
