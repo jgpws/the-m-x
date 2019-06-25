@@ -21,9 +21,7 @@ Don't like a sidebar on every page? The sidebar slides in on click when needed a
 
 ___
 
-## In Beta
-
-Currently, The M.X. is not a production ready theme and *may* not be 100% useful on an existing website. In my opinion, it is useful if making sure certain features are turned off.
+## Needed Fixes
 
 In the Customizer:
 
@@ -31,21 +29,19 @@ In the Customizer:
 
 * Under **Animation**, right now, animations on scroll (with Skrollr.js) do not play nicely with Colorbox. To enable Colorbox, go to **Gallery Settings** and check **Enable/disable Colorbox for the gallery**. Skrollr uses a method when in mobile, it fixes the viewport in place and scrolls the content using CSS transforms. Fixed type elements such as Colorbox popups are fixed to the scroll location. Thus, the popups don't appear on screen when they are scrolled out of view. I tested this in Firefox and Chromium. Chromium places the popups on screen but in its scroll location, while Firefox doesn't place them on screen at all. Temporarily, until I fix this, one on these features should be used *or* the other.
 
-* More features are on the way! ~~I still need to add a few Page Templates (dependent on whether Gutenberg will support page templates on launch).~~ Two page templates have been added: Landing page and Image Grid.
-
 ___
 
-Fixes:
+## Fixes
 
 * I've now found a solution for the previous slider button to work as expected; it is on the updated [Stack Overflow](https://stackoverflow.com/questions/47999831/slider-previous-button-hides-first-slide-instead-of-previous-slide) page.
 
 * Some small CSS tweaks to make the theme look better were made, including shrinking the width of the content area for the standard layout (Centered layout). This provides a shorter line length across.
 
-* Even though I shrank the entire content area, elements that have .alignfull and .alignwide applied in Gutenberg still span past the content area's boundaries.
+* After shrinking the entire content area, elements that have .alignfull and .alignwide apply correctly in Gutenberg, spanning past the content area's boundaries.
 
 ___
 
-Optional fixes:
+## Optional fixes
 
 On the last update, I ran The M.X. through Theme Check in preparation for wp.org. One thing that is not allowed is hiding the admin bar for any purpose. So I removed the CSS code that hides the admin bar in Colorbox windows. It made sense to originally hide the admin bar there, as it only shows an attachment page or an image. To restore this functionality, you can add the CSS code below to the WordPress **Additional CSS** section in the Customizer.
 
@@ -67,7 +63,7 @@ body.attachment.admin-bar.colorbox {
 
 ___
 
-Newest additions:
+## Newest additions
 
 * Custom logo support has now been added!
 * "Wide" layout mode added to the Customizer, suitable for the incoming Gutenberg editor
@@ -79,8 +75,6 @@ Newest additions:
 
 ___
 
-I figured since this theme was taking such a long time to develop, releasing it here in beta is the best option at this point. This will allow people to see the code and perhaps contribute.
-
-My eventual plan for this theme is to submit it to the official WordPress theme repository when finished.
+The theme's location here at GitHub is now the development version, while the production version is at WordPress.org: [https://wordpress.org/themes/the-m-x/]
 
 This page will update as the theme is developed.
