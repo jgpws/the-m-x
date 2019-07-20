@@ -45,8 +45,16 @@ function the_mx_cbox_content() {
 					</p>
 					<?php
 					$caption = get_the_excerpt();
-					if( $caption != '' ) { ?>
-						<div class="wp-caption-text"><?php echo esc_html( $caption ); ?></div>
+					if( $caption != '' ) { 
+					$allowed_tags = array(
+						'a' => array(
+							'href' => array(),
+							'title' => array()
+						),
+						'br' => array(),
+						'em' => array(),
+					); ?>
+						<div class="wp-caption-text"><?php echo wp_kses( $caption, $allowed_tags ); ?></div>
 					<?php 
 					} ?>
 				<?php else: ?>

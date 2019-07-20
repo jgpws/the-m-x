@@ -215,6 +215,8 @@
 		var colorboxPrevious = $( '#cboxPrevious' );
 		var colorboxContent = $( '#cboxLoadedContent' );
 		
+		$( 'body.attachment.colorbox' ).removeClass( 'animated fadeIn' );
+		
 		colorboxNext.on( 'click', function() {
 			$( '#cboxLoadedContent' ).addClass( 'animated fadeIn' ).one( animationEnd, function() {
 				$( '#cboxLoadedContent' ).removeClass( 'animated fadeIn' );

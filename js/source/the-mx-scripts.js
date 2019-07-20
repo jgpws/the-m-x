@@ -92,14 +92,16 @@
 	
 	function loadInitSocialMenuState() {
 		var socialToggleButton = document.getElementById( 'social-button' );
-		
 		windowWidth = window.innerWidth;
-		if ( windowWidth < 768 ) {
-			socialToggleButton.classList.remove( 'hide' );
-			socialContainer.classList.add( 'hide' );
-		} else {
-			socialToggleButton.classList.add( 'hide' );
-			socialContainer.classList.remove( 'hide' );
+		
+		if ( typeof( socialContainer ) != 'undefined' && socialContainer != null ) {
+			if ( windowWidth < 768 ) {
+				socialToggleButton.classList.remove( 'hide' );
+				socialContainer.classList.add( 'hide' );
+			} else {
+				socialToggleButton.classList.add( 'hide' );
+				socialContainer.classList.remove( 'hide' );
+			}
 		}
 	}
 	
@@ -421,15 +423,17 @@
 		// Loads the menu state depending on screen size at the time of load
 		windowWidth = window.innerWidth;
 		var customSubmenuButton = document.querySelectorAll( '.main-navigation .menu-down-arrow' );
-		if ( windowWidth < 600 ) {
-			menu.classList.add('hide');
-			for ( i = 0; i < customSubmenuButton.length; i++ ) {
-				customSubmenuButton[i].classList.add('hide');
-			}
-		} else {
-			menu.classList.remove('hide');
-			for ( i = 0; i < customSubmenuButton.length; i++ ) {
-				customSubmenuButton[i].classList.remove('hide');
+		if ( typeof( menu ) != 'undefined' && menu != null ) { // if a menu exists on the page
+			if ( windowWidth < 600 ) {
+				menu.classList.add('hide');
+				for ( i = 0; i < customSubmenuButton.length; i++ ) {
+					customSubmenuButton[i].classList.add('hide');
+				}
+			} else {
+				menu.classList.remove('hide');
+				for ( i = 0; i < customSubmenuButton.length; i++ ) {
+					customSubmenuButton[i].classList.remove('hide');
+				}
 			}
 		}
 	}

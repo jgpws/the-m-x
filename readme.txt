@@ -5,7 +5,7 @@ Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featur
 Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.1.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -26,11 +26,14 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.1.1 July 20 2019 =
+Fixed JavaScript error for social media button container; file cleanup
+
 = 1.1 June 23 2019 to July 19 2019 =
-The M.X. now uses Gulp to automate theme development. New support includes CSS prefixes for older browsers, right-to-left support via stylesheet, changes to the files referred to in functions.php (files have been concatenated and minified), other small fixes. Development files are only available at GitHub (http://github.com/jgpws/the-m-x).
+The M.X. now uses Gulp to automate theme development. New support includes CSS prefixes for older browsers, right-to-left support via stylesheet, changes to the files referred to in functions.php (files have been concatenated and minified), other small fixes. Development files are only available at GitHub (http://github.com/jgpws/the-m-x)
 
 = 1.0.25 June 21 2019 =
-Fixed issues where default animations were not showing on front end; Where Colorbox links to has been made more specific.
+Fixed issues where default animations were not showing on front end; Where Colorbox links to has been made more specific
 
 = 1.0.24 June 12 2019 =
 Fixed issue where theme body did not scroll inside of an iframe; CSS Animations are now turned on by default

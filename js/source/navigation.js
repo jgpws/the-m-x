@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, submenuButton, menu, links, subMenus, i, len;
+	var container, button, menu, links, subMenus, i, len;
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -26,49 +26,6 @@
 	}
 
 	menu.setAttribute( 'aria-expanded', 'false' );
-	
-	// set initial menu state here, instead of CSS file, in case JavaScript is turned off in browser.
-	var windowWidth = window.innerWidth;
-	submenuButton = document.querySelectorAll( '.main-navigation .menu-down-arrow' );
-	
-	/*window.addEventListener( 'resize', function(event) {
-		var windowWidth = window.innerWidth;
-		if ( timeOut != null ) {
-			clearTimeout(timeOut);
-		}
-		
-		var timeOut = setTimeout(function() {
-			if ( windowWidth < 600 ) {
-				menu.classList.add('hide');
-				for ( i = 0; i < submenuButton.length; i++ ) {
-					submenuButton[i].classList.add('hide');
-				}
-			} else {
-				menu.classList.remove('hide');
-				//menu.style.display = 'flex';
-				for ( i = 0; i < submenuButton.length; i++ ) {
-					subMenuButton[i].classList.remove('hide');
-					submenuButton[i].style.display = 'inline';
-				}
-			}
-		}, 250 );
-	} );*/
-	
-	/*window.addEventListener( 'load', function(event) {
-		var windowWidth = window.innerWidth;
-		if ( windowWidth < 600 ) {
-			menu.classList.add('hide');
-			for ( i = 0; i < submenuButton.length; i++ ) {
-				submenuButton[i].classList.add('hide');
-			}
-		} else {
-			menu.classList.remove('hide');
-			for ( i = 0; i < submenuButton.length; i++ ) {
-				submenuButton[i].classList.remove('hide');
-				submenuButton[i].style.display = 'inline';
-			}
-		}
-	} );*/
 	
 	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
 		menu.className += ' nav-menu';

@@ -58,7 +58,7 @@ function style() {
 			outputStyle: 'expanded',
 		}))
 		.pipe(autoprefixer())
-		//.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
+		.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest('./'))
 		.pipe(browserSync.stream());
@@ -143,7 +143,9 @@ function copyMainFiles(done) {
 		'./*.css',
 		'!./dist/*.css',
 		'readme.txt',
-		'!./dist/readme.txt'
+		'!./dist/readme.txt',
+		'./screenshot.png',
+		'!./dist/screenshot.png'
 	])
 		.pipe(gulp.dest('./dist/'));
 	done();
@@ -197,6 +199,13 @@ function copyLayouts(done) {
 	console.log('Layouts folder copied.');
 }
 
+function copyMaps(done) {
+	gulp.src('./maps/*.map')
+	.pipe(gulp.dest('./dist/maps'));
+	done();
+	console.log('Maps folder copied');
+}
+
 function copyPageTemplates(done) {
 	gulp.src('./page-templates/*.php')
 	.pipe(gulp.dest('./dist/page-templates'));
@@ -215,7 +224,7 @@ function copyTempParts(done) {
 	gulp.src('./template-parts/*.php')
 	.pipe(gulp.dest('./dist/template-parts'))
 	done();
-	console.log('Template-parts folder copied!');
+	console.log('Template-parts folder copied');
 }
 
 function zipUp(done) {
@@ -241,7 +250,7 @@ exports.concatenateCSS = concatenateCSS;
 exports.concatAnimCSS = concatAnimCSS;
 exports.scripts = scripts;
 exports.jsHint = jsHint;
-exports.copyFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFonts, copyInc, copyJS, copyLang, copyLayouts, copyPageTemplates, copySass, copyTempParts);
+exports.copyFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFonts, copyInc, copyJS, copyLang, copyLayouts, copyMaps, copyPageTemplates, copySass, copyTempParts);
 exports.zipUp = zipUp;
 exports.clean = clean;
 exports.finishUp = series(zipUp, clean);
