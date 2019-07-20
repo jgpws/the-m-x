@@ -44,11 +44,11 @@ function the_mx_infinite_scroll_render() {
 /**
  * Script to reload the theme's Javascript for infinite scroll
  */
-function the_mx_enqueue_jetpack_scripts() {
-	wp_enqueue_script( 'the-mx-restore-js', get_template_directory_uri() . '/js/restore-js.min.js', array( 'jquery' ), '', true );
+/*function the_mx_enqueue_jetpack_scripts() {
+	wp_enqueue_script( 'the-mx-restore-js', get_template_directory_uri() . '/js/source/restore-js.js', array( 'jquery' ), '', true );
 	$parameters = array(
 		'layouts' => get_theme_mod( 'the_mx_layout', 'centered' ),
 	);
 	wp_localize_script( 'the-mx-restore-js', 'restoreJSParams', $parameters );
 }
-add_action( 'wp_enqueue_scripts', 'the_mx_enqueue_jetpack_scripts' );
+add_action( 'wp_enqueue_scripts', 'the_mx_enqueue_jetpack_scripts' );*/

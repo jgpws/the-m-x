@@ -78,6 +78,16 @@ function the_mx_add_grid_layouts( $classes ) {
 }
 add_filter( 'post_class', 'the_mx_add_grid_layouts' );
 
+function the_mx_gallery_post_class( $classes ) {
+	global $post;
+	
+	if( has_shortcode( $post->post_content, 'gallery' ) ) {
+		$classes[] = 'has-gallery';
+	}
+	return $classes;
+}
+add_filter( 'post_class', 'the_mx_gallery_post_class' );
+
 function the_mx_pingback_header() {
 	if( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );

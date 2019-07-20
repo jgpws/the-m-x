@@ -6,12 +6,15 @@
  */
  
 (function() {
+	
 	// Global variables
-	var windowWidth = window.innerWidth;
+	var windowWidth;
 	var windowHeight = window.innerHeight;
 	var bodyElHeight = document.getElementsByTagName( 'body' )[0].clientHeight;
 	var headerPanel = document.getElementById( 'header-button-panel' );
 	var socialContainer = document.getElementById( 'menu-social' );
+	var menu = document.querySelector( '.main-navigation ul' );
+	var customSubmenuButton;
 	
 	
 	/* Functions to convert hex values to RGB values
@@ -80,16 +83,34 @@
 	}
 	
 	
-	function toggleSocialPanel() {
-		/* Toggle social media button panel */
-		var socialToggleButton;
-		
+	function addMobileSocialButton() {
 		if ( socialContainer ) {
 			socialContainer.insertAdjacentHTML( 'beforebegin', '<button class="social-toggle" id="social-button"><i class="material-icons">&#xE7FD;</i></button>' );
-			socialToggleButton = document.getElementById( 'social-button' );
+		}
+	}
+	
+	
+	function loadInitSocialMenuState() {
+		var socialToggleButton = document.getElementById( 'social-button' );
 		
-			if ( windowWidth < 768 ) {
-				socialContainer.classList.add( 'hide' );
+		windowWidth = window.innerWidth;
+		if ( windowWidth < 768 ) {
+			socialToggleButton.classList.remove( 'hide' );
+			socialContainer.classList.add( 'hide' );
+		} else {
+			socialToggleButton.classList.add( 'hide' );
+			socialContainer.classList.remove( 'hide' );
+		}
+	}
+	
+	
+	function toggleSocialPanel() {
+		/* Toggle social media button panel */
+		var socialToggleButton = document.getElementById( 'social-button' );
+		
+		if ( socialContainer ) {
+			//if ( windowWidth < 768 ) {
+				//socialContainer.classList.add( 'hide' );
 				socialToggleButton.onclick = function() {
 					if ( -1 !== socialContainer.className.indexOf( 'toggled' ) ) {
 						socialContainer.className = socialContainer.className.replace( ' toggled', '' );
@@ -100,14 +121,15 @@
 						socialContainer.classList.remove( 'hide' );
 						socialContainer.setAttribute( 'aria-expanded', 'true' );
 					}
-				}
-			} else {
+				};
+			/*} else {
+				socialContainer.classList.remove( 'hide' );
 				if ( socialToggleButton ) {
 					if ( socialContainer ) {
 						socialToggleButton.style.display = 'none';
 					}
 				}
-			}
+			}*/
 		}
 	}
 	
@@ -241,7 +263,7 @@
 					toggleButton.removeChild(chevronLeft);
 					toggleButton.appendChild(chevronRight);
 				}
-			}
+			};
 		
 		}
 	}
@@ -251,29 +273,9 @@
 		/* Add a "scrim" div to the bottom of the sidebar when Overlay design is used (sidebar slides in/out) */
 		var overlayStylesheet = document.head.querySelector( 'link[href*="/layouts/content-sidebar-overlay.css"]' );
 		var theSidebar = document.querySelector( '#secondary' );
+		var theScrim;
 		
-		if ( document.body.contains( theSidebar ) ) {
-			if ( overlayStylesheet !== '' ) {
-				theSidebar.insertAdjacentHTML( 'beforeend', '<div class="scrim"></div>' );
-			}
-			
-			var theScrim = document.querySelector( '#secondary .scrim' );
-			
-			function animateScrim() {
-				theScrim.classList.add( 'animated' );
-				if ( window.pageYOffset > theSidebar.getBoundingClientRect().height - window.innerHeight ) {
-					theScrim.style.opacity = '0';
-					theScrim.style.transitionDuration = '1s';
-				} else {
-					theScrim.style.opacity = '1';
-					theScrim.style.transitionDuration = '0.5s';
-				}
-			}
-			
-			function scrimTimeout() {
-				scrTimeout = setTimeout( animateScrim, 250 );
-			}
-			
+		function placeScrim() {
 			if ( bodyElHeight > window.outerHeight ) {
 				//console.log( 'sidebar height is: ' + theSidebar.getBoundingClientRect().height );
 				theScrim.style.position = 'fixed';
@@ -286,8 +288,35 @@
 				theScrim.style.bottom = document.body.clientHeight - theSidebar.getBoundingClientRect().height + 'px';
 			}
 		}
+		
+		function animateScrim() {
+			theScrim.classList.add( 'animated' );
+			if ( window.pageYOffset > theSidebar.getBoundingClientRect().height - window.innerHeight ) {
+				theScrim.style.opacity = '0';
+				theScrim.style.transitionDuration = '1s';
+			} else {
+				theScrim.style.opacity = '1';
+				theScrim.style.transitionDuration = '0.5s';
+			}
+		}
+		
+		function scrimTimeout() {
+			scrTimeout = setTimeout( animateScrim, 250 );
+		}
+		
+		if ( document.body.contains( theSidebar ) ) {
+			if ( overlayStylesheet !== '' ) {
+				theSidebar.insertAdjacentHTML( 'beforeend', '<div class="scrim"></div>' );
+			}
+			
+			theScrim = document.querySelector( '#secondary .scrim' );
+			
+			placeScrim();
+			animateScrim();
+			scrimTimeout();
+		}
+			
 	}
-	
 	
 	function toggleSearchbar() {
 		/* Toggle search bar with button */
@@ -332,75 +361,78 @@
 						searchContainer.classList.remove('hide');
 						searchContainer.setAttribute( 'aria-expanded', 'true' );
 					}
-				}
+				};
 			}
 		
 		}
 	}
 	
-	
-	function desktopNavButtons() {
-	/* Add buttons to the navigation menu */
-	
+	function addDesktopNavButtons() {
+		/* Add buttons to the navigation menu for desktop widths */
 		// setup variables
-		//var menuListItem = document.querySelectorAll( '.main-navigation ul li' );
 		var hasChildren = document.querySelectorAll( '.main-navigation .page_item_has_children' );
 		var hasChildrenLink = document.querySelectorAll( '.main-navigation .page_item_has_children > a' );
 		var customHasChildren = document.querySelectorAll( '.main-navigation .menu-item-has-children' );
 		var customHasChildrenLink = document.querySelectorAll( '.main-navigation .menu-item-has-children > a' );
 		
-		if ( windowWidth >= 600 ) {
-		
-			// For custom menus
-			for ( var i = 0; i < customHasChildren.length; i++ ) {
-				//console.log( customHasChildrenLink[i].parentNode );
-				//console.log( customHasChildrenLink[i] );
-				// Add button HTML after each link that has the class .menu-item-has-children
-				customHasChildrenLink[i].insertAdjacentHTML( 'afterend', '<button class="menu-down-arrow"><i class="material-icons">arrow_drop_down</i></button>' );
-			}
-			
-			// For page menu fallback
-			for ( var i2 = 0; i2 < hasChildren.length; i2++ ) {
-				//console.log( hasChildrenLink[i2].parentNode );
-				//console.log( hasChildrenLink[i2] );
-				// Add button HTML after each link that has the class .page_item_has_children
-				hasChildrenLink[i2].insertAdjacentHTML( 'afterend', '<button class="menu-down-arrow"><i class="material-icons">arrow_drop_down</i></button>' );
-			}
-			
-			/* The code below roughly follows the Vanilla JS method in the article "Lose the jQuery Bloat" */
-			/* https://www.sitepoint.com/dom-manipulation-with-nodelist-js/ */
-			// loop through each element that has .sub-menu
-			var customSubmenuButton = document.querySelectorAll( '.main-navigation .menu-down-arrow' );
-			for ( var iSub = 0, customSubmenuButton; iSub < customSubmenuButton.length; iSub++ ) {
-				// Add click event to the button to show ul.sub-menu
-				customSubmenuButton[iSub].addEventListener( 'click', function() {
-					// this refers to the current loop iteration of customSubmenuButton
-					// nextElementSibling refers to the neighboring ul with .sub-menu class
-					if ( this.nextElementSibling.className.indexOf( 'toggled-submenu' ) !== -1 ) { // if .sub-menu has .toggled-submenu class
-						this.nextElementSibling.className = this.nextElementSibling.className.replace( ' toggled-submenu', '' ); // remove it
-						this.nextElementSibling.setAttribute( 'aria-expanded', 'false' );
-						//console.log( 'button.' + this.className + ' is not toggled' );
-					} else {
-						this.nextElementSibling.className += ' toggled-submenu'; // otherwise, add it
-						this.nextElementSibling.setAttribute( 'aria-expanded', 'true' );
-					}
-						//console.log( 'button.' + this.className + ' is toggled' );
-				} );
-				//console.log( customSubmenuButton[iSub] );
-			} // ends for loop
-			
-		}
-	}
-	window.onresize = function() {
-		if ( timeOut != null ) {
-			clearTimeout( timeOut );
+		// For custom menus
+		for ( var i = 0; i < customHasChildren.length; i++ ) {
+			//console.log( customHasChildrenLink[i].parentNode );
+			//console.log( customHasChildrenLink[i] );
+			// Add button HTML after each link that has the class .menu-item-has-children
+			customHasChildrenLink[i].insertAdjacentHTML( 'afterend', '<button class="menu-down-arrow"><i class="material-icons">arrow_drop_down</i></button>' );
 		}
 		
-		var timeOut = setTimeout( function() { // Delay rendering/event so that event doesn't fire multiple times
-			desktopNavButtons;
-		}, 250 );
+		// For page menu fallback
+		for ( var i2 = 0; i2 < hasChildren.length; i2++ ) {
+			//console.log( hasChildrenLink[i2].parentNode );
+			//console.log( hasChildrenLink[i2] );
+			// Add button HTML after each link that has the class .page_item_has_children
+			hasChildrenLink[i2].insertAdjacentHTML( 'afterend', '<button class="menu-down-arrow"><i class="material-icons">arrow_drop_down</i></button>' );
+		}
 	}
 	
+	function toggleMenuItems() { 
+		/* The code below roughly follows the Vanilla JS method in the article "Lose the jQuery Bloat" */
+		/* https://www.sitepoint.com/dom-manipulation-with-nodelist-js/ */
+		// loop through each element that has .sub-menu
+		var customSubmenuButton = document.querySelectorAll( '.main-navigation .menu-down-arrow' );
+		
+		for ( var iSub = 0; iSub < customSubmenuButton.length; iSub++ ) {
+			// Add click event to the button to show ul.sub-menu
+			customSubmenuButton[iSub].addEventListener( 'click', function() {
+				// this refers to the current loop iteration of customSubmenuButton
+				// nextElementSibling refers to the neighboring ul with .sub-menu class
+				if ( this.nextElementSibling.className.indexOf( 'toggled-submenu' ) !== -1 ) { // if .sub-menu has .toggled-submenu class
+					this.nextElementSibling.className = this.nextElementSibling.className.replace( ' toggled-submenu', '' ); // remove it
+					this.nextElementSibling.setAttribute( 'aria-expanded', 'false' );
+					//console.log( 'button.' + this.className + ' is not toggled' );
+				} else {
+					this.nextElementSibling.className += ' toggled-submenu'; // otherwise, add it
+					this.nextElementSibling.setAttribute( 'aria-expanded', 'true' );
+				}
+					//console.log( 'button.' + this.className + ' is toggled' );
+			} );
+			//console.log( customSubmenuButton[iSub] );
+		} // ends for loop
+	}
+	
+	function loadInitMenuState() {
+		// Loads the menu state depending on screen size at the time of load
+		windowWidth = window.innerWidth;
+		var customSubmenuButton = document.querySelectorAll( '.main-navigation .menu-down-arrow' );
+		if ( windowWidth < 600 ) {
+			menu.classList.add('hide');
+			for ( i = 0; i < customSubmenuButton.length; i++ ) {
+				customSubmenuButton[i].classList.add('hide');
+			}
+		} else {
+			menu.classList.remove('hide');
+			for ( i = 0; i < customSubmenuButton.length; i++ ) {
+				customSubmenuButton[i].classList.remove('hide');
+			}
+		}
+	}
 	
 	function disappearingHeader() {
 		if ( document.body.classList.contains( 'page-template-template-landing' ) ) {
@@ -425,6 +457,7 @@
 		var cardHeader = document.querySelectorAll( '.blog .format-standard:not(.has-post-thumbnail) .entry-header' );
 		var cardContent = document.querySelectorAll( '.blog .format-standard .entry-content, .blog .format-standard .entry-summary' );
 		var cardFooter = document.querySelectorAll( '.blog .format-standard .entry-footer' );
+		var i;
 		
 		// If skrollr animations are checked in the customizer, the class skrollr-animate is added to the body via functions.php
 		 // Slide in each post part when scrolling to center
@@ -433,19 +466,19 @@
 			// For article "cards"
 			if ( mxSkrollrParams.layout_type === 'centered' || mxSkrollrParams.layout_type === 'wide' ) {
 				//if ( windowWidth ) {
-				for ( var i = 1; i < card.length; i++ ) {
+				for ( i = 1; i < card.length; i++ ) {
 					card[i].setAttribute( 'data-0-bottom-center', 'opacity: 0' );
 					card[i].setAttribute( 'data--200-bottom-center', 'opacity: 1.0' );
 					card[card.length - 1].setAttribute( 'data-0-bottom-center', 'opacity: 1.0' );
 				}
 				
-				for ( var i = 0; i < cardPf.length; i++ ) {
+				for ( i = 0; i < cardPf.length; i++ ) {
 					cardPf[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-25%); opacity: 0' );
 					cardPf[i].setAttribute( 'data-288-center-center', 'transform: translateX(0%); opacity: 1.0' );
 					cardPf[cardPf.length - 1].setAttribute( 'data-0-bottom-center', 'translateX(0%); opacity: 1.0' );
 				}
 				
-				for ( var i = 1; i < cardHeader.length; i++ ) {
+				for ( i = 1; i < cardHeader.length; i++ ) {
 					cardHeader[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-12.5%); opacity: 0' );
 					if ( windowHeight < 769 ) {
 						cardHeader[i].setAttribute( 'data-144-center-center', 'transform: translate(0%); opacity: 1.0' );
@@ -455,13 +488,13 @@
 					cardHeader[cardHeader.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
 				
-				for ( var i = 1; i < cardContent.length; i++ ) {
+				for ( i = 1; i < cardContent.length; i++ ) {
 					cardContent[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-25%); opacity: 0' );
 					cardContent[i].setAttribute( 'data-144-center-center', 'transform: translateX(0%); opacity: 1.0' );
 					cardContent[cardContent.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
 				
-				for ( var i = 1; i < cardFooter.length; i++ ) {
+				for ( i = 1; i < cardFooter.length; i++ ) {
 					cardFooter[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-12.5%); opacity: 0' );
 					if ( windowHeight < 769 ) {
 						cardFooter[i].setAttribute( 'data-144-center-center', 'transform: translate(0%); opacity: 1.0' );
@@ -470,14 +503,14 @@
 					}
 					cardFooter[cardFooter.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
 				}
-			} else if (mxSkrollrParams.layout_type === 'twobytwo') {
-				for ( var i = 1; i < card.length; i++ ) {
+			} else if ( mxSkrollrParams.layout_type === 'twobytwo' ) {
+				for ( i = 1; i < card.length; i++ ) {
 					card[i].setAttribute( 'data-0-bottom-top', 'opacity: 0' );
 					card[i].setAttribute( 'data-0-bottom-center', 'opacity: 1.0' );
 					card[card.length - 1].setAttribute( 'data-0-bottom-top', 'opacity: 1.0' );
 				}
 				
-				for ( var i = 0; i < cardPf.length; i++ ) {
+				for ( i = 0; i < cardPf.length; i++ ) {
 					cardPf[i].setAttribute( 'data-0-bottom-center', 'transform: translateX(-50%); opacity: 0' );
 					cardPf[i].setAttribute( 'data-center-center', 'transform: translateX(0%); opacity: 1.0' );
 					cardPf[cardPf.length - 1].setAttribute( 'data-0-bottom-center', 'transform: translateX(0%); opacity: 1.0' );
@@ -491,14 +524,14 @@
 			// Loop through each gallery-item
 			// Multiply node list position by 50 to position first gallery-item div; add addition 50 pixels to reveal opacity on each div per each 50 pixel downward scroll
 			
-			for ( var i = 0; i < galleryItem.length; i++ ) {
+			for ( i = 0; i < galleryItem.length; i++ ) {
 				// fade-in of gallery images
 				galleryItem[i].setAttribute( 'data--' + (i * 50) + '-bottom', 'opacity: 0' );
 				galleryItem[i].setAttribute( 'data--' + ((i * 50) + 50) + '-bottom', 'opacity: 1.0' );
 			}
 			
 			// Titles
-			for ( var i = 0; i < entryTitle.length; i++ ) {
+			for ( i = 0; i < entryTitle.length; i++ ) {
 				// Fade-in and letter spacing shrink of entry titles on home or blog page
 				entryTitle[i].setAttribute( 'data-0-bottom-center', 'opacity: 0' );
 				entryTitle[i].setAttribute( 'data-0-center-center', 'opacity: 1.0' );
@@ -539,6 +572,7 @@
 							document.querySelectorAll('.single.slider #gallery-3 .gallery-item'),
 							document.querySelectorAll('.single.slider #gallery-4 .gallery-item'),
 							document.querySelectorAll('.single.slider #gallery-5 .gallery-item') ];
+	var i, len;
 	
 	function showFirstSlide() {
 		
@@ -547,7 +581,7 @@
 		
 		for (var iGal = 0, len = galleries.length; iGal < len; iGal++) {
 			//console.log('number of galleries: ' + iGal);
-			for (var jSlide = 0, len = slides.length; jSlide < len; jSlide++) {
+			for (var jSlide = 0, lenSlide = slides.length; jSlide < lenSlide; jSlide++) {
 				//console.log('number of slides within gallery: ' + slides[jSlide].length); // for debugging
 				//console.log(slides[0][0]); // for debugging
 				
@@ -593,7 +627,7 @@
 		}
 	}
 	
-	for (var i = 0, len = gallery.length; i < len; i++) {
+	for (i = 0, len = gallery.length; i < len; i++) {
 		// Add slider controls to each gallery
 		gallery[i].insertAdjacentHTML('afterend', '<div class="slider-button-panel"><button class="slider-previous"><i class="material-icons">skip_previous</i></button><button class="slider-startshow"><i class="material-icons">play_arrow</i></button><button class="slider-next"><i class="material-icons">skip_next</i></button></div>');
 		//console.log(gallery.length);
@@ -622,12 +656,12 @@
 	
 	// Hide any galleries and button panels that are more than five;
 	// for this we start the counter at 4
-	for (var i = 5, len = gallery.length; i < len; i++) {
+	for (i = 5, len = gallery.length; i < len; i++) {
 		//console.log(gallery[i]);
 		gallery[i].classList.add('hide');
 	}
 	
-	for (var i = 5, len = buttonPanel.length; i < len; i++) {
+	for (i = 5, len = buttonPanel.length; i < len; i++) {
 		//console.log(buttonPanel[i]);
 		buttonPanel[i].classList.add('hide');
 	}
@@ -656,7 +690,7 @@
 				//console.log('Previous slide: ' + counter);
 				return counter;
 			}
-		}
+		};
 	}
 	
 	// Show each subsequent slide one at a time by clicking the next and previous buttons
@@ -672,35 +706,35 @@
 			sliderNext[0].addEventListener('click', function() {
 				slides[0][currentSlide1.showPrevious()].classList.add('hide');
 				slides[0][currentSlide1.showNext()].classList.remove('hide');
-				slides[0][currentSlide1.showNext()];
+				slides[0][currentSlide1.showNext()].classList.add('hide');
 			});
 		}
 		if (sliderNext[1]) {
 			sliderNext[1].addEventListener('click', function() {
 				slides[1][currentSlide2.showPrevious()].classList.add('hide');
 				slides[1][currentSlide2.showNext()].classList.remove('hide');
-				slides[1][currentSlide2.showNext()];
+				slides[1][currentSlide2.showNext()].classList.add('hide');
 			});
 		}
 		if (sliderNext[2]) {
 			sliderNext[2].addEventListener('click', function() {
 				slides[2][currentSlide3.showPrevious()].classList.add('hide');
 				slides[2][currentSlide3.showNext()].classList.remove('hide');
-				slides[2][currentSlide3.showNext()];
+				slides[2][currentSlide3.showNext()].classList.add('hide');
 			});
 		}
 		if (sliderNext[3]) {
 			sliderNext[3].addEventListener('click', function() {
 				slides[3][currentSlide4.showPrevious()].classList.add('hide');
 				slides[3][currentSlide4.showNext()].classList.remove('hide');
-				slides[3][currentSlide4.showNext()];
+				slides[3][currentSlide4.showNext()].classList.add('hide');
 			});
 		}
 		if (sliderNext[4]) {
 			sliderNext[4].addEventListener('click', function() {
 				slides[4][currentSlide5.showPrevious()].classList.add('hide');
 				slides[4][currentSlide5.showNext()].classList.remove('hide');
-				slides[4][currentSlide5.showNext()];
+				slides[4][currentSlide5.showNext()].classList.add('hide');
 			});
 		}
 		
@@ -708,35 +742,35 @@
 			sliderPrevious[0].addEventListener('click', function() {
 				slides[0][currentSlide1.showPrevious()].classList.remove('hide');
 				slides[0][currentSlide1.showNext()].classList.add('hide');
-				slides[0][currentSlide1.showPrevious()];
+				slides[0][currentSlide1.showPrevious()].classList.remove('hide');
 			});
 		}
 		if (sliderPrevious[1]) {
 			sliderPrevious[1].addEventListener('click', function() {
 				slides[1][currentSlide2.showPrevious()].classList.remove('hide');
 				slides[1][currentSlide2.showNext()].classList.add('hide');
-				slides[1][currentSlide2.showPrevious()];
+				slides[1][currentSlide2.showPrevious()].classList.remove('hide');
 			});
 		}
 		if (sliderPrevious[2]) {
 			sliderPrevious[2].addEventListener('click', function() {
 				slides[2][currentSlide3.showPrevious()].classList.remove('hide');
 				slides[2][currentSlide3.showNext()].classList.add('hide');
-				slides[2][currentSlide3.showPrevious()];
+				slides[2][currentSlide3.showPrevious()].classList.remove('hide');
 			});
 		}
 		if (sliderPrevious[3]) {
 			sliderPrevious[3].addEventListener('click', function() {
 				slides[3][currentSlide4.showPrevious()].classList.remove('hide');
 				slides[3][currentSlide4.showNext()].classList.add('hide');
-				slides[3][currentSlide4.showPrevious()];
+				slides[3][currentSlide4.showPrevious()].classList.remove('hide');
 			});
 		}
 		if (sliderPrevious[4]) {
 			sliderPrevious[4].addEventListener('click', function() {
 				slides[4][currentSlide5.showPrevious()].classList.remove('hide');
 				slides[4][currentSlide5.showNext()].classList.add('hide');
-				slides[4][currentSlide5.showPrevious()];
+				slides[4][currentSlide5.showPrevious()].classList.remove('hide');
 			});
 		}
 	}
@@ -744,23 +778,25 @@
 	function addSlideshowEvents() {
 		var isPlaying = false;
 		
+		function startShow1() {
+			isPlaying = true;
+			slideshowBtn[0].innerHTML = '<i class="material-icons">pause</i>';
+			slideInterval1 = setInterval(function() {
+				slides[0][currentSlide1.showPrevious()].classList.add('hide');
+				slides[0][currentSlide1.showNext()].classList.remove('hide');
+				slides[0][currentSlide1.showNext()].classList.add('hide');
+			}, 5000);
+		}
+		
+		function pauseShow1() {
+			isPlaying = false;
+			slideshowBtn[0].innerHTML = '<i class="material-icons">play_arrow</i>';
+			clearInterval(slideInterval1);
+		}
+		
 		if (slideshowBtn[0]) {
-			function startShow1() {
-				isPlaying = true;
-				slideshowBtn[0].innerHTML = '<i class="material-icons">pause</i>';
-				slideInterval1 = setInterval(function() {
-					slides[0][currentSlide1.showPrevious()].classList.add('hide');
-					slides[0][currentSlide1.showNext()].classList.remove('hide');
-					slides[0][currentSlide1.showNext()];
-				}, 5000);
-			}
-			
-			function pauseShow1() {
-				isPlaying = false;
-				slideshowBtn[0].innerHTML = '<i class="material-icons">play_arrow</i>';
-				clearInterval(slideInterval1);
-			}
-			
+			startShow1();
+			pauseShow1();
 			slideshowBtn[0].addEventListener('click', function() {
 				if (isPlaying === false) {
 					startShow1();
@@ -773,23 +809,25 @@
 			//console.log('The slideshow is not playing');
 		}
 		
+		function startShow2() {
+			isPlaying = true;
+			slideshowBtn[1].innerHTML = '<i class="material-icons">pause</i>';
+			slideInterval2 = setInterval(function() {
+				slides[1][currentSlide2.showPrevious()].classList.add('hide');
+				slides[1][currentSlide2.showNext()].classList.remove('hide');
+				slides[1][currentSlide2.showNext()].classList.add('hide');
+			}, 5000);
+		}
+		
+		function pauseShow2() {
+			isPlaying = false;
+			slideshowBtn[1].innerHTML = '<i class="material-icons">play_arrow</i>';
+			clearInterval(slideInterval2);
+		}
+		
 		if (slideshowBtn[1]) {
-			function startShow2() {
-				isPlaying = true;
-				slideshowBtn[1].innerHTML = '<i class="material-icons">pause</i>';
-				slideInterval2 = setInterval(function() {
-					slides[1][currentSlide2.showPrevious()].classList.add('hide');
-					slides[1][currentSlide2.showNext()].classList.remove('hide');
-					slides[1][currentSlide2.showNext()];
-				}, 5000);
-			}
-			
-			function pauseShow2() {
-				isPlaying = false;
-				slideshowBtn[1].innerHTML = '<i class="material-icons">play_arrow</i>';
-				clearInterval(slideInterval2);
-			}
-			
+			startShow2();
+			pauseShow2();
 			slideshowBtn[1].addEventListener('click', function() {
 				if (isPlaying === false) {
 					startShow2();
@@ -799,23 +837,25 @@
 			});
 		}
 		
+		function startShow3() {
+			isPlaying = true;
+			slideshowBtn[2].innerHTML = '<i class="material-icons">pause</i>';
+			slideInterval3 = setInterval(function() {
+				slides[2][currentSlide3.showPrevious()].classList.add('hide');
+				slides[2][currentSlide3.showNext()].classList.remove('hide');
+				slides[2][currentSlide3.showNext()].classList.add('hide');
+			}, 5000);
+		}
+		
+		function pauseShow3() {
+			isPlaying = false;
+			slideshowBtn[2].innerHTML = '<i class="material-icons">play_arrow</i>';
+			clearInterval(slideInterval3);
+		}
+		
 		if (slideshowBtn[2]) {
-			function startShow3() {
-				isPlaying = true;
-				slideshowBtn[2].innerHTML = '<i class="material-icons">pause</i>';
-				slideInterval3 = setInterval(function() {
-					slides[2][currentSlide3.showPrevious()].classList.add('hide');
-					slides[2][currentSlide3.showNext()].classList.remove('hide');
-					slides[2][currentSlide3.showNext()];
-				}, 5000);
-			}
-			
-			function pauseShow3() {
-				isPlaying = false;
-				slideshowBtn[2].innerHTML = '<i class="material-icons">play_arrow</i>';
-				clearInterval(slideInterval3);
-			}
-			
+			startShow3();
+			pauseShow3();
 			slideshowBtn[2].addEventListener('click', function() {
 				if (isPlaying === false) {
 					startShow3();
@@ -825,23 +865,25 @@
 			});
 		}
 		
+		function startShow4() {
+			isPlaying = true;
+			slideshowBtn[3].innerHTML = '<i class="material-icons">pause</i>';
+			slideInterval4 = setInterval(function() {
+				slides[3][currentSlide3.showPrevious()].classList.add('hide');
+				slides[3][currentSlide3.showNext()].classList.remove('hide');
+				slides[3][currentSlide3.showNext()].classList.add('hide');
+			}, 5000);
+		}
+		
+		function pauseShow4() {
+			isPlaying = false;
+			slideshowBtn[3].innerHTML = '<i class="material-icons">play_arrow</i>';
+			clearInterval(slideInterval4);
+		}
+		
 		if (slideshowBtn[3]) {
-			function startShow4() {
-				isPlaying = true;
-				slideshowBtn[3].innerHTML = '<i class="material-icons">pause</i>';
-				slideInterval4 = setInterval(function() {
-					slides[3][currentSlide3.showPrevious()].classList.add('hide');
-					slides[3][currentSlide3.showNext()].classList.remove('hide');
-					slides[3][currentSlide3.showNext()];
-				}, 5000);
-			}
-			
-			function pauseShow4() {
-				isPlaying = false;
-				slideshowBtn[3].innerHTML = '<i class="material-icons">play_arrow</i>';
-				clearInterval(slideInterval4);
-			}
-			
+			startShow4();
+			pauseShow4();
 			slideshowBtn[3].addEventListener('click', function() {
 				if (isPlaying === false) {
 					startShow4();
@@ -851,23 +893,25 @@
 			});
 		}
 		
+		function startShow5() {
+			isPlaying = true;
+			slideshowBtn[4].innerHTML = '<i class="material-icons">pause</i>';
+			slideInterval5 = setInterval(function() {
+				slides[4][currentSlide3.showPrevious()].classList.add('hide');
+				slides[4][currentSlide3.showNext()].classList.remove('hide');
+				slides[4][currentSlide3.showNext()].classList.add('hide');
+			}, 5000);
+		}
+		
+		function pauseShow5() {
+			isPlaying = false;
+			slideshowBtn[4].innerHTML = '<i class="material-icons">play_arrow</i>';
+			clearInterval(slideInterval5);
+		}
+		
 		if (slideshowBtn[4]) {
-			function startShow5() {
-				isPlaying = true;
-				slideshowBtn[4].innerHTML = '<i class="material-icons">pause</i>';
-				slideInterval5 = setInterval(function() {
-					slides[4][currentSlide3.showPrevious()].classList.add('hide');
-					slides[4][currentSlide3.showNext()].classList.remove('hide');
-					slides[4][currentSlide3.showNext()];
-				}, 5000);
-			}
-			
-			function pauseShow5() {
-				isPlaying = false;
-				slideshowBtn[4].innerHTML = '<i class="material-icons">play_arrow</i>';
-				clearInterval(slideInterval5);
-			}
-			
+			startShow5();
+			pauseShow5();
 			slideshowBtn[4].addEventListener('click', function() {
 				if (isPlaying === false) {
 					startShow5();
@@ -880,18 +924,30 @@
 	
 	function theMXInit() {
 		metaLinksRGBA();
+		addMobileSocialButton();
+		loadInitSocialMenuState();
 		toggleSocialPanel();
 		socialMediaButtons();
 		toggleSidebar();
 		addOverlayToSidebar();
 		toggleSearchbar();
-		desktopNavButtons();
+		addDesktopNavButtons();
+		toggleMenuItems();
+		loadInitMenuState();
 		disappearingHeader();
 		showFirstSlide();
-		addSlideClickEvents()
+		addSlideClickEvents();
 		addSlideshowEvents();
 	}
 	document.addEventListener( 'DOMContentLoaded', theMXInit );
 	window.onload = skrollrAnimations();
-	
+
+	function theMXResize() {
+		var timeOut = setTimeout( function() {
+			loadInitMenuState();
+			loadInitSocialMenuState();
+		//toggleSocialPanel();
+		}, 250 );
+	}
+	window.addEventListener( 'resize', theMXResize );
 })();

@@ -662,7 +662,7 @@ add_action( 'customize_register', 'the_mx_customize_register' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function the_mx_customize_preview_js() {
-	wp_enqueue_script( 'the-mx-customizer', get_template_directory_uri() . '/js/customize-preview.js', array( 'customize-preview' ), '20170415', true );
+	wp_enqueue_script( 'the-mx-customizer', get_template_directory_uri() . '/js/source/customize-preview.js', array( 'customize-preview' ), '20170415', true );
 	$parameters = array(
 		'color_scheme_choices' => get_theme_mod( 'the_mx_color_scheme', 'brown' ),
 	);
@@ -680,7 +680,7 @@ add_action( 'customize_preview_init', 'the_mx_customize_preview_js' );
  * Customizer Controls functionality
  */
 function the_mx_customizer_controls() {
-	wp_enqueue_script( 'the-mx-customizer-controls', get_template_directory_uri() . '/js/customize-controls.js', array( 'jquery' ), '20170412', true );
+	wp_enqueue_script( 'the-mx-customizer-controls', get_template_directory_uri() . '/js/source/customize-controls.js', array( 'jquery' ), '20170412', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'the_mx_customizer_controls' );
 

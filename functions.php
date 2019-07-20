@@ -170,12 +170,6 @@ function the_mx_image_sizes( $sizes ) {
 }
 add_filter( 'image_size_names_choose', 'the_mx_image_sizes' );
 
-/* Jetpack Responsive Videos- Requires the Jetpack plugin to be installed and activated */
-function the_mx_responsive_videos() {
-	add_theme_support( 'jetpack-responsive-videos' );
-}
-add_action( 'after_setup_theme', 'the_mx_responsive_videos' );
-
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -231,31 +225,59 @@ add_action( 'widgets_init', 'the_mx_widgets_init' );
  */
 
 function the_mx_enqueue_scripts() {
-	//wp_enqueue_style( 'the-mx-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
+	
+	// Shared variables
+	$mx_animate = get_theme_mod( 'the_mx_animate_css', 1 );
+	$mx_colorbox = get_theme_mod( 'the_mx_enable_colorbox', 0 );
+	
+	// Styles
+	
+	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.css' );
+
+	wp_enqueue_style( 'the-mx-sup-style', get_template_directory_uri() . '/css/minfiles/supporting-styles.min.css', array( 'the-mx-style' ) );
 	
 	// Enqueue this for now; may be added to the Customizer later
-	wp_enqueue_style( 'the-mx-right-sidebar-overlay', get_template_directory_uri() . '/layouts/content-sidebar-overlay.css', array( 'the-mx-style' ) );
+	wp_enqueue_style( 'the-mx-right-sidebar-overlay', get_template_directory_uri() . '/css/layouts/content-sidebar-overlay.css', array( 'the-mx-style' ) );
+	
+	wp_enqueue_script( 'throttle-debounce', get_template_directory_uri() . '/js/minfiles/ba-throttle-debounce.min.js', array(), '', true );
+	
+	// Icon fonts
+	wp_enqueue_style( 'the-mx-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,500,300', false );
 	
 	wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 	
-	wp_enqueue_style( 'themify-icons', get_template_directory_uri() . '/css/themify-icons.css', false );
+	// Conditionally loaded
+	if ( get_theme_mod( 'the_mx_color_scheme' ) == 'blue_gray' ) {
+		wp_enqueue_style( 'the-mx-color-bluegray', get_template_directory_uri() . '/css/source/alt-color-scheme-bluegray.css', array( 'the-mx-style' ), '' );
+	}
 	
-	wp_enqueue_style( 'the-mx-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,500,300', false );
+	if ( $mx_colorbox == 1 && shortcode_exists( 'gallery' ) ) {
+		wp_enqueue_style( 'the-mx-colorbox-styles', get_template_directory_uri() . '/css/minfiles/the-mx-colorbox.min.css' );
+	}
+
+	if( $mx_animate == 1 ) {
+		wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/minfiles/animation-styles.min.css' );
+	}
 	
-	wp_enqueue_style( 'the-mx-grid', get_template_directory_uri() . '/layouts/jgd-material-grid.css', array( 'the-mx-style') );
 	
-	wp_enqueue_script( 'the-mx-grid-js', get_template_directory_uri() . '/js/jgd-grid.min.js', array(), '', true );
+	// Scripts
+	
+	wp_enqueue_script( 'the-mx-scripts', get_template_directory_uri() . '/js/minfiles/scripts.min.js', array( 'jquery' ), '', true );
 	$parameters = array(
 		'layouts' => get_theme_mod( 'the_mx_layout', 'centered' ),
 	);
-	wp_localize_script( 'the-mx-grid-js', 'jgdGridParams', $parameters );
+	wp_localize_script( 'the-mx-scripts', 'jgdGridParams', $parameters );
 	
-	if( is_page_template( 'page-templates/template-landing.php' ) ) {
-		wp_enqueue_script( 'the-mx-headroom', get_template_directory_uri() . '/js/headroom.js', array(), '20180530', true );
-	}
+	$parameters = array(
+		'link_to' => get_theme_mod( 'the_mx_media_link_to', 'attachment' ),
+	);
+	wp_localize_script( 'the-mx-scripts', 'colorboxParams', $parameters );
+	$parameters = array(
+		'layouts' => get_theme_mod( 'the_mx_layout', 'centered' ),
+	);
+	wp_localize_script( 'the-mx-scripts', 'restoreJSParams', $parameters );
 	
-	wp_enqueue_script( 'the-mx-scripts', get_template_directory_uri() . '/js/the-mx-scripts.min.js', array(), '', true );
+	//wp_enqueue_script( 'the-mx-animations', get_template_directory_uri() . '/js/source/animations.js', array( 'jquery' ), '', true );
 	
 	$parameters = array(
 		'sliderControl' => get_theme_mod( 'the_mx_single_slider', 0 ),
@@ -264,42 +286,23 @@ function the_mx_enqueue_scripts() {
 	);
 	wp_localize_script( 'the-mx-scripts', 'mxScriptParams', $parameters );
 
-	wp_enqueue_script( 'the-mx-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20160511', true );
-
-	wp_enqueue_script( 'the-mx-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-	
-	wp_enqueue_script( 'throttle-debounce', get_template_directory_uri() . '/js/ba-throttle-debounce.min.js', array(), '', true );
-
+	// Conditionally loaded
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	
-	if ( get_theme_mod( 'the_mx_color_scheme' ) == 'blue_gray' ) {
-		wp_enqueue_style( 'the-mx-color-bluegray', get_template_directory_uri() . '/css/alt-color-scheme-bluegray.css', array( 'the-mx-style' ), '' );
-	}
-	
-	if ( get_theme_mod( 'the_mx_enable_colorbox' ) == 1 && shortcode_exists( 'gallery' ) ) {
-		wp_enqueue_style( 'the-mx-colorbox-styles', get_template_directory_uri() . '/css/the-mx-colorbox.css' );
-		
-		wp_enqueue_script( 'colorbox', get_template_directory_uri() . '/js/jquery.colorbox-min.js', array( 'jquery' ), '', false );
-	
-		wp_enqueue_script( 'the-mx-colorbox-main', get_template_directory_uri() . '/js/colorbox-main.js', array( 'colorbox' ), '', true );
-		
-		// Supply colorbox main file with customizer settings
-		$parameters = array(
-			'link_to' => get_theme_mod( 'the_mx_media_link_to', 'attachment' ),
-		);
-		wp_localize_script( 'the-mx-colorbox-main', 'colorboxParams', $parameters );
+	if ( $mx_colorbox == 1 && shortcode_exists( 'gallery' ) ) {
+		wp_enqueue_script( 'colorbox', get_template_directory_uri() . '/js/minfiles/jquery.colorbox-min.js', array( 'jquery' ), '', false );
 	}
 	
 	if ( get_theme_mod( 'the_mx_single_slider' ) == 1 && is_single() ) {
 		wp_dequeue_script( 'colorbox' );
-		wp_dequeue_script( 'the-mx-colorbox-main' );
-		wp_dequeue_style( 'the-mx-colorbox-css' );
+		//wp_dequeue_script( 'the-mx-colorbox-main' );
+		wp_dequeue_style( 'the-mx-colorbox-styles' );
 	}
 	
 	if ( get_theme_mod( 'the_mx_skrollr_animations' ) == 1 ) {
-		wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array( 'the-mx-scripts' ), '', true );
+		wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/minfiles/skrollr.min.js', array( 'the-mx-scripts' ), '', true );
 	
 		wp_add_inline_script( 'skrollr', 
 			'var s = skrollr.init({
@@ -311,21 +314,26 @@ function the_mx_enqueue_scripts() {
 		wp_localize_script( 'the-mx-scripts', 'mxSkrollrParams', $parameters );
 	}
 	
-	$mx_animate = get_theme_mod( 'the_mx_animate_css', 1 );
 	if( $mx_animate ) {
-		wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.min.css', array(), '' );
-		wp_enqueue_script( 'the-mx-animations', get_template_directory_uri() . '/js/animations.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_style( 'ripple', get_template_directory_uri() . '/css/ripple.min.css', array(), '' );
-		wp_enqueue_script( 'ripple', get_template_directory_uri() . '/js/ripple.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_style( 'the-mx-preloader', get_template_directory_uri() . '/css/spinner.css' );
+		wp_enqueue_script( 'ripple', get_template_directory_uri() . '/js/minfiles/ripple.min.js', array( 'jquery' ), '', true );
+	}
+	
+	if( is_page_template( 'page-templates/template-landing.php' ) ) {
+		wp_enqueue_script( 'the-mx-headroom', get_template_directory_uri() . '/js/minfiles/headroom.min.js', array(), '20180530', true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'the_mx_enqueue_scripts' );
 // Additional scripts enqueued in inc/jetpack.php
 
+/* Add <noscript> tag for disabled JavaScript */
+function the_mx_noscript() { 
+	require get_template_directory() . '/inc/noscript.php';
+}
+add_action( 'wp_head', 'the_mx_noscript' );
+
 /* For the Gutenberg editor styles */
 function the_mx_add_gutenberg_styles() {
-	wp_enqueue_style( 'the-mx-gutenberg-styles', get_theme_file_uri( '/css/gutenberg-editor-styles.css' ), false );
+	wp_enqueue_style( 'the-mx-gutenberg-styles', get_theme_file_uri( '/css/source/gutenberg-editor-styles.css' ), false );
 }
 add_action( 'enqueue_block_editor_assets', 'the_mx_add_gutenberg_styles' );
 

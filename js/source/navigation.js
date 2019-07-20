@@ -29,45 +29,46 @@
 	
 	// set initial menu state here, instead of CSS file, in case JavaScript is turned off in browser.
 	var windowWidth = window.innerWidth;
-	var submenuButton = document.querySelectorAll( '.main-navigation .menu-down-arrow' );
+	submenuButton = document.querySelectorAll( '.main-navigation .menu-down-arrow' );
 	
-	window.addEventListener( 'resize', function(event) {
+	/*window.addEventListener( 'resize', function(event) {
 		var windowWidth = window.innerWidth;
-		if (timeOut != null) {
+		if ( timeOut != null ) {
 			clearTimeout(timeOut);
 		}
 		
 		var timeOut = setTimeout(function() {
-			if (windowWidth < 600) {
+			if ( windowWidth < 600 ) {
 				menu.classList.add('hide');
-				for (var i = 0; i < submenuButton.length; i++) {
+				for ( i = 0; i < submenuButton.length; i++ ) {
 					submenuButton[i].classList.add('hide');
 				}
 			} else {
 				menu.classList.remove('hide');
 				//menu.style.display = 'flex';
-				for (var i = 0; i < submenuButton.length; i++) {
+				for ( i = 0; i < submenuButton.length; i++ ) {
+					subMenuButton[i].classList.remove('hide');
 					submenuButton[i].style.display = 'inline';
 				}
 			}
 		}, 250 );
-	} );
+	} );*/
 	
-	window.addEventListener( 'load', function(event) {
+	/*window.addEventListener( 'load', function(event) {
 		var windowWidth = window.innerWidth;
 		if ( windowWidth < 600 ) {
 			menu.classList.add('hide');
-			for ( var i = 0; i < submenuButton.length; i++ ) {
+			for ( i = 0; i < submenuButton.length; i++ ) {
 				submenuButton[i].classList.add('hide');
 			}
 		} else {
 			menu.classList.remove('hide');
-			for ( var i = 0; i < submenuButton.length; i++ ) {
+			for ( i = 0; i < submenuButton.length; i++ ) {
 				submenuButton[i].classList.remove('hide');
 				submenuButton[i].style.display = 'inline';
 			}
 		}
-	} );
+	} );*/
 	
 	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
 		menu.className += ' nav-menu';
@@ -87,7 +88,7 @@
 			menu.setAttribute( 'aria-expanded', 'true' );
 			menu.classList.remove('hide');
 		}
-	};
+	}
 
 	// Get all the link elements within the menu.
 	links    = menu.getElementsByTagName( 'a' );

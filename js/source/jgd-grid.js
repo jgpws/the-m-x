@@ -18,6 +18,7 @@
 	 	var singlePostContainer = document.querySelector( '.single .post' );
 	 	var commentsContainer = document.querySelector( '.single .comments-area' );
 	 	var bodyTag = document.getElementsByTagName( 'body' )[0];
+	 	var i;
 
  		if ( windowWidth >= 1280 ) {
  			//console.log( 'Window size is greater than 1280' );
@@ -37,7 +38,7 @@
 				}
 			}
 			
-			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
+			for ( i = 0, len = stickyContainers.length; i < len; i++ ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					stickyContainers[i].classList.add( 'two-by-two-centered-r' );
 					stickyContainers[i].classList.remove( 'three-fourths-centered-r' );
@@ -51,7 +52,7 @@
 			}
  		} else if ( windowWidth <= 1279 && windowWidth >= 720 ) {
  			//console.log( 'Window size is greater than 720' );
- 			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
+ 			for ( i = 0, len = stickyContainers.length; i < len; i++ ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					stickyContainers[i].classList.add( 'three-fourths-centered-r' );
 					stickyContainers[i].classList.remove( 'jgd-column-1' );
@@ -65,7 +66,7 @@
 			}
  		} else {
  			//console.log('Window size is less than 720');
- 			for ( var i = 0, len = stickyContainers.length; i < len; i++ ) {
+ 			for ( i = 0, len = stickyContainers.length; i < len; i++ ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					stickyContainers[i].classList.add( 'jgd-column-1' );
 					stickyContainers[i].classList.remove( 'three-fourths-centered-r' );

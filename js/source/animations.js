@@ -2,8 +2,6 @@
 
 ( function( $ ) { // opens document ready function
 	
-	// Global variables
-	//var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 	var animationEnd = ( function( el ) {
 		var animations = {
 			'animation': 'animationend',
@@ -105,7 +103,7 @@
 			} );
 		} 
 		
-		if(windowWidth < 600) {
+		if( windowWidth < 600 ) {
 			menuButton.on( 'click', function() {
 				if ( $(this).closest(mainMenu).hasClass( 'toggled' ) ) {
 					$(this).closest( mainMenu ).find( mobileMenu ).addClass( 'slideInLeft' ).removeClass( 'hide' ).one( animationEnd, function() {
@@ -249,7 +247,7 @@
 				//console.log(counter);
 				return counter;
 			}
-		}
+		};
 	}
 	
 	// Global variables for the slide animations
@@ -388,7 +386,7 @@
 				isPlaying = false;
 				clearInterval( fadeSlide1 );
 				//console.log( isPlaying );
-			};
+			}
 		} );
 		
 		startShwBtn2.on( 'click', function() {
@@ -406,7 +404,7 @@
 				isPlaying = false;
 				clearInterval( fadeSlide2 );
 				//console.log(isPlaying);
-			};
+			}
 		} );
 		
 		startShwBtn3.on( 'click', function() {
@@ -424,7 +422,7 @@
 				isPlaying = false;
 				clearInterval( fadeSlide3 );
 				//console.log(isPlaying);
-			};
+			}
 		} );
 		
 		startShwBtn4.on( 'click', function() {
@@ -442,7 +440,7 @@
 				isPlaying = false;
 				clearInterval( fadeSlide4 );
 				//console.log(isPlaying);
-			};
+			}
 		} );
 		
 		startShwBtn5.on( 'click', function() {
@@ -460,7 +458,7 @@
 				isPlaying = false;
 				clearInterval( fadeSlide5 );
 				//console.log(isPlaying);
-			};
+			}
 		} );
 	}
 	
@@ -472,26 +470,31 @@
 		$( 'button:not(.menu-down-arrow), input[type="button"]' ).addClass( 'material-ripple' );
 	}
 	
-	$( window ).on( 'load', function () {
-		preloadDiv.hide();
-		bodyDiv.addClass( 'animated fadeIn' );
-		animateSearchbar();
-		animateMenu();
-		animateSidebar();
-		animateFormLabels();
-		animateSlidesOnclick();
-		animateSlideshows();
-		animateCboxSlides();
-		addMaterialInk();
-	} );
-	window.onresize = function() {
-		var timeOut = setTimeout( function() { // Delay rendering/event so that event doesn't fire multiple times
+	if ($( 'body' ).hasClass( 'animate' )) {
+		$( window ).on( 'load', function() {
+			preloadDiv.hide();
+			bodyDiv.addClass( 'animated fadeIn' );
+			animateSearchbar();
 			animateMenu();
-		}, 250 );
+			animateSidebar();
+			animateFormLabels();
+			animateSlidesOnclick();
+			animateSlideshows();
+			animateCboxSlides();
+			addMaterialInk();
+		} );
 		
-		if ( timeOut != null ) {
-			clearTimeout( timeOut );
-		}
+		$( window ).on( 'resize', function() {
+			var timeOut = setTimeout( function() { // Delay rendering/event so that event doesn't fire multiple times
+				animateMenu();
+			}, 250 );
+			
+			if ( timeOut != null ) {
+				clearTimeout( timeOut );
+			}
+		} );
 	}
+	
+	//}
 	
 } )( jQuery );

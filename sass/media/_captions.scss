@@ -17,6 +17,7 @@
 
 .wp-caption-text,
 .wp-block-image figcaption,
+.wp-block-gallery figcaption,
 .gallery-caption {
 	@include font-size(0.75);
 	font-weight: $font__weight-heavy;

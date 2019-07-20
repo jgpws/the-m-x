@@ -1,0 +1,45 @@
+{
+  "name": "the-m-x",
+  "version": "1.0.25",
+  "description": "The M.X. WordPress theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgpws/the-m-x.git"
+  },
+  "author": "jgpws",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/jgpws/the-m-x/issues"
+  },
+  "homepage": "https://github.com/jgpws/the-m-x#readme",
+  "devDependencies": {
+    "ansi-colors": "^4.0.1",
+    "browser-sync": "^2.26.7",
+    "es6-promise": "^4.2.8",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-jshint": "^2.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-rtlcss": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "gulp-zip": "^5.0.0",
+    "jshint": "^2.10.2"
+  },
+  "dependencies": {
+    "del": "^4.1.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "readable-stream": "^3.4.0"
+  }
+}

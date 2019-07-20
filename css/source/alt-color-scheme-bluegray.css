@@ -396,11 +396,11 @@ body.attachment.custom-background {
 }
 
 #cboxClose {
-	background: url(images/ic_cancel_brown_24px.svg) no-repeat center center !important;
+	background: url(../images/ic_cancel_brown_24px.svg) no-repeat center center !important;
 }
 
 #cboxClose:hover {
-	background:url(images/ic_cancel_brown_hover_24px.svg) no-repeat center center !important;
+	background:url(../images/ic_cancel_brown_hover_24px.svg) no-repeat center center !important;
 }
 
 /* Jetpack */
