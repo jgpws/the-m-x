@@ -232,7 +232,7 @@ function the_mx_enqueue_scripts() {
 	
 	// Styles
 	
-	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
 
 	wp_enqueue_style( 'the-mx-sup-style', get_template_directory_uri() . '/css/minfiles/supporting-styles.min.css', array( 'the-mx-style' ) );
 	
