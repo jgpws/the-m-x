@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/jgpws/the-m-x#readme",
   "devDependencies": {
-    "ansi-colors": "^4.0.1",
+    "ansi-colors": "^4.1.1",
     "browser-sync": "^2.26.7",
     "es6-promise": "^4.2.8",
     "gulp": "^4.0.2",
