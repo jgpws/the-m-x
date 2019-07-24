@@ -320,11 +320,6 @@ function the_mx_enqueue_scripts() {
 		wp_dequeue_style( 'the-mx-colorbox-styles' );
 	}
 	
-	if ( get_theme_mod( 'the_mx_skrollr_animations' ) == 1 ) {
-		
-		
-	}
-	
 	if( $mx_animate ) {
 		wp_enqueue_script( 'ripple', get_template_directory_uri() . '/js/minfiles/ripple.min.js', array( 'jquery' ), '', true );
 	}
