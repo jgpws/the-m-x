@@ -18,6 +18,8 @@ function skrollrDataAttributes() {
 		var cardFooter = document.querySelectorAll( '.blog .format-standard .entry-footer' );
 		var i;
 		
+		bodyTag.setAttribute( 'id', 'skrollr-body' );
+		
 		if ( bodyTag.classList.contains( 'skrollr-animate' ) ) {
 			// Slide in each post part when scrolling to center
 				

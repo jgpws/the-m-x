@@ -7,8 +7,7 @@ function skrollrInfinite() {
 	var infiniteScrollLoaded = document.head.querySelector( '#the-neverending-homepage-css' );
 	
 	if ( bodyTag.classList.contains( 'skrollr-animate' ) ) {
-		bodyTag.setAttribute( 'id', 'skrollr-body' );
-		
+	
 		var getSkrollr = skrollr.get();
 		var isMobile = /Mobi|Android/i.test(navigator.userAgent);
 		
@@ -21,7 +20,7 @@ function skrollrInfinite() {
 			bodyTag.setAttribute('style', 'touch-action: none;');
 			//console.log('Infinite Scroll loaded; Not on mobile');
 		} else {
-			return;
+			skrollr.init();
 		}
 	}
 }
