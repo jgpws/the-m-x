@@ -6,13 +6,18 @@
 
 ( function ( $ ) {
 	
-	if ( $( 'body' ).hasClass( 'infinite-scroll' ) ) {
+	var infiniteScrollLoaded = document.head.querySelector( '#the-neverending-homepage-css' );
+	var isMobile = /Mobi|Android/i.test(navigator.userAgent);
+	
+	if ( infiniteScrollLoaded ) {
 		$( document.body ).on( 'post-load', addJGDGrid );
-		$( document.body ).on( 'post-load', addSkrollrEffects );
-		if ( $( 'body' ).hasClass( 'skrollr-animate' ) ) {
-			$( document.body ).on( 'post-load', function() {
-				skrollr.get().refresh();
-			} );
+		if ( !isMobile ) {
+			$( document.body ).on( 'post-load', addSkrollrEffects );
+			if ( $( 'body' ).hasClass( 'skrollr-animate' ) ) {
+				document.addEventListener( 'DOMContentLoaded', function() {
+					skrollr.get().refresh();
+				} );
+			}
 		}
 	}
 	

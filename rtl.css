@@ -3534,6 +3534,10 @@ img.wp-post-image {
 	        animation-duration: 3s;
 }
 
+html.skrollr-mobile #skrollr-body {
+	position: fixed;
+}
+
 .headroom {
 	position: fixed;
 	width: 100%;

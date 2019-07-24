@@ -55,6 +55,11 @@
 	animation-duration: 3s;
 }
 
+// For Skrollr
+html.skrollr-mobile #skrollr-body {
+	position: fixed;
+}
+
 // For Headroom
 .headroom {
 	position: fixed;

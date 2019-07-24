@@ -40,7 +40,6 @@ var jsFiles = [ 	'./js/source/jgd-grid.js',
 
 var onError = function(err) {
 	console.log('An error occurred:', c.magenta(err.message));
-	//gutil.beep();
 	this.emit('end');
 };
 
@@ -58,7 +57,7 @@ function style() {
 			outputStyle: 'expanded',
 		}))
 		.pipe(autoprefixer())
-		.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
+		//.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest('./'))
 		.pipe(browserSync.stream());
@@ -236,10 +235,16 @@ function zipUp(done) {
 
 function clean(done) {
 	return del([ 
+		'./dist/**/*'
+	]);
+	done();
+}
+
+function cleanAfterZip() {
+	return del([
 		'./dist/**/*',
 		'!./dist/the-m-x.zip'
 	]);
-	done();
 }
 
 exports.default = series(style, concatenateCSS, minifyStyle, scripts, watch);
@@ -253,5 +258,5 @@ exports.jsHint = jsHint;
 exports.copyFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFonts, copyInc, copyJS, copyLang, copyLayouts, copyMaps, copyPageTemplates, copySass, copyTempParts);
 exports.zipUp = zipUp;
 exports.clean = clean;
-exports.finishUp = series(zipUp, clean);
+exports.finishUp = series(zipUp, cleanAfterZip);
 exports.watch = parallel(watch, rtl);
