@@ -3535,7 +3535,7 @@ img.wp-post-image {
 }
 
 html.skrollr-mobile #skrollr-body {
-	position: fixed;
+	/*position: fixed;*/
 }
 
 .headroom {

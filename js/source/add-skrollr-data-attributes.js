@@ -1,5 +1,3 @@
-var bodyTag;
-
 function skrollrDataAttributes() {
 	/* For skroller.js effects */
 		var bodyTag = document.body;

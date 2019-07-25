@@ -37,6 +37,8 @@ var jsFiles = [ 	'./js/source/jgd-grid.js',
 						'./js/source/animations.js',
 						'./js/source/colorbox-main.js',
 						'./js/source/restore-js.js' ];
+var jsSepFiles = [	'./js/source/add-skrollr-data-attributes.js',
+							'./js/source/skrollr-infinite-init.js'	];
 
 var onError = function(err) {
 	console.log('An error occurred:', c.magenta(err.message));
@@ -106,6 +108,17 @@ function scripts() {
 	);
 }
 
+function minifyJS() {
+	return pipeline(
+		gulp.src(jsSepFiles),
+		uglify(),
+		rename({
+			suffix: '.min'
+		}),
+		gulp.dest('./js/minfiles')
+	);
+}
+
 function jsHint() {
 	return gulp.src('./js/source/*.js')
 		.pipe(jshint())
@@ -127,6 +140,7 @@ function watch() {
 	gulp.watch('./sass/**/*.scss', style);
 	//gulp.watch('./js/source/*.js', jsHint);
 	gulp.watch(jsFiles, scripts);
+	gulp.watch(jsSepFiles, minifyJS);
 	gulp.watch('./style.css', minifyStyle);
 	gulp.watch(supStyles, concatenateCSS);
 	gulp.watch('./css/**/*.css', reloadCSSDir);
@@ -247,13 +261,14 @@ function cleanAfterZip() {
 	]);
 }
 
-exports.default = series(style, concatenateCSS, minifyStyle, scripts, watch);
+exports.default = series(style, concatenateCSS, minifyStyle, scripts, minifyJS, watch);
 exports.style = style;
 exports.rtl = rtl;
 exports.minifyStyle = minifyStyle;
 exports.concatenateCSS = concatenateCSS;
 exports.concatAnimCSS = concatAnimCSS;
 exports.scripts = scripts;
+exports.minifyJS = minifyJS;
 exports.jsHint = jsHint;
 exports.copyFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFonts, copyInc, copyJS, copyLang, copyLayouts, copyMaps, copyPageTemplates, copySass, copyTempParts);
 exports.zipUp = zipUp;

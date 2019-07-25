@@ -263,7 +263,7 @@ function the_mx_enqueue_scripts() {
 	// Scripts
 	
 	if ( get_theme_mod( 'the_mx_skrollr_animations' ) == 1 ) {
-		wp_enqueue_script( 'the-mx-skrollr-data-atts', get_template_directory_uri() . '/js/source/add-skrollr-data-attributes.js', array(), '', true );
+		wp_enqueue_script( 'the-mx-skrollr-data-atts', get_template_directory_uri() . '/js/minfiles/add-skrollr-data-attributes.min.js', array(), '', true );
 		$parameters = array(
 			'layout_type' => get_theme_mod( 'the_mx_layout', 'centered' ),
 		);
@@ -279,7 +279,7 @@ function the_mx_enqueue_scripts() {
 			
 			document.addEventListener( "DOMContentLoaded", skrollrInit );'
 		);
-		wp_enqueue_script( 'the-mx-skrollr-infinite', get_template_directory_uri() . '/js/source/skrollr-infinite-init.js', array(), '', true );
+		wp_enqueue_script( 'the-mx-skrollr-infinite', get_template_directory_uri() . '/js/minfiles/skrollr-infinite-init.min.js', array(), '', true );
 	}
 	
 	wp_enqueue_script( 'the-mx-scripts', get_template_directory_uri() . '/js/minfiles/scripts.min.js', array( 'jquery' ), '', true );

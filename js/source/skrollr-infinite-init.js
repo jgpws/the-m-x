@@ -5,23 +5,17 @@ function skrollrInfinite() {
 	var htmlTag = document.documentElement;
 	var bodyTag = document.body;
 	var infiniteScrollLoaded = document.head.querySelector( '#the-neverending-homepage-css' );
+	var isMobile = htmlTag.classList.contains( 'skrollr-mobile' );
 	
 	if ( bodyTag.classList.contains( 'skrollr-animate' ) ) {
-	
 		var getSkrollr = skrollr.get();
-		var isMobile = /Mobi|Android/i.test(navigator.userAgent);
 		
 		if ( infiniteScrollLoaded && isMobile ) {
 			bodyTag.removeAttribute( 'id' );
 			bodyTag.setAttribute('style', 'touch-action: auto;');
 			skrollr.init().destroy();
 			//console.log('Infinite Scroll loaded; On mobile');
-		} else if ( infiniteScrollLoaded && !isMobile ) {
-			bodyTag.setAttribute('style', 'touch-action: none;');
-			//console.log('Infinite Scroll loaded; Not on mobile');
-		} else {
-			skrollr.init();
-		}
+		} 
 	}
 }
 document.addEventListener( 'DOMContentLoaded', skrollrInfinite );

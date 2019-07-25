@@ -7,18 +7,22 @@
 ( function ( $ ) {
 	
 	var infiniteScrollLoaded = document.head.querySelector( '#the-neverending-homepage-css' );
-	var isMobile = /Mobi|Android/i.test(navigator.userAgent);
+	//var isDesktop = document.documentElement.classList.contains( 'skrollr-desktop' );
+	var mobile = (/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera);
 	
 	if ( infiniteScrollLoaded ) {
 		$( document.body ).on( 'post-load', addJGDGrid );
-		if ( !isMobile ) {
+		
+		if ( !mobile ) {
 			$( document.body ).on( 'post-load', addSkrollrEffects );
 			if ( $( 'body' ).hasClass( 'skrollr-animate' ) ) {
-				document.addEventListener( 'DOMContentLoaded', function() {
+				$( document.body ).on( 'post-load', function() {
 					skrollr.get().refresh();
+					//console.log('Skrollr refreshed.');
 				} );
 			}
 		}
+		
 	}
 	
 	var windowWidth = window.innerWidth;
