@@ -5,7 +5,7 @@ Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featur
 Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.1.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -26,8 +26,11 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.1.3 July 28 2019 =
+Fixed issue where Skrollr did not scroll to the top of a page in mobile after arriving from a different page. This affected Blink based browsers
+
 = 1.1.2 July 22 to July 23 2019 =
-Fixed issue where Skrollr did not scroll to the top of a page in mobile after arriving from a different page. This affected Blink based browsers; File rearranging for Skrollr effects; Fixed compatibility issues between Skrollr and Jetpack's Infinite Scroll
+File rearranging for Skrollr effects; Fixed compatibility issues between Skrollr and Jetpack's Infinite Scroll
 
 = 1.1.1 July 20 2019 =
 Fixed JavaScript error for social media button container; file cleanup

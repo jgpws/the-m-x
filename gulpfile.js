@@ -38,7 +38,7 @@ var jsFiles = [ 	'./js/source/jgd-grid.js',
 						'./js/source/colorbox-main.js',
 						'./js/source/restore-js.js' ];
 var jsSepFiles = [	'./js/source/add-skrollr-data-attributes.js',
-							'./js/source/skrollr-infinite-init.js'	];
+							'./js/source/mx-skrollr-init.js'	];
 
 var onError = function(err) {
 	console.log('An error occurred:', c.magenta(err.message));
@@ -59,7 +59,7 @@ function style() {
 			outputStyle: 'expanded',
 		}))
 		.pipe(autoprefixer())
-		//.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
+		.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest('./'))
 		.pipe(browserSync.stream());

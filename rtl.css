@@ -466,7 +466,7 @@ hr, .wp-block-separator {
 }
 
 ul, ol {
-	margin: 0 3em 1.5em 0;
+	margin: 0 0 1.5em 0;
 }
 
 ul {
@@ -3532,10 +3532,6 @@ img.wp-post-image {
 .animate #cboxLoadedContent.fadeIn {
 	-webkit-animation-duration: 3s;
 	        animation-duration: 3s;
-}
-
-html.skrollr-mobile #skrollr-body {
-	position: fixed;
 }
 
 .headroom {
