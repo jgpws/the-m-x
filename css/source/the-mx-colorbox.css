@@ -74,7 +74,8 @@
 	
 }
 
-/*     User Style:    Change the following styles to modify the appearance of Colorbox.  They are    ordered & tabbed in a way that represents the nesting of the generated HTML.*/#cboxOverlay {
+/*     User Style:    Change the following styles to modify the appearance of Colorbox.  They are ordered & tabbed in a way that represents the nesting of the generated HTML.*/
+#cboxOverlay {
 	background: #000;
 }
 

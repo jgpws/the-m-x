@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.1.4 November 25 2019 =
+Featured Images now use full size image to fit better in its parent container
+
 = 1.1.3 July 28 2019 =
 Fixed issue where Skrollr did not scroll to the top of a page in mobile after arriving from a different page. This affected Blink based browsers
 
@@ -54,7 +57,7 @@ Fixed PHP error; Background Color functionality is now working; Fixed cropping e
 More data escaping and translating
 
 = 1.0.19 - May 13 2019 =
-Added license for spinner.css file; fixed escaping issues; changed custom page template titles; regenerated pot file 
+Added license for spinner.css file; fixed escaping issues; changed custom page template titles; regenerated pot file
 
 = 1.0.17 - April 3 2019 =
 Fixed PHP errors, etc.
@@ -105,7 +108,7 @@ Source: https://stocksnap.io/photo/ROOAD1EI11
 The screenshot image is not bundled with this theme.
 
 == Installation ==
-	
+
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.

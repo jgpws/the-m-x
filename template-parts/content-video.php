@@ -7,7 +7,7 @@
  * @package The_M.X.
  */
 
-if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) { 
+if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 	the_mx_imagegrid();
 } else { ?>
 
@@ -18,7 +18,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			} ?>
 			<?php if( has_post_thumbnail() ) { ?>
 			<div class="featured-image">
-				<?php the_post_thumbnail( 'large' ); ?>
+				<?php the_post_thumbnail( 'full' ); ?>
 			</div>
 			<div class="scrim"></div>
 			<?php } ?>
@@ -26,25 +26,25 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 				if ( !is_single() ) {
 					the_title( '<h2 class="entry-title"><i class="material-icons">movie</i>', '</h2>' );
 				}
-			
+
 				if ( 'post' === get_post_type() ) { ?>
 				<div class="entry-meta">
 					<?php the_mx_posted_on(); ?>
 				</div><!-- .entry-meta -->
-				<?php 
+				<?php
 				} ?>
 		</header><!-- .entry-header -->
-	
+
 		<div class="entry-content">
 			<?php
 			if( !is_single() ) {
 				//global $post;
 				$the_m_x_vid_post_id = '';
-				
+
 				$the_m_x_post = get_post( $the_m_x_vid_post_id );
 				$the_m_x_content = apply_filters( 'the_content', $the_m_x_post->post_content );
 				$the_m_x_embeds = get_media_embedded_in_content( $the_m_x_content );
-				
+
 				if( !empty( $the_m_x_embeds ) ) {
 					$first_embed = $the_m_x_embeds[0];
 					if( class_exists( 'Jetpack' ) ) { ?>
@@ -61,7 +61,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 					__( 'Continue reading %s...', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
-		
+
 				wp_link_pages( array(
 					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-m-x' ),
 					'after'  => '</div>',
@@ -69,7 +69,7 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 			}
 			?>
 		</div><!-- .entry-content -->
-	
+
 		<footer class="entry-footer">
 			<?php the_mx_entry_footer(); ?>
 		</footer><!-- .entry-footer -->

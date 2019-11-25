@@ -297,8 +297,6 @@ function the_mx_enqueue_scripts() {
 	);
 	wp_localize_script( 'the-mx-scripts', 'restoreJSParams', $parameters );
 	
-	//wp_enqueue_script( 'the-mx-animations', get_template_directory_uri() . '/js/source/animations.js', array( 'jquery' ), '', true );
-	
 	$parameters = array(
 		'sliderControl' => get_theme_mod( 'the_mx_single_slider', 0 ),
 		'primaryColor3' => esc_html( get_theme_mod( 'the_mx_custom_primary_3', '#3e2723' ) ),
