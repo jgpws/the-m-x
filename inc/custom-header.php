@@ -56,8 +56,7 @@ function the_mx_header_style() {
 		// Has the text been hidden?
 		if ( ! display_header_text() ) :
 	?>
-		.site-title,
-		.site-description {
+		.site-branding-text {
 			position: absolute;
 			clip: rect(1px, 1px, 1px, 1px);
 		}
@@ -65,6 +64,11 @@ function the_mx_header_style() {
 		// If the user has set a custom color for the text use that.
 		else :
 	?>
+		.site-branding-text {
+			clip: auto;
+			position: relative;
+		}
+
 		.site-title a:link,
 		.site-title a:visited,
 		.site-description {

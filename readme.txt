@@ -5,7 +5,7 @@ Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featur
 Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.1.1
-Stable tag: 1.1.3
+Stable tag: 1.1.5
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -25,6 +25,9 @@ The M.X. stands for The Modern Experience. Give your content a trendy new style 
 The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
+
+= 1.1.5 November 28 2019 =
+Added padding around container to site title and subtitle, instead of the elements themselves, so when a title only is displayed, it doesn't display right against the edge of the navigation element
 
 = 1.1.4 November 25 2019 =
 Featured Images now use full size image to fit better in its parent container

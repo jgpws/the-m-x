@@ -2,10 +2,26 @@
 	box-shadow: $box-shadow-large;
 }
 
+.site-branding {
+	padding-top: 1em !important;
+	padding-bottom: 1em !important;
+
+	.wp-custom-logo & {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+}
+
+.wp-custom-logo {
+	.site-branding-text {
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+}
+
 .site-title {
 	font-size: 2.125rem; /* ~34px */
 	line-height: 2.5rem;
-	padding-top: 0.5em;
 }
 
 .site-title,
@@ -26,32 +42,31 @@
 
 .site-description {
 	color: $white;
-	padding-bottom: 1rem;
 }
 
 .custom-logo-link {
-	
+
 	img {
 		display: block;
 		margin: 0 auto;
 	}
-	
+
 }
 
 @media ( min-width: 80em ) {
 	.custom-logo-link {
-	
+
 		img {
 			margin: 0 0 0 -0.75em; /* negative left margin accounts for padding from the .jgd-grid class */
 			max-width: 400px; /* Fixes flexbox shrinkage of child images */
 		}
-	
+
 	}
-	
+
 	.wp-custom-logo .site-branding {
 		display: flex;
 	}
-	
+
 	.wp-custom-logo .site-branding-text {
 		padding-left: 1em;
 	}
@@ -64,74 +79,74 @@
 	position: absolute;
 	top: 4rem;
 	width: calc(100% - 1em);
-	
+
 	&.toggled {
 		left: 0.5em;
 	}
-	
+
 }
 
 #menu-social-items {
 	list-style: none;
 	margin: 0px;
 	padding: 1em;
-	
+
 	li {
 		@include margin-two-values(0.5em, 0);
 	}
-	
+
 }
 
 @media screen and (min-width: 37.5em) {
 	#header-button-panel .menu-social-media-icons-container {
 		width: 75%;
-		
+
 		&.toggled {
 			left: 12.5%;
 		}
-		
+
 	}
 }
 
 @media screen and (min-width: 48em) {
 	#header-button-panel {
-		
+
 		.menu-social-media-icons-container {
 			@include no-card-style;
 			position: static;
 			width: auto;
 		}
-		
+
 		#menu-social {
 			padding: 0.75em;
 			margin-right: 0.5em;
 		}
-		
+
 		#menu-social-items {
 			padding: 0px;
 		}
-		
+
 		#menu-social ul li a {
 			color: $primary-text-color-white;
-			
+
 			&:hover {
 				color: $white;
 			}
-			
+
 		}
-	}	
+	}
 }
 
 @media screen and (min-width: 80em) {
 	#header-button-panel {
-		
+
 		.menu-social-media-icons-container {
 			margin-top: 0.5em;
 			position: absolute;
 			right: 25%;
 			top: 0px;
 		}
-		
+
 	}
 }
 
@@ -144,7 +159,7 @@ html.skrollr-mobile {
 	margin-top: 46px;
 }
 
-@media screen and ( min-width: 783px ) { /* min width where wp admin bar shrinks to 32 px */ 
+@media screen and ( min-width: 783px ) { /* min width where wp admin bar shrinks to 32 px */
 	.skrollr-mobile .logged-in .site-header {
 		margin-top: 32px;
 	}
