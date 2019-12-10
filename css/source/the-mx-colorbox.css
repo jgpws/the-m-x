@@ -33,7 +33,7 @@
 
 #cboxTitle {
 	margin: 0;
-	
+
 }
 
 #cboxLoadingOverlay,  #cboxLoadingGraphic {
@@ -55,7 +55,7 @@
 	display: block;
 	max-width: none;
 	-ms-interpolation-mode: bicubic;
-	
+
 }
 
 .cboxIframe {
@@ -71,7 +71,7 @@
 	box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	-webkit-box-sizing: content-box;
-	
+
 }
 
 /*     User Style:    Change the following styles to modify the appearance of Colorbox.  They are ordered & tabbed in a way that represents the nesting of the generated HTML.*/
@@ -82,14 +82,14 @@
 #colorbox {
 	outline: 0;
 	box-shadow: 0 20px  30px  -30px  rgba(0,  0,  0,  0.19) ,  0 6px 12px  -12px  rgba(0,  0,  0,  0.23);
-	
+
 }
 
 #cboxContent {
 	margin-top: 32px;
 	background: #a1887f;
 	padding-top: 3em;
-	
+
 }
 
 .cboxIframe {
@@ -111,14 +111,14 @@
 	position: absolute;
 	top: -20px;
 	left: 0;
-	color: rgba(255, 255, 255, 0.87);
+	color: rgba(0, 0, 0, 0.87);
 }
 
 #cboxCurrent {
 	position: absolute;
 	top: 8px;
 	right: 0px;
-	color: rgba(255, 255, 255, 0.87);
+	color: rgba(0, 0, 0, 0.87);
 	width: 100%;
 	text-align: center;
 }
@@ -127,7 +127,7 @@
 	background: url(../images/loading.gif) no-repeat center center;
 }
 
-/* these elements are buttons,  and may need to have additional styles reset to avoid unwanted base styles */        
+/* these elements are buttons,  and may need to have additional styles reset to avoid unwanted base styles */
 #cboxPrevious,
 #cboxNext,
 #cboxSlideshow,
@@ -140,7 +140,7 @@
 	background: none;
 }
 
-/* avoid outlines on :active (mouseclick) ,  but preserve outlines on :focus (tabbed navigating) */        
+/* avoid outlines on :active (mouseclick) ,  but preserve outlines on :focus (tabbed navigating) */
 
 #cboxPrevious:active,
 #cboxNext:active,
@@ -161,7 +161,7 @@
 	top: 32px;
 	left: 0px;
 	margin-top: -32px;
-	background: url(../images/ic_arrow_back_white_24px.svg) no-repeat center center;
+	background: url(../images/ic_arrow_back_black_24px.svg) no-repeat center center;
 	width: 3em;
 	height: 3em;
 	text-indent: -9999px;
@@ -174,7 +174,7 @@
 	top: 32px;
 	right: 0px;
 	margin-top: -32px;
-	background: url(../images/ic_arrow_forward_white_24px.svg) no-repeat center center;
+	background: url(../images/ic_arrow_forward_black_24px.svg) no-repeat center center;
 	width: 3em;
 	height: 3em;
 	text-indent: -9999px;
@@ -197,4 +197,3 @@
 #cboxClose:hover {
 	background: url(../images/ic_cancel_orange_hover_24px.svg) no-repeat center center;
 }
-

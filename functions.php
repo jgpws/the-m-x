@@ -231,7 +231,6 @@ function the_mx_enqueue_scripts() {
 	$mx_colorbox = get_theme_mod( 'the_mx_enable_colorbox', 0 );
 
 	// Styles
-
 	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
 
 	wp_enqueue_style( 'the-mx-sup-style', get_template_directory_uri() . '/css/minfiles/supporting-styles.min.css', array( 'the-mx-style' ) );
@@ -239,18 +238,12 @@ function the_mx_enqueue_scripts() {
 	// Enqueue this for now; may be added to the Customizer later
 	wp_enqueue_style( 'the-mx-right-sidebar-overlay', get_template_directory_uri() . '/css/layouts/content-sidebar-overlay.css', array( 'the-mx-style' ) );
 
-	wp_enqueue_script( 'throttle-debounce', get_template_directory_uri() . '/js/minfiles/ba-throttle-debounce.min.js', array(), '', true );
-
 	// Icon fonts
 	wp_enqueue_style( 'the-mx-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,500,300', false );
 
 	wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 
 	// Conditionally loaded
-	if ( get_theme_mod( 'the_mx_color_scheme' ) == 'blue_gray' ) {
-		wp_enqueue_style( 'the-mx-color-bluegray', get_template_directory_uri() . '/css/source/alt-color-scheme-bluegray.css', array( 'the-mx-style' ), '' );
-	}
-
 	if ( $mx_colorbox == 1 && shortcode_exists( 'gallery' ) ) {
 		wp_enqueue_style( 'the-mx-colorbox-styles', get_template_directory_uri() . '/css/minfiles/the-mx-colorbox.min.css' );
 	}
@@ -261,7 +254,6 @@ function the_mx_enqueue_scripts() {
 
 
 	// Scripts
-
 	if ( get_theme_mod( 'the_mx_skrollr_animations' ) == 1 ) {
 		wp_enqueue_script( 'the-mx-skrollr-data-atts', get_template_directory_uri() . '/js/minfiles/add-skrollr-data-attributes.min.js', array(), '', true );
 		$parameters = array(
@@ -299,10 +291,16 @@ function the_mx_enqueue_scripts() {
 
 	$parameters = array(
 		'sliderControl' => get_theme_mod( 'the_mx_single_slider', 0 ),
-		'primaryColor3' => esc_html( get_theme_mod( 'the_mx_custom_primary_3', '#3e2723' ) ),
-		'customColors' => get_theme_mod( 'the_mx_color_scheme', 'brown' ),
 	);
 	wp_localize_script( 'the-mx-scripts', 'mxScriptParams', $parameters );
+
+	wp_localize_script( 'the-mx-scripts', 'colorScheme',
+	array(
+		'headerTextColor' => get_header_textcolor(),
+		'primaryColor3' => esc_html( get_theme_mod( 'the_mx_primary_3', '#3e2723' ) ),
+	) );
+
+	wp_enqueue_script( 'throttle-debounce', get_template_directory_uri() . '/js/minfiles/ba-throttle-debounce.min.js', array(), '', true );
 
 	// Conditionally loaded
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -364,6 +362,7 @@ require get_template_directory() . '/inc/extras.php';
 /**
  * Customizer additions.
  */
+
 require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/inc/customizer-frontend.php';
@@ -436,3 +435,36 @@ if( defined( 'JETPACK__VERSION' ) ) {
 
 /* include gallery functions */
 require get_template_directory() . '/inc/gallery-functions.php';
+
+/* Hex to RGB converter */
+
+/**
+ * Convert HEX to RGB.
+ *
+ * @since The M.X. 1.2
+ *
+ * @param string $color The original color, in 3- or 6-digit hexadecimal form.
+ * @return array Array containing RGB (red, green, and blue) values for the given
+ *               HEX code, empty array otherwise.
+ */
+function the_mx_hex_to_rgb( $color ) {
+	$color = trim( $color, '#' );
+
+	if( strlen( $color ) == 3 ) {
+		$r = hexdec( substr( $color, 0, 1 ) . substr( $color, 0 , 1 ) );
+		$g = hexdec( substr( $color, 1, 1 ) . substr( $color, 1, 1 ) );
+		$b = hexdec( substr( $color, 2, 1 ) . substr( $color, 2, 1 ) );
+	} elseif ( strlen( $color ) == 6 ) {
+		$r = hexdec( substr( $color, 0, 2 ) );
+		$g = hexdec( substr( $color, 2, 2 ) );
+		$b = hexdec( substr( $color, 4, 2 ) );
+	} else {
+		return array();
+	}
+
+	return array(
+		'red' => $r,
+		'green' => $g,
+		'blue' => $b,
+	);
+}

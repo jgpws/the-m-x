@@ -21,9 +21,12 @@
  * @uses the_mx_header_style()
  */
 function the_mx_custom_header_setup() {
+	$color_scheme = the_mx_get_color_scheme();
+	$default_text_color = trim( $color_scheme[8], '#' );
+
 	add_theme_support( 'custom-header', apply_filters( 'the_mx_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '#ffffff',
+		'default-text-color'     => $default_text_color,
 		'width'                  => 1920,
 		'height'                 => 540,
 		'flex-height'            => true,
@@ -40,14 +43,10 @@ if ( ! function_exists( 'the_mx_header_style' ) ) :
  */
 function the_mx_header_style() {
 	$header_text_color = get_header_textcolor();
-
 	/*
 	 * If no custom options for text are set, let's bail.
 	 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: HEADER_TEXTCOLOR.
 	 */
-	if ( get_theme_support( 'custom-header', 'default-text-color' ) === esc_attr( $header_text_color ) ) {
-		return;
-	}
 
 	// If we get this far, we have custom styles. Let's do this.
 	?>
@@ -72,7 +71,7 @@ function the_mx_header_style() {
 		.site-title a:link,
 		.site-title a:visited,
 		.site-description {
-			color: #<?php echo esc_attr( $header_text_color ); ?>;
+			color: #<?php echo esc_attr(  $header_text_color ); ?>;
 		}
 	<?php endif; ?>
 	</style>

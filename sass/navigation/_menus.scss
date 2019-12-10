@@ -10,6 +10,12 @@
 	background-color: $primary-color-dark;
 }
 
+@media screen and (min-width: 80em) {
+	.site-header #header-button-panel {
+		background-color: $primary-color;
+	}
+}
+
 .site-branding {
 	background-color: $primary-color;
 }
@@ -32,22 +38,22 @@
 #menu-social ul {
 	display: flex;
 	flex-wrap: wrap;
-	
+
 	li {
-		
+
 		a:link, a:visited {
 			color: $primary-color;
 			padding: 0.5rem;
 		}
-		
+
 		a::before {
 			@include font-size(1.125);
 			min-height: 3rem;
 			min-width: 3rem;
-			
+
 			-webkit-font-smoothing: antialiased;
 		}
-		
+
 	}
 }
 
@@ -78,18 +84,18 @@
 			}
 		}
 	}
-	
+
 	li {
 		position: relative;
 		//@include vertical-menu;
 	}
-	
+
 	a:link,
 	a:visited {
 		@include vertical-menu;
 		color: $primary-text-color;
 	}
-	
+
 	a:hover,
 	a:focus {
 		color: $accent-color-darker;
@@ -104,37 +110,37 @@
 }
 
 .widget {
-	
+
 	li {
-		
+
 		@include vertical-menu;
-	
+
 		a:link,
 		a:visited {
 			color: $primary-text-color;
 		}
-		
+
 		a:hover,
 		a:focus {
 			color: $accent-color-darker;
 		}
-		
+
 		.children,
 		.sub-menu {
 			padding-top: 1em;
 		}
-	
+
 	}
-	
+
 }
 
 /* Box shadow values are from the codepen at the following address */
 /* https://codepen.io/sdthornton/pen/wBZdXq */
 /* Small menu. */
 .site-header {
-	
+
 	.main-navigation {
-	
+
 		ul#primary-menu,
 		ul.nav-menu {
 			box-shadow: $box-shadow-large;
@@ -144,10 +150,10 @@
 			width: 73%;
 			width: calc(75% - 1em);
 			z-index: 100;
-			
+
 			ul {
 				padding-top: 0;
-				
+
 				ul {
 					padding-top: 0;
 				}
@@ -155,9 +161,9 @@
 			}
 
 		}
-	
+
 	}
-	
+
 }
 
 .menu-toggle,
@@ -239,13 +245,13 @@
 	.menu-toggle {
 		display: none;
 	}
-	
+
 	.menu-down-arrow {
 		position: static;
 	}
-	
+
 	.site-header {
-		
+
 		#header-button-panel .searchform {
 			background-color: transparent;
 			max-width: 50%;
@@ -253,14 +259,14 @@
 			width: auto;
 			z-index: 0;
 		}
-	
+
 		.main-navigation {
-			background-color: $primary-color-darker;
-			
+			background-color: $primary-color-dark;
+
 			li {
 				padding: 0px;
 			}
-			
+
 			a:link,
 			a:visited {
 				border-bottom-color: transparent;
@@ -271,14 +277,14 @@
 				text-transform: uppercase;
 				white-space: nowrap;
 			}
-			
+
 			ul {
 				align-items: flex-end;
 				background-color: transparent;
 				display: block;
 				@include flex-row-wrapped;
 				min-height: 3em;
-				
+
 				ul {
 					background-color: $white;
 					float: left;
@@ -287,9 +293,9 @@
 					top: 1.5em;
 					z-index: 99999;
 				}
-				
+
 			}
-			
+
 			ul#primary-menu,
 			ul.nav-menu {
 				box-shadow: none;
@@ -299,12 +305,12 @@
 				width: 100%;
 				width: calc(100% - 1em);
 			}
-			
+
 			.menu-item-has-children,
 			.page_item_has_children {
 				display: flex;
 			}
-			
+
 			.children,
 			.sub-menu {
 				box-shadow: $box-shadow-medium;
@@ -312,12 +318,12 @@
 				top: 3rem;
 				left: -9999em;
 			}
-			
+
 			.children.toggled-submenu,
 			.sub-menu.toggled-submenu {
 				left: auto;
 			}
-			
+
 			.children a:link,
 			.children a:visited,
 			.sub-menu a:link,
@@ -328,7 +334,7 @@
 				text-transform: unset;
 				white-space: normal;
 			}
-			
+
 			.children a:hover,
 			.children a:focus,
 			.sub-menu a:hover,
@@ -336,38 +342,38 @@
 				color: $accent-color-darker;
 				border-bottom: none;
 			}
-			
+
 			.children ul,
 			.sub-menu ul {
 				@include hide-offscreen;
 				box-shadow: $box-shadow-medium-large;
 			}
-			
+
 			.children li > .children.toggled-submenu,
 			.sub-menu li > .sub-menu.toggled-submenu {
 				left: 25%;
 			}
-			
+
 			.children .menu-down-arrow {
 				color: $black;
 			}
-			
+
 			.menu-item-has-children,
 			.page_item_has_children {
 				display: flex;
 			}
-			
+
 			.menu-down-arrow {
 				background-color: transparent;
 				color: $white;
 				height: 3rem;
 			}
-			
+
 			.page_item_has_children .page_item_has_children .menu-down-arrow,
 			.menu-item-has-children .menu-item-has-children .menu-down-arrow {
 				color: $black;
 			}
-			
+
 			ul li a:hover,
 			ul li a:focus,
 			.current_page_item > a,
@@ -377,21 +383,21 @@
 				border-bottom: 2px solid $accent-color;
 				color: $primary-text-color-white;
 			}
-			
+
 		}
-	
+
 	}
-	
+
 	// Animations require sub menus to have a persistent left position; hiding on load is done in animations.js
 	/*.animate .site-header .main-navigation .children,
 	.animate .site-header .main-navigation .sub-menu {
 		left: auto;
 	}*/
-	
+
 	.error404 .widget li a {
 		display: inline-block;
 	}
-	
+
 }
 
 .page-template-page_landing {
@@ -402,48 +408,48 @@
 
 @media screen and (min-width: 48em) {
 	.page-template-page_landing {
-		
+
 		.site-header {
-			
+
 			.site-branding {
 				width: 50%;
 			}
-		
+
 			#header-button-panel {
 				height: 4rem;
 				width: 50%;
-				
+
 				.menu-social-media-icons-container {
 					margin-top: 0px;
 					position: static;
 				}
 			}
-			
+
 		}
-	
+
 	}
 }
 
 @media screen and (min-width: 80em) {
 
 	.site-header {
-	
+
 		.site-branding {
 			width: 75%;
 		}
-		
+
 		#header-button-panel {
 			align-items: flex-start;
 			height: auto;
 			padding: 0.5em;
 			width: 25%;
-			
+
 			.searchform {
 				width: 60%;
 			}
-			
+
 		}
-	
+
 	}
 
 }

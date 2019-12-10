@@ -14,16 +14,16 @@
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
-	
+
 	img {
 		display: block;
 		@include margin-two-values(0px, auto);
 	}
-	
+
 	.gallery-icon.portrait {
 		background-color: $primary-color-pale;
 	}
-	
+
 	&:hover,
 	&:focus {
 		box-shadow: $box-shadow-large;
@@ -35,12 +35,12 @@
 @media screen and (min-width: 37.5em) {
 	.gallery-item {
 		display: inline-block;
-		
+
 		.gallery-columns-2 &,
 		.gallery-columns-4 & {
 			width: 50%;
 		}
-		
+
 		.gallery-columns-3 &,
 		.gallery-columns-5 &,
 		.gallery-columns-6 &,
@@ -49,9 +49,9 @@
 		.gallery-columns-9 & {
 			width: 33.33%;
 		}
-	
+
 	}
-	
+
 	.gallery-columns-3,
 	.gallery-columns-5,
 	.gallery-columns-6,
@@ -60,17 +60,17 @@
 	.gallery-columns-9 {
 		max-width: 900px;
 	}
-	
+
 	.gallery-columns-2,
 	.gallery-columns-4 {
 		max-width: 600px;
 	}
-	
+
 	.gallery-columns-2 + .more-images-link,
 	.gallery-columns-4 + .more-images-link {
 		max-width: 600px;
 	}
-	
+
 	.gallery-columns-3 + .more-images-link,
 	.gallery-columns-5 + .more-images-link,
 	.gallery-columns-6 + .more-images-link,
@@ -83,37 +83,37 @@
 
 @media screen and (min-width: 80em) {
 	.gallery-item {
-	
+
 		.gallery-columns-4,
 		.gallery-columns-8 {
 			max-width: 1200px;
 		}
-		
+
 		.gallery-columns-4 .gallery-item,
 		.gallery-columns-8 .gallery-item {
 			width: 25%;
 		}
-		
+
 		.gallery-columns-5 {
 			max-width: 1500px;
 		}
-		
+
 		.gallery-columns-5 .gallery-item {
 			width: 20%;
 		}
-	
+
 	}
-	
+
 	/* Jetpack gallery */
 	.tiled-gallery {
 		margin: 2em auto !important;
 		max-width: 960px;
 	}
-	
+
 	.tiled-gallery + .more-images-link {
 		max-width: 960px;
 	}
-	
+
 }
 
 .gallery-caption,
@@ -130,18 +130,18 @@
 	padding: 0.5em;
 	position: absolute;
 	width: 100%;
-	
+
 	a:link,
 	a:visited {
 		color: $primary-text-color-white;
 		border-bottom: 1px solid $primary-text-color-faded;
 	}
-	
+
 	a:hover,
 	a:focus {
 		color: $white;
 	}
-	
+
 }
 
 /* Gutenberg galleries */
@@ -157,7 +157,7 @@
 
 /* Styles for the gallery when slider mode is selected */
 .single.slider .gallery {
-	background-color: $primary-color-darker;
+	background-color: $primary-color-dark;
 	position: relative;
 	margin-bottom: 0px;
 	min-height: 416px;
@@ -176,18 +176,18 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
-	
+
 	img {
 		display: inline;
 		margin: 0 auto;
 		max-height: 300px;
 		width: auto;
 	}
-	
+
 	&:hover {
 		box-shadow: none;
 	}
-	
+
 }
 
 .single.slider .gallery-caption {
@@ -210,25 +210,25 @@
 	margin-bottom: 2em;
 	//@include padding-two-values(1em, 25%);
 	padding: 1em;
-	
+
 	.slider-previous:hover,
 	.slider-previous:focus,
 	.slider-next:hover,
 	.slider-next:focus {
-		background-color: $accent-color-dark;	
+		background-color: $accent-color-dark;
 	}
-	
+
 }
 
 @media screen and (min-width: 37.5em) {
 	.single.slider .gallery {
 		min-height: 560px;
 	}
-	
+
 	.single.slider .gallery-item img {
 		max-height: 480px;
 	}
-	
+
 	.single.slider .slider-button-panel {
 		@include padding-two-values(1em, 25%);
 	}
@@ -249,11 +249,11 @@
 	.single.slider .gallery {
 		min-height: 736px;
 	}
-	
+
 	.single.slider .gallery-item img {
 		max-height: 640px;
 	}
-	
+
 	.single.slider .gallery-caption {
 		max-width: 75%;
     	margin-left: 12.5%;

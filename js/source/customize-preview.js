@@ -8,7 +8,22 @@
 
 ( function( $ ) {
 
-	// Site title and description.
+  // Append stylesheet for the Color Scheme CSS.
+  var $style = $( '#the-mx-color-scheme-css' );
+
+  if ( ! $style.length ) {
+		$style = $( 'head' ).append( '<style type="text/css" id="the-mx-color-scheme-css" />' )
+		                    .find( '#the-mx-color-scheme-css' );
+	}
+
+  // Color Scheme CSS.
+	wp.customize.bind( 'preview-ready', function() {
+		wp.customize.preview.bind( 'update-color-scheme-css', function( css ) {
+			$style.html( css );
+		} );
+	} );
+
+  // Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
 			$( '.site-title a' ).text( to );

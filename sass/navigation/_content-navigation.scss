@@ -22,24 +22,24 @@
 		text-align: right;
 		width: 50%;
 	}
-	
+
 	.nav-previous,
 	.nav-next {
-		
+
 		a:link,
 		a:visited {
-			color: $white;
+			color: $primary-text-color;
 		}
 	}
-		
+
 	.nav-previous .material-icons {
 		margin-right: 0.5em;
 	}
-	
+
 	.nav-next .material-icons {
 		margin-left: 0.5em;
 	}
-	
+
 	.nav-previous .material-icons,
 	.nav-next .material-icons {
 		/* Google's material icons are displayed as inline-block */
@@ -68,19 +68,19 @@
 	.blog .site-main,
 	.search .site-main,
 	.archive .site-main {
-	
+
 		.posts-navigation {
 			border-bottom-left-radius: 2px;
 			border-bottom-right-radius: 2px;
 		}
-		
+
 		article + .posts-navigation {
 			border-top-left-radius: 2px;
 			border-top-right-radius: 2px;
 			border-bottom-left-radius: 0px;
 			border-bottom-right-radius: 0px;
 		}
-		
+
 	}
 
 }

@@ -59,7 +59,7 @@ function style() {
 			outputStyle: 'expanded',
 		}))
 		.pipe(autoprefixer())
-		.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
+		//.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest('./'))
 		.pipe(browserSync.stream());
@@ -248,7 +248,7 @@ function zipUp(done) {
 }
 
 function clean(done) {
-	return del([ 
+	return del([
 		'./dist/**/*'
 	]);
 	done();

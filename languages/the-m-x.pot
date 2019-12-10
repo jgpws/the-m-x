@@ -2,15 +2,15 @@
 # This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: The M.X. 1.0.22\n"
+"Project-Id-Version: The M.X. 1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/the-m-x\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-06-06T22:14:49+00:00\n"
-"PO-Revision-Date: 2019-06-06T22:14:49+00:00\n"
+"POT-Creation-Date: 2019-12-10T04:01:31+00:00\n"
+"PO-Revision-Date: 2019-12-10T04:01:31+00:00\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: the-m-x\n"
 
@@ -114,6 +114,7 @@ msgid "Social Profiles"
 msgstr ""
 
 #: functions.php:99
+#: inc/customizer.php:733
 msgid "White"
 msgstr ""
 
@@ -165,27 +166,27 @@ msgstr ""
 msgid "Gallery Thumbnail (300 x 300, hard cropped)"
 msgstr ""
 
-#: functions.php:198
+#: functions.php:192
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:200
+#: functions.php:194
 msgid "Add widgets to the Sidebar."
 msgstr ""
 
-#: functions.php:208
+#: functions.php:202
 msgid "Hero Image Widget"
 msgstr ""
 
-#: functions.php:210
+#: functions.php:204
 msgid "Add widget to be displayed above Hero (header) Image."
 msgstr ""
 
-#: functions.php:218
+#: functions.php:212
 msgid "Footer Widgets"
 msgstr ""
 
-#: functions.php:220
+#: functions.php:214
 msgid "Add widgets to the Footer."
 msgstr ""
 
@@ -243,388 +244,400 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: inc/customizer.php:18
+#: inc/customizer.php:29
 msgid "Color Schemes"
 msgstr ""
 
 #. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
-#: inc/customizer.php:21
+#: inc/customizer.php:32
 msgid "Choose an alternate color scheme."
 msgstr ""
 
 #. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
-#: inc/customizer.php:21
+#: inc/customizer.php:32
 msgid "For more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline."
 msgstr ""
 
 #. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
-#: inc/customizer.php:21
+#: inc/customizer.php:32
 msgid "* To restore the default background color: Select Color, then select Default."
 msgstr ""
 
-#: inc/customizer.php:38
+#: inc/customizer.php:49
 msgid "Color Scheme"
 msgstr ""
 
-#: inc/customizer.php:41
-msgid "Brown"
+#: inc/customizer.php:69
+msgid "Primary Color"
 msgstr ""
 
-#: inc/customizer.php:42
-msgid "Blue Gray"
-msgstr ""
-
-#: inc/customizer.php:43
-msgid "Custom"
-msgstr ""
-
-#: inc/customizer.php:62
-msgid "Primary Color 1"
-msgstr ""
-
-#: inc/customizer.php:63
+#: inc/customizer.php:70
 msgid "Color for the title bar, footer, links, etc."
 msgstr ""
 
-#: inc/customizer.php:84
-msgid "Primary Color 2"
+#: inc/customizer.php:89
+msgid "Primary Color Dark Variant"
 msgstr ""
 
-#: inc/customizer.php:85
-msgid "Color for the header button panel, link hover, etc."
+#: inc/customizer.php:90
+msgid "Color for the header button panel, main site navigation in desktop view, link hover, etc."
 msgstr ""
 
-#: inc/customizer.php:106
-msgid "Primary Color 3"
+#: inc/customizer.php:109
+msgid "Primary Color Darker Variant"
 msgstr ""
 
-#: inc/customizer.php:107
-msgid "Color for main site navigation in desktop view, etc."
-msgstr ""
-
-#: inc/customizer.php:128
-msgid "Primary Color 4"
+#: inc/customizer.php:110
+msgid "Background color for post meta links."
 msgstr ""
 
 #: inc/customizer.php:129
+msgid "Primary Color Light Variant"
+msgstr ""
+
+#: inc/customizer.php:130
 msgid "Color behind content navigation bar, etc."
 msgstr ""
 
-#: inc/customizer.php:150
-msgid "Accent Color 1"
+#: inc/customizer.php:149
+msgid "Accent Color"
 msgstr ""
 
-#: inc/customizer.php:151
+#: inc/customizer.php:150
 msgid "Button colors, etc."
 msgstr ""
 
-#: inc/customizer.php:172
-msgid "Accent Color 2"
+#: inc/customizer.php:169
+msgid "Accent Color Dark"
 msgstr ""
 
-#: inc/customizer.php:173
+#: inc/customizer.php:170
 msgid "Button hover colors, etc."
 msgstr ""
 
-#: inc/customizer.php:194
-msgid "Accent Color 3"
+#: inc/customizer.php:189
+msgid "Accent Color Darker"
 msgstr ""
 
-#: inc/customizer.php:195
+#: inc/customizer.php:190
 msgid "Navigation and widget link hover colors, etc."
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:208
 msgid "Reverse text against the background to white."
 msgstr ""
 
-#: inc/customizer.php:216
-msgid "Use this setting when text is set against a dark background, as some Post Format styling is placed in front of the background."
+#: inc/customizer.php:209
+msgid "Use this setting with an overall dark color scheme; For instance, when the Background and Primary Color Light Variant are set to a dark color."
 msgstr ""
 
-#: inc/customizer.php:235
+#: inc/customizer.php:226
 msgid "Reverse supporting colors to black."
 msgstr ""
 
-#: inc/customizer.php:236
+#: inc/customizer.php:227
 msgid "Use this setting if all four primary colors are set to a very light color."
 msgstr ""
 
-#: inc/customizer.php:245
+#: inc/customizer.php:236
 msgid "Hero Image"
 msgstr ""
 
-#: inc/customizer.php:262
+#: inc/customizer.php:253
 msgid "Choose hero image text color."
 msgstr ""
 
 #. translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a>
-#: inc/customizer.php:265
+#: inc/customizer.php:256
 msgid "Use this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section."
 msgstr ""
 
 #. translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a>
-#: inc/customizer.php:265
+#: inc/customizer.php:256
 msgid "White text is best used for an image with a dark background, while black text works with images with a light background."
 msgstr ""
 
-#: inc/customizer.php:269
+#: inc/customizer.php:260
 msgid "White text"
 msgstr ""
 
-#: inc/customizer.php:270
+#: inc/customizer.php:261
 msgid "Black text"
 msgstr ""
 
-#: inc/customizer.php:289
+#: inc/customizer.php:280
 msgid "Align the hero image text."
 msgstr ""
 
-#: inc/customizer.php:293
+#: inc/customizer.php:284
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:294
+#: inc/customizer.php:285
 msgid "Center"
 msgstr ""
 
-#: inc/customizer.php:295
+#: inc/customizer.php:286
 msgid "Right"
 msgstr ""
 
-#: inc/customizer.php:314
+#: inc/customizer.php:305
 msgid "Display Hero Image on the home page only."
 msgstr ""
 
-#: inc/customizer.php:323
+#: inc/customizer.php:314
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer.php:342
+#: inc/customizer.php:333
 msgid "Choose between three layouts for the blog pages."
 msgstr ""
 
-#: inc/customizer.php:343
+#: inc/customizer.php:334
 msgid "* The Centered, Wide and Two by two layouts affect widths 1280px and above."
 msgstr ""
 
-#: inc/customizer.php:346
+#: inc/customizer.php:337
 msgid "Centered- Posts stacked vertically."
 msgstr ""
 
-#: inc/customizer.php:347
+#: inc/customizer.php:338
 msgid "Wide- Posts stacked vertically with a wide content area."
 msgstr ""
 
-#: inc/customizer.php:348
+#: inc/customizer.php:339
 msgid "Two by two- A grid of posts two across the screen"
 msgstr ""
 
-#: inc/customizer.php:349
+#: inc/customizer.php:340
 msgid "Image grid- A grid designed for image or gallery posts, supporting only featured images and captions."
 msgstr ""
 
-#: inc/customizer.php:366
+#: inc/customizer.php:357
 msgid "Content Length"
 msgstr ""
 
-#: inc/customizer.php:367
+#: inc/customizer.php:358
 msgid "Choose between full length content or excerpts on the blog posts page."
 msgstr ""
 
-#: inc/customizer.php:370
+#: inc/customizer.php:361
 msgid "Full Content"
 msgstr ""
 
-#: inc/customizer.php:371
+#: inc/customizer.php:362
 msgid "Excerpt"
 msgstr ""
 
-#: inc/customizer.php:381
+#: inc/customizer.php:372
 msgid "Page Template Customizations"
 msgstr ""
 
-#: inc/customizer.php:382
+#: inc/customizer.php:373
 msgid "In this section are customizations for some of the page templates that can be applied to a custom home page."
 msgstr ""
 
-#: inc/customizer.php:389
+#: inc/customizer.php:380
 msgid "Image Grid"
 msgstr ""
 
-#: inc/customizer.php:390
+#: inc/customizer.php:381
 msgid "Customize the Image Grid page template."
 msgstr ""
 
-#: inc/customizer.php:407
+#: inc/customizer.php:398
 msgid "Choose a category of posts to display on the Image Grid page"
 msgstr ""
 
-#: inc/customizer.php:422
+#: inc/customizer.php:413
 msgid "Choose the number of posts to show"
 msgstr ""
 
-#: inc/customizer.php:425
+#: inc/customizer.php:416
 msgid "Show all image grid posts"
 msgstr ""
 
-#: inc/customizer.php:426
-#: inc/customizer.php:569
-#: inc/customizer.php:599
+#: inc/customizer.php:417
+#: inc/customizer.php:560
+#: inc/customizer.php:590
 msgid "1"
 msgstr ""
 
-#: inc/customizer.php:427
-#: inc/customizer.php:570
-#: inc/customizer.php:600
+#: inc/customizer.php:418
+#: inc/customizer.php:561
+#: inc/customizer.php:591
 msgid "2"
 msgstr ""
 
-#: inc/customizer.php:428
-#: inc/customizer.php:571
-#: inc/customizer.php:601
+#: inc/customizer.php:419
+#: inc/customizer.php:562
+#: inc/customizer.php:592
 msgid "3"
 msgstr ""
 
-#: inc/customizer.php:429
-#: inc/customizer.php:572
-#: inc/customizer.php:602
+#: inc/customizer.php:420
+#: inc/customizer.php:563
+#: inc/customizer.php:593
 msgid "4"
 msgstr ""
 
-#: inc/customizer.php:430
-#: inc/customizer.php:573
-#: inc/customizer.php:603
+#: inc/customizer.php:421
+#: inc/customizer.php:564
+#: inc/customizer.php:594
 msgid "5"
 msgstr ""
 
-#: inc/customizer.php:431
-#: inc/customizer.php:574
-#: inc/customizer.php:604
+#: inc/customizer.php:422
+#: inc/customizer.php:565
+#: inc/customizer.php:595
 msgid "6"
 msgstr ""
 
-#: inc/customizer.php:432
-#: inc/customizer.php:575
-#: inc/customizer.php:605
+#: inc/customizer.php:423
+#: inc/customizer.php:566
+#: inc/customizer.php:596
 msgid "7"
 msgstr ""
 
-#: inc/customizer.php:433
-#: inc/customizer.php:576
-#: inc/customizer.php:606
+#: inc/customizer.php:424
+#: inc/customizer.php:567
+#: inc/customizer.php:597
 msgid "8"
 msgstr ""
 
-#: inc/customizer.php:434
-#: inc/customizer.php:577
-#: inc/customizer.php:607
+#: inc/customizer.php:425
+#: inc/customizer.php:568
+#: inc/customizer.php:598
 msgid "9"
 msgstr ""
 
-#: inc/customizer.php:435
-#: inc/customizer.php:608
+#: inc/customizer.php:426
+#: inc/customizer.php:599
 msgid "10"
 msgstr ""
 
-#: inc/customizer.php:436
-#: inc/customizer.php:609
+#: inc/customizer.php:427
+#: inc/customizer.php:600
 msgid "11"
 msgstr ""
 
-#: inc/customizer.php:437
-#: inc/customizer.php:610
+#: inc/customizer.php:428
+#: inc/customizer.php:601
 msgid "12"
 msgstr ""
 
-#: inc/customizer.php:454
-#: inc/customizer-frontend.php:950
+#: inc/customizer.php:445
+#: inc/customizer-frontend.php:589
 msgid "More posts"
 msgstr ""
 
 #. translators: %1$s, %2$s: <strong>, </strong>
-#: inc/customizer.php:457
+#: inc/customizer.php:448
 msgid "Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts&rsquo; category page."
 msgstr ""
 
-#: inc/customizer.php:465
-#: inc/customizer-frontend.php:946
+#: inc/customizer.php:456
+#: inc/customizer-frontend.php:585
 msgid "More Posts"
 msgstr ""
 
-#: inc/customizer.php:474
+#: inc/customizer.php:465
 msgid "Change the title of the More Posts button"
 msgstr ""
 
-#: inc/customizer.php:488
+#: inc/customizer.php:479
 msgid "Gallery Settings"
 msgstr ""
 
-#: inc/customizer.php:489
+#: inc/customizer.php:480
 msgid "* These settings only apply to galleries displayed on the blog index page. The Gallery post format must be applied to a post containing the gallery."
 msgstr ""
 
-#: inc/customizer.php:489
+#: inc/customizer.php:480
 msgid "** This setting disables Colorbox on single posts."
 msgstr ""
 
-#: inc/customizer.php:506
+#: inc/customizer.php:497
 msgid "Show the gallery inside Colorbox"
 msgstr ""
 
-#: inc/customizer.php:507
+#: inc/customizer.php:498
 msgid "Display the gallery posts inside of a Colorbox overlay."
 msgstr ""
 
-#: inc/customizer.php:525
+#: inc/customizer.php:516
 msgid "Show the gallery as a slider on single posts.**"
 msgstr ""
 
-#: inc/customizer.php:543
+#: inc/customizer.php:534
 msgid "Link to a media file or attachment page*"
 msgstr ""
 
-#: inc/customizer.php:546
+#: inc/customizer.php:537
 msgid "Attachment page ( default )"
 msgstr ""
 
-#: inc/customizer.php:547
+#: inc/customizer.php:538
 msgid "Media File"
 msgstr ""
 
-#: inc/customizer.php:565
+#: inc/customizer.php:556
 msgid "Change the column count*"
 msgstr ""
 
-#: inc/customizer.php:568
+#: inc/customizer.php:559
 msgid "Select a column number"
 msgstr ""
 
-#: inc/customizer.php:595
+#: inc/customizer.php:586
 msgid "Limit the number of gallery thumbnails on posts/pages*"
 msgstr ""
 
-#: inc/customizer.php:598
+#: inc/customizer.php:589
 msgid "Select number of gallery thumbnails"
 msgstr ""
 
-#: inc/customizer.php:618
+#: inc/customizer.php:609
 msgid "Animation"
 msgstr ""
 
-#: inc/customizer.php:619
+#: inc/customizer.php:610
 msgid "In this section, you can enable skrollr and animate.css animations."
 msgstr ""
 
-#: inc/customizer.php:636
+#: inc/customizer.php:627
 msgid "Enable animations on scroll, including fade-in of gallery images (with skrollr.js) on the blog homepage."
 msgstr ""
 
-#: inc/customizer.php:654
+#: inc/customizer.php:645
 msgid "Enable simple animations with animate.css and CSS3."
 msgstr ""
 
-#: inc/colorbox-gallery-content.php:67
+#: inc/customizer.php:663
+msgid "Default (Brown)"
+msgstr ""
+
+#: inc/customizer.php:677
+msgid "Blue Gray"
+msgstr ""
+
+#: inc/customizer.php:691
+msgid "Deep Purple"
+msgstr ""
+
+#: inc/customizer.php:705
+msgid "Pale Orange"
+msgstr ""
+
+#: inc/customizer.php:719
+msgid "Black"
+msgstr ""
+
+#: inc/customizer.php:747
+msgid "Custom"
+msgstr ""
+
+#: inc/colorbox-gallery-content.php:75
 msgid "pixels"
 msgstr ""
 

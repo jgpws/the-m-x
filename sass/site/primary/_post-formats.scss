@@ -25,7 +25,7 @@
 .format-status,
 .format-quote {
 	box-shadow: $box-shadow-small;
-	background-color: $primary-color-pale;
+	background-color: $primary-color-medium;
 }
 
 .format-image .entry-content,
@@ -60,12 +60,12 @@
 }
 
 @media screen and (min-width: 80em) {
-	.blog .format-image img,
-	.archive .format-image img {
+	.blog .format-image:not(.has-post-thumbnail) img,
+	.archive .format-image:not(.has-post-thumbnail) img {
 		@include center-block;
 		max-width: 800px;
 	}
-	
+
 	.wp-audio-shortcode {
 		@include margin-two-values(0, auto);
 		max-width: 800px;
@@ -81,7 +81,7 @@
 .mejs-container .mejs-controls,
 .mejs-embed,
 .mejs-embed body {
-	background-color: $primary-color-darker !important;
+	background-color: $primary-color-dark !important;
 }
 
 .mejs-container button {
@@ -150,7 +150,7 @@ iframe.twitter-tweet {
 .blog .format-audio.sticky,
 .blog .format-status.sticky,
 .blog .format-quote.sticky {
-	background-color: $primary-color-medium;
+	/*background-color: $primary-color-medium;*/
 	box-shadow: $box-shadow-small;
 }
 
@@ -185,12 +185,12 @@ iframe.twitter-tweet {
 .search .format-image:not(.has-post-thumbnail),
 .search .format-video,
 .search .format-audio {
-	
+
 	.entry-title {
 		font-size: 1.5rem;
 		text-align: left;
 	}
-	
+
 }
 
 .search .format-standard.has-post-thumbnail,
@@ -201,15 +201,15 @@ iframe.twitter-tweet {
 	.entry-meta {
 		position: static;
 	}
-	
+
 	.entry-title a:link {
 		color: $primary-color;
 	}
-	
+
 	.entry-title a:visited {
 		color: $primary-color-medium;
 	}
-	
+
 	.entry-meta .material-icons {
 		color: $primary-text-color-medium;
 	}
