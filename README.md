@@ -63,6 +63,124 @@ body.attachment.admin-bar.colorbox {
 
 ___
 
+## Gulp Commands
+
+The M.X. uses Gulp 4 on the backend to automate tasks and create a finalized file, suitable for distribution. Here are the commands used inside **gulpfile.js**.
+
+### For Development ###
+
+**`style`**
+
+Converts SASS into formatted CSS; adds a sourcemap; auto-prefixes vendor extensions; handles and displays SASS errors in the terminal; uses BrowserSync to live reload CSS.
+
+**`minifyStyle`**
+
+Minifies style.css.
+
+**`concatenateCSS`**
+
+Concatenates selected supporting CSS files inside of the css folder; Minifies the files into a **supporting-styles.min.css** file in a **/css/minfiles** folder.
+
+**`concatAnimCSS`**
+
+Does the same as concatenateCSS, but for selected animation related files. Minifies into **animation-styles.min.css** in **/css/minfiles**.
+
+**`reloadCSSDir`**
+
+Live reloads changes in the css folder with BrowserSync.
+
+**`scripts`**
+
+Takes all non-vendor (3rd Party) JavaScript files, concatenates and minifies them into **scripts.min.js**; adds a sourcemap.
+
+**`minfyJS`**
+
+Minifies JavaScript files that need to be loaded individually.
+
+**`jsHint`**
+
+Linting (finding errors)
+
+**`rtl`**
+
+Generates a right-to-left stylesheet.
+
+**`watch`**
+
+Uses BrowserSync to load the theme on a live server. Watches for changes in SASS, JavaScript and PHP files and runs the **style**, **script** and minification functions; uses BrowserSync to reload the page on change.
+
+### For Distribution ###
+
+Each of these commands copy files to a **/dist** folder that mirrors the production theme file structure, leaving out any other filetypes than the ones specified.
+
+**`copyMainFiles`**
+
+Copies the top level php, css files, readme.txt and screenshot.png.
+
+**`copyCSS`**
+
+Copies **/css** folder.
+
+**`copyCSSImgs`**
+
+Copies CSS images to **/dist/css/images**
+
+**`copyFonts`**
+
+Copies Themify icon fonts.
+
+**`copyInc`**
+
+Copies the **/inc** folder (PHP includes)
+
+**`copyJS`**
+
+Copies JavaScript files.
+
+**`copyLang`**
+
+Copies .pot file for translation.
+
+**`copyMaps`**
+
+Copies all sourcemaps.
+
+**`copyPageTemplates`**
+
+Copies page templates.
+
+**`copySass`**
+
+Copies SASS files.
+
+**`copyTempParts`**
+
+Copies theme template parts.
+
+**`zipUp`**
+
+Takes everything in the **/dist** folder and creates a zip archive- **the-m-x.zip**.
+
+**`clean`**
+
+Deletes everything in the **/dist** folder.
+
+**`cleanAfterZip`**
+
+Deletes everything in the **/dist** folder, except **the-m-x.zip**
+
+Gulp 4 runs a series of tasks one after the other. Therefore, The M.X. has export tasks to make things more convenient.
+
+**`copyFiles`**
+
+Cleans the **/dist** folder; runs each of the copy commands one after another.
+
+**`finishUp`**
+
+Creates the zip file; cleans with **cleanAfterZip**.
+
+___
+
 ## Newest additions
 
 * Custom logo support has now been added!
@@ -72,6 +190,7 @@ ___
 * I added a page preloading spinner (optional with **Enable simple animations...** turned on)
 * Optional social media icons via the **Social Profiles** menu. To use, simply include a link with the top level domain of some of the popular social networks. Icons will appear on the front with links to your social profiles or pages
 * Currently supported icons: Facebook, Twitter, Instagram, Pinterest, GitHub :), Tumblr, WordPress (.org and .com), YouTube, Vimeo, Flickr and Google+
+* Version 1.2 features preset color schemes, similar to the ones in Twenty Fifteen and Twenty Sixteen. The color schemes are Default (Brown), Blue Gray, Deep Purple, Pale Orange, Black, and White
 
 ___
 
