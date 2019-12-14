@@ -205,13 +205,6 @@ function copyLang(done) {
 	console.log('Languages folder copied.');
 }
 
-function copyLayouts(done) {
-	gulp.src('./layouts/*.css')
-	.pipe(gulp.dest('./dist/layouts'));
-	done();
-	console.log('Layouts folder copied.');
-}
-
 function copyMaps(done) {
 	gulp.src('./maps/*.map')
 	.pipe(gulp.dest('./dist/maps'));
@@ -270,7 +263,7 @@ exports.concatAnimCSS = concatAnimCSS;
 exports.scripts = scripts;
 exports.minifyJS = minifyJS;
 exports.jsHint = jsHint;
-exports.copyFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFonts, copyInc, copyJS, copyLang, copyLayouts, copyMaps, copyPageTemplates, copySass, copyTempParts);
+exports.copyFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFonts, copyInc, copyJS, copyLang, copyMaps, copyPageTemplates, copySass, copyTempParts);
 exports.zipUp = zipUp;
 exports.clean = clean;
 exports.finishUp = series(zipUp, cleanAfterZip);

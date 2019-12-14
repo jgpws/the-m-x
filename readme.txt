@@ -26,6 +26,12 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.2.1 December 14 2019 =
+Regenerated .pot file; removed unneeded files
+
+= 1.2 December 09 2019 =
+Updated version includes preset color schemes; Gutenberg colors in post/page editor now reflect the chosen color scheme
+
 = 1.1.5 November 28 2019 =
 Added padding around container to site title and subtitle, instead of the elements themselves, so when a title only is displayed, it doesn't display right against the edge of the navigation element
 
