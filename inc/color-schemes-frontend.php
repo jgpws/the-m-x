@@ -87,7 +87,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   input[type="reset"]:hover,
   input[type="submit"]:hover,
   .wp-block-button .wp-block-button__link:hover {
-    background-color: {$colors['accent_2']}';
+    background-color: {$colors['accent_2']};
   }
 
   button:active,

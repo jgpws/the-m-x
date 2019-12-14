@@ -101,65 +101,99 @@ function the_mx_setup() {
 				'color' => '#ffffff',
 			),
 			array(
-				'name' => esc_html__( 'Brown 50', 'the-m-x' ),
-				'slug' => 'brown-50',
-				'color' => '#efebe9',
+				'name' => esc_html__( 'Black', 'the-m-x' ),
+				'slug' => 'black',
+				'color' => '#000000',
 			),
 			array(
-				'name' => esc_html__( 'Brown 300', 'the-m-x' ),
-				'slug' => 'brown-300',
-				'color' => '#a1887f',
+				'name' => esc_html__( 'Primary Color', 'the-m-x' ),
+				'slug' => 'primary-1',
+				'color' => esc_html( get_theme_mod( 'the_mx_primary_1' ) ),
 			),
 			array(
-				'name' => esc_html__( 'Brown 500', 'the-m-x' ),
-				'slug' => 'brown-500',
-				'color' => '#795548',
+				'name' => esc_html__( 'Primary Color Dark Variant', 'the-m-x' ),
+				'slug' => 'primary-2',
+				'color' => esc_html( get_theme_mod( 'the_mx_primary_2' ) ),
 			),
 			array(
-				'name' => esc_html__( 'Brown 700', 'the-m-x' ),
-				'slug' => 'brown-700',
-				'color' => '#5d4037',
+				'name' => esc_html__( 'Primary Color Darker Variant', 'the-m-x' ),
+				'slug' => 'primary-3',
+				'color' => esc_html( get_theme_mod( 'the_mx_primary_3' ) ),
 			),
 			array(
-				'name' => esc_html__( 'Brown 900', 'the-m-x' ),
-				'slug' => 'brown-900',
-				'color' => '#3e2723',
+				'name' => esc_html__( 'Primary Color Light Variant', 'the-m-x' ),
+				'slug' => 'primary-4',
+				'color' => esc_html( get_theme_mod( 'the_mx_primary_4' ) ),
 			),
 			array(
-				'name' => esc_html__( 'Amber 500', 'the-m-x' ),
-				'slug' => 'amber-500',
-				'color' => '#ffc107',
+				'name' => esc_html__( 'Accent Color', 'the-m-x' ),
+				'slug' => 'accent-1',
+				'color' => esc_html( get_theme_mod( 'the_mx_accent_1' ) ),
 			),
 			array(
-				'name' => esc_html__( 'Blue Gray 50', 'the-m-x' ),
-				'slug' => 'blue-gray-50',
-				'color' => '#eceff1',
+				'name' => esc_html__( 'Accent Color Dark Variant', 'the-m-x' ),
+				'slug' => 'accent-2',
+				'color' => esc_html( get_theme_mod( 'the_mx_accent_2' ) ),
 			),
 			array(
-				'name' => esc_html__( 'Blue Gray 300', 'the-m-x' ),
-				'slug' => 'blue-gray-300',
-				'color' => '#90a4ae',
+				'name' => esc_html__( 'Accent Color Darker Variant', 'the-m-x' ),
+				'slug' => 'accent-3',
+				'color' => esc_html( get_theme_mod( 'the_mx_accent_3' ) ),
 			),
-			array(
-				'name' => esc_html__( 'Blue Gray 500', 'the-m-x' ),
-				'slug' => 'blue-gray-500',
-				'color' => '#607d8b',
-			),
-			array(
-				'name' => esc_html__( 'Blue Gray 700', 'the-m-x' ),
-				'slug' => 'blue-gray-700',
-				'color' => '#455a64',
-			),
-			array(
-				'name' => esc_html__( 'Blue Gray 900', 'the-m-x' ),
-				'slug' => 'blue-gray-900',
-				'color' => '#263238',
-			)
 		)
 	);
 }
 endif;
 add_action( 'after_setup_theme', 'the_mx_setup' );
+
+/* Function that adds custom colors to front end from Gutenberg colors */
+function the_mx_gutenberg_colors() {
+	$primary_1 = get_theme_mod( 'the_mx_primary_1', '#795548' );
+	$primary_2 = get_theme_mod( 'the_mx_primary_2', '#5d4037' );
+	$primary_3 = get_theme_mod( 'the_mx_primary_3', '#3e2723' );
+	$primary_4 = get_theme_mod( 'the_mx_primary_4', '#bcaaa4' );
+	$accent_1 = get_theme_mod( 'the_mx_accent_1', '#ffc107' );
+	$accent_2 = get_theme_mod( 'the_mx_accent_2', '#ffa000' );
+	$accent_3 = get_theme_mod( 'the_mx_accent_3', '#ff6f00' );
+
+	$css = '';
+	$css .= '.has-white-color { color: rgba(255, 255, 255, 0.87); }';
+	$css .= '.has-white-background-color { background-color: #ffffff; }';
+
+	$css .= '';
+	$css .= '.has-black-color { color: rgba(0, 0, 0, 0.87); }';
+	$css .= '.has-black-background-color { background-color: #000000; }';
+
+	$css .= '';
+	$css .= '.has-primary-1-color { color: ' . esc_attr( $primary_1 ) . '; }';
+	$css .= '.has-primary-1-background-color { background-color: ' . esc_attr( $primary_1 ) . '; }';
+
+	$css .= '';
+	$css .= '.has-primary-2-color { color: ' . esc_attr( $primary_2 ) . '; }';
+	$css .= '.has-primary-2-background-color { background-color: ' . esc_attr( $primary_2 ) . '; }';
+
+	$css .= '';
+	$css .= '.has-primary-3-color { color: ' . esc_attr( $primary_3 ) . '; }';
+	$css .= '.has-primary-3-background-color { background-color: ' . esc_attr( $primary_3 ) . '; }';
+
+	$css .= '';
+	$css .= '.has-primary-4-color { color: ' . esc_attr( $primary_4 ) . '; }';
+	$css .= '.has-primary-4-background-color { background-color: ' . esc_attr( $primary_4 ) . '; }';
+
+	$css .= '';
+	$css .= '.has-accent-1-color { color: ' . esc_attr( $accent_1 ) . '; }';
+	$css .= '.has-accent-1-background-color { background-color: ' . esc_attr( $accent_1 ) . '; }';
+
+	$css .= '';
+	$css .= '.has-accent-2-color { color: ' . esc_attr( $accent_2 ) . '; }';
+	$css .= '.has-accent-2-background-color { background-color: ' . esc_attr( $accent_2 ) . '; }';
+
+	$css .= '';
+	$css .= '.has-accent-3-color { color: ' . esc_attr( $accent_3 ) . '; }';
+	$css .= '.has-accent-3-background-color { background-color: ' . esc_attr( $accent_3 ) . '; }';
+
+	return wp_strip_all_tags( $css );
+}
 
 function the_mx_image_sizes( $sizes ) {
 	$addsizes = array(
@@ -232,6 +266,9 @@ function the_mx_enqueue_scripts() {
 
 	// Styles
 	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
+
+	// Add Gutenberg custom colors to the front end
+	wp_add_inline_style( 'the-mx-style', the_mx_gutenberg_colors() );
 
 	wp_enqueue_style( 'the-mx-sup-style', get_template_directory_uri() . '/css/minfiles/supporting-styles.min.css', array( 'the-mx-style' ) );
 
@@ -336,6 +373,8 @@ add_action( 'wp_head', 'the_mx_noscript' );
 /* For the Gutenberg editor styles */
 function the_mx_add_gutenberg_styles() {
 	wp_enqueue_style( 'the-mx-gutenberg-styles', get_theme_file_uri( '/css/source/gutenberg-editor-styles.css' ), false );
+
+	wp_add_inline_style( 'the-mx-gutenberg-styles', the_mx_gutenberg_colors() );
 }
 add_action( 'enqueue_block_editor_assets', 'the_mx_add_gutenberg_styles' );
 

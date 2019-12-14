@@ -18,7 +18,8 @@
  * Preview Script enqueueing
  * Customizer Controls
  * Sanitization functions
- *
+ */
+
 /* Customizer Settings and Controls */
 
 function the_mx_customize_register( $wp_customize ) {
@@ -166,7 +167,7 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_accent_2', array(
-				'label' => esc_html__( 'Accent Color Dark', 'the-m-x' ),
+				'label' => esc_html__( 'Accent Color Dark Variant', 'the-m-x' ),
 				'description' => esc_html__( 'Button hover colors, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_accent_2',
@@ -186,7 +187,7 @@ function the_mx_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control (
 			$wp_customize,
 			'the_mx_accent_3', array(
-				'label' => esc_html__( 'Accent Color Darker', 'the-m-x' ),
+				'label' => esc_html__( 'Accent Color Darker Variant', 'the-m-x' ),
 				'description' => esc_html__( 'Navigation and widget link hover colors, etc.', 'the-m-x' ),
 				'section' => 'colors',
 				'settings' => 'the_mx_accent_3',
@@ -666,7 +667,7 @@ function the_mx_color_scheme_array() {
 					'#795548', // Primary 1
 					'#5d4037', // Primary 2
 					'#3e2723', // Primary 3
-					'#a1887f', // Primary 4
+					'#bcaaa4', // Primary 4
 					'#ffc107', // Accent 1
 					'#ffa000', // Accent 2
 					'#ff6f00', // Accent 3
@@ -680,7 +681,7 @@ function the_mx_color_scheme_array() {
 					'#607d8b',
 					'#455a64',
 					'#263238',
-					'#90a4ae',
+					'#b0bec5',
 					'#795548',
 					'#5d4037',
 					'#3e2723',
@@ -746,15 +747,15 @@ function the_mx_color_scheme_array() {
 			'custom' => array(
 				'label' => esc_html__( 'Custom', 'the-m-x' ),
 				'colors' => array(
-					esc_attr( get_background_color() ), // Background Color
-					esc_attr( get_theme_mod( 'the_mx_primary_1' ) ), // Primary 1
-					esc_attr( get_theme_mod( 'the_mx_primary_2' ) ), // Primary 2
-					esc_attr( get_theme_mod( 'the_mx_primary_3' ) ), // Primary 3
-					esc_attr( get_theme_mod( 'the_mx_primary_4' ) ), // Primary 4
-					esc_attr( get_theme_mod( 'the_mx_accent_1' ) ), // Accent 1
-					esc_attr( get_theme_mod( 'the_mx_accent_2' ) ), // Accent 2
-					esc_attr( get_theme_mod( 'the_mx_accent_3' ) ), // Accent 3
-					esc_attr( get_header_textcolor() ), // Header Text Color
+					get_background_color(), // Background Color
+					get_theme_mod( 'the_mx_primary_1' ), // Primary 1
+					get_theme_mod( 'the_mx_primary_2' ), // Primary 2
+					get_theme_mod( 'the_mx_primary_3' ), // Primary 3
+					get_theme_mod( 'the_mx_primary_4' ), // Primary 4
+					get_theme_mod( 'the_mx_accent_1' ), // Accent 1
+					get_theme_mod( 'the_mx_accent_2' ), // Accent 2
+					get_theme_mod( 'the_mx_accent_3' ), // Accent 3
+					get_header_textcolor(), // Header Text Color
 				),
 			),
 		)

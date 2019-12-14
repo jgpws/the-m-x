@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area">
-		<main id="main" class="site-main jgd-grid-wrap" role="main">
+		<main id="main" class="site-main jgd-grid jgd-grid-wrap" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
