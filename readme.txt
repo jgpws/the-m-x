@@ -27,7 +27,7 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 == Changelog ==
 
 = 1.2.4 April 1 2020 =
-Added Colorbox option to block galleries. Adjusted CSS for the Gallery block to look more similar to standard gallery. Used jQuery selectors to specify the difference between a link to an image or attachment page in Colorbox, eliminating the need to overwrite this functionality from the Customizer.
+Added Colorbox option to block galleries. Adjusted CSS for the Gallery block and Tiled Gallery to look more similar to the standard gallery. Used jQuery selectors to specify the difference between a link to an image or attachment page in Colorbox, eliminating the need to overwrite this functionality from the Customizer.
 
 = 1.2.3 February 19 2020 =
 Fixed issue where social media panel in mobile did not have a background color.

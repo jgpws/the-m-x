@@ -162,6 +162,17 @@
 
 }
 
+.tiled-gallery-caption {
+	background: linear-gradient(
+		rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0.6)
+	) !important;
+	color: $primary-text-color-white !important;
+	font-weight: bold !important;
+	margin: 0 2px 2px 2px !important;
+	width: calc(100% - 4px) !important;
+}
+
 /* Gutenberg galleries */
 .wp-block-gallery {
 	padding: 0;
