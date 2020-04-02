@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.2.1
+Version: 1.2.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
@@ -1489,7 +1489,7 @@ a:hover, a:active {
 }
 
 /* Social media icons */
-#header-button-panel .menu-social-media-icons-container {
+#header-button-panel .menu-social-container {
 	background-color: #ffffff;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 	position: absolute;
@@ -1497,7 +1497,7 @@ a:hover, a:active {
 	width: calc(100% - 1em);
 }
 
-#header-button-panel .menu-social-media-icons-container.toggled {
+#header-button-panel .menu-social-container.toggled {
 	left: 0.5em;
 }
 
@@ -1512,16 +1512,16 @@ a:hover, a:active {
 }
 
 @media screen and (min-width: 37.5em) {
-	#header-button-panel .menu-social-media-icons-container {
+	#header-button-panel .menu-social-container {
 		width: 75%;
 	}
-	#header-button-panel .menu-social-media-icons-container.toggled {
+	#header-button-panel .menu-social-container.toggled {
 		left: 12.5%;
 	}
 }
 
 @media screen and (min-width: 48em) {
-	#header-button-panel .menu-social-media-icons-container {
+	#header-button-panel .menu-social-container {
 		background-color: transparent;
 		box-shadow: none;
 		position: static;
@@ -1543,7 +1543,7 @@ a:hover, a:active {
 }
 
 @media screen and (min-width: 80em) {
-	#header-button-panel .menu-social-media-icons-container {
+	#header-button-panel .menu-social-container {
 		margin-top: 0.5em;
 		position: absolute;
 		right: 25%;
@@ -3053,6 +3053,15 @@ img.wp-post-image {
 	max-width: 300px;
 }
 
+.blocks-gallery-item > figure > a:hover {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	z-index: 100;
+}
+
+.blocks-gallery-item > figure > a:hover + figcaption {
+	z-index: 100;
+}
+
 .gallery-item {
 	margin: 0 auto;
 	max-width: 300px;
@@ -3075,6 +3084,14 @@ img.wp-post-image {
 .gallery-item:hover, .gallery-item:focus {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 	z-index: 100;
+}
+
+.wp-block-gallery .blocks-gallery-item {
+	margin: 0;
+}
+
+.wp-block-gallery[class*="columns-"] .blocks-gallery-item {
+	margin-right: 0;
 }
 
 @media screen and (min-width: 37.5em) {

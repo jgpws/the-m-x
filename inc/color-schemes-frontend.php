@@ -389,7 +389,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
       background-color: {$colors['primary_1']};
     }
   }
-  CSS;
+CSS;
 
   return $css;
 }

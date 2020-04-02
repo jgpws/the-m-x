@@ -267,7 +267,7 @@ function the_mx_reverse_primary_4_css() {
 		.page-template-template-landing {
 			color: rgba(255, 255, 255, 0.87);
 		}
-		CSS;
+CSS;
 
 		wp_add_inline_style( 'the-mx-style', $reverse_text_color_css );
 
@@ -499,7 +499,7 @@ function the_mx_reverse_supporting_color_css() {
 		#infinite-handle span {
 			color: #000000;
 		}
-		CSS;
+CSS;
 		wp_add_inline_style( 'the-mx-style', $reverse_supporting_color_css );
 
 		return $reverse_supporting_color_css;
@@ -576,12 +576,14 @@ function the_mx_hero_widgets_styles() {
 	}
 }';
 	wp_add_inline_style( 'the-mx-style', $hero_widgets_align_css );
+	} else {
+		return;
 	}
 }
 add_action( 'wp_enqueue_scripts', 'the_mx_hero_widgets_styles' );
 
+// shows either a default or a custom title in the Image Grid page template
 function the_mx_showmore_title_render() {
-	// shows either a default or a custom title in the Image Grid page template
 	$more_button_title = get_theme_mod( 'the_mx_customize_showmore_title', esc_html__( 'More Posts', 'the-m-x' ) );
 	if( $more_button_title != '' ) {
 		echo esc_html( $more_button_title );

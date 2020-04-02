@@ -73,7 +73,7 @@
 }
 
 /* Social media icons */
-#header-button-panel .menu-social-media-icons-container {
+#header-button-panel .menu-social-container {
 	background-color: $white;
 	box-shadow: $box-shadow-large;
 	position: absolute;
@@ -98,7 +98,7 @@
 }
 
 @media screen and (min-width: 37.5em) {
-	#header-button-panel .menu-social-media-icons-container {
+	#header-button-panel .menu-social-container {
 		width: 75%;
 
 		&.toggled {
@@ -111,7 +111,7 @@
 @media screen and (min-width: 48em) {
 	#header-button-panel {
 
-		.menu-social-media-icons-container {
+		.menu-social-container {
 			@include no-card-style;
 			position: static;
 			width: auto;
@@ -140,7 +140,7 @@
 @media screen and (min-width: 80em) {
 	#header-button-panel {
 
-		.menu-social-media-icons-container {
+		.menu-social-container {
 			margin-top: 0.5em;
 			position: absolute;
 			right: 25%;

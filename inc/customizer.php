@@ -478,7 +478,7 @@ function the_mx_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'the_mx_gallery_settings', array(
 			'title' => esc_html__( 'Gallery Settings', 'the-m-x' ),
-			'description' => sprintf( '%1$s' . esc_html__( '* These settings only apply to galleries displayed on the blog index page. The Gallery post format must be applied to a post containing the gallery.', 'the-m-x' ) . '%2$s%1$s' . esc_html__( '** This setting disables Colorbox on single posts.', 'the-m-x' ), '<p>', '</p>' ),
+			'description' => sprintf( '%1$s' . esc_html__( '* These settings only apply to galleries displayed on the blog index page. The Gallery post format must be applied to a post containing the gallery. These settings also do not apply to gallery blocks.', 'the-m-x' ) . '%2$s%1$s' . esc_html__( '** This setting disables Colorbox on single posts.', 'the-m-x' ), '<p>', '</p>' ),
 		)
 	);
 
@@ -516,28 +516,6 @@ function the_mx_customize_register( $wp_customize ) {
 			'type' => 'checkbox',
 			'label' => esc_html__( 'Show the gallery as a slider on single posts.**', 'the-m-x' ),
 			'section' => 'the_mx_gallery_settings',
-		)
-	);
-
-	$wp_customize->add_setting(
-		'the_mx_media_link_to', array(
-			'type' => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' => 'attachment',
-			'sanitize_callback' => 'the_mx_sanitize_linkto_choices',
-			'sanitize_js_callback' => 'the_mx_sanitize_linkto_choices',
-		)
-	);
-
-	$wp_customize->add_control(
-		'the_mx_media_link_to', array(
-			'type' => 'radio',
-			'label' => esc_html__( 'Link to a media file or attachment page*', 'the-m-x' ),
-			'section' => 'the_mx_gallery_settings',
-			'choices' => array(
-				'attachment' => esc_html__( 'Attachment page ( default )', 'the-m-x' ),
-				'file' => esc_html__( 'Media File', 'the-m-x' ),
-			),
 		)
 	);
 
@@ -748,13 +726,13 @@ function the_mx_color_scheme_array() {
 				'label' => esc_html__( 'Custom', 'the-m-x' ),
 				'colors' => array(
 					get_background_color(), // Background Color
-					get_theme_mod( 'the_mx_primary_1' ), // Primary 1
-					get_theme_mod( 'the_mx_primary_2' ), // Primary 2
-					get_theme_mod( 'the_mx_primary_3' ), // Primary 3
-					get_theme_mod( 'the_mx_primary_4' ), // Primary 4
-					get_theme_mod( 'the_mx_accent_1' ), // Accent 1
-					get_theme_mod( 'the_mx_accent_2' ), // Accent 2
-					get_theme_mod( 'the_mx_accent_3' ), // Accent 3
+					get_theme_mod( 'the_mx_primary_1', '#795548' ), // Primary 1
+					get_theme_mod( 'the_mx_primary_2', '#5d4037' ), // Primary 2
+					get_theme_mod( 'the_mx_primary_3', '#3e2723' ), // Primary 3
+					get_theme_mod( 'the_mx_primary_4', '#bcaaa4' ), // Primary 4
+					get_theme_mod( 'the_mx_accent_1', '#ffc107' ), // Accent 1
+					get_theme_mod( 'the_mx_accent_2', '#ffa000' ), // Accent 2
+					get_theme_mod( 'the_mx_accent_3', '#ff6f00' ), // Accent 3
 					get_header_textcolor(), // Header Text Color
 				),
 			),

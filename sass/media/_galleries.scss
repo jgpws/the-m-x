@@ -7,6 +7,15 @@
 	max-width: 300px;
 }
 
+.blocks-gallery-item > figure > a:hover {
+	box-shadow: $box-shadow-large;
+	z-index: 100;
+
+	+ figcaption {
+		z-index: 100;
+	}
+}
+
 .gallery-item {
 	margin: 0 auto;
 	max-width: 300px;
@@ -29,7 +38,16 @@
 		box-shadow: $box-shadow-large;
 		z-index: 100;
 	}
+}
 
+.wp-block-gallery {
+	.blocks-gallery-item {
+		margin: 0;
+	}
+
+	&[class*="columns-"] .blocks-gallery-item {
+		margin-right: 0;
+	}
 }
 
 @media screen and (min-width: 37.5em) {

@@ -318,10 +318,6 @@ function the_mx_enqueue_scripts() {
 	wp_localize_script( 'the-mx-scripts', 'jgdGridParams', $parameters );
 
 	$parameters = array(
-		'link_to' => get_theme_mod( 'the_mx_media_link_to', 'attachment' ),
-	);
-	wp_localize_script( 'the-mx-scripts', 'colorboxParams', $parameters );
-	$parameters = array(
 		'layouts' => get_theme_mod( 'the_mx_layout', 'centered' ),
 	);
 	wp_localize_script( 'the-mx-scripts', 'restoreJSParams', $parameters );
@@ -405,16 +401,6 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/inc/customizer-frontend.php';
-
-/* Customizer functions */
-function the_mx_medialink_switcher() {
-	// see inc/customizer.php
-	if( get_theme_mod( 'the_mx_media_link_to' ) == 'attachment' ) {
-		return 'attachment';
-	} else {
-		return 'file';
-	}
-}
 
 require get_template_directory() . '/inc/post-format-functions.php';
 

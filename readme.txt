@@ -26,6 +26,15 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.2.4 April 1 2020 =
+Added Colorbox option to block galleries. Adjusted CSS for the Gallery block to look more similar to standard gallery. Used jQuery selectors to specify the difference between a link to an image or attachment page in Colorbox, eliminating the need to overwrite this functionality from the Customizer.
+
+= 1.2.3 February 19 2020 =
+Fixed issue where social media panel in mobile did not have a background color.
+
+= 1.2.2 December 27 2019 =
+Critical fix! Heredoc block had spaces before closing delimiter, producing a fatal syntax error.
+
 = 1.2.1 December 14 2019 =
 Regenerated .pot file; removed unneeded files
 
@@ -90,6 +99,8 @@ Updated frontend and backend styles for Gutenberg's newest iteration; regenerate
 * Initial release
 
 == Upgrade Notice ==
+
+Please update to the latest version, as an error with HEREDOC blocks was causing a fatal error.
 
 = 1.0 =
 * Initial release

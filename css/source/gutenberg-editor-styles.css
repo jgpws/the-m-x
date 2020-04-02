@@ -1,5 +1,5 @@
 /* Stylesheet for the Gutenberg editor backend */
- 
+
 .gutenberg-editor-page .editor-styles-wrapper .mce-content-body,
 .block-editor-page .editor-styles-wrapper .mce-content-body {
 	line-height: 1.5;
@@ -113,6 +113,25 @@
 	font-size: 1.25rem;
 }
 
+.gutenberg-editor-page .blocks-gallery-grid .blocks-gallery-image,
+.gutenberg-editor-page .blocks-gallery-grid .blocks-gallery-item,
+.gutenberg-editor-page .wp-block-gallery .blocks-gallery-image,
+.gutenberg-editor-page .wp-block-gallery .blocks-gallery-item,
+.block-editor-page .blocks-gallery-grid .blocks-gallery-image,
+.block-editor-page .blocks-gallery-grid .blocks-gallery-item,
+.block-editor-page .wp-block-gallery .blocks-gallery-image,
+.block-editor-page .wp-block-gallery .blocks-gallery-item {
+  margin: 0;
+}
+
+.blocks-gallery-grid .blocks-gallery-image figcaption,
+.blocks-gallery-grid .blocks-gallery-item figcaption,
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+  color: rgba(255, 255, 255, 0.87);
+  font-weight: bold;
+}
+
 @media and screen (min-width: 37.5em) {
 	.gutenberg-editor-page .wp-block-heading h1,
 	.gutenberg-editor-page .wp-block-freeform.block-library-rich-text__tinymce h1,
@@ -120,21 +139,21 @@
 	.block-editor-page .wp-block-freeform.block-library-rich-text__tinymce h1 {
 		font-size: 5.25rem;
 	}
-	
+
 	.gutenberg-editor-page .wp-block-heading h2,
 	.gutenberg-editor-page .wp-block-freeform.block-library-rich-text__tinymce h2,
 	.block-editor-page .wp-block-heading h2,
 	.block-editor-page .wp-block-freeform.block-library-rich-text__tinymce h2 {
 		font-size: 3.25rem;
 	}
-	
+
 	.gutenberg-editor-page .wp-block-heading h3,
 	.gutenberg-editor-page .wp-block-freeform.block-library-rich-text__tinymce h3,
 	.block-editor-page .wp-block-heading h3,
 	.block-editor-page .wp-block-freeform.block-library-rich-text__tinymce h3 {
 		font-size: 2.5rem;
 	}
-	
+
 	.gutenberg-editor-page .wp-block-heading h4,
 	.gutenberg-editor-page .wp-block-freeform.block-library-rich-text__tinymce h4,
 	.block-editor-page .wp-block-heading h4,
@@ -150,14 +169,14 @@
 	.block-editor-page .wp-block-freeform.block-library-rich-text__tinymce h1 {
 		font-size: 6rem;
 	}
-	
+
 	.gutenberg-editor-page .wp-block-heading h2,
 	.gutenberg-editor-page .wp-block-freeform.block-library-rich-text__tinymce h2,
 	.block-editor-page .wp-block-heading h2,
 	.block-editor-page .wp-block-freeform.block-library-rich-text__tinymce h2 {
 		font-size: 3.75rem;
 	}
-	
+
 	.gutenberg-editor-page .wp-block-heading h3,
 	.gutenberg-editor-page .wp-block-freeform.block-library-rich-text__tinymce h3,
 	.block-editor-page .wp-block-heading h3,
@@ -255,7 +274,7 @@
 		grid-template-areas:
 			"media-text-media media-text-content";
 	}
-	
+
 	.gutenberg-editor-page .wp-block-media-text.has-media-on-the-right,
 	.block-editor-page .wp-block-media-text.has-media-on-the-right {
 		grid-template-areas:
