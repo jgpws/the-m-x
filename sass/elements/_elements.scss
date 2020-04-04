@@ -11,7 +11,7 @@ html {
 body {
 	background-color: $color__background-body; /* Fallback for when there is no custom background color defined. */
 	overflow-x: hidden;
-	
+
 	&.skrollr-animate {
 		touch-action: none;
 	}
@@ -35,7 +35,7 @@ hr, .wp-block-separator {
 	background-color: $color__background-hr;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
+	margin: 1.5em 0;
 }
 
 @import "lists";

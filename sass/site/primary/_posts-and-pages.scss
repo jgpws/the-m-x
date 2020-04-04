@@ -474,6 +474,13 @@ article.page:hover,
 	@include center-block;
 }
 
+@media (min-width: 80em) {
+	.wp-block-separator.is-style-wide {
+		margin: 1.5em 4em !important;
+		max-width: calc(100% + 4em) !important;
+	}
+}
+
 .page-template-template-landing .alignwide {
 	width: auto;
 }

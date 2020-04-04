@@ -62,6 +62,7 @@
 				<div class="hero-widgets-wrap">
 					<?php dynamic_sidebar( 'hero-image-widget' ); ?>
 				</div>
+				<div class="scrim"></div>
 			</div>
 			<?php endif; ?>
 		<?php endif; // End header image check. ?>

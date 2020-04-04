@@ -393,9 +393,33 @@ function the_mx_reverse_supporting_color_css() {
 		.site-header .main-navigation ul li a:focus {
 			color: rgba(0, 0, 0, 0.87);
 		}
+		
+		#custom-header + .main-navigation a:link,
+		#custom-header + .main-navigation a:visited {
+			color: rgba(255, 255, 255, 0.7);
+		}
+		
+		#custom-header + .main-navigation .sub-menu a:link,
+		#custom-header + .main-navigation .sub-menu a:visited {
+			color: rgba(0, 0, 0, 0.7);
+		}
+		
+		#custom-header + .main-navigation a:hover,
+		#custom-header + .main-navigation a:focus {
+			color: rgba(255, 255, 255, 0.87);
+		}
+		
+		#custom-header + .main-navigation .sub-menu a:hover,
+		#custom-header + .main-navigation .sub-menu a:focus {
+			color: rgba(0, 0, 0, 0.87);
+		}
 
 		.site-header .main-navigation .menu-down-arrow {
 			color: #000000;
+		}
+		
+		#custom-header + .main-navigation .menu-down-arrow {
+			color: #ffffff;
 		}
 
 		.widget .calendar_wrap caption,

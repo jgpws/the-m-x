@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.2.5 April 2 2020 =
+Updated backend editor styling file (gutenberg-editor-styles.css); backend CSS wasn't displaying correctly. Added overlay gradient to the hero image for the transparent nav menu.
+
 = 1.2.4 April 1 2020 =
 Added Colorbox option to block galleries. Adjusted CSS for the Gallery block and Tiled Gallery to look more similar to the standard gallery. Used jQuery selectors to specify the difference between a link to an image or attachment page in Colorbox, eliminating the need to overwrite this functionality from the Customizer.
 

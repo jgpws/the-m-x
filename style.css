@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
-Version: 1.2.4
+Version: 1.2.5
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
@@ -462,7 +462,7 @@ hr, .wp-block-separator {
 	background-color: rgba(0, 0, 0, 0.54);
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.5em;
+	margin: 1.5em 0;
 }
 
 ul, ol {
@@ -2221,6 +2221,13 @@ article.page:hover,
 	margin-right: auto;
 }
 
+@media (min-width: 80em) {
+	.wp-block-separator.is-style-wide {
+		margin: 1.5em 4em !important;
+		max-width: calc(100% + 4em) !important;
+	}
+}
+
 .page-template-template-landing .alignwide {
 	width: auto;
 }
@@ -2850,10 +2857,21 @@ object {
 }
 
 @media screen and (min-width: 37.5em) {
-	#custom-header + .main-navigation {
+	#custom-header {
+		position: relative;
+	}
+	#custom-header ~ .main-navigation {
 		background-color: transparent;
 		bottom: 0;
 		position: absolute;
+	}
+	#custom-header .scrim {
+		background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.4)));
+		background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+		width: 100%;
+		height: 33%;
+		position: absolute;
+		bottom: 0;
 	}
 	#custom-header .hero-widgets-wrap {
 		margin-left: 25%;
@@ -3038,7 +3056,8 @@ img.wp-post-image {
 	background-color: #ffffff;
 	color: rgba(0, 0, 0, 0.87);
 	margin-top: 0px;
-	padding: 0.8075em 0;
+	padding: 0.8075em;
+	text-align: center;
 }
 
 /*--------------------------------------------------------------

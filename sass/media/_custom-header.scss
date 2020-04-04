@@ -29,10 +29,22 @@
 }
 
 @media screen and (min-width: 37.5em) {
-	#custom-header + .main-navigation {
-		background-color: transparent;
-		bottom: 0;
-		position: absolute;
+	#custom-header {
+		position: relative;
+		
+		~ .main-navigation {
+			background-color: transparent;
+			bottom: 0;
+			position: absolute;
+		}
+		
+		.scrim {
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+			width: 100%;
+			height: 33%;
+			position: absolute;
+			bottom: 0;
+		}
 	}
 	
 	#custom-header .hero-widgets-wrap {
