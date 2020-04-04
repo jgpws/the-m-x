@@ -39,6 +39,8 @@ ___
 
 * After shrinking the entire content area, elements that have .alignfull and .alignwide apply correctly in Gutenberg, spanning past the content area's boundaries.
 
+* In version 1.2.5, I used jQuery selectors in combination with Colorbox to differentiate between loading images or attachment pages. This removes the need for using a Customizer control to override the user "link to" selection for galleries. Colorbox now also works with block galleries.
+
 ___
 
 ## Optional fixes
@@ -93,7 +95,7 @@ Live reloads changes in the css folder with BrowserSync.
 
 Takes all non-vendor (3rd Party) JavaScript files, concatenates and minifies them into **scripts.min.js**; adds a sourcemap.
 
-**`minfyJS`**
+**`minifyJS`**
 
 Minifies JavaScript files that need to be loaded individually.
 
@@ -184,7 +186,7 @@ ___
 ## Newest additions
 
 * Custom logo support has now been added!
-* "Wide" layout mode added to the Customizer, suitable for the incoming Gutenberg editor
+* "Wide" layout mode added to the Customizer, suitable for the WP 5.0 block editor
 * Ripple effect on menu items; more may be added as needed
 * The animations for the gallery slider option on single pages have been completed! This includes transitions between each slide on click and when playing on a timed slideshow. Also, the galleries themselves have been given a new look with new icons
 * I added a page preloading spinner (optional with **Enable simple animations...** turned on)
@@ -194,6 +196,6 @@ ___
 
 ___
 
-The theme's location here at GitHub is now the development version, while the production version is at WordPress.org: [https://wordpress.org/themes/the-m-x/]
+The theme's location here at GitHub is now the development version, while the production version is at WordPress.org: <https://wordpress.org/themes/the-m-x/>
 
 This page will update as the theme is developed.
