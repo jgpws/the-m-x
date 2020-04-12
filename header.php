@@ -25,8 +25,8 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'the-m-x' ); ?></a>
 
-	<header id="masthead" class="site-header jgd-grid-wrap" role="banner">
-		<div class="site-branding jgd-grid">
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
 			<?php if( function_exists( 'the_custom_logo' ) ) {
 				the_custom_logo();
 			} ?>
@@ -46,16 +46,18 @@
 			endif; ?>
 			</div><!-- .site-branding-text -->
 		</div><!-- .site-branding -->
-		<div class="jgd-grid jgd-grid-wrap" id="header-button-panel">
+		<div class="header-button-panel" id="header-button-panel">
 		<?php get_template_part( 'template-parts/menu', 'social' ); ?>
-		<?php if( !is_404() && is_active_sidebar( 'sidebar-1' ) ) { ?>
+		<?php
+		$sidebar_layout = get_theme_mod( 'the_mx_sidebar_layout', 'overlay' );
+		if( !is_404() && is_active_sidebar( 'sidebar-1' ) && $sidebar_layout == 'overlay' ) { ?>
 			<button class="sidebar-toggle" id="sidebar-button"></button>
 		<?php } ?>
 		<?php get_search_form(); ?>
 		</div>
-		
+
 		<?php if ( get_header_image() ) : ?>
-			<?php if ( ( get_theme_mod( 'the_mx_homepage_only' ) == 1 ) && !is_home() ) : 
+			<?php if ( ( get_theme_mod( 'the_mx_homepage_only' ) == 1 ) && !is_home() ) :
 			echo ''; else : ?>
 			<div id="custom-header">
 				<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">

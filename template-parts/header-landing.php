@@ -25,13 +25,13 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'the-m-x' ); ?></a>
 
-	<header id="masthead" class="site-header jgd-grid-wrap" role="banner">
-		<div class="site-branding jgd-grid">
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
 			<div class="site-branding-text">
 				<p class="landing-to-parent"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" ><?php bloginfo( 'name' ); ?></a></p>
 			</div><!-- .site-branding-text -->
 		</div><!-- .site-branding -->
-		<div class="jgd-grid jgd-grid-wrap" id="header-button-panel">
+		<div class="header-button-panel" id="header-button-panel">
 		<?php get_template_part( 'template-parts/menu', 'social' ); ?>
 		</div>
 	</header><!-- #masthead -->

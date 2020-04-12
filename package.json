@@ -28,6 +28,7 @@
     "gulp-concat-css": "^3.1.0",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-jshint": "^2.1.0",
+    "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^1.4.0",
     "gulp-rtlcss": "^1.4.1",

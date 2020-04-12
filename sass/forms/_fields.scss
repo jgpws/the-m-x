@@ -85,7 +85,7 @@ textarea {
 	position: relative;
 	color: $color__text-input;
 	border-bottom: 2px solid $pale-black;
-	
+
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
@@ -95,19 +95,19 @@ textarea {
 		border: transparent;
 		padding: 10px 12px;
 	}
-	
+
 	label {
 		margin: 0;
 		padding: 12px 12px 0 12px;
 		position: absolute;
 	}
-	
+
 	input,
 	label,
 	textarea {
 		width: 100%;
 	}
-	
+
 	fieldset {
 		border-color: $pale-gray;
 	}
@@ -115,7 +115,7 @@ textarea {
 
 /* Searchfield in header */
 
-#header-button-panel .searchform {
+.header-button-panel .searchform {
 	@include flex-row-right-aligned;
 	background-color: $primary-color-dark;
 	align-items: flex-end;
@@ -125,19 +125,19 @@ textarea {
 	position: absolute;
 	width: calc(100% - 4.5rem);
 	z-index: 500;
-	
+
 	input,
 	label {
 		@include font-size(0.875);
 	}
-	
+
 	&.hide {
 		left: -9999em;
 	}
-	
+
 }
 
-#header-button-panel .search-field {
+.header-button-panel .search-field {
 	background-color: transparent;
 	border-top: $color__border-input;
 	border-right: $color__border-input;
@@ -153,16 +153,16 @@ textarea {
 	}
 }
 
-#header-button-panel input.search-field::-webkit-input-placeholder {
+.header-button-panel input.search-field::-webkit-input-placeholder {
 	color: $primary-text-color-faded;
 }
 
-#header-button-panel input.search-field::-moz-placeholder {
+.header-button-panel input.search-field::-moz-placeholder {
 	color: $primary-text-color-faded;
 	font-weight: $font__weight-heavy;
 	opacity: 1;
 }
 
-#header-button-panel input.search-field::-ms-input-placeholder {
+.header-button-panel input.search-field::-ms-input-placeholder {
 	color: $primary-text-color-faded;
 }

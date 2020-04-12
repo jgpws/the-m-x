@@ -1,9 +1,12 @@
 /* Stylesheet for the Gutenberg editor backend */
 
 body {
-	font-family: "Raleway", sans-serif;
 	font-size: 0.875rem;
 	line-height: 1.5;
+}
+
+.editor-styles-wrapper * {
+	font-family: "Raleway", sans-serif;
 }
 
 h1,
@@ -111,9 +114,7 @@ a:focus {
 }
 
 .wp-block.editor-post-title__block {
-	max-width: 100%;
-	padding-left: 18.5%;
-	padding-right: 18.5%;
+	max-width: 580px;
 }
 
 .editor-post-title__block .editor-post-title__input {
@@ -123,7 +124,8 @@ a:focus {
 	line-height: 2rem;
 }
 
-.wp-block-image {
+.wp-block-image.alignwide,
+.wp-block-image.alignfull {
 	background-color: #3e2723;
 }
 
@@ -229,8 +231,41 @@ a:focus {
 	}
 }
 
-.gutenberg-editor-page .wp-block-button .wp-block-button__link,
-.block-editor-page .wp-block-button .wp-block-button__link {
+.wp-block-calendar {
+	margin-bottom: 1em;
+}
+
+.wp-block-calendar table caption {
+	background-color: #795548;
+	color: #ffffff;
+	font-size: 2rem;
+}
+
+.wp-block-calendar td a {
+	background-color: #795548;
+	color: #ffffff;
+	border-radius: 50%;
+	display: inline-table;
+	height: 1.5em;
+	width: 1.5em;
+}
+
+.wp-block-calendar table th {
+	background-color: #efebe9;
+}
+
+.wp-block-calendar th,
+.wp-block-calendar tbody td {
+	border: transparent;
+}
+
+.wp-block-calendar .wp-calendar-nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5em;
+}
+
+.wp-block-button__link {
 	background-color: #ffc107;
 	border-radius: 2px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -240,14 +275,45 @@ a:focus {
 	text-transform: uppercase;
 }
 
-.gutenberg-editor-page .wp-block-button .wp-block-button__link:hover,
-.block-editor-page .wp-block-button .wp-block-button__link:hover {
+.wp-block-button__link:hover {
 	background-color: #ffa000;
 	color: rgba(0, 0, 0, 0.87);
 }
 
-.gutenberg-editor-page .wp-block-freeform.block-library-rich-text__tinymce pre,
-.block-editor-page .wp-block-freeform.block-library-rich-text__tinymce pre {
+.is-style-outline .wp-block-button__link {
+	background-color: transparent;
+	border: 1px solid #c0c0c0;
+	box-shadow: none;
+	color: #795548;
+}
+
+.is-style-outline .wp-block-button__link:hover {
+	background-color: rgba(62, 39, 35, 0.04);
+}
+
+.wp-block-button__link.has-primary-1-translucent-gradient-background:hover {
+	background: linear-gradient(180deg, rgba( 121, 85, 72, 0.0 ) 0%, rgba( 93, 64, 55, 0.04 ) 100%) !important;
+}
+
+.wp-block-button__link.has-primary-1-translucent-gradient-background:active,
+.wp-block-button__link.has-primary-1-translucent-gradient-background:focus {
+	background: linear-gradient(180deg, rgba( 121, 85, 72, 0.0 ) 0%, rgba( 93, 64, 55, 0.12 ) 100%) !important;
+}
+
+.wp-block-button__link.has-accent-1-translucent-gradient-background:hover {
+	background: linear-gradient(180deg, rgba( 255, 193, 7, 0.0 ) 0%, rgba( 255, 160, 0, 0.04 ) 100%) !important;
+}
+
+.wp-block-button__link.has-accent-1-translucent-gradient-background:active,
+.wp-block-button__link.has-accent-1-translucent-gradient-background:focus {
+	background: linear-gradient(180deg, rgba( 255, 193, 7, 0.0 ) 0%, rgba( 255, 160, 0, 0.12 ) 100%) !important;
+}
+
+.is-style-outline .wp-block-button__link:focus {
+	background-color: rgba(62, 39, 35, 0.12);
+}
+
+.wp-block-freeform.block-library-rich-text__tinymce pre {
 	background-color: #efebe9;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 0.9375rem;
@@ -257,17 +323,13 @@ a:focus {
 	white-space: pre;
 }
 
-.gutenberg-editor-page .wp-block-freeform ins,
-.gutenberg-editor-page .wp-block-freeform mark,
-.block-editor-page .wp-block-freeform ins,
-.block-editor-page .wp-block-freeform mark {
+.wp-block-freeform ins,
+.wp-block-freeform mark {
 	background-color: #ffa000;
 	text-decoration: none;
 }
 
-.gutenberg-editor-page .wp-block-freeform kbd,
-.gutenberg-editor-page .wp-block-freeform code,
-.block-editor-page .wp-block-freeform kbd,
-.block-editor-page .wp-block-freeform code {
+.wp-block-freeform kbd,
+.wp-block-freeform code {
 	background-color: transparent;
 }

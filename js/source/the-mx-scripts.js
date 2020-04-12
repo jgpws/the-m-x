@@ -175,7 +175,7 @@
 
 		toggleButton = document.getElementById( 'sidebar-button' );
 
-		sidebar = document.getElementById( 'secondary' );
+		sidebar = document.querySelector( '.sidebar-overlay #secondary' );
 
 		// Create chevron logo elements
 		chevronLeft = document.createElement( 'i' );
@@ -240,7 +240,7 @@
 	function addOverlayToSidebar(e) {
 		/* Add a "scrim" div to the bottom of the sidebar when Overlay design is used (sidebar slides in/out) */
 		var overlayStylesheet = document.head.querySelector( 'link[href*="/layouts/content-sidebar-overlay.css"]' );
-		var theSidebar = document.querySelector( '#secondary' );
+		var theSidebar = document.querySelector( '.sidebar-overlay #secondary' );
 		var theScrim;
 
 		function placeScrim() {
@@ -277,7 +277,7 @@
 				theSidebar.insertAdjacentHTML( 'beforeend', '<div class="scrim"></div>' );
 			}
 
-			theScrim = document.querySelector( '#secondary .scrim' );
+			theScrim = document.querySelector( '.sidebar-overlay #secondary .scrim' );
 
 			placeScrim();
 			animateScrim();

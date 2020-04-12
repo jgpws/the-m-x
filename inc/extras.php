@@ -23,30 +23,62 @@ function the_mx_body_classes( $classes ) {
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
-	
+
 	// Adds a .colorbox class to the body_class for Colorbox content specific CSS
 	if( get_theme_mod( 'the_mx_enable_colorbox' ) == 1 ) {
 		$classes[] = 'colorbox';
 	}
-	
+
 	// Adds a .slider class to the body when 'Enable gallery to be shown as slider' is selected in the Customizer
 	if( get_theme_mod( 'the_mx_single_slider' ) == 1 && is_single() ) {
 		$classes[] = 'slider';
 	}
-	
+
 	// Adds .imagegrid class to the body when Image Grid is chosen in the Customizer for post layouts
 	if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 		$classes[] = 'imagegrid';
 	}
-	
+
 	// Adds the class .animate for CSS3 animations
 	if( get_theme_mod( 'the_mx_animate_css', 1 ) == 1 ) {
 		$classes[] = 'animate';
 	}
-	
+
 	// Adds .skrollr-animate class for Skrollr animations
 	if( get_theme_mod( 'the_mx_skrollr_animations' ) == 1 ) {
 		$classes[] = 'skrollr-animate';
+	}
+
+	// Layouts
+	if( get_theme_mod( 'the_mx_layout' ) == 'centered' ) {
+		$classes[] = 'centered';
+	}
+
+	if( get_theme_mod( 'the_mx_layout' ) == 'twobytwo' ) {
+		$classes[] = 'two-by-two';
+	}
+
+	if( get_theme_mod( 'the_mx_layout' ) == 'wide' ) {
+		$classes[] = 'wide';
+	}
+
+	// Sidebars
+	$sidebar_layout = get_theme_mod( 'the_mx_sidebar_layout', 'overlay' );
+	if( $sidebar_layout != '' ) {
+		switch ( $sidebar_layout ) {
+			case 'overlay':
+				$classes[] = 'sidebar-overlay';
+				break;
+			case 'right':
+				$classes[] = 'sidebar-right';
+				break;
+			case 'left':
+				$classes[] = 'sidebar-left';
+				break;
+			default:
+				$classes[] = 'sidebar-overlay';
+				break;
+		}
 	}
 
 	return $classes;
@@ -60,15 +92,16 @@ function the_mx_add_grid_layouts( $classes ) {
 		switch ( $grid_layout ) { // opens switch
 			case 'centered':
 				$classes[] = 'three-fourths-centered-r';
-			break;
+				break;
 			case 'wide':
 				$classes[] = 'jgd-column-1';
-			break;
+				break;
 			case 'twobytwo':
 				$classes[] = 'two-by-two-centered-r';
-			break;
+				break;
 			default:
 				$classes[] = 'three-fourths-centered-r';
+				break;
 		} // closes switch
 		return $classes;
 	} else { // default when no theme mods have been set
@@ -80,7 +113,7 @@ add_filter( 'post_class', 'the_mx_add_grid_layouts' );
 
 function the_mx_gallery_post_class( $classes ) {
 	global $post;
-	
+
 	if( has_shortcode( $post->post_content, 'gallery' ) ) {
 		$classes[] = 'has-gallery';
 	}

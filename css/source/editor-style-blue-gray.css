@@ -1,0 +1,59 @@
+a {
+  color: #607d8b;
+}
+
+a:focus {
+  color: #512da8;
+}
+
+.wp-block-quote.is-style-default,
+.wp-block-quote.is-style-large,
+.wp-block-freeform.block-library-rich-text__tinymce blockquote,
+.wp-block-pullquote {
+  border-color: #607d8b;
+}
+
+.wp-block-button__link {
+  background-color: #795548;
+}
+
+.wp-block-button__link:hover {
+  background-color: #5d4037;
+}
+
+.is-style-outline .wp-block-button__link {
+  color: #263238;
+}
+
+.is-style-outline .wp-block-button__link:hover {
+  background-color: rgba(96, 125, 139, 0.04);
+}
+
+.wp-block-button__link.has-primary-1-translucent-gradient-background:hover {
+	background: linear-gradient(180deg, rgba( 96, 125, 139, 0.0 ) 0%, rgba( 69, 90, 100, 0.04 ) 100%) !important;
+}
+
+.wp-block-button__link.has-primary-1-translucent-gradient-background:focus {
+	background: linear-gradient(180deg, rgba( 96, 125, 139, 0.0 ) 0%, rgba( 69, 90, 100, 0.12 ) 100%) !important;
+}
+
+.wp-block-button__link.has-accent-1-translucent-gradient-background:hover {
+  background: linear-gradient(180deg, rgba( 121, 85, 72, 0.0 ) 0%, rgba( 93, 64, 55, 0.04 ) 100%) !important;
+}
+
+.wp-block-button__link.has-accent-1-translucent-gradient-background:focus {
+  background: linear-gradient(180deg, rgba( 121, 85, 72, 0.0 ) 0%, rgba( 93, 64, 55, 0.12 ) 100%) !important;
+}
+
+.is-style-outline .wp-block-button__link:active,
+.is-style-outline .wp-block-button__link:focus {
+  background-color: rgba(96, 125, 139, 0.12);
+}
+
+.wp-block-calendar table caption {
+  background-color: #607d8b;
+}
+
+.wp-block-calendar table th {
+  background-color: #eceff1;
+}

@@ -10,17 +10,17 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main jgd-grid jgd-grid-wrap" role="main">
+		<main id="main" class="site-main" role="main">
 
 		<?php
 		while ( have_posts() ) : the_post();
 			get_template_part( 'template-parts/content', get_post_format() );
 
 			the_post_navigation( array(
-				'prev_text' => sprintf( 
+				'prev_text' => sprintf(
 					/* translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag */
 					'%1$s' . esc_html__( 'arrow_back', 'the-m-x' ) . '%2$s' . esc_html__( 'Previous Posts', 'the-m-x' ), '<i class="material-icons">', '</i>' ),
-				'next_text' => sprintf( 
+				'next_text' => sprintf(
 					/* translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag */
 					esc_html__( 'Next Posts', 'the-m-x' ) . '%1$s' . esc_html__( 'arrow_forward', 'the-m-x' ) . '%2$s', '<i class="material-icons">', '</i>' ),
 			) );

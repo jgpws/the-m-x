@@ -1,31 +1,21 @@
 .comment-navigation,
 .posts-navigation,
-.post-navigation,
-.images-navigation {
-
+.post-navigation {
 	.site-main & {
 		background-color: $primary-color-medium;
-		@include margin-two-values(0, -0.5em);
 		padding: 1em;
 		overflow: hidden;
-		width: 102%;
-		width: calc(100% + 1em);
+		width: 100%;
 	}
+}
 
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
-
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
-	}
+.nav-links,
+.images-navigation {
+	display: flex;
+	justify-content: space-around;
 
 	.nav-previous,
 	.nav-next {
-
 		a:link,
 		a:visited {
 			color: $primary-text-color;
@@ -46,21 +36,15 @@
 		/* setting a vertical-align makes the text line up with the icons */
 		vertical-align: bottom;
 	}
+}
 
+.comment-navigation .nav-links {
+	justify-content: space-between;
 }
 
 @media (min-width: 37.5em) {
 	.site-main .comment-navigation {
 		border-radius: 2px;
-	}
-}
-
-@media (min-width: 52.5em) { /* ~840px; */
-	.site-main .posts-navigation,
-	.site-main .post-navigation,
-	.site-main .images-navigation {
-		@include margin-two-values(0, -0.75em);
-		width: calc(100% + 1.5em);
 	}
 }
 

@@ -344,6 +344,26 @@ function the_mx_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'the_mx_sidebar_layout', array(
+			'default' => 'overlay',
+			'sanitize_callback' => 'the_mx_sanitize_sidebar_choices',
+		)
+	);
+
+	$wp_customize->add_control(
+		'the_mx_sidebar_layout', array(
+			'type' => 'radio',
+			'label' => esc_html__( 'Choose from three sidebar layouts.', 'the-m-x' ),
+			'section' => 'the_mx_layout_section',
+			'choices' => array(
+				'overlay' => esc_html__( 'Sliding Overlay (default)', 'the-m-x' ),
+				'right' => esc_html__( 'Right Sidebar', 'the-m-x' ),
+				'left' => esc_html__( 'Left Sidebar', 'the-m-x' ),
+			),
+		)
+	);
+
+	$wp_customize->add_setting(
 		'the_mx_contentlength_choices', array(
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
@@ -857,16 +877,16 @@ function the_mx_sanitize_layout_choices( $input ) {
 	return $input;
 }
 
-function the_mx_sanitize_contentlength_choices( $input ) {
-	if( !in_array( $input, array( 'full', 'excerpt' ) ) ) {
-		$input = 'full';
+function the_mx_sanitize_sidebar_choices( $input ) {
+	if( !in_array( $input, array( 'overlay', 'right', 'left' ) ) ) {
+		$input = 'overlay';
 	}
 	return $input;
 }
 
-function the_mx_sanitize_linkto_choices( $input ) {
-	if( !in_array( $input, array( 'attachment', 'file' ) ) ) {
-		$input = 'attachment';
+function the_mx_sanitize_contentlength_choices( $input ) {
+	if( !in_array( $input, array( 'full', 'excerpt' ) ) ) {
+		$input = 'full';
 	}
 	return $input;
 }

@@ -18,6 +18,9 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
       'meta_links_hover_color' => '',
     )
   );
+  $color_outline_button = the_mx_hex_to_rgb( get_theme_mod( 'the_mx_primary_1' ) );
+  $color_outline_button_bg_hover = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.04 )', $color_outline_button );
+  $color_outline_button_bg_focus = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.12 )', $color_outline_button );
 
   $css = <<<CSS
 
@@ -56,7 +59,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   input[type="button"],
   input[type="reset"],
   input[type="submit"],
-  .wp-block-button .wp-block-button__link {
+  .wp-block-button__link {
     background-color: {$colors['accent_1']};
   }
 
@@ -77,7 +80,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   input[type="color"],
   textarea,
   select,
-  #header-button-panel .search-field,
+  .header-button-panel .search-field,
   .animate .isActive {
     border-bottom-color: {$colors['accent_1']};
   }
@@ -86,7 +89,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover,
-  .wp-block-button .wp-block-button__link:hover {
+  .wp-block-button__link:hover {
     background-color: {$colors['accent_2']};
   }
 
@@ -98,8 +101,8 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   input[type="reset"]:focus,
   input[type="submit"]:active,
   input[type="submit"]:focus,
-  .wp-block-button .wp-block-button__link:active,
-  .wp-block-button .wp-block-button__link:focus {
+  .wp-block-button__link:active,
+  .wp-block-button__link:focus {
     background-color: {$colors['accent_2']};
   }
 
@@ -107,7 +110,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['primary_1']};
   }
 
-  .site-header #header-button-panel {
+  .site-header .header-button-panel {
     background-color: {$colors['primary_2']};
   }
 
@@ -130,7 +133,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     color: rgba(0, 0, 0, 0.87);
   }
 
-  #header-button-panel .searchform {
+  .header-button-panel .searchform {
     background-color: {$colors['primary_2']};
   }
 
@@ -278,6 +281,27 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['background_color']};
   }
 
+  .is-style-outline .wp-block-button__link {
+    color: {$colors['primary_3']};
+  }
+
+  .is-style-outline .wp-block-button__link:hover {
+    background-color: {$color_outline_button_bg_hover};
+  }
+
+  .is-style-outline .wp-block-button__link:active,
+  .is-style-outline .wp-block-button__link:focus {
+    background-color: {$color_outline_button_bg_focus};
+  }
+
+  .wp-block-calendar table caption {
+    background-color: {$colors['primary_1']};
+  }
+
+  .wp-block-calendar table th {
+    background-color: {$colors['background_color']};
+  }
+
   .widget li a:hover,
   .widget li a:focus {
     color: {$colors['accent_3']};
@@ -338,6 +362,10 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['primary_1']};
   }
 
+  .page-template-template-landing .site-header {
+    background-color: {$colors['primary_1']};
+  }
+
   .return-to-parent {
     background-color: {$colors['primary_4']};
   }
@@ -350,7 +378,8 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['primary_1']};
   }
 
-  .wp-block-image.alignfull {
+  .wp-block-image.alignfull,
+  .wp-block-image.alignwide {
     background-color: {$colors['primary_2']};
   }
 
@@ -385,7 +414,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   }
 
   @media screen and (min-width: 80em) {
-    .site-header #header-button-panel {
+    .site-header .header-button-panel {
       background-color: {$colors['primary_1']};
     }
   }
@@ -408,12 +437,16 @@ function the_mx_frontend_user_color_styles() {
   $color_meta_links_hover = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.7 )', $color_meta_links );
   $color_meta_links = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.54 )', $color_meta_links );
 
+  $color_outline_button = the_mx_hex_to_rgb( get_theme_mod( 'the_mx_primary_1' ) );
+  $color_outline_button_bg_hover = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.04 )', $color_outline_button );
+  $color_outline_button_bg_focus = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.12 )', $color_outline_button );
+
   $css = '
 
   /* User selected color scheme */
 
   body {
-    background-color: ' . esc_attr( $background_color ) . ';
+    background-color: #' . esc_attr( $background_color ) . ';
   }
 
   a:link {
@@ -445,7 +478,7 @@ function the_mx_frontend_user_color_styles() {
   input[type="button"],
   input[type="reset"],
   input[type="submit"],
-  .wp-block-button .wp-block-button__link {
+  .wp-block-button__link {
     background-color: ' . esc_attr( $accent_color_1 ) . ';
   }
 
@@ -466,7 +499,7 @@ function the_mx_frontend_user_color_styles() {
   input[type="color"],
   textarea,
   select,
-  #header-button-panel .search-field,
+  .header-button-panel .search-field,
   .animate .isActive {
     border-bottom-color: ' . esc_attr( $accent_color_1 ) . ';
   }
@@ -475,7 +508,7 @@ function the_mx_frontend_user_color_styles() {
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover,
-  .wp-block-button .wp-block-button__link:hover {
+  .wp-block-button__link:hover {
     background-color: ' . esc_attr( $accent_color_2 ) . ';
   }
 
@@ -487,8 +520,8 @@ function the_mx_frontend_user_color_styles() {
   input[type="reset"]:focus,
   input[type="submit"]:active,
   input[type="submit"]:focus,
-  .wp-block-button .wp-block-button__link:active,
-  .wp-block-button .wp-block-button__link:focus {
+  .wp-block-button__link:active,
+  .wp-block-button__link:focus {
     background-color: ' . esc_attr( $accent_color_2 ) . ';
   }
 
@@ -496,7 +529,7 @@ function the_mx_frontend_user_color_styles() {
     background-color: ' . esc_attr( $primary_color_1 ) . ';
   }
 
-  .site-header #header-button-panel {
+  .site-header .header-button-panel {
     background-color: ' . esc_attr( $primary_color_2 ) . ';
   }
 
@@ -644,6 +677,27 @@ function the_mx_frontend_user_color_styles() {
     background-color: ' . esc_attr( $background_color ) . ';
   }
 
+  .is-style-outline .wp-block-button__link {
+    color: ' . esc_attr( $primary_color_3 ) . ';
+  }
+
+  .is-style-outline .wp-block-button__link:hover {
+    background-color: ' . esc_attr( $color_outline_button_bg_hover ) . ';
+  }
+
+  .is-style-outline .wp-block-button__link:active,
+  .is-style-outline .wp-block-button__link:focus {
+    background-color: ' . esc_attr( $color_outline_button_bg_focus ) . ';
+  }
+
+  .wp-block-calendar table caption {
+    background-color: ' . esc_attr( $primary_color_1 ) . ';
+  }
+
+  .wp-block-calendar table th {
+    background-color: #' . esc_attr( $background_color ) . ';
+  }
+
   .widget li a:hover,
   .widget li a:focus {
     color: ' . esc_attr( $accent_color_3 ) . ';
@@ -704,6 +758,10 @@ function the_mx_frontend_user_color_styles() {
     background-color: ' . esc_attr( $primary_color_1 ) . ';
   }
 
+  .page-template-template-landing .site-header {
+    background-color: ' . esc_attr( $primary_color_1 ) . ';
+  }
+
   .return-to-parent {
     background-color: ' . esc_attr( $primary_color_4 ) . ';
   }
@@ -747,9 +805,11 @@ function the_mx_frontend_user_color_styles() {
   }
 
   @media screen and (min-width: 80em) {
-    .site-header #header-button-panel {
+    .site-header .header-button-panel {
       background-color: ' . esc_attr( $primary_color_1 ) . ';
     }
+
+
   }';
 
   return $css;

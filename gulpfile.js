@@ -3,6 +3,7 @@ require('es6-promise').polyfill();
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var newer = require('gulp-newer');
 var autoprefixer = require('gulp-autoprefixer');
 var jshint = require('gulp-jshint');
 var rtlcss = require('gulp-rtlcss');
@@ -25,8 +26,10 @@ var rename = require('gulp-rename');
 const { series } = require('gulp');
 const { parallel } = require('gulp');
 
-var supStyles = [	'./css/layouts/jgd-material-grid.css',
-						'./css/vendor/themify-icons.css' ];
+var layoutStyles = [	'./css/layouts/mx-grid.css',
+ 							'./css/layouts/content-sidebar-overlay.css',
+							'./css/layouts/content-sidebar.css',
+							'./css/layouts/sidebar-content.css'];
 var animStyles = [ 	'./css/vendor/animate.css',
 							'./css/vendor/ripple.css',
 							'./css/vendor/spinner.css' ];
@@ -50,7 +53,7 @@ var onError = function(err) {
 
 // Styles
 function style() {
-	return gulp.src('./sass/**/*.scss')
+	return gulp.src(['./sass/**/*.scss', '!./sass/layout/mx-grid.scss'])
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(sourcemaps.init())
 		.pipe(sass({
@@ -65,6 +68,21 @@ function style() {
 		.pipe(browserSync.stream());
 }
 
+function gridStyle() {
+	return gulp.src('./sass/layout/mx-grid.scss')
+		.pipe(plumber({ errorHandler: onError }))
+		.pipe(sourcemaps.init())
+		.pipe(sass({
+			indentType: 'tab',
+			indentWidth: 1,
+			outputStyle: 'expanded',
+		}))
+		.pipe(autoprefixer())
+		.pipe(sourcemaps.write('../../maps'))
+		.pipe(gulp.dest('./css/layouts/'))
+		.pipe(browserSync.stream());
+}
+
 function minifyStyle(done) {
 	return gulp.src('./style.css')
 		.pipe(cleanCSS())
@@ -76,9 +94,9 @@ function minifyStyle(done) {
 	done();
 }
 
-function concatenateCSS() {
-	return gulp.src(supStyles)
-		.pipe(concatCSS('supporting-styles.min.css'))
+function concatLayoutCSS() {
+	return gulp.src(layoutStyles)
+		.pipe(concatCSS('layout-styles.min.css'))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest('./css/minfiles'))
 		.pipe(browserSync.stream());
@@ -91,8 +109,13 @@ function concatAnimCSS() {
 		.pipe(gulp.dest('./css/minfiles'));
 }
 
-function reloadCSSDir() {
-	return gulp.src('./css/**/*.css', '!./css/vendor/*.css')
+function reloadLayoutDir() {
+	return gulp.src(layoutStyles)
+		.pipe(browserSync.stream());
+}
+
+function reloadAnimDir() {
+	return gulp.src(animStyles)
 		.pipe(browserSync.stream());
 }
 
@@ -138,12 +161,14 @@ function watch() {
 		proxy: 'http://localhost/wordpress/'
 	});
 	gulp.watch('./sass/**/*.scss', style);
+	gulp.watch('./sass/layout/mx-grid.scss', gridStyle);
 	//gulp.watch('./js/source/*.js', jsHint);
 	gulp.watch(jsFiles, scripts);
 	gulp.watch(jsSepFiles, minifyJS);
 	gulp.watch('./style.css', minifyStyle);
-	gulp.watch(supStyles, concatenateCSS);
-	gulp.watch('./css/**/*.css', reloadCSSDir);
+	gulp.watch(layoutStyles, concatLayoutCSS);
+	gulp.watch(layoutStyles, reloadLayoutDir);
+	gulp.watch(animStyles, reloadAnimDir);
 	gulp.watch('./**/*.php').on('change', reloadBrowser);
 	gulp.watch('./js/**/*.js').on('change', reloadBrowser);
 }
@@ -254,11 +279,12 @@ function cleanAfterZip() {
 	]);
 }
 
-exports.default = series(style, concatenateCSS, minifyStyle, scripts, minifyJS, watch);
+exports.default = series(style, gridStyle, concatLayoutCSS, minifyStyle, scripts, minifyJS, watch);
 exports.style = style;
+exports.gridStyle = gridStyle;
 exports.rtl = rtl;
 exports.minifyStyle = minifyStyle;
-exports.concatenateCSS = concatenateCSS;
+exports.concatLayoutCSS = concatLayoutCSS;
 exports.concatAnimCSS = concatAnimCSS;
 exports.scripts = scripts;
 exports.minifyJS = minifyJS;

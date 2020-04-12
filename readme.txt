@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3 April 11 2020 =
+Major update introducing left and right fixed sidebar options. Plus, further block editor integrations, including gradient support and button outline styling.
+
 = 1.2.5 April 2 2020 =
 Updated backend editor styling file (gutenberg-editor-styles.css); backend CSS wasn't displaying correctly. Added overlay gradient to the hero image for the transparent nav menu.
 

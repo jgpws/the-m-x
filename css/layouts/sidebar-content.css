@@ -1,25 +1,86 @@
-/*
- * Theme Name: The M.X.
- *
- * Layout: Sidebar-Content
- *
- * Learn more: https://developer.wordpress.org/themes/basics/template-files/
-*/
+.sidebar-left .widget-area {
+  border-radius: 2px;
+  margin: 1em;
+  z-index: 0;
+}
 
-.content-area {
-	float: right;
-	margin: 0 0 0 -25%;
-	width: 100%;
+@media (min-width: 48em) {
+  .sidebar-left .widget-area {
+  	flex-direction: row;
+  	flex-wrap: wrap;
+  }
+
+  .sidebar-left .widget {
+    width: calc(50% - 2em);
+  }
+
+  .sidebar-left .widget_calendar {
+    margin: 0 1em;
+    overflow: hidden;
+  }
+
+  .sidebar-left.two-by-two .site-main {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
 }
-.site-main {
-	margin: 0 0 0 25%;
-}
-.site-content .widget-area {
-	float: left;
-	overflow: hidden;
-	width: 25%;
-}
-.site-footer {
-	clear: both;
-	width: 100%;
+
+@media (min-width: 80em) {
+  .sidebar-left .widget-area {
+    border-radius: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0 2em 0 0;
+  }
+
+  .sidebar-left.centered .site-content {
+    grid-template-columns: 1fr 25% 50% 1fr;
+  }
+
+  .sidebar-left.wide .site-content,
+  .sidebar-left.two-by-two .site-content {
+    grid-template-columns: 1fr 25% 62.5% 1fr;
+  }
+
+  .sidebar-left.page-template-template-landing .site-content {
+    grid-template-columns: minmax(20em, 100%);
+  }
+
+  .sidebar-left .content-area {
+    grid-column: 3 / 4;
+  }
+
+  .sidebar-left .widget-area {
+    grid-column: 2 / 3;
+    grid-row-start: 1;
+  }
+
+  .sidebar-left.page-template-template-landing .content-area {
+    grid-column: 1 / 4;
+  }
+
+  .sidebar-left .three-fourths-centered-r,
+  .sidebar-left .jgd-column-1,
+  .sidebar-left.two-by-two .site-main {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .sidebar-left.two-by-two .three-fourths-centered-r {
+    max-width: none;
+  }
+
+  .sidebar-left.page-template-template-landing .three-fourths-centered-r {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+  }
+
+  .sidebar-left.page-template-template-landing .jgd-column-1 {
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    width: 75%;
+  }
 }

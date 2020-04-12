@@ -6,21 +6,21 @@
 	margin: 1em auto;
 	position: relative;
 	width: 240px;
-	
+
 	&:hover {
 		box-shadow: $box-shadow-large;
 	}
-	
+
 	.page-template-template-image-grid & {
 		@include no-card-style;
 	}
-	
+
 	.entry-header {
 		position: absolute;
 		bottom: 0;
 		z-index: 100;
 	}
-	
+
 	.entry-title,
 	.entry-title-imagegrid {
 		@include font-size(1);
@@ -29,27 +29,27 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		width: 200px;
-		
+
 		a:link,
 		a:visited {
 			color: $primary-text-color;
 		}
-		
+
 		a:hover,
 		a:focus {
 			color: $black;
 		}
 
 	}
-	
+
 	.entry-content {
 		padding: 0px;
 	}
-	
+
 	.featured-image {
 		background-color: transparent;
 	}
-	
+
 	.scrim {
 		background-color: $primary-text-color-medium-white;
 		background-image: none;
@@ -58,21 +58,21 @@
 		position: absolute;
 		width: 100%;
 	}
-	
+
 	.size-gallery-thumb {
 		max-height: 300px;
 		width: auto;
 	}
 }
 
-.blog.imagegrid main.jgd-grid-wrap,
-.archive.imagegrid main.jgd-grid-wrap {
+.blog.imagegrid .site-main,
+.archive.imagegrid .site-main {
 	flex-direction: column;
 }
 
 @media screen and (min-width: 37.5em) {
-	.blog.imagegrid main.jgd-grid-wrap,
-	.archive.imagegrid main.jgd-grid-wrap {
+	.blog.imagegrid .site-main,
+	.archive.imagegrid .site-main {
 		flex-direction: row;
 		justify-content: center;
 	}
@@ -88,7 +88,7 @@
 	.tile {
 		width: 300px;
 	}
-	
+
 	.page-template-page_image-grid .more-link {
 		@include margin-two-values(0px, 12.5%);
 	}
@@ -97,13 +97,13 @@
 @media screen and (min-width: 80em) {
 	.tile {
 		margin: 1.5em;
-		
+
 		.entry-title,
 		.entry-title-imagegrid {
 			width: 240px;
 		}
 	}
-	
+
 	.page-template-template-image-grid .more-link {
 		margin: 0px 25% 0.5em;
 	}

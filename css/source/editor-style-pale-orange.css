@@ -1,0 +1,60 @@
+a {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+a:focus {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.wp-block-quote.is-style-default,
+.wp-block-quote.is-style-large,
+.wp-block-freeform.block-library-rich-text__tinymce blockquote,
+.wp-block-pullquote {
+  border-color: #ffe0b2;
+}
+
+.wp-block-button__link {
+  background-color: #009688;
+}
+
+.wp-block-button__link:hover {
+  background-color: #00796b;
+}
+
+.is-style-outline .wp-block-button__link {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.is-style-outline .wp-block-button__link:hover {
+  background-color: rgba(255, 224, 178, 0.04);
+}
+
+.is-style-outline .wp-block-button__link:active,
+.is-style-outline .wp-block-button__link:focus {
+  background-color: rgba(255, 224, 178, 0.12);
+}
+
+.wp-block-button__link.has-primary-1-translucent-gradient-background:hover {
+  background: linear-gradient(180deg, rgba( 255, 224, 178, 0.0 ) 0%, rgba( 255, 183, 77, 0.04 ) 100%) !important;
+}
+
+.wp-block-button__link.has-primary-1-translucent-gradient-background:focus {
+	background: linear-gradient(180deg, rgba( 255, 224, 178, 0.0 ) 0%, rgba( 255, 183, 77, 0.12 ) 100%) !important;
+}
+
+.wp-block-button__link.has-accent-1-translucent-gradient-background:hover {
+  background: linear-gradient(180deg, rgba( 0, 150, 136, 0.0 ) 0%, rgba( 0, 121, 107, 0.04 ) 100%) !important;
+}
+
+.wp-block-button__link.has-accent-1-translucent-gradient-background:focus {
+  background: linear-gradient(180deg, rgba( 0, 150, 136, 0.0 ) 0%, rgba( 0, 121, 107, 0.12 ) 100%) !important;
+}
+
+.wp-block-calendar table caption {
+  background-color: #ffe0b2;
+  color: #000000;
+}
+
+.wp-block-calendar table th {
+  background-color: #fff3e0;
+}

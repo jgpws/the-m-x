@@ -53,6 +53,7 @@ function the_mx_reverse_primary_4_css() {
 		$reverse_text_color_css = <<<CSS
 
 		/* Reversed to white text color */
+
 		.comment-navigation .nav-previous a:link,
 		.comment-navigation .nav-previous a:visited,
 		.comment-navigation .nav-next a:link,
@@ -264,8 +265,20 @@ function the_mx_reverse_primary_4_css() {
 			color: rgba(255, 255, 255, 0.87);
 		}
 
-		.page-template-template-landing {
+		.wp-block-calendar table tbody {
 			color: rgba(255, 255, 255, 0.87);
+		}
+
+		.page-template-template-landing,
+		.page-template-template-landing .type-page a:link,
+		.page-template-template-landing .type-page a:visited,
+		.page-template-template-landing .is-style-outline .wp-block-button__link {
+			color: rgba(255, 255, 255, 0.87);
+		}
+
+		.page-template-template-landing .type-page a:hover,
+		.page-template-template-landing .type-page a:focus {
+			color: #ffffff;
 		}
 CSS;
 
@@ -367,20 +380,20 @@ function the_mx_reverse_supporting_color_css() {
 			color: #000000;
 		}
 
-		#header-button-panel #menu-social ul li a:link,
-		#header-button-panel #menu-social ul li a:visited {
+		.header-button-panel #menu-social ul li a:link,
+		.header-button-panel #menu-social ul li a:visited {
 			color: rgba(0, 0, 0, 0.7);
 		}
 
-		#header-button-panel #menu-social ul li a:hover {
+		.header-button-panel #menu-social ul li a:hover {
 			color: #000000;
 		}
 
-		#header-button-panel input.search-field::-moz-placeholder {
+		.header-button-panel input.search-field::-moz-placeholder {
 			color: rgba(0, 0, 0, 0.4);
 		}
 
-		#header-button-panel .search-field {
+		.header-button-panel .search-field {
 			color: rgba(0, 0, 0, 0.87);
 		}
 
@@ -393,22 +406,22 @@ function the_mx_reverse_supporting_color_css() {
 		.site-header .main-navigation ul li a:focus {
 			color: rgba(0, 0, 0, 0.87);
 		}
-		
+
 		#custom-header + .main-navigation a:link,
 		#custom-header + .main-navigation a:visited {
 			color: rgba(255, 255, 255, 0.7);
 		}
-		
+
 		#custom-header + .main-navigation .sub-menu a:link,
 		#custom-header + .main-navigation .sub-menu a:visited {
 			color: rgba(0, 0, 0, 0.7);
 		}
-		
+
 		#custom-header + .main-navigation a:hover,
 		#custom-header + .main-navigation a:focus {
 			color: rgba(255, 255, 255, 0.87);
 		}
-		
+
 		#custom-header + .main-navigation .sub-menu a:hover,
 		#custom-header + .main-navigation .sub-menu a:focus {
 			color: rgba(0, 0, 0, 0.87);
@@ -417,7 +430,7 @@ function the_mx_reverse_supporting_color_css() {
 		.site-header .main-navigation .menu-down-arrow {
 			color: #000000;
 		}
-		
+
 		#custom-header + .main-navigation .menu-down-arrow {
 			color: #ffffff;
 		}
@@ -492,8 +505,21 @@ function the_mx_reverse_supporting_color_css() {
 			color: rgba(0, 0, 0, 0.87) !important;
 		}
 
+		.wp-block-calendar table caption {
+			color: #000000;
+		}
+
+		.is-style-outline .wp-block-button__link {
+			color: rgba(0, 0, 0, 0.54);
+		}
+
 		.single.slider .gallery-caption {
 			color: rgba(0, 0, 0, 0.87);
+		}
+
+		.landing-to-parent a:link,
+		.landing-to-parent a:visited {
+			color: rgba(0, 0, 0, 0.54);
 		}
 
 		.site-footer {

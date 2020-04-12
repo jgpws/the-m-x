@@ -114,7 +114,8 @@ article.page:hover,
 }
 
 .search .featured-image,
-.search .jgd-column-1 .featured-image {
+.search .jgd-column-1 .featured-image,
+.search .two-by-two-centered-r .featured-image {
 	margin: 2em -1em 1em;
 }
 
@@ -153,10 +154,6 @@ article.page:hover,
 }
 
 .page-template-template-landing {
-	.site-header {
-		z-index: 100;
-	}
-
 	article.page {
 		@include no-card-style;
 	}
@@ -167,7 +164,8 @@ article.page:hover,
 		text-align: left;
 	}
 
-	.search .jgd-column-1 .featured-image {
+	.search .jgd-column-1 .featured-image,
+	.search .two-by-two-centered-r .featured-image {
 		background-color: transparent;
 		@include margin-four-values(2em, 0, 1em, -1em);
 	}
@@ -177,6 +175,8 @@ article.page:hover,
 	}
 
 	.search .featured-image,
+	.search .jgd-column-1 .featured-image,
+	.search .two-by-two-centered-r .featured-image,
 	.search .featured-image + .entry-summary {
 		display: inline-block;
 		max-height: 300px;
@@ -190,11 +190,14 @@ article.page:hover,
 }
 
 @media (min-width: 80em) {
-	.search .featured-image {
+	.search .featured-image,
+	.search .jgd-column-1 .featured-image,
+	.search .two-by-two-centered-r .featured-image {
 		width: 33%;
 	}
 
-	.search .jgd-column-1 .featured-image {
+	.search .jgd-column-1 .featured-image,
+	.search .two-by-two-centered-r .featured-image {
 		@include margin-four-values(2em, 0, 1em, -1.5em);
 	}
 
@@ -380,6 +383,34 @@ article.page:hover,
 }
 
 /* Gutenberg compatibility */
+
+.is-style-outline {
+	.wp-block-button__link {
+		background-color: transparent;
+		box-shadow: none;
+		border: 1px solid $silver;
+		color: $primary-color;
+
+		&:hover {
+			background-color: $primary-color-4-pcnt-opacity;
+		}
+
+		&:active,
+		&:focus {
+			background-color: $primary-color-12-pcnt-opacity;
+		}
+	}
+}
+
+.wp-block-button.is-style-fill.material-ripple .wp-block-button__link {
+	margin-bottom: 3px; /* Adds margin to the bottom of filled button to counter overflow:hidden in .material-ripple class */
+}
+
+.wp-block-buttons {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
 .wp-block-quote.is-style-large {
 	font-weight: $font__weight-normal;
 	font-size: 1.5rem;
@@ -470,7 +501,8 @@ article.page:hover,
 	background-color: $primary-color-darker;
 }
 
-.wp-block-image.alignfull img {
+.wp-block-image.alignfull img,
+.wp-block-image.alignwide img {
 	@include center-block;
 }
 
@@ -478,6 +510,48 @@ article.page:hover,
 	.wp-block-separator.is-style-wide {
 		margin: 1.5em 4em !important;
 		max-width: calc(100% + 4em) !important;
+	}
+}
+
+.wp-block-calendar {
+	margin-bottom: 1em;
+
+	table {
+		margin-bottom: 0;
+	}
+
+	table caption {
+		background-color: $primary-color;
+		color: $white;
+		@include font-size(2);
+	}
+
+	table tbody {
+		color: $primary-text-color;
+	}
+
+	td a {
+		background-color: $primary-color;
+		color: $white;
+		border-radius: 50%;
+		display: inline-table;
+		height: 1.5em;
+		width: 1.5em;
+	}
+
+	table th {
+		background-color: $primary-color-pale;
+	}
+
+	th,
+	tbody td {
+		border: transparent;
+	}
+
+	.wp-calendar-nav {
+		display: flex;
+		justify-content: space-between;
+		padding: 0.5em;
 	}
 }
 
@@ -489,9 +563,12 @@ article.page:hover,
 	@include margin-two-values(1em, -2em);
 }
 
-@media (min-width: 45em) {
-	.page-template-template-landing {
+@media (min-width: 48em) {
+	.alignfull {
+		@include margin-two-values(1em, -1.5em);
+	}
 
+	.page-template-template-landing {
 		.alignwide {
 			@include margin-two-values(1em, calc(25% - 25vw));
 		}
@@ -499,13 +576,6 @@ article.page:hover,
 		.alignfull {
 			@include margin-two-values(1em, calc(52.5% - 52.5vw));
 		}
-
-	}
-}
-
-@media (min-width: 52.5em) {
-	.jgd-column-1 .alignfull {
-		@include margin-two-values(1em, -1.5em);
 	}
 
 	.page-template-template-landing .jgd-column-1 .alignfull {
@@ -547,7 +617,6 @@ article.attachment {
 }
 
 .entry-attachment-image {
-
 	p {
 		margin-top: 0;
 	}
@@ -555,13 +624,13 @@ article.attachment {
 	.wp-caption-text {
 		padding-bottom: 1rem;
 	}
-
 }
 
 .return-to-parent {
 	background-color: $primary-color-medium;
 	padding: 1rem;
 	text-align: center;
+	width: 100%;
 
 	a:link,
 	a:visited {
@@ -590,12 +659,18 @@ article.attachment {
 
 /* Fixes for Colorbox popups; only use with attachment.* class prepended!
 .colorbox class only displays when Colorbox is enabled in the Customizer- get_theme_mod('the_mx_enable_colorbox') */
+body.attachment.colorbox .entry-content {
+	padding-top: 0;
+}
+
 body.attachment.colorbox .entry-attachment-image {
 	@include margin-two-values(0, -0.5em);
 }
 
 body.attachment.colorbox .entry-attachment-image p {
 	background-color: $primary-color-pale;
+	margin-left: -15.5%;
+	margin-right: -15.5%;
 }
 
 body.attachment.custom-background.colorbox {

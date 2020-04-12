@@ -1,5 +1,52 @@
 .site-header {
 	box-shadow: $box-shadow-large;
+	position: relative;
+}
+
+.site-header .header-button-panel {
+	height: 4rem;
+	/* Other flexbox properties are provided by .jgd-grid-wrap inside jgd-material-grid.css file */
+	justify-content: flex-end;
+	@include padding-four-values(0.5em, 0.5em, 0.5em, 4.5rem);
+	background-color: $primary-color-dark;
+}
+
+.page-template-template-landing {
+	.site-header {
+		background-color: $primary-color;
+		z-index: 100;
+
+		.site-branding,
+		.header-button-panel {
+			background-color: transparent;
+			flex-basis: 50%;
+			height: 4rem;
+		}
+
+		.site-branding {
+			order: 1;
+		}
+
+		.header-button-panel {
+			order: 2;
+
+			.menu-social-container {
+				margin: 0;
+				position: static;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 80em) {
+	.site-header .header-button-panel {
+		background-color: $primary-color;
+		height: auto;
+	}
+}
+
+.site-branding {
+	background-color: $primary-color;
 }
 
 .site-branding {
@@ -55,12 +102,10 @@
 
 @media ( min-width: 80em ) {
 	.custom-logo-link {
-
 		img {
 			margin: 0 0 0 -0.75em; /* negative left margin accounts for padding from the .jgd-grid class */
 			max-width: 400px; /* Fixes flexbox shrinkage of child images */
 		}
-
 	}
 
 	.wp-custom-logo .site-branding {
@@ -73,7 +118,7 @@
 }
 
 /* Social media icons */
-#header-button-panel .menu-social-container {
+.header-button-panel .menu-social-container {
 	background-color: $white;
 	box-shadow: $box-shadow-large;
 	position: absolute;
@@ -98,7 +143,7 @@
 }
 
 @media screen and (min-width: 37.5em) {
-	#header-button-panel .menu-social-container {
+	.header-button-panel .menu-social-container {
 		width: 75%;
 
 		&.toggled {
@@ -109,8 +154,7 @@
 }
 
 @media screen and (min-width: 48em) {
-	#header-button-panel {
-
+	.header-button-panel {
 		.menu-social-container {
 			@include no-card-style;
 			position: static;
@@ -126,19 +170,20 @@
 			padding: 0px;
 		}
 
-		#menu-social ul li a {
+		#menu-social ul li a:link,
+		#menu-social ul li a:visited {
 			color: $primary-text-color-white;
 
 			&:hover {
 				color: $white;
 			}
-
 		}
 	}
 }
 
 @media screen and (min-width: 80em) {
-	#header-button-panel {
+	.header-button-panel {
+		height: auto;
 
 		.menu-social-container {
 			margin-top: 0.5em;
@@ -146,7 +191,6 @@
 			right: 25%;
 			top: 0px;
 		}
-
 	}
 }
 

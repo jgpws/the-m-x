@@ -6,22 +6,24 @@
  * Learn more: https://developer.wordpress.org/themes/basics/template-files/
 */
 
-.content-area {
+.sidebar-overlay .content-area {
 	min-height: 52.5em;
 	width: 100%;
 }
-.site-content .widget-area {
+.sidebar-overlay .site-content .widget-area {
 	overflow: auto;
 	width: 73%;
 	width: calc(75% - 1em);
 	position: absolute;
 	top: 0;
 	right: 0;
+	padding-top: 4.5em;
+	z-index: 100;
 }
 
-.widget-area .scrim {
-	background: linear-gradient(0deg, 
-		rgba(255,255,255,1) 0%,  
+.sidebar-overlay .widget-area .scrim {
+	background: linear-gradient(0deg,
+		rgba(255,255,255,1) 0%,
 		rgba(255,255,255,0) 100%);
 	bottom: 2.5em;
 	display: block;
@@ -29,20 +31,20 @@
 	width: 100%;
 }
 
-.site-footer {
+.sidebar-overlay .site-footer {
 	clear: both;
 	width: 100%;
 }
 
 @media (min-width: 37.5em) { /* ~600px */
-	.site-content .widget-area {
+	.sidebar-overlay .site-content .widget-area {
 		width: 31.33%;
 		width: calc(33.33% - 1em);
 	}
 }
 
 @media (min-width: 80em) { /* ~1280px */
-	.site-content .widget-area {
+	.sidebar-overlay .site-content .widget-area {
 		width: 23%;
 		width: calc(25% - 1em);
 	}
