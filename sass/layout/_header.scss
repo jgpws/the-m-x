@@ -1,6 +1,11 @@
 .site-header {
 	box-shadow: $box-shadow-large;
 	position: relative;
+	
+	.sidebar-right &,
+	.sidebar-left & {
+		z-index: 10;
+	}
 }
 
 .site-header .header-button-panel {

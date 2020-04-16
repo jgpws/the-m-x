@@ -1,11 +1,11 @@
 === The M.X. ===
 
 Contributors: jgpws
-Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
+Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, left-sidebar, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.1.1
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -16,7 +16,7 @@ The M.X. is distributed under the terms of the GNU GPL.
 
 == Description ==
 
-The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for Gutenberg, with full width post images and editor color palette.
+The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
 
 == Frequently Asked Questions ==
 
@@ -25,6 +25,9 @@ The M.X. stands for The Modern Experience. Give your content a trendy new style 
 The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
+
+= 1.3.1 April 15 2020 =
+Fix to update Image Grid CSS for posts and page templates. Removed now unused jgd-material-grid.css file.
 
 = 1.3 April 11 2020 =
 Major update introducing left and right fixed sidebar options. Plus, further block editor integrations, including gradient support and button outline styling.

@@ -41,15 +41,15 @@
 	<?php
 	// Begin parameters and display of category posts
 	$imagegrid_postcount = the_mx_imagegrid_postnum_switcher();
-	
+
 	$args = array(
 		'cat' => intval( get_theme_mod( 'the_mx_cat_dropdown_1', 0 ) ),
 		'posts_per_page' => $imagegrid_postcount,
 	);
-	
-	$cat_query1 = new WP_Query( $args ); 
+
+	$cat_query1 = new WP_Query( $args );
 	if( $cat_query1->have_posts() ) : ?>
-		<div class="imagegrid-wrap jgd-grid-wrap"><?php
+		<div class="imagegrid-wrap"><?php
 		while( $cat_query1->have_posts() ) : $cat_query1->the_post(); ?>
 		<div id="post-<?php the_ID(); ?>" class="tile">
 			<header class="entry-header">
@@ -67,13 +67,13 @@
 				} ?>
 			</div>
 		</div>
-	<?php 
+	<?php
 		endwhile; ?>
 		</div><?php
 		$morebutton = get_theme_mod( 'the_mx_add_showmore_button', 0 );
 		$the_m_x_cat_id = intval( get_theme_mod( 'the_mx_cat_dropdown_1' ) );
 		$the_m_x_cat_link = get_category_link( $the_m_x_cat_id );
-		
+
 		if( $morebutton == 1 ) { ?>
 		<a href="<?php echo esc_url( $the_m_x_cat_link ); ?>" class="more-link"><?php the_mx_showmore_title_render(); ?></a>
 		<?php }
