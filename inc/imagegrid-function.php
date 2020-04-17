@@ -4,7 +4,7 @@
  * Secondary functions for the Image Grid page template.
  * posts only show Featured Images and titles
  */
- 
+
 function the_mx_imagegrid() {
 	if( is_single() ) { ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -16,29 +16,29 @@ function the_mx_imagegrid() {
 		<header class="entry-header">
 			<?php if( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
-				
+
 				if( ! has_post_format( 'gallery' ) ) { // Gallery post format is not active on single post only
 					if( has_post_thumbnail() ) { ?>
 					<div class="featured-image">
-						<?php the_post_thumbnail( 'large' ); ?>
+						<?php the_post_thumbnail( 'full' ); ?>
 					</div>
 					<?php
 					}
 				}
-				
+
 				if ( 'post' === get_post_type() ) { ?>
 				<div class="entry-meta">
 					<?php the_mx_posted_on(); ?>
 				</div><!-- .entry-meta -->
-				<?php 
+				<?php
 				}
-				
+
 			} else {
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			} ?>
 		</header>
 		<div class="entry-content">
-			<?php 
+			<?php
 			if( !is_single() ) {
 				// show post thumbnail in content on all pages except single
 				if( has_post_thumbnail() ) { ?>
@@ -55,7 +55,7 @@ function the_mx_imagegrid() {
 					__( 'Continue reading %s...', 'the-m-x' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
-	
+
 				wp_link_pages( array(
 					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-m-x' ),
 					'after'  => '</div>',

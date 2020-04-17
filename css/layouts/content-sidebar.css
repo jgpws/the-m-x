@@ -39,7 +39,8 @@
   }
 
   .sidebar-right.wide .site-content,
-  .sidebar-right.two-by-two .site-content {
+  .sidebar-right.two-by-two .site-content,
+  .sidebar-right.imagegrid .site-content {
     grid-template-columns: 1fr 62.5% 25% 1fr;
   }
 
@@ -49,7 +50,8 @@
 
   .sidebar-right .three-fourths-centered-r,
   .sidebar-right .jgd-column-1,
-  .sidebar-right.two-by-two .site-main {
+  .sidebar-right.two-by-two .site-main,
+  .sidebar-right.imagegrid .site-main {
     margin-left: 0;
     margin-right: 0;
     width: 100%;

@@ -3,7 +3,7 @@
  */
 ( function ( $ ) {
 	wp.customize.bind( 'ready', function() {
-		
+
 		function hideShowCustomMoreTitle() {
 			var imgGridMoreLink = $( '#customize-control-the_mx_customize_showmore_title' );
 

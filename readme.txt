@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.2 April 17 2020 =
+Updated CSS for the Image Grid layout to work with the new sidebar options.
+
 = 1.3.1 April 15 2020 =
 Fix to update Image Grid CSS for posts and page templates. Removed now unused jgd-material-grid.css file.
 

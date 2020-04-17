@@ -433,7 +433,7 @@ function the_mx_frontend_user_color_styles() {
   $accent_color_2 = get_theme_mod( 'the_mx_accent_2' );
   $accent_color_3 = get_theme_mod( 'the_mx_accent_3' );
 
-  $color_meta_links = the_mx_hex_to_rgb( get_theme_mod( 'the_mx_primary_4' ) );
+  $color_meta_links = the_mx_hex_to_rgb( get_theme_mod( 'the_mx_primary_3' ) );
   $color_meta_links_hover = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.7 )', $color_meta_links );
   $color_meta_links = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.54 )', $color_meta_links );
 
