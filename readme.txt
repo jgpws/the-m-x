@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.3 April 21 2020 =
+Added defaults for some Customizer settings on the frontend.
+
 = 1.3.2 April 17 2020 =
 Updated CSS for the Image Grid layout to work with the new sidebar options.
 

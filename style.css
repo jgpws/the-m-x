@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
-Version: 1.3.2
+Version: 1.3.3
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
@@ -2779,7 +2779,8 @@ iframe.twitter-tweet {
 		display: -webkit-box;
 		display: flex;
 		flex-wrap: wrap;
-		justify-items: center;
+		-webkit-box-pack: center;
+		        justify-content: center;
 	}
 	.site-footer .widget {
 		margin: 0px auto;
