@@ -64,6 +64,7 @@
 	.archive .format-image:not(.has-post-thumbnail) img {
 		@include center-block;
 		max-width: 800px;
+		width: 100%;
 	}
 
 	.wp-audio-shortcode {

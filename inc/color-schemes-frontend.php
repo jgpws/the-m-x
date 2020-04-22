@@ -769,6 +769,10 @@ function the_mx_frontend_user_color_styles() {
   body.attachment.colorbox .entry-attachment-image p {
     background-color: #' . esc_attr( $background_color ) . ';
   }
+  
+  #infinite-handle span {
+    background-color: ' . esc_attr( $primary_color_1 ) . ';
+  }
 
   .wp-block-image.alignfull {
     background-color: ' . esc_attr( $primary_color_2 ) . ';
