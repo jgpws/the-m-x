@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
-Version: 1.3.2
+Version: 1.3.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
@@ -2779,7 +2779,8 @@ iframe.twitter-tweet {
 		display: -webkit-box;
 		display: flex;
 		flex-wrap: wrap;
-		justify-items: center;
+		-webkit-box-pack: center;
+		        justify-content: center;
 	}
 	.site-footer .widget {
 		margin: 0px auto;
@@ -3282,7 +3283,7 @@ img.wp-post-image {
 .single.slider .slider-button-panel {
 	margin-right: -1em;
 	margin-left: -1em;
-	max-width: calc(100% + 2em) !important;
+	max-width: calc(100% + 2em);
 }
 
 .single.slider .gallery-item {
@@ -3348,11 +3349,9 @@ img.wp-post-image {
 	}
 }
 
-@media screen and (min-width: 52.5em) {
-	.single.slider .jgd-column-1 .gallery,
-	.single.slider .two-by-two-centered-r .gallery,
-	.single.slider .jgd-column-1 .slider-button-panel,
-	.single.slider .two-by-two-centered-r .slider-button-panel {
+@media screen and (min-width: 48em) {
+	.single.slider .gallery,
+	.single.slider .slider-button-panel {
 		margin-right: -1.5em;
 		margin-left: -1.5em;
 		max-width: calc(100% + 3em);
@@ -3652,13 +3651,18 @@ article.page.three-fourths-centered-r,
 }
 
 .three-fourths-centered-r.post,
-.three-fourths-centered-r.page {
+.three-fourths-centered-r.page,
+.error-404.not-found {
 	max-width: 80em;
 }
 
 .page.imagegrid .three-fourths-centered-r.page,
 .single.imagegrid .three-fourths-centered-r.post {
 	max-width: none;
+}
+
+.error-404.not-found {
+	margin: 0 auto;
 }
 
 .three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link),

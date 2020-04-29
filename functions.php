@@ -597,7 +597,7 @@ function the_mx_enqueue_scripts() {
 	$mx_colorbox = get_theme_mod( 'the_mx_enable_colorbox', 0 );
 
 	// Styles
-	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
+	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.css' );
 
 	// Add Gutenberg custom colors to the front end
 	wp_add_inline_style( 'the-mx-style', the_mx_gutenberg_colors() );

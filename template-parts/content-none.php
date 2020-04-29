@@ -9,7 +9,7 @@
 
 ?>
 
-<section class="no-results not-found jgd-grid">
+<section class="no-results not-found">
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'the-m-x' ); ?></h1>
 	</header><!-- .page-header -->
@@ -19,14 +19,14 @@
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
 			<?php
-				'<p>' . wp_kses( 
+				'<p>' . wp_kses(
 					sprintf(
 					/* translators: %1$s: Link to new post in WordPress, %2$s: closing </a> tag */
-					esc_html__( 'Ready to publish your first post?', 'the-m-x' ) . '%1$s' . esc_html__( 'Get started here', 'the-m-x' ) . '%2$s', '<a href="' . esc_url( admin_url( 'post-new.php' ) ) . '">', '</a>' ), 
-				array( 
-					'a' => array( 
-						'href' => array(), 
-					), 
+					esc_html__( 'Ready to publish your first post?', 'the-m-x' ) . '%1$s' . esc_html__( 'Get started here', 'the-m-x' ) . '%2$s', '<a href="' . esc_url( admin_url( 'post-new.php' ) ) . '">', '</a>' ),
+				array(
+					'a' => array(
+						'href' => array(),
+					),
 				)
 			) . '</p>';
 

@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.4 April 29 2020 =
+Fixed functionality for the search form. Added margins for 404 page.
+
 = 1.3.3 April 21 2020 =
 Added defaults for some Customizer settings on the frontend.
 

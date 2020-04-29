@@ -164,13 +164,20 @@ article.page.three-fourths-centered-r,
 }
 
 .three-fourths-centered-r.post,
-.three-fourths-centered-r.page {
+.three-fourths-centered-r.page,
+.error-404.not-found,
+.no-results.not-found {
   max-width: 80em;
 }
 
 .page.imagegrid .three-fourths-centered-r.page,
 .single.imagegrid .three-fourths-centered-r.post {
   max-width: none;
+}
+
+.error-404.not-found,
+.no-results.not-found {
+  margin: 0 auto;
 }
 
 .three-fourths-centered-r .entry-content,
