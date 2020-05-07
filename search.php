@@ -15,7 +15,7 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) : ?>
 
-			<header class="page-header column-1">
+			<header class="page-header jgd-column-1">
 				<h1 class="page-title">
 				<?php printf(
 				/* translators: %s: Search query results */
