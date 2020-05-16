@@ -3,36 +3,5 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .wp-block-button__link {
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-	border: 0;
-	border-radius: 2px;
-	background: $color__background-button;
-	color: $primary-text-color;
-	@include font-size(0.875);
-	font-weight: 500;
-	height: 2.25em;
-	line-height: 1;
-	@include padding-two-values(0, 1em);
-	text-transform: uppercase;
-
-	&:hover {
-		background: $accent-color-dark;
-	}
-
-	&:active,
-	&:focus {
-		background: $accent-color-dark;
-		outline-width: 0;
-	}
-}
-
-/* Gutenberg button block */
-.wp-block-button__link {
-	color: $primary-text-color;
-	@include padding-four-values(1em, 1em, 2em, 1em);
-}
-
-.wp-block-button__link:hover,
-.wp-block-button__link:focus {
-	color: $primary-text-color;
+	@include link-button-style;
 }

@@ -108,11 +108,11 @@
 .post.jgd-column-1,
 .post.three-fourths-centered-r,
 .post.two-by-two-centered-r,
+article.page.three-fourths-centered-r,
 article.page.jgd-column-1,
+article.page.two-by-two-centered-r,
 .single .post.jgd-column-1,
 .single .post.three-fourths-centered-r,
-article.page.jgd-column-1,
-article.page.three-fourths-centered-r,
 .comments-area.three-fourths-centered-r,
 .comments-area.jgd-column-1 {
 	margin-top: 1em;
@@ -209,7 +209,8 @@ article.page.three-fourths-centered-r,
 .three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link),
 .jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link),
 .three-fourths-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link),
-.jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link) {
+.jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link),
+.search .two-by-two-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link) {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -219,6 +220,7 @@ article.page.three-fourths-centered-r,
 	.three-fourths-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
+	.search .two-by-two-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.page-template-template-image-grid.two-by-two .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.page.imagegrid .three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.single.imagegrid .three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel) {
@@ -229,6 +231,7 @@ article.page.three-fourths-centered-r,
 @media screen and (min-width: 80em) {
 	.jgd-column-1 .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.jgd-column-1 .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
+	.search .two-by-two-centered-r .entry-summary > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.page-template-template-image-grid.two-by-two .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.page.imagegrid .three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),
 	.single.imagegrid .three-fourths-centered-r .entry-content > :not(.alignfull):not(.alignwide):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel),

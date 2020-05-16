@@ -6,8 +6,8 @@ Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.1.1
 Stable tag: 1.3
-License: GPLv3 or later
-License URI: https://www.gnu.org/licenses/gpl.html
+License: GPL-3.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
 == Copyright ==
 
@@ -25,6 +25,9 @@ The M.X. stands for The Modern Experience. Give your content a trendy new style 
 The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
+
+= 1.3.6 May 15 2020 =
+Fixed color overrides for Gutenberg generated colors. Added Skrollr compatibility to Gutenberg galleries.
 
 = 1.3.5 May 7 2020 =
 Fixed rendering issues for the layout in mobile sizes. Restored proper styling for search results page. Removed duplicate style rules.

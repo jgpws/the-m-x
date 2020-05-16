@@ -134,10 +134,12 @@ function scripts() {
 function minifyJS() {
 	return pipeline(
 		gulp.src(jsSepFiles),
+    sourcemaps.init(),
 		uglify(),
 		rename({
 			suffix: '.min'
 		}),
+    sourcemaps.write('../../maps'),
 		gulp.dest('./js/minfiles')
 	);
 }

@@ -63,6 +63,10 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['accent_1']};
   }
 
+  .wp-block-button__link {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
   input[type="text"],
   input[type="email"],
   input[type="url"],
@@ -478,7 +482,7 @@ function the_mx_frontend_user_color_styles() {
   input[type="button"],
   input[type="reset"],
   input[type="submit"],
-  .wp-block-button__link {
+  .wp-block-button__link:link {
     background-color: ' . esc_attr( $accent_color_1 ) . ';
   }
 
@@ -769,7 +773,7 @@ function the_mx_frontend_user_color_styles() {
   body.attachment.colorbox .entry-attachment-image p {
     background-color: #' . esc_attr( $background_color ) . ';
   }
-  
+
   #infinite-handle span {
     background-color: ' . esc_attr( $primary_color_1 ) . ';
   }

@@ -179,6 +179,10 @@ article.page:hover,
 		max-height: 300px;
 		vertical-align: top;
 		width: 50%;
+
+		img {
+			max-height: 300px;
+		}
 	}
 
 	.search .entry-summary {
@@ -187,7 +191,9 @@ article.page:hover,
 }
 
 @media screen and (min-width: 48em) {
-	.search .three-fourths-centered-r .featured-image {
+	.search .three-fourths-centered-r .featured-image,
+	.search .jgd-column-1 .featured-image,
+	.search .two-by-two-centered-r .featured-image {
 		@include margin-four-values(2em, -1em, 1em, -1.5em);
 	}
 }
@@ -211,21 +217,11 @@ article.page:hover,
 }
 
 .more-link {
+	@include link-button-style;
 	display: inline-block;
 	@include margin-four-values(0px, 0.5em, 0.5em, 0.5em);
+	@include padding-two-values(0.65em, 1em);
 	vertical-align: top;
-
-	&:link,
-	&:visited {
-		@include link-button-style;
-		padding: 0.5em;
-	}
-
-	&:hover,
-	&:focus {
-		background-color: $accent-color-dark;
-		color: $primary-text-color;
-	}
 }
 
 @media screen and (min-width: 80em) {
@@ -244,26 +240,13 @@ article.page:hover,
 }
 
 .more-images-link {
-
 	a {
 		@include link-button-style;
-		@include padding-two-values(0.25em, 0.5em);
+		@include padding-two-values(0.65em, 1em);
 		display: block;
 		text-align: center;
 		width: 100%;
 	}
-
-	a:link,
-	a:visited {
-		color: $primary-text-color;
-	}
-
-	a:hover,
-	a:focus {
-		background-color: $accent-color-dark;
-		color: $primary-text-color;
-	}
-
 }
 
 .cat-links,
@@ -410,9 +393,33 @@ article.page:hover,
 	margin-bottom: 3px; /* Adds margin to the bottom of filled button to counter overflow:hidden in .material-ripple class */
 }
 
+.wp-block-button {
+	&__link {
+		height: auto;
+		padding: 1em;
+
+		&:hover,
+		&:focus {
+			color: $primary-text-color;
+		}
+	}
+}
+
 .wp-block-buttons {
+	display: flex;
+	justify-content: center;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+}
+
+.wp-block-column {
+	.wp-block-buttons {
+		flex-direction: column;
+	}
+
+	.wp-block-button {
+		align-self: center;
+	}
 }
 
 .wp-block-quote.is-style-large {

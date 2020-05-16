@@ -265,6 +265,15 @@ a:focus {
 	padding: 0.5em;
 }
 
+.wp-block-buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.wp-block-column .wp-block-button {
+	align-self: center;
+}
+
 .wp-block-button__link {
 	background-color: #ffc107;
 	border-radius: 2px;

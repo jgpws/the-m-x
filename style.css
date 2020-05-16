@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
-Version: 1.3.5
+Version: 1.3.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
@@ -511,18 +511,29 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .wp-block-button__link {
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-	border: 0;
+	background-color: #ffc107;
+	border: transparent;
 	border-radius: 2px;
-	background: #ffc107;
-	color: rgba(0, 0, 0, 0.87);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	font-weight: 500;
 	font-size: 14px;
 	font-size: 0.875rem;
-	font-weight: 500;
 	height: 2.25em;
 	line-height: 1;
 	padding: 0 1em;
 	text-transform: uppercase;
+}
+
+button:link, button:visited,
+input[type="button"]:link,
+input[type="button"]:visited,
+input[type="reset"]:link,
+input[type="reset"]:visited,
+input[type="submit"]:link,
+input[type="submit"]:visited,
+.wp-block-button__link:link,
+.wp-block-button__link:visited {
+	color: rgba(0, 0, 0, 0.87);
 }
 
 button:hover,
@@ -544,17 +555,6 @@ input[type="submit"]:focus,
 .wp-block-button__link:focus {
 	background: #ffa000;
 	outline-width: 0;
-}
-
-/* Gutenberg button block */
-.wp-block-button__link {
-	color: rgba(0, 0, 0, 0.87);
-	padding: 1em 1em 2em 1em;
-}
-
-.wp-block-button__link:hover,
-.wp-block-button__link:focus {
-	color: rgba(0, 0, 0, 0.87);
 }
 
 input,
@@ -1359,6 +1359,10 @@ a:hover, a:active {
 	background-color: #5d4037;
 }
 
+.page-template-template-landing .site {
+	overflow-x: hidden;
+}
+
 .page-template-template-landing .site-header {
 	background-color: #795548;
 	z-index: 100;
@@ -1381,9 +1385,11 @@ a:hover, a:active {
 	        order: 2;
 }
 
-.page-template-template-landing .site-header .header-button-panel .menu-social-container {
-	margin: 0;
-	position: static;
+@media screen and (min-width: 48em) {
+	.page-template-template-landing .site-header .header-button-panel .menu-social-container {
+		margin: 0;
+		position: static;
+	}
 }
 
 @media screen and (min-width: 80em) {
@@ -1896,13 +1902,22 @@ article.page:hover,
 		vertical-align: top;
 		width: 50%;
 	}
+	.search .featured-image img,
+	.search .three-fourths-centered-r .featured-image img,
+	.search .jgd-column-1 .featured-image img,
+	.search .two-by-two-centered-r .featured-image img,
+	.search .featured-image + .entry-summary img {
+		max-height: 300px;
+	}
 	.search .entry-summary {
 		padding: 0 1em;
 	}
 }
 
 @media screen and (min-width: 48em) {
-	.search .three-fourths-centered-r .featured-image {
+	.search .three-fourths-centered-r .featured-image,
+	.search .jgd-column-1 .featured-image,
+	.search .two-by-two-centered-r .featured-image {
 		margin: 2em -1em 1em -1.5em;
 	}
 }
@@ -1924,23 +1939,34 @@ article.page:hover,
 }
 
 .more-link {
+	background-color: #ffc107;
+	border: transparent;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	font-weight: 500;
+	font-size: 14px;
+	font-size: 0.875rem;
+	height: 2.25em;
+	line-height: 1;
+	padding: 0 1em;
+	text-transform: uppercase;
 	display: inline-block;
 	margin: 0px 0.5em 0.5em 0.5em;
+	padding: 0.65em 1em;
 	vertical-align: top;
 }
 
 .more-link:link, .more-link:visited {
-	background-color: #ffc107;
-	border-radius: 2px;
 	color: rgba(0, 0, 0, 0.87);
-	font-weight: 500;
-	text-transform: uppercase;
-	padding: 0.5em;
 }
 
-.more-link:hover, .more-link:focus {
-	background-color: #ffa000;
-	color: rgba(0, 0, 0, 0.87);
+.more-link:hover {
+	background: #ffa000;
+}
+
+.more-link:active, .more-link:focus {
+	background: #ffa000;
+	outline-width: 0;
 }
 
 @media screen and (min-width: 80em) {
@@ -1958,25 +1984,33 @@ article.page:hover,
 
 .more-images-link a {
 	background-color: #ffc107;
+	border: transparent;
 	border-radius: 2px;
-	color: rgba(0, 0, 0, 0.87);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	font-weight: 500;
+	font-size: 14px;
+	font-size: 0.875rem;
+	height: 2.25em;
+	line-height: 1;
+	padding: 0 1em;
 	text-transform: uppercase;
-	padding: 0.25em 0.5em;
+	padding: 0.65em 1em;
 	display: block;
 	text-align: center;
 	width: 100%;
 }
 
-.more-images-link a:link,
-.more-images-link a:visited {
+.more-images-link a:link, .more-images-link a:visited {
 	color: rgba(0, 0, 0, 0.87);
 }
 
-.more-images-link a:hover,
-.more-images-link a:focus {
-	background-color: #ffa000;
-	color: rgba(0, 0, 0, 0.87);
+.more-images-link a:hover {
+	background: #ffa000;
+}
+
+.more-images-link a:active, .more-images-link a:focus {
+	background: #ffa000;
+	outline-width: 0;
 }
 
 .cat-links,
@@ -2130,9 +2164,32 @@ article.page:hover,
 	/* Adds margin to the bottom of filled button to counter overflow:hidden in .material-ripple class */
 }
 
+.wp-block-button__link {
+	height: auto;
+	padding: 1em;
+}
+
+.wp-block-button__link:hover, .wp-block-button__link:focus {
+	color: rgba(0, 0, 0, 0.87);
+}
+
 .wp-block-buttons {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: center;
+	        justify-content: center;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+}
+
+.wp-block-column .wp-block-buttons {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+}
+
+.wp-block-column .wp-block-button {
+	align-self: center;
 }
 
 .wp-block-quote.is-style-large {

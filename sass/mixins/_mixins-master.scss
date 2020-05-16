@@ -44,9 +44,7 @@
 	padding: $top $right $bottom $left;
 }
 
-// Flexbox and Grid utilities
-
-
+// Width
 @mixin width-100() {
 	// 100% width with 0.5em left and right padding
 	padding: 0 0.5em;
@@ -100,10 +98,30 @@
 // Button link style
 @mixin link-button-style() {
 	background-color: $accent-color;
+	border: transparent;
 	border-radius: 2px;
-	color: $primary-text-color;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	font-weight: $font__weight-bold;
+	@include font-size(0.875);
+	height: 2.25em;
+	line-height: 1;
+	@include padding-two-values(0, 1em);
 	text-transform: uppercase;
+
+	&:link,
+	&:visited {
+		color: $primary-text-color;
+	}
+
+	&:hover {
+		background: $accent-color-dark;
+	}
+
+	&:active,
+	&:focus {
+		background: $accent-color-dark;
+		outline-width: 0;
+	}
 }
 
 @mixin link-highlight-style() {

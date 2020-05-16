@@ -1,7 +1,7 @@
 .site-header {
 	box-shadow: $box-shadow-large;
 	position: relative;
-	
+
 	.sidebar-right &,
 	.sidebar-left & {
 		z-index: 10;
@@ -17,6 +17,10 @@
 }
 
 .page-template-template-landing {
+	.site {
+		overflow-x: hidden;
+	}
+
 	.site-header {
 		background-color: $primary-color;
 		z-index: 100;
@@ -34,10 +38,18 @@
 
 		.header-button-panel {
 			order: 2;
+		}
+	}
+}
 
-			.menu-social-container {
-				margin: 0;
-				position: static;
+@media screen and (min-width: 48em) {
+	.page-template-template-landing {
+		.site-header {
+			.header-button-panel {
+				.menu-social-container {
+					margin: 0;
+					position: static;
+				}
 			}
 		}
 	}

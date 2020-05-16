@@ -84,11 +84,11 @@
 .post.jgd-column-1,
 .post.three-fourths-centered-r,
 .post.two-by-two-centered-r,
+article.page.three-fourths-centered-r,
 article.page.jgd-column-1,
+article.page.two-by-two-centered-r,
 .single .post.jgd-column-1,
 .single .post.three-fourths-centered-r,
-article.page.jgd-column-1,
-article.page.three-fourths-centered-r,
 .comments-area.three-fourths-centered-r,
 .comments-area.jgd-column-1 {
 	margin-top: 1em;
@@ -191,7 +191,8 @@ article.page.three-fourths-centered-r,
 .three-fourths-centered-r .entry-content,
 .jgd-column-1 .entry-content,
 .three-fourths-centered-r .entry-summary,
-.jgd-column-1 .entry-summary {
+.jgd-column-1 .entry-summary,
+.search .two-by-two-centered-r .entry-summary {
   > :not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright):not(.gallery):not(.tiled-gallery):not(.more-images-link):not(.entry-attachment-image):not(.slider-button-panel):not(.more-link) {
     margin-left: auto;
     margin-right: auto;
@@ -203,6 +204,7 @@ article.page.three-fourths-centered-r,
   .three-fourths-centered-r .entry-summary,
   .jgd-column-1 .entry-content,
   .jgd-column-1 .entry-summary,
+  .search .two-by-two-centered-r .entry-summary,
   .page-template-template-image-grid.two-by-two .entry-content,
   .page.imagegrid .three-fourths-centered-r .entry-content,
   .single.imagegrid .three-fourths-centered-r .entry-content {
@@ -215,6 +217,7 @@ article.page.three-fourths-centered-r,
 @media screen and (min-width: 80em) {
   .jgd-column-1 .entry-content,
   .jgd-column-1 .entry-summary,
+  .search .two-by-two-centered-r .entry-summary,
   .page-template-template-image-grid.two-by-two .entry-content,
   .page.imagegrid .three-fourths-centered-r .entry-content,
   .single.imagegrid .three-fourths-centered-r .entry-content,

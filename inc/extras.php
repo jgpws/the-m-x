@@ -117,6 +117,10 @@ function the_mx_gallery_post_class( $classes ) {
 	if( has_shortcode( $post->post_content, 'gallery' ) ) {
 		$classes[] = 'has-gallery';
 	}
+
+	if( has_block( 'gallery' ) ) {
+		$classes[] = 'has-gallery-block';
+	}
 	return $classes;
 }
 add_filter( 'post_class', 'the_mx_gallery_post_class' );
