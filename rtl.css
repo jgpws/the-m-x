@@ -544,7 +544,9 @@ input[type="submit"],
 	height: 2.25em;
 	line-height: 1;
 	padding: 0 1em;
+	text-align: center;
 	text-transform: uppercase;
+	margin: 0 0.25em;
 }
 
 button:link, button:visited,
@@ -632,10 +634,6 @@ select:focus {
 	color: rgba(0, 0, 0, 0.87);
 }
 
-select {
-	border: 1px solid transparent;
-}
-
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -654,12 +652,6 @@ input[type="color"],
 select,
 textarea {
 	padding: 10px;
-}
-
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	background: #ffc107;
 }
 
 label {
@@ -1981,6 +1973,7 @@ article.page:hover,
 	height: 2.25em;
 	line-height: 1;
 	padding: 0 1em;
+	text-align: center;
 	text-transform: uppercase;
 	display: inline-block;
 	margin: 0px 0.5em 0.5em 0.5em;
@@ -2026,6 +2019,7 @@ article.page:hover,
 	height: 2.25em;
 	line-height: 1;
 	padding: 0 1em;
+	text-align: center;
 	text-transform: uppercase;
 	padding: 0.65em 1em;
 	display: block;
@@ -2215,6 +2209,11 @@ article.page:hover,
 	        justify-content: center;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+}
+
+.wp-block-buttons .wp-block-button.wp-block-button {
+	margin-left: 0;
+	margin-bottom: 0;
 }
 
 .wp-block-column .wp-block-buttons {
@@ -2447,11 +2446,14 @@ article.page:hover,
 
 .wc-block-grid__product .wc-block-grid__product-image:hover {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-	z-index: 100;
+	z-index: 50;
 }
 
 .wc-block-grid__product-add-to-cart a,
 .wc-block-grid__product-add-to-cart button {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	        flex-direction: row;
 	margin: 0 1em !important;
 	width: calc(100% - 2em);
 }
@@ -2470,7 +2472,7 @@ article.page:hover,
 	margin-top: -6em;
 	position: absolute;
 	width: 100%;
-	z-index: 100;
+	z-index: 50;
 }
 
 .wc-block-grid__product .wc-block-grid__product-title a {
@@ -3604,6 +3606,7 @@ img.wp-post-image {
 .animate button,
 .animate .wp-block-button__link,
 .animate input[type="submit"],
+.animate input[type="reset"],
 .animate .gallery-item,
 .animate .wc-block-grid__product .wc-block-grid__product-image,
 .animate .post,
