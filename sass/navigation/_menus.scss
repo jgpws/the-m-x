@@ -339,6 +339,11 @@
 				color: $primary-text-color-white;
 			}
 
+			.children .current_page_item a,
+			.sub-menu .current-menu-item a {
+				border-bottom-color: transparent;
+			}
+
 		}
 
 	}

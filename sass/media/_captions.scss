@@ -17,7 +17,8 @@
 
 .wp-caption-text,
 .wp-block-image figcaption,
-.wp-block-gallery figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption,
+.wp-block-table figcaption,
 .gallery-caption {
 	@include font-size(0.75);
 	font-weight: $font__weight-heavy;
@@ -28,5 +29,9 @@
 	color: $primary-text-color;
 	margin-top: 0px;
 	padding: 0.8075em;
+	text-align: center;
+}
+
+.wp-block-table figcaption {
 	text-align: center;
 }

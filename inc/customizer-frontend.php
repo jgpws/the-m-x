@@ -243,6 +243,7 @@ function the_mx_reverse_primary_4_css() {
 		.archive .wp-caption-text,
 		.search .no-results,
 		pre,
+		table tbody tr:hover,
 		.comment-content {
 			color: rgba(255, 255, 255, 0.87);
 		}
@@ -265,8 +266,17 @@ function the_mx_reverse_primary_4_css() {
 			color: rgba(255, 255, 255, 0.87);
 		}
 
-		.wp-block-calendar table tbody {
+		.page-template-template-landing .wp-block-calendar table tbody,
+		.page-template-template-landing .wc-block-grid__product-price .wc-block-grid__product-price__value,
+		.page-template-template-landing .wc-block-pagination-page,
+		.page-template-template-landing .wc-block-pagination-page--active[disabled]:focus,
+		.page-template-template-landing .wc-block-pagination-page--active[disabled]:hover {
 			color: rgba(255, 255, 255, 0.87);
+		}
+
+		.page-template-template-landing .wc-block-pagination-page:not(.wc-block-pagination-page--active):hover,
+		.page-template-template-landing .wc-block-pagination-page:not(.wc-block-pagination-page--active):focus {
+			background-color: rgba(255, 255, 255, 0.2);
 		}
 
 		.page-template-template-landing,
@@ -276,8 +286,8 @@ function the_mx_reverse_primary_4_css() {
 			color: rgba(255, 255, 255, 0.87);
 		}
 
-		.page-template-template-landing .type-page a:hover,
-		.page-template-template-landing .type-page a:focus {
+		.page-template-template-landing .type-page a:not(.wp-block-button__link):hover,
+		.page-template-template-landing .type-page a:not(.wp-block-button__link):focus {
 			color: #ffffff;
 		}
 CSS;

@@ -74,10 +74,14 @@
 		}
 
 		td, th {
+			border-color: transparent;
 			height: 1.5em;
-			padding: 0.5em;
 			text-align: center;
 			width: 1.5em;
+		}
+
+		tr:hover {
+			background-color: transparent;
 		}
 
 		td a {

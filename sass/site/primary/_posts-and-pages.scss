@@ -352,14 +352,9 @@ article.page:hover,
 	@include margin-four-values(0, 0, 1.5em, 0);
 	text-align: center;
 
-	a:link,
-	a:visited {
+	a {
 		border-radius: 2px;
-		display: inline-block;
-		min-height: 3rem;
-		min-width: 3rem;
 		padding-top: 0.875em;
-		text-align: center;
 	}
 
 	a:hover,
@@ -367,11 +362,17 @@ article.page:hover,
 		background-color: $pale-black;
 	}
 
+	.post-page-numbers {
+		display: inline-block;
+		min-height: 3rem;
+		min-width: 3rem;
+		text-align: center;
+	}
 }
 
-/* Gutenberg compatibility */
+/* Gutenberg Blocks */
 
-.is-style-outline {
+.wp-block-button.is-style-outline {
 	.wp-block-button__link {
 		background-color: transparent;
 		box-shadow: none;
@@ -410,6 +411,11 @@ article.page:hover,
 	justify-content: center;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+
+	.wp-block-button.wp-block-button {
+		margin-right: 0;
+		margin-bottom: 0;
+	}
 }
 
 .wp-block-column {
@@ -490,6 +496,33 @@ article.page:hover,
 		"media-text-content media-text-content";
 }
 
+.wp-block-table {
+	table {
+		margin-bottom: 0;
+	}
+
+	strong {
+		color: rgba(0, 0, 0, 0.6);
+	}
+}
+
+.wp-block-table.is-style-stripes {
+	border-bottom-color: $primary-color-pale;
+
+	td,
+	th {
+		border: none;
+	}
+
+	tbody tr:hover {
+		background-color: transparent;
+	}
+
+	tbody tr:nth-child(odd) {
+		background-color: $primary-color-pale;
+	}
+}
+
 @media screen and (min-width: 37.5em) {
 	.wp-block-media-text {
 		grid-template-areas:
@@ -559,6 +592,10 @@ article.page:hover,
 		border: transparent;
 	}
 
+	tbody tr:hover {
+		background-color: transparent;
+	}
+
 	.wp-calendar-nav {
 		display: flex;
 		justify-content: space-between;
@@ -609,6 +646,74 @@ article.page:hover,
 	.page-template-template-landing .jgd-column-1 .wp-block-cover.alignwide {
 		@include margin-two-values(1em, calc(25% - 25vw));
 		max-width: 1000%;
+	}
+}
+
+/* WooCommerce / Blocks */
+.wc-block-grid__product {
+	border-left: none;
+	border-right: none;
+}
+
+.wc-block-grid__product .wc-block-grid__product-image:hover {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	z-index: 50;
+}
+
+.wc-block-grid__product-add-to-cart a,
+.wc-block-grid__product-add-to-cart button {
+	flex-direction: row;
+	margin: 0 1em !important;
+	width: calc(100% - 2em);
+}
+
+.wc-block-grid__product-add-to-cart a:visited,
+.wc-block-grid__product-add-to-cart a:link {
+	color: $primary-text-color !important;
+}
+
+.wc-block-grid__product .wc-block-grid__product-title {
+	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+	@include font-size(1);
+	height: 5.25em;
+	margin-top: -6em;
+	position: absolute;
+	width: 100%;
+	z-index: 50;
+
+	a {
+		color: $primary-text-color-white;
+		display: block;
+		margin-top: 2em;
+	}
+}
+
+.wc-block-grid__product-onsale {
+	background-color: $pale-black;
+	border-color: transparent;
+	border-radius: 2px;
+	color: $primary-text-color;
+}
+
+.wc-block-grid__product-price .wc-block-grid__product-price__value {
+	color: $primary-text-color;
+	@include font-size(1);
+	font-weight: $font__weight-normal;
+}
+
+.wc-block-grid__product-price .wc-block-grid__product-price__regular {
+	@include font-size(1);
+}
+
+.wc-block-pagination-page {
+	box-shadow: none;
+	color: $primary-text-color;
+	min-height: 3rem;
+	min-width: 3rem;
+
+	&:hover,
+	&:focus {
+		background-color: $pale-black;
 	}
 }
 

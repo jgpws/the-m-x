@@ -6,6 +6,44 @@ a:focus {
   color: #512da8;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select {
+  border-bottom-color: #795548;
+}
+
+button:not(.components-button):not(.mce-open):not([role="presentation"]),
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background-color: #795548;
+}
+
+button:not(.components-button):not(.mce-open):not([role="presentation"]):hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	background-color: #5d4037;
+}
+
+table tbody tr:hover {
+  background-color: #eceff1;
+}
+
 .wp-block-quote.is-style-default,
 .wp-block-quote.is-style-large,
 .wp-block-freeform.block-library-rich-text__tinymce blockquote,

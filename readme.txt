@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.7 June 20 2020 =
+Added new Material Design styling for HTML tables. Added styling for WooCommerce Products block.
+
 = 1.3.6 May 15 2020 =
 Fixed color overrides for Gutenberg generated colors. Added Skrollr compatibility to Gutenberg galleries.
 

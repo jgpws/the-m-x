@@ -2,3 +2,25 @@ table {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
+table thead tr {
+	height: 3.5em;
+}
+
+table tbody tr {
+	height: 3.25em;
+
+	&:hover {
+		background-color: $primary-color-pale;
+	}
+}
+
+td,
+th {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	padding: 0 1em;
+}
+
+th {
+	color: rgba(0, 0, 0, 0.6);
+}

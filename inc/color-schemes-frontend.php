@@ -47,7 +47,8 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     border-left-color: {$colors['primary_1']};
   }
 
-  pre {
+  pre,
+  table tbody tr:hover {
     background-color: {$colors['background_color']};
   }
 
@@ -285,7 +286,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['background_color']};
   }
 
-  .is-style-outline .wp-block-button__link {
+  .wp-block-button.is-style-outline .wp-block-button__link {
     color: {$colors['primary_3']};
   }
 
@@ -303,6 +304,14 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   }
 
   .wp-block-calendar table th {
+    background-color: {$colors['background_color']};
+  }
+
+  .wp-block-table.is-style-stripes {
+    border-bottom-color: {$colors['background_color']};
+  }
+
+  .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
     background-color: {$colors['background_color']};
   }
 
@@ -470,7 +479,8 @@ function the_mx_frontend_user_color_styles() {
     border-left-color: ' . esc_attr( $primary_color_1 ) . ';
   }
 
-  pre {
+  pre,
+  table tbody tr:hover {
     background-color: #' . esc_attr( $background_color ) . ';
   }
 
@@ -482,7 +492,7 @@ function the_mx_frontend_user_color_styles() {
   input[type="button"],
   input[type="reset"],
   input[type="submit"],
-  .wp-block-button__link:link {
+  .wp-block-button__link {
     background-color: ' . esc_attr( $accent_color_1 ) . ';
   }
 
@@ -681,7 +691,7 @@ function the_mx_frontend_user_color_styles() {
     background-color: ' . esc_attr( $background_color ) . ';
   }
 
-  .is-style-outline .wp-block-button__link {
+  .wp-block-button.is-style-outline .wp-block-button__link {
     color: ' . esc_attr( $primary_color_3 ) . ';
   }
 
@@ -699,6 +709,14 @@ function the_mx_frontend_user_color_styles() {
   }
 
   .wp-block-calendar table th {
+    background-color: #' . esc_attr( $background_color ) . ';
+  }
+
+  .wp-block-table.is-style-stripes {
+    border-bottom-color: #' . esc_attr( $background_color ) . ';
+  }
+
+  .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
     background-color: #' . esc_attr( $background_color ) . ';
   }
 

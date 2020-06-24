@@ -34,10 +34,6 @@ select {
 	}
 }
 
-select {
-	border: 1px solid $color__border-input;
-}
-
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -53,14 +49,9 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
+select,
 textarea {
 	padding: 10px;
-}
-
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	background: $color__background-button;
 }
 
 label {
@@ -68,7 +59,6 @@ label {
 }
 
 textarea {
-	padding-left: 3px;
 	width: 100%;
 }
 
