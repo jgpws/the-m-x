@@ -6,44 +6,56 @@ a:focus {
   color: #212121;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea,
-select {
+ins,
+mark {
+  background-color: #212121;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.editor-styles-wrapper input[type="text"],
+.editor-styles-wrapper input[type="email"],
+.editor-styles-wrapper input[type="url"],
+.editor-styles-wrapper input[type="password"],
+.editor-styles-wrapper input[type="search"],
+.editor-styles-wrapper input[type="number"],
+.editor-styles-wrapper input[type="tel"],
+.editor-styles-wrapper input[type="range"],
+.editor-styles-wrapper input[type="date"],
+.editor-styles-wrapper input[type="month"],
+.editor-styles-wrapper input[type="week"],
+.editor-styles-wrapper input[type="time"],
+.editor-styles-wrapper input[type="datetime"],
+.editor-styles-wrapper input[type="datetime-local"],
+.editor-styles-wrapper input[type="color"],
+.editor-styles-wrapper textarea,
+.editor-styles-wrapper select {
   border-bottom-color: #ffffff;
 }
 
-button:not(.components-button):not(.mce-open):not([role="presentation"]),
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+button:not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser),
+.editor-styles-wrapper input[type="button"],
+.editor-styles-wrapper input[type="reset"],
+.editor-styles-wrapper input[type="submit"] {
 	background-color: #ffffff;
 }
 
-button:not(.components-button):not(.mce-open):not([role="presentation"]):hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
+button:not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser):hover,
+.editor-styles-wrapper input[type="button"]:hover,
+.editor-styles-wrapper input[type="reset"]:hover,
+.editor-styles-wrapper input[type="submit"]:hover {
 	background-color: #eeeeee;
 }
 
-table tbody tr:hover {
+table tbody tr:hover,
+.wp-block-code {
   background-color: #fafafa;
 }
 
+.editor-styles-wrapper pre {
+  background-color: #fafafa !important;
+}
+
+.wp-block-quote,
 .wp-block-quote.is-style-default,
 .wp-block-quote.is-style-large,
 .wp-block-freeform.block-library-rich-text__tinymce blockquote,
@@ -51,11 +63,13 @@ table tbody tr:hover {
   border-color: #212121;
 }
 
-.wp-block-button__link {
+.wp-block-button__link,
+.wp-block-file .wp-block-file__button {
   background-color: #ffffff;
 }
 
-.wp-block-button__link:hover {
+.wp-block-button__link:hover,
+.wp-block-file .wp-block-file__button:hover {
   background-color: #eeeeee;
 }
 
@@ -94,4 +108,8 @@ table tbody tr:hover {
 
 .wp-block-calendar table th {
   background-color: #fafafa;
+}
+
+.editor-styles-wrapper .wp-block-table.is-style-stripes table tbody tr:nth-child(odd) {
+  background-color: #fafafa !important;
 }

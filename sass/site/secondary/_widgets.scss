@@ -48,12 +48,28 @@
 		text-transform: uppercase;
 	}
 
+	.searchform {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-end;
+
+		label {
+			width: 100%;
+		}
+	}
+
 	.search-field {
-		width: calc(100% - 4em);
+		@include font-size(0.875);
+		width: 100%;
 	}
 
 	.wp-caption {
 		max-width: 100%;
+	}
+
+	.wp-calendar-table {
+		border: none;
 	}
 
 	&_calendar.jgd-column-1 {

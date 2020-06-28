@@ -2,6 +2,7 @@
 /* These functions display the preset and custom color schemes for the front end of the theme. */
 
 function the_mx_frontend_color_scheme_styles( $colors ) {
+  $color_scheme_option = get_theme_mod( 'the_mx_color_scheme', 'default' );
   $colors = wp_parse_args(
     $colors,
     array(
@@ -60,7 +61,8 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   input[type="button"],
   input[type="reset"],
   input[type="submit"],
-  .wp-block-button__link {
+  .wp-block-button__link,
+  .wp-block-file .wp-block-file__button {
     background-color: {$colors['accent_1']};
   }
 
@@ -94,7 +96,8 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover,
-  .wp-block-button__link:hover {
+  .wp-block-button__link:hover,
+  .wp-block-file .wp-block-file__button:hover {
     background-color: {$colors['accent_2']};
   }
 
@@ -107,7 +110,9 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   input[type="submit"]:active,
   input[type="submit"]:focus,
   .wp-block-button__link:active,
-  .wp-block-button__link:focus {
+  .wp-block-button__link:focus,
+  .wp-block-file .wp-block-file__button:active,
+  .wp-block-file .wp-block-file__button:focus {
     background-color: {$colors['accent_2']};
   }
 
@@ -387,13 +392,24 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['background_color']};
   }
 
-  #infinite-handle span {
-    background-color: {$colors['primary_1']};
-  }
-
   .wp-block-image.alignfull,
   .wp-block-image.alignwide {
     background-color: {$colors['primary_2']};
+  }
+
+  .wp-block-archives a:hover,
+  .wp-block-archives a:focus,
+  .wp-block-categories a:hover,
+  .wp-block-categories a:focus,
+  .wp-block-latest-comments a:hover,
+  .wp-block-latest-comments a:focus,
+  .wp-block-latest-posts a:hover,
+  .wp-block-latest-posts a:focus {
+    color: {$colors['accent_3']};
+  }
+
+  #infinite-handle span {
+    background-color: {$colors['primary_1']};
   }
 
   .lds-ring div {
@@ -432,6 +448,16 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     }
   }
 CSS;
+
+if (  $color_scheme_option == 'blue_gray' ||
+      $color_scheme_option == 'deep_purple' ||
+      $color_scheme_option == 'black' ) {
+  $css .= '
+  mark,
+  ins {
+    color: rgba(255, 255, 255, 0.87);
+  }';
+}
 
   return $css;
 }
@@ -492,7 +518,8 @@ function the_mx_frontend_user_color_styles() {
   input[type="button"],
   input[type="reset"],
   input[type="submit"],
-  .wp-block-button__link {
+  .wp-block-button__link,
+  .wp-block-file .wp-block-file__button {
     background-color: ' . esc_attr( $accent_color_1 ) . ';
   }
 
@@ -522,7 +549,8 @@ function the_mx_frontend_user_color_styles() {
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover,
-  .wp-block-button__link:hover {
+  .wp-block-button__link:hover,
+  .wp-block-file .wp-block-file__button:hover {
     background-color: ' . esc_attr( $accent_color_2 ) . ';
   }
 
@@ -535,7 +563,9 @@ function the_mx_frontend_user_color_styles() {
   input[type="submit"]:active,
   input[type="submit"]:focus,
   .wp-block-button__link:active,
-  .wp-block-button__link:focus {
+  .wp-block-button__link:focus,
+  .wp-block-file .wp-block-file__button:active,
+  .wp-block-file .wp-block-file__button:focus {
     background-color: ' . esc_attr( $accent_color_2 ) . ';
   }
 
@@ -720,6 +750,17 @@ function the_mx_frontend_user_color_styles() {
     background-color: #' . esc_attr( $background_color ) . ';
   }
 
+  .wp-block-archives a:hover,
+  .wp-block-archives a:focus,
+  .wp-block-categories a:hover,
+  .wp-block-categories a:focus,
+  .wp-block-latest-comments a:hover,
+  .wp-block-latest-comments a:focus,
+  .wp-block-latest-posts a:hover,
+  .wp-block-latest-posts a:focus {
+    color: ' . esc_attr( $accent_color_3 ) . ';
+  }
+
   .widget li a:hover,
   .widget li a:focus {
     color: ' . esc_attr( $accent_color_3 ) . ';
@@ -792,12 +833,12 @@ function the_mx_frontend_user_color_styles() {
     background-color: #' . esc_attr( $background_color ) . ';
   }
 
-  #infinite-handle span {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
   .wp-block-image.alignfull {
     background-color: ' . esc_attr( $primary_color_2 ) . ';
+  }
+
+  #infinite-handle span {
+    background-color: ' . esc_attr( $primary_color_1 ) . ';
   }
 
   .lds-ring div {

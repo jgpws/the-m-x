@@ -62,12 +62,24 @@
   }
 
   .sidebar-left .three-fourths-centered-r,
+  .sidebar-left.woocommerce .woocommerce-result-count,
+  .sidebar-left.woocommerce ul.products,
   .sidebar-left .jgd-column-1,
   .sidebar-left.two-by-two .site-main,
   .sidebar-left.imagegrid .site-main {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
+  }
+
+  .sidebar-left .page-title {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .sidebar-left.woocommerce .woocommerce-ordering select {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .sidebar-left.two-by-two .three-fourths-centered-r {

@@ -7,13 +7,14 @@
  *
  * License: GNU GPL, version 3
  */
- 
+
  document.addEventListener('DOMContentLoaded', function () {
- 
+
  	function gridSizes() {
  		var windowWidth = window.innerWidth;
 
 		var pageContainer = document.querySelector( '.page article.page' );
+    var wooPageContainer = document.querySelector( '.single-product .product' );
 	 	var stickyContainers = document.querySelectorAll( '.blog .sticky, .archive .sticky' );
 	 	var singlePostContainer = document.querySelector( '.single .post' );
 	 	var commentsContainer = document.querySelector( '.single .comments-area' );
@@ -28,16 +29,18 @@
 					singlePostContainer.classList.remove( 'two-by-two-centered-r' );
 				}
 			}
-			
-			// if .page is found, but .paged is not found
-			if ( 	-1 !== bodyTag.className.indexOf( 'page' ) &&
+
+			// If body class contains "page" and doesn't contain "paged"
+			if ( -1 !== bodyTag.className.indexOf( 'page' ) && -1 === bodyTag.className.indexOf( '-page' ) &&
 					-1 === bodyTag.className.indexOf( 'paged' ) ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					pageContainer.classList.add( 'three-fourths-centered-r' );
 					pageContainer.classList.remove( 'two-by-two-centered-r' );
+          /*wooPageContainer.classList.add( 'three-fourths-centered-r' );
+          wooPageContainer.classList.remove( 'two-by-two-centered-r' );*/
 				}
 			}
-			
+
 			for ( i = 0, len = stickyContainers.length; i < len; i++ ) {
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					stickyContainers[i].classList.add( 'two-by-two-centered-r' );
@@ -45,7 +48,7 @@
 					stickyContainers[i].classList.remove( 'jgd-column-1' );
 				}
 			}
-			
+
 			if ( jgdGridParams.layouts === 'wide' && commentsContainer ) {
 				commentsContainer.classList.add( 'jgd-column-1' );
 				commentsContainer.classList.remove( 'three-fourths-centered-r' );
@@ -59,7 +62,7 @@
 					stickyContainers[i].classList.remove( 'two-by-two-centered-r' );
 				}
 			}
-			
+
 			if ( jgdGridParams.layouts === 'wide' && commentsContainer ) {
 				commentsContainer.classList.add( 'jgd-column-1' );
 				commentsContainer.classList.remove( 'three-fourths-centered-r' );
@@ -73,17 +76,17 @@
 					stickyContainers[i].classList.remove( 'two-by-two-centered-r' );
 				}
 			}
-			
+
 			if ( jgdGridParams.layouts === 'wide' && commentsContainer ) {
 				commentsContainer.classList.add( 'jgd-column-1' );
 				commentsContainer.classList.remove( 'three-fourths-centered-r' );
 			}
  		}
  	}
- 	
+
  	var gSTimeout = setTimeout( gridSizes, 100 );
- 	
+
 	window.onload = gridSizes;
 	window.onresize = gridSizes;
- 
+
  });

@@ -1,7 +1,7 @@
 === The M.X. ===
 
 Contributors: jgpws
-Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, left-sidebar, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
+Tags: block-styles, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.1.1
@@ -26,8 +26,11 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.8 June 28 2020 =
+Further styling compatibility for WooCommerce; Most core blocks are now styled; matching for editor styles.
+
 = 1.3.7 June 20 2020 =
-Added new Material Design styling for HTML tables. Added styling for WooCommerce Products block.
+Added new Material Design styling for HTML tables. Added styling for WooCommerce Product blocks.
 
 = 1.3.6 May 15 2020 =
 Fixed color overrides for Gutenberg generated colors. Added Skrollr compatibility to Gutenberg galleries.

@@ -4,13 +4,13 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
-Version: 1.3.7
+Version: 1.3.8
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
-Tags: blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, left-sidebar, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
+Tags: block-styles, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -501,6 +501,7 @@ img {
 }
 
 table {
+	border: 1px solid rgba(0, 0, 0, 0.12);
 	margin: 0 0 1.5em;
 	width: 100%;
 }
@@ -519,7 +520,8 @@ table tbody tr:hover {
 
 td,
 th {
-	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 	padding: 0 1em;
 }
 
@@ -534,7 +536,8 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-.wp-block-button__link {
+.wp-block-button__link,
+.wp-block-file .wp-block-file__button {
 	background-color: #ffc107;
 	border: transparent;
 	border-radius: 2px;
@@ -559,7 +562,9 @@ input[type="reset"]:visited,
 input[type="submit"]:link,
 input[type="submit"]:visited,
 .wp-block-button__link:link,
-.wp-block-button__link:visited {
+.wp-block-button__link:visited,
+.wp-block-file .wp-block-file__button:link,
+.wp-block-file .wp-block-file__button:visited {
 	color: rgba(0, 0, 0, 0.87);
 }
 
@@ -567,7 +572,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
-.wp-block-button__link:hover {
+.wp-block-button__link:hover,
+.wp-block-file .wp-block-file__button:hover {
 	background: #ffa000;
 }
 
@@ -579,7 +585,9 @@ input[type="reset"]:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus,
 .wp-block-button__link:active,
-.wp-block-button__link:focus {
+.wp-block-button__link:focus,
+.wp-block-file .wp-block-file__button:active,
+.wp-block-file .wp-block-file__button:focus {
 	background: #ffa000;
 	outline-width: 0;
 }
@@ -658,6 +666,10 @@ textarea {
 
 label {
 	margin: 0 0.5em;
+}
+
+select {
+	background-color: transparent;
 }
 
 textarea {
@@ -1625,12 +1637,34 @@ html.skrollr-mobile {
 	text-transform: uppercase;
 }
 
+.widget .searchform {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	        flex-direction: row;
+	-webkit-box-pack: center;
+	        justify-content: center;
+	-webkit-box-align: end;
+	        align-items: flex-end;
+}
+
+.widget .searchform label {
+	width: 100%;
+}
+
 .widget .search-field {
-	width: calc(100% - 4em);
+	font-size: 14px;
+	font-size: 0.875rem;
+	width: 100%;
 }
 
 .widget .wp-caption {
 	max-width: 100%;
+}
+
+.widget .wp-calendar-table {
+	border: none;
 }
 
 .widget_calendar.jgd-column-1 {
@@ -1805,6 +1839,29 @@ article.page:hover,
 .entry-title-imagegrid a:hover,
 .entry-title-imagegrid a:focus {
 	color: #5d4037;
+}
+
+.page-title {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+@media (min-width: 48em) {
+	.page-title {
+		margin-left: 12.5%;
+		margin-right: 12.5%;
+	}
+	.two-by-two .page-title {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+@media (min-width: 80em) {
+	.centered .page-title {
+		margin-left: 25%;
+		margin-right: 25%;
+	}
 }
 
 .single .entry-title,
@@ -2228,6 +2285,22 @@ article.page:hover,
 	align-self: center;
 }
 
+.wp-block-file {
+	padding: 1em;
+	text-align: center;
+}
+
+.wp-block-file a.wp-block-file__button {
+	margin: 0 1em;
+	padding: 1em;
+}
+
+.wp-block-file a.wp-block-file__button:active, .wp-block-file a.wp-block-file__button:focus, .wp-block-file a.wp-block-file__button:hover, .wp-block-file a.wp-block-file__button:visited {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	color: rgba(0, 0, 0, 0.87);
+	opacity: 1;
+}
+
 .wp-block-quote.is-style-large {
 	font-weight: 400;
 	font-size: 1.5rem;
@@ -2328,6 +2401,15 @@ article.page:hover,
 	}
 }
 
+.wp-block-code code {
+	font-family: "Courier 10 Pitch", Courier, monospace;
+}
+
+.wp-block-verse {
+	background-color: transparent;
+	font-family: "Raleway", sans-serif;
+}
+
 .alignfull {
 	margin: 1em -1em;
 	max-width: 1000%;
@@ -2350,6 +2432,58 @@ article.page:hover,
 		margin: 1.5em 4em !important;
 		max-width: calc(100% + 4em) !important;
 	}
+}
+
+/* Widget Blocks */
+.wp-block-archives,
+.wp-block-categories,
+.wp-block-latest-comments,
+.wp-block-latest-posts {
+	font-size: 14px;
+	font-size: 0.875rem;
+	padding: 0 1rem;
+}
+
+.wp-block-archives li,
+.wp-block-categories li,
+.wp-block-latest-comments li,
+.wp-block-latest-posts li {
+	display: block;
+	font-weight: 500;
+	min-height: 3em;
+	padding: 0.5em 0;
+}
+
+.wp-block-archives a:link,
+.wp-block-archives a:visited,
+.wp-block-categories a:link,
+.wp-block-categories a:visited,
+.wp-block-latest-comments a:link,
+.wp-block-latest-comments a:visited,
+.wp-block-latest-posts a:link,
+.wp-block-latest-posts a:visited {
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.wp-block-archives a:hover,
+.wp-block-archives a:focus,
+.wp-block-categories a:hover,
+.wp-block-categories a:focus,
+.wp-block-latest-comments a:hover,
+.wp-block-latest-comments a:focus,
+.wp-block-latest-posts a:hover,
+.wp-block-latest-posts a:focus {
+	color: #ff6f00;
+}
+
+.wp-block-categories li > ul.children {
+	padding-top: 1em;
+}
+
+.wp-block-latest-comments__comment-date {
+	color: rgba(0, 0, 0, 0.54);
+	font-size: 14px;
+	font-size: 0.875rem;
 }
 
 .wp-block-calendar {
@@ -2441,14 +2575,59 @@ article.page:hover,
 }
 
 /* WooCommerce / Blocks */
+.woocommerce .woocommerce-result-count,
+.woocommerce .woocommerce-ordering select {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.woocommerce ul.products li.product .price ins {
+	color: inherit;
+}
+
+@media (min-width: 48em) {
+	.woocommerce .woocommerce-result-count,
+	.woocommerce .woocommerce-ordering select {
+		margin-left: 12.5%;
+		margin-right: 12.5%;
+	}
+	.woocommerce.two-by-two .woocommerce-result-count,
+	.woocommerce.two-by-two .woocommerce-ordering select {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.woocommerce div.product {
+	background-color: #ffffff;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.woocommerce div.product:hover {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.woocommerce .related ul.products,
+.woocommerce.centered .related ul.products {
+	width: 100%;
+}
+
 .wc-block-grid__product {
 	border-left: none;
 	border-right: none;
 }
 
 .wc-block-grid__product .wc-block-grid__product-image:hover {
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 	z-index: 50;
+}
+
+.entry-content .wc-block-grid__product-image .wc-block-grid__product-image__image:hover,
+.wc-block-grid__product-image .wc-block-grid__product-image__image:hover,
+.wc-block-grid__product-image img:hover {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .wc-block-grid__product-add-to-cart a,
@@ -2468,10 +2647,12 @@ article.page:hover,
 .wc-block-grid__product .wc-block-grid__product-title {
 	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.6)));
 	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+	color: rgba(255, 255, 255, 0.87);
 	font-size: 16px;
 	font-size: 1rem;
 	height: 5.25em;
 	margin-top: -6em;
+	padding-top: 2em;
 	position: absolute;
 	width: 100%;
 	z-index: 50;
@@ -2480,7 +2661,6 @@ article.page:hover,
 .wc-block-grid__product .wc-block-grid__product-title a {
 	color: rgba(255, 255, 255, 0.87);
 	display: block;
-	margin-top: 2em;
 }
 
 .wc-block-grid__product-onsale {
@@ -2511,6 +2691,20 @@ article.page:hover,
 
 .wc-block-pagination-page:hover, .wc-block-pagination-page:focus {
 	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wc-block-product-category .wc-block-grid__product-onsale,
+.wc-block-product-best-sellers .wc-block-grid__product-onsale {
+	margin: 0;
+	position: absolute;
+	right: 4px;
+	top: 4px;
+	z-index: 50;
+}
+
+.wc-block-product-category .wc-block-grid__product-image,
+.wc-block-product-best-sellers .wc-block-grid__product-image {
+	margin-bottom: 6px;
 }
 
 /* Attachment pages */
@@ -3287,6 +3481,7 @@ img.wp-post-image {
 }
 
 .wp-caption-text,
+.wp-block-audio figcaption,
 .wp-block-image figcaption,
 .wp-block-gallery .blocks-gallery-item figcaption,
 .wp-block-table figcaption,
@@ -3304,6 +3499,7 @@ img.wp-post-image {
 	text-align: center;
 }
 
+.wp-block-audio figcaption,
 .wp-block-table figcaption {
 	text-align: center;
 }
@@ -3610,7 +3806,9 @@ img.wp-post-image {
 .animate input[type="submit"],
 .animate input[type="reset"],
 .animate .gallery-item,
-.animate .wc-block-grid__product .wc-block-grid__product-image,
+.animate.woocommerce div.product,
+.animate .wc-block-grid__product .wc-block-grid__product-image__image,
+.animate .wc-block-grid__product-image img,
 .animate .post,
 .animate .page,
 .animate .tile,
@@ -3779,6 +3977,13 @@ img.wp-post-image {
 		flex-wrap: wrap;
 		-webkit-box-pack: center;
 		        justify-content: center;
+	}
+	.woocommerce.archive.imagegrid .site-main {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		        flex-direction: column;
+		margin-left: 1em;
+		margin-right: 1em;
 	}
 }
 

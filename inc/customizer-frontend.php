@@ -252,6 +252,7 @@ function the_mx_reverse_primary_4_css() {
 			color: rgba(255, 255, 255, 0.87);
 		}
 
+		.woocommerce:not(.single-product) ul.products li.product a:not(.button),
 		.error-404 a:link,
 		.error-404 a:visited,
 		.error-404 .widget li a:link,
@@ -259,6 +260,8 @@ function the_mx_reverse_primary_4_css() {
 			color: rgba(255, 255, 255, 0.7);
 		}
 
+		.woocommerce:not(.single-product) ul.products li.product a:not(.button):hover,
+		.woocommerce:not(.single-product) ul.products li.product a:not(.button):focus,
 		.error-404 a:hover,
 		.error-404 a:focus,
 		.error-404 .widget li a:hover,
@@ -266,6 +269,11 @@ function the_mx_reverse_primary_4_css() {
 			color: rgba(255, 255, 255, 0.87);
 		}
 
+		.page-template-template-landing .wp-block-latest-comments__comment-date {
+			color: rgba(255, 255, 255, 0.54);
+		}
+
+		.woocommerce-result-count,
 		.page-template-template-landing .wp-block-calendar table tbody,
 		.page-template-template-landing .wc-block-grid__product-price .wc-block-grid__product-price__value,
 		.page-template-template-landing .wc-block-pagination-page,

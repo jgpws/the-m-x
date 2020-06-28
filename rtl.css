@@ -5,6 +5,8 @@ Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
 Version: 1.3.7
+Tested up to: 5.4
+Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
@@ -499,6 +501,7 @@ img {
 }
 
 table {
+	border: 1px solid rgba(0, 0, 0, 0.12);
 	margin: 0 0 1.5em;
 	width: 100%;
 }
@@ -517,7 +520,8 @@ table tbody tr:hover {
 
 td,
 th {
-	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 	padding: 0 1em;
 }
 
@@ -532,7 +536,8 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-.wp-block-button__link {
+.wp-block-button__link,
+.wp-block-file .wp-block-file__button {
 	background-color: #ffc107;
 	border: transparent;
 	border-radius: 2px;
@@ -557,7 +562,9 @@ input[type="reset"]:visited,
 input[type="submit"]:link,
 input[type="submit"]:visited,
 .wp-block-button__link:link,
-.wp-block-button__link:visited {
+.wp-block-button__link:visited,
+.wp-block-file .wp-block-file__button:link,
+.wp-block-file .wp-block-file__button:visited {
 	color: rgba(0, 0, 0, 0.87);
 }
 
@@ -565,7 +572,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
-.wp-block-button__link:hover {
+.wp-block-button__link:hover,
+.wp-block-file .wp-block-file__button:hover {
 	background: #ffa000;
 }
 
@@ -577,7 +585,9 @@ input[type="reset"]:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus,
 .wp-block-button__link:active,
-.wp-block-button__link:focus {
+.wp-block-button__link:focus,
+.wp-block-file .wp-block-file__button:active,
+.wp-block-file .wp-block-file__button:focus {
 	background: #ffa000;
 	outline-width: 0;
 }
@@ -1631,6 +1641,10 @@ html.skrollr-mobile {
 	max-width: 100%;
 }
 
+.widget .wp-calendar-table {
+	border: none;
+}
+
 .widget_calendar.jgd-column-1 {
 	margin: 0;
 	width: 100%;
@@ -1803,6 +1817,29 @@ article.page:hover,
 .entry-title-imagegrid a:hover,
 .entry-title-imagegrid a:focus {
 	color: #5d4037;
+}
+
+.page-title {
+	margin-right: 1rem;
+	margin-left: 1rem;
+}
+
+@media (min-width: 48em) {
+	.page-title {
+		margin-right: 12.5%;
+		margin-left: 12.5%;
+	}
+	.two-by-two .page-title {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+@media (min-width: 80em) {
+	.centered .page-title {
+		margin-right: 25%;
+		margin-left: 25%;
+	}
 }
 
 .single .entry-title,
@@ -2226,6 +2263,22 @@ article.page:hover,
 	align-self: center;
 }
 
+.wp-block-file {
+	padding: 1em;
+	text-align: center;
+}
+
+.wp-block-file a.wp-block-file__button {
+	margin: 0 1em;
+	padding: 1em;
+}
+
+.wp-block-file a.wp-block-file__button:active, .wp-block-file a.wp-block-file__button:focus, .wp-block-file a.wp-block-file__button:hover, .wp-block-file a.wp-block-file__button:visited {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	color: rgba(0, 0, 0, 0.87);
+	opacity: 1;
+}
+
 .wp-block-quote.is-style-large {
 	font-weight: 400;
 	font-size: 1.5rem;
@@ -2324,6 +2377,15 @@ article.page:hover,
 	.wp-block-media-text.has-media-on-the-right {
 		grid-template-areas: "media-text-content media-text-media";
 	}
+}
+
+.wp-block-code code {
+	font-family: "Courier 10 Pitch", Courier, monospace;
+}
+
+.wp-block-verse {
+	background-color: transparent;
+	font-family: "Raleway", sans-serif;
 }
 
 .alignfull {
@@ -2439,14 +2501,55 @@ article.page:hover,
 }
 
 /* WooCommerce / Blocks */
+.woocommerce .woocommerce-result-count,
+.woocommerce .woocommerce-ordering select {
+	margin-right: 1rem;
+	margin-left: 1rem;
+}
+
+@media (min-width: 48em) {
+	.woocommerce .woocommerce-result-count,
+	.woocommerce .woocommerce-ordering select {
+		margin-right: 12.5%;
+		margin-left: 12.5%;
+	}
+	.woocommerce.two-by-two .woocommerce-result-count,
+	.woocommerce.two-by-two .woocommerce-ordering select {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+.woocommerce div.product {
+	background-color: #ffffff;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.woocommerce div.product:hover {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.woocommerce .related ul.products,
+.woocommerce.centered .related ul.products {
+	width: 100%;
+}
+
 .wc-block-grid__product {
 	border-right: none;
 	border-left: none;
 }
 
 .wc-block-grid__product .wc-block-grid__product-image:hover {
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 	z-index: 50;
+}
+
+.entry-content .wc-block-grid__product-image .wc-block-grid__product-image__image:hover,
+.wc-block-grid__product-image .wc-block-grid__product-image__image:hover,
+.wc-block-grid__product-image img:hover {
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .wc-block-grid__product-add-to-cart a,
@@ -2466,10 +2569,12 @@ article.page:hover,
 .wc-block-grid__product .wc-block-grid__product-title {
 	background: -webkit-gradient(linear, right top, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.6)));
 	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+	color: rgba(255, 255, 255, 0.87);
 	font-size: 16px;
 	font-size: 1rem;
 	height: 5.25em;
 	margin-top: -6em;
+	padding-top: 2em;
 	position: absolute;
 	width: 100%;
 	z-index: 50;
@@ -2478,7 +2583,6 @@ article.page:hover,
 .wc-block-grid__product .wc-block-grid__product-title a {
 	color: rgba(255, 255, 255, 0.87);
 	display: block;
-	margin-top: 2em;
 }
 
 .wc-block-grid__product-onsale {
@@ -2509,6 +2613,20 @@ article.page:hover,
 
 .wc-block-pagination-page:hover, .wc-block-pagination-page:focus {
 	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wc-block-product-category .wc-block-grid__product-onsale,
+.wc-block-product-best-sellers .wc-block-grid__product-onsale {
+	margin: 0;
+	position: absolute;
+	left: 4px;
+	top: 4px;
+	z-index: 50;
+}
+
+.wc-block-product-category .wc-block-grid__product-image,
+.wc-block-product-best-sellers .wc-block-grid__product-image {
+	margin-bottom: 6px;
 }
 
 /* Attachment pages */
@@ -3285,6 +3403,7 @@ img.wp-post-image {
 }
 
 .wp-caption-text,
+.wp-block-audio figcaption,
 .wp-block-image figcaption,
 .wp-block-gallery .blocks-gallery-item figcaption,
 .wp-block-table figcaption,
@@ -3302,6 +3421,7 @@ img.wp-post-image {
 	text-align: center;
 }
 
+.wp-block-audio figcaption,
 .wp-block-table figcaption {
 	text-align: center;
 }
@@ -3608,7 +3728,9 @@ img.wp-post-image {
 .animate input[type="submit"],
 .animate input[type="reset"],
 .animate .gallery-item,
-.animate .wc-block-grid__product .wc-block-grid__product-image,
+.animate.woocommerce div.product,
+.animate .wc-block-grid__product .wc-block-grid__product-image__image,
+.animate .wc-block-grid__product-image img,
 .animate .post,
 .animate .page,
 .animate .tile,
@@ -3777,6 +3899,13 @@ img.wp-post-image {
 		flex-wrap: wrap;
 		-webkit-box-pack: center;
 		        justify-content: center;
+	}
+	.woocommerce.archive.imagegrid .site-main {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		        flex-direction: column;
+		margin-right: 1em;
+		margin-left: 1em;
 	}
 }
 

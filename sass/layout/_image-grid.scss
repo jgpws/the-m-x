@@ -90,6 +90,12 @@
 		flex-wrap: wrap;
 		justify-content: center;
 	}
+
+	.woocommerce.archive.imagegrid .site-main {
+		flex-direction: column;
+		margin-left: 1em;
+		margin-right: 1em;
+	}
 }
 
 .page-template-template-image-grid .more-link {

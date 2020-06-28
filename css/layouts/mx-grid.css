@@ -105,6 +105,12 @@
 	flex-wrap: wrap;
 }
 
+.archive.woocommerce.two-by-two .site-main {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+}
+
 .post.jgd-column-1,
 .post.three-fourths-centered-r,
 .post.two-by-two-centered-r,
@@ -122,7 +128,8 @@ article.page.two-by-two-centered-r,
 .jgd-column-1,
 .one-half-centered-r,
 .three-fourths-centered-r,
-.two-by-two-centered-r {
+.two-by-two-centered-r,
+.woocommerce ul.products {
 	margin: 0 1em;
 	padding: 1em;
 	width: calc(100% - 2em);
@@ -137,10 +144,16 @@ article.page.two-by-two-centered-r,
 	}
 	.three-fourths-centered-r,
 	.jgd-column-1:not(.widget),
-	.two-by-two .site-main {
+	.two-by-two .site-main,
+	.woocommerce ul.products {
 		margin-left: 12.5%;
 		margin-right: 12.5%;
 		width: 75%;
+	}
+	.woocommerce.two-by-two ul.products {
+		margin-left: 0;
+		margin-right: 0;
+		width: 100%;
 	}
 	.two-by-two .sticky.three-fourths-centered-r {
 		margin-left: 0;
@@ -159,6 +172,15 @@ article.page.two-by-two-centered-r,
 		margin-left: 0;
 		margin-right: 0;
 		width: 100%;
+	}
+	.woocommerce.centered .woocommerce-result-count,
+	.woocommerce.centered .woocommerce-ordering select,
+	.woocommerce.centered ul.products {
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+	.woocommerce.centered ul.products {
+		width: 50%;
 	}
 	.blog.two-by-two .site-main,
 	.archive .two-by-two .site-main {
@@ -189,6 +211,7 @@ article.page.two-by-two-centered-r,
 
 .three-fourths-centered-r.post,
 .three-fourths-centered-r.page,
+.woocommerce.centered ul.products,
 .error-404.not-found,
 .no-results.not-found {
 	max-width: 80em;
@@ -201,6 +224,7 @@ article.page.two-by-two-centered-r,
 	max-width: none;
 }
 
+.woocommerce.centered ul.products,
 .error-404.not-found,
 .no-results.not-found {
 	margin: 0 auto;

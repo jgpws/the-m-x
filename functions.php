@@ -93,6 +93,12 @@ function the_mx_setup() {
 	// Selective Refresh on widgets
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
+	// Support for WooCommerce
+	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+  add_theme_support( 'wc-product-gallery-lightbox' );
+  add_theme_support( 'wc-product-gallery-slider' );
+
 	// Support for Gutenberg
 
 	$primary_color_bg_1 = the_mx_hex_to_rgb( get_theme_mod( 'the_mx_primary_1', '#795548' ) );
@@ -551,7 +557,7 @@ function the_mx_editor_custom_override() {
 .editor-styles-wrapper input[type="datetime"],
 .editor-styles-wrapper input[type="datetime-local"],
 .editor-styles-wrapper input[type="color"],
-.editor-styles-wrapper textarea,
+.editor-styles-wrapper textarea:not(.editor-post-title__input),
 .editor-styles-wrapper select {
   border-bottom-color: ' . esc_attr( $accent_color_1 ) . ' !important;
 }
@@ -570,6 +576,8 @@ function the_mx_editor_custom_override() {
 	background-color: ' . esc_attr( $accent_color_2 ) . ' !important;
 }
 
+.editor-styles-wrapper pre,
+.editor-styles-wrapper .wp-block-code,
 .editor-styles-wrapper table tbody tr:hover {
 	background-color: #' . esc_attr( $background_color ) . ' !important;
 }
@@ -583,13 +591,15 @@ function the_mx_editor_custom_override() {
 
 .editor-styles-wrapper a.wp-block-button__link,
 .editor-styles-wrapper button.wp-block-button__link,
-.editor-styles-wrapper div.wp-block-button__link {
+.editor-styles-wrapper div.wp-block-button__link,
+.editor-styles-wrapper div.wp-block-file .wp-block-file__button {
   background-color: ' . esc_attr( $accent_color_1 ) . ';
 }
 
 .editor-styles-wrapper a.wp-block-button__link:hover,
 .editor-styles-wrapper button.wp-block-button__link:hover,
-.editor-styles-wrapper div.wp-block-button__link:hover {
+.editor-styles-wrapper div.wp-block-button__link:hover,
+.editor-styles-wrapper div.wp-block-file .wp-block-file__button:hover {
   background-color: ' . esc_attr( $accent_color_2 ) . ';
 }
 
@@ -634,6 +644,10 @@ function the_mx_editor_custom_override() {
 
 .wp-block-calendar table th {
   background-color: #' . esc_attr( $background_color ) . ' !important;
+}
+
+button.wc-block-pagination-page:not(.components-button):not(.mce-open):not([role="presentation"]):not(.toggle) {
+	background-color: transparent !important;
 }';
 
 	return $css;
@@ -697,6 +711,18 @@ function the_mx_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'the_mx_widgets_init' );
+
+/**
+ * WooCommerce hooks/Functions
+ */
+ /**
+  * Check if WooCommerce is activated
+  */
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+	function is_woocommerce_activated() {
+		if ( class_exists( 'woocommerce' ) ) { return true; } else { return false; }
+	}
+}
 
 /**
  * Enqueue scripts and styles.
