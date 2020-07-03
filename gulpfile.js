@@ -106,7 +106,7 @@ function concatAnimCSS() {
 	return gulp.src(animStyles)
 		.pipe(concatCSS('animation-styles.min.css'))
 		.pipe(cleanCSS())
-		.pipe(gulp.dest('./css/minfiles'));
+		.pipe(gulp.dest('./build/css/minfiles'));
 }
 
 function reloadLayoutDir() {
@@ -145,16 +145,16 @@ function minifyJS() {
 }
 
 function jsHint() {
-	return gulp.src('./js/source/*.js')
+	return gulp.src('./build/js/source/*.js')
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));
 }
 
 function rtl(done) {
-	return gulp.src('./style.css')
+	return gulp.src('./build/style.css')
 		.pipe(rtlcss())
 		.pipe(rename({ basename: 'rtl' }))
-		.pipe(gulp.dest('./'));
+		.pipe(gulp.dest('./build'));
 	done();
 }
 
@@ -165,103 +165,120 @@ function watch() {
 	gulp.watch('./sass/**/*.scss', style);
 	gulp.watch('./sass/layout/mx-grid.scss', gridStyle);
 	//gulp.watch('./js/source/*.js', jsHint);
-	gulp.watch(jsFiles, scripts);
+	gulp.watch(jsFiles, series(copyJSSrc, scripts));
 	gulp.watch(jsSepFiles, minifyJS);
 	gulp.watch('./style.css', minifyStyle);
-	gulp.watch(layoutStyles, concatLayoutCSS);
+	gulp.watch(layoutStyles, series(copyCSSLayout, concatLayoutCSS));
 	gulp.watch(layoutStyles, reloadLayoutDir);
 	gulp.watch(animStyles, reloadAnimDir);
+  gulp.watch('./*.php', copyPHP);
 	gulp.watch('./**/*.php').on('change', reloadBrowser);
 	gulp.watch('./js/**/*.js').on('change', reloadBrowser);
 }
 
-// Copying files to dist/ folder
+// Copying files to build/ folder
 function copyMainFiles(done) {
 	gulp.src([
-		'./*.php',
-		'!./dist/*.php',
 		'./*.css',
-		'!./dist/*.css',
+		'!./build/*.css',
 		'readme.txt',
-		'!./dist/readme.txt',
+		'!./build/readme.txt',
 		'./screenshot.png',
-		'!./dist/screenshot.png'
+		'!./build/screenshot.png'
 	])
-		.pipe(gulp.dest('./dist/'));
+		.pipe(gulp.dest('./build/'));
 	done();
+}
+
+function copyPHP(done) {
+  gulp.src('./*php')
+    .pipe(gulp.dest('./build'));
+  done();
+  console.log('PHP files copied');
 }
 
 function copyCSS(done) {
 	gulp.src('./css/**/*.css')
-		.pipe(gulp.dest('./dist/css'));
+		.pipe(gulp.dest('./build/css'));
 	done();
 	console.log('CSS folder copied.');
 }
 
+function copyCSSLayout(done) {
+  gulp.src('./css/layouts/*.css')
+    .pipe(gulp.dest('./build/css/layouts'));
+  done();
+}
+
 function copyCSSImgs(done) {
 	gulp.src('./css/images/*')
-		.pipe(gulp.dest('./dist/css/images'));
+		.pipe(gulp.dest('./build/css/images'));
 	done();
 }
 
 function copyFonts(done) {
 	gulp.src('./fonts/*')
-		.pipe(gulp.dest('./dist/fonts'));
+		.pipe(gulp.dest('./build/fonts'));
 	done();
 	console.log('Fonts folder copied.');
 }
 
 function copyInc(done) {
 	gulp.src('./inc/**/*.php')
-	.pipe(gulp.dest('./dist/inc'));
+    .pipe(gulp.dest('./build/inc'));
 	done();
 	console.log('Inc folder copied.');
 }
 
 function copyJS(done) {
 	gulp.src('./js/**/*.js')
-	.pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest('./build/js'));
 	done();
 	console.log('JS folder copied.');
 }
 
+function copyJSSrc(done) {
+  gulp.src(jsFiles)
+    .pipe(gulp.dest('./build/js/source'));
+  done();
+}
+
+function copyJSSep(done) {
+  gulp.src(jsSepFiles)
+    .pipe(gulp.dest('./build/js/source'));
+  done();
+}
+
 function copyLang(done) {
 	gulp.src('./languages/*')
-	.pipe(gulp.dest('./dist/languages'));
+    .pipe(gulp.dest('./build/languages'));
 	done();
 	console.log('Languages folder copied.');
 }
 
-function copyMaps(done) {
-	gulp.src('./maps/*.map')
-	.pipe(gulp.dest('./dist/maps'));
-	done();
-	console.log('Maps folder copied');
-}
-
 function copyPageTemplates(done) {
 	gulp.src('./page-templates/*.php')
-	.pipe(gulp.dest('./dist/page-templates'));
+    .pipe(gulp.dest('./build/page-templates'));
 	done();
 	console.log('Page-Templates folder copied.')
 }
 
 function copySass(done) {
 	gulp.src('./sass/**/*.scss')
-	.pipe(gulp.dest('./dist/sass'));
+    .pipe(gulp.dest('./build/sass'));
 	done();
 	console.log('Sass folder copied.');
 }
 
 function copyTempParts(done) {
 	gulp.src('./template-parts/*.php')
-	.pipe(gulp.dest('./dist/template-parts'))
+    .pipe(gulp.dest('./build/template-parts'))
 	done();
 	console.log('Template-parts folder copied');
 }
 
 function zipUp(done) {
-	return gulp.src('dist/**/*')
+	return gulp.src('build/**/*')
 		.pipe(zip('the-m-x.zip'))
 		.pipe(gulp.dest('dist'))
 	done();
@@ -291,7 +308,20 @@ exports.concatAnimCSS = concatAnimCSS;
 exports.scripts = scripts;
 exports.minifyJS = minifyJS;
 exports.jsHint = jsHint;
-exports.copyFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFonts, copyInc, copyJS, copyLang, copyPageTemplates, copySass, copyTempParts);
+
+exports.copyMainFiles = copyMainFiles;
+exports.copyPHP = copyPHP;
+exports.copyCSS = copyCSS;
+exports.copyCSSLayout = copyCSSLayout;
+exports.copyCSSImgs = copyCSSImgs;
+exports.copyInc = copyInc;
+exports.copyJSSrc = copyJSSrc;
+exports.copyJSSep = copyJSSep;
+exports.copyPageTemplates = copyPageTemplates;
+exports.copySass = copySass;
+exports.copyTempParts = copyTempParts;
+exports.restoreFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFonts, copyInc, copyJS, copyLang, copyPageTemplates, copyTempParts);
+
 exports.zipUp = zipUp;
 exports.clean = clean;
 exports.finishUp = series(zipUp, cleanAfterZip);

@@ -1,4 +1,4 @@
-/**
+/** 
  * File jgd-grid.js.
  *
  * This script adds extra options to control the theme layout
@@ -14,7 +14,6 @@
  		var windowWidth = window.innerWidth;
 
 		var pageContainer = document.querySelector( '.page article.page' );
-    var wooPageContainer = document.querySelector( '.single-product .product' );
 	 	var stickyContainers = document.querySelectorAll( '.blog .sticky, .archive .sticky' );
 	 	var singlePostContainer = document.querySelector( '.single .post' );
 	 	var commentsContainer = document.querySelector( '.single .comments-area' );
@@ -36,8 +35,6 @@
 				if ( jgdGridParams.layouts === 'twobytwo' ) {
 					pageContainer.classList.add( 'three-fourths-centered-r' );
 					pageContainer.classList.remove( 'two-by-two-centered-r' );
-          /*wooPageContainer.classList.add( 'three-fourths-centered-r' );
-          wooPageContainer.classList.remove( 'two-by-two-centered-r' );*/
 				}
 			}
 
