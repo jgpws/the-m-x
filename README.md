@@ -183,6 +183,10 @@ Copies the top level php files.
 
 Copies **/css** folder.
 
+**`copyRTL`**
+
+Copies **rtl.css** file.
+
 **`copyCSSLayout`**
 
 Copies **/css/layouts** folder.
@@ -215,6 +219,10 @@ Copies select files in **/js/source** only to be minified.
 
 Copies .pot file for translation.
 
+**`copyMaps`**
+
+Copies **/maps** folder (sourcemaps).
+
 **`copyPageTemplates`**
 
 Copies page templates.
@@ -231,17 +239,25 @@ Copies theme template parts.
 
 Deletes everything in the **/build** folder.
 
+### For Distribution ###
+
+**`cleanMaps`**
+
+Removes the **/maps** directory from **/build**.
+
+**`zipUp`**
+
+Takes everything in the **/build** folder and creates a zip archive- **the-m-x.zip** inside of a **/dist** folder.
+
 Gulp 4 runs a series of tasks one after the other. Therefore, The M.X. has export tasks to make things more convenient.
 
 **`restoreFiles`**
 
 Cleans the **/build** folder; runs each of the copy commands one after another.
 
-### For Distribution ###
+**`finishUp`**
 
-**`zipUp`**
-
-Takes everything in the **/build** folder and creates a zip archive- **the-m-x.zip** inside of a **/dist** folder.
+Runs the `cleanMaps` and `zipUp` functions, in order.
 
 ___
 
