@@ -149,9 +149,11 @@ Live reloads changes in the css folder with BrowserSync.
 
 **`scripts`**
 
+**`minifyJS`**
+
 Takes all non-vendor (3rd Party) JavaScript files, concatenates and minifies them into **scripts.min.js**; adds a sourcemap.
 
-**`minifyJS`**
+**`minifySepJS`**
 
 Minifies JavaScript files that need to be loaded individually.
 
