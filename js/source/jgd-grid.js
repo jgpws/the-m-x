@@ -1,4 +1,4 @@
-/** 
+/**
  * File jgd-grid.js.
  *
  * This script adds extra options to control the theme layout

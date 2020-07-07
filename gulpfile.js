@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var newer = require('gulp-newer');
+var mode = require('gulp-mode')();
 var autoprefixer = require('gulp-autoprefixer');
 var jshint = require('gulp-jshint');
 var rtlcss = require('gulp-rtlcss');
@@ -71,14 +72,14 @@ function style() {
 function gridStyle() {
 	return gulp.src('./sass/layout/mx-grid.scss')
 		.pipe(plumber({ errorHandler: onError }))
-		.pipe(sourcemaps.init())
+		.pipe(mode.development(sourcemaps.init()))
 		.pipe(sass({
 			indentType: 'tab',
 			indentWidth: 1,
 			outputStyle: 'expanded',
 		}))
 		.pipe(autoprefixer())
-		.pipe(sourcemaps.write('../../maps'))
+		.pipe(mode.development(sourcemaps.write('../../maps')))
 		.pipe(gulp.dest('./css/layouts/'))
 		.pipe(browserSync.stream());
 }
@@ -94,6 +95,14 @@ function minifyStyle(done) {
 	done();
 }
 
+function rtl(done) {
+	return gulp.src('./style.css')
+		.pipe(rtlcss())
+		.pipe(rename({ basename: 'rtl' }))
+		.pipe(gulp.dest('./'));
+	done();
+}
+
 function concatLayoutCSS() {
 	return gulp.src(layoutStyles)
 		.pipe(concatCSS('layout-styles.min.css'))
@@ -106,7 +115,7 @@ function concatAnimCSS() {
 	return gulp.src(animStyles)
 		.pipe(concatCSS('animation-styles.min.css'))
 		.pipe(cleanCSS())
-		.pipe(gulp.dest('./build/css/minfiles'));
+		.pipe(gulp.dest('./css/minfiles'));
 }
 
 function reloadLayoutDir() {
@@ -120,27 +129,27 @@ function reloadAnimDir() {
 }
 
 // Scripts
-function scripts() {
-	return pipeline(
-		gulp.src(jsFiles),
-		sourcemaps.init(),
-		concatJS('scripts.min.js'),
-		uglify(),
-		sourcemaps.write('../../maps'),
-		gulp.dest('./js/minfiles')
-	);
+function minifyJS() {
+  return pipeline(
+    gulp.src(jsFiles),
+    mode.development(sourcemaps.init()),
+    concatJS('scripts.min.js'),
+    uglify(),
+    mode.development(sourcemaps.write('../../maps')),
+    gulp.dest('./build/js/minfiles')
+  );
 }
 
-function minifyJS() {
+function minifySepJS() {
 	return pipeline(
 		gulp.src(jsSepFiles),
-    sourcemaps.init(),
+    mode.development(sourcemaps.init()),
 		uglify(),
 		rename({
 			suffix: '.min'
 		}),
-    sourcemaps.write('../../maps'),
-		gulp.dest('./js/minfiles')
+    mode.development(sourcemaps.write('../../maps')),
+		gulp.dest('./build/js/minfiles')
 	);
 }
 
@@ -150,28 +159,23 @@ function jsHint() {
 		.pipe(jshint.reporter('default'));
 }
 
-function rtl(done) {
-	return gulp.src('./build/style.css')
-		.pipe(rtlcss())
-		.pipe(rename({ basename: 'rtl' }))
-		.pipe(gulp.dest('./build'));
-	done();
-}
-
 function watch() {
 	browserSync.init({
-		proxy: 'http://localhost/wordpress/'
+		proxy: 'localhost/wordpress/'
 	});
 	gulp.watch('./sass/**/*.scss', style);
 	gulp.watch('./sass/layout/mx-grid.scss', gridStyle);
 	//gulp.watch('./js/source/*.js', jsHint);
-	gulp.watch(jsFiles, series(copyJSSrc, scripts));
-	gulp.watch(jsSepFiles, minifyJS);
-	gulp.watch('./style.css', minifyStyle);
+	gulp.watch(jsFiles, series(copyJSSrc, minifyJS));
+	gulp.watch(jsSepFiles, series(copyJSSep, minifySepJS));
+	gulp.watch('./style.css', parallel(series(rtl, copyRTL), minifyStyle));
 	gulp.watch(layoutStyles, series(copyCSSLayout, concatLayoutCSS));
 	gulp.watch(layoutStyles, reloadLayoutDir);
 	gulp.watch(animStyles, reloadAnimDir);
   gulp.watch('./*.php', copyPHP);
+  gulp.watch('./inc/*.php', copyInc);
+  gulp.watch('./page-templates/*.php', copyPageTemplates);
+  gulp.watch('./template-parts/*.php', copyTempParts);
 	gulp.watch('./**/*.php').on('change', reloadBrowser);
 	gulp.watch('./js/**/*.js').on('change', reloadBrowser);
 }
@@ -204,6 +208,13 @@ function copyCSS(done) {
 	console.log('CSS folder copied.');
 }
 
+function copyRTL(done) {
+  gulp.src('./rtl.css')
+    .pipe(gulp.dest('./build'));
+  done();
+  console.log('rtl.css copied.');
+}
+
 function copyCSSLayout(done) {
   gulp.src('./css/layouts/*.css')
     .pipe(gulp.dest('./build/css/layouts'));
@@ -225,6 +236,7 @@ function copyFonts(done) {
 
 function copyInc(done) {
 	gulp.src('./inc/**/*.php')
+    .pipe(newer('./build/inc'))
     .pipe(gulp.dest('./build/inc'));
 	done();
 	console.log('Inc folder copied.');
@@ -256,6 +268,12 @@ function copyLang(done) {
 	console.log('Languages folder copied.');
 }
 
+function copyMaps(done) {
+  gulp.src('./maps/*')
+    .pipe(mode.development(gulp.dest('./build/maps')));
+  done();
+}
+
 function copyPageTemplates(done) {
 	gulp.src('./page-templates/*.php')
     .pipe(gulp.dest('./build/page-templates'));
@@ -272,6 +290,7 @@ function copySass(done) {
 
 function copyTempParts(done) {
 	gulp.src('./template-parts/*.php')
+    .pipe(newer('./build/template-parts'))
     .pipe(gulp.dest('./build/template-parts'))
 	done();
 	console.log('Template-parts folder copied');
@@ -284,9 +303,16 @@ function zipUp(done) {
 	done();
 }
 
+function cleanMaps(done) {
+  return del([
+    './build/maps'
+  ]);
+  done();
+}
+
 function clean(done) {
 	return del([
-		'./dist/**/*'
+		'./build/**/*'
 	]);
 	done();
 }
@@ -298,15 +324,15 @@ function cleanAfterZip() {
 	]);
 }
 
-exports.default = series(style, gridStyle, concatLayoutCSS, minifyStyle, scripts, minifyJS, watch);
+exports.default = series(style, gridStyle, concatLayoutCSS, minifyStyle, minifyJS, minifySepJS, watch);
 exports.style = style;
 exports.gridStyle = gridStyle;
 exports.rtl = rtl;
 exports.minifyStyle = minifyStyle;
 exports.concatLayoutCSS = concatLayoutCSS;
 exports.concatAnimCSS = concatAnimCSS;
-exports.scripts = scripts;
 exports.minifyJS = minifyJS;
+exports.minifySepJS = minifySepJS;
 exports.jsHint = jsHint;
 
 exports.copyMainFiles = copyMainFiles;
@@ -317,6 +343,7 @@ exports.copyCSSImgs = copyCSSImgs;
 exports.copyInc = copyInc;
 exports.copyJSSrc = copyJSSrc;
 exports.copyJSSep = copyJSSep;
+exports.copyMaps = copyMaps;
 exports.copyPageTemplates = copyPageTemplates;
 exports.copySass = copySass;
 exports.copyTempParts = copyTempParts;
@@ -324,5 +351,5 @@ exports.restoreFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFo
 
 exports.zipUp = zipUp;
 exports.clean = clean;
-exports.finishUp = series(zipUp, cleanAfterZip);
+exports.finishUp = series(cleanMaps, zipUp);
 exports.watch = parallel(watch, rtl);
