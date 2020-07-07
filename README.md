@@ -67,7 +67,63 @@ ___
 
 ## Gulp Commands
 
-The M.X. uses Gulp 4 on the backend to automate tasks and create a finalized file, suitable for distribution. Here are the commands used inside **gulpfile.js**.
+The M.X. uses Gulp 4 on the backend to automate tasks and create a finalized file, suitable for distribution.
+
+The latest version of The M.X. is now designed for placing the development theme outside of the WordPress `wp-content` directory, with the build version symbolically linked to `wp-content`.
+
+### Setup ###
+
+Download, clone or move the theme into a separate folder, preferably one in your Home folder. For instance, I created a `Development` directory in my home directory and placed `the-m-x` parent directory inside.
+
+Next, create a symbolic link. The particular location where WordPress is installed depends on many factors. Therefore, the locations below are where it is typically installed with the part preceding the wordpress folder being the server root. I will use the above Development directory as an example, assuming WordPress is installed inside of a `wordpress` folder.
+
+**For Linux:**
+
+Arch and derivatives:
+```
+ln -s ~/Development/the-m-x/build srv/http/wordpress/wp-content/themes/the-m-x
+```
+
+Ubuntu and derivatives:
+```
+ln -s ~/Development/the-m-x/build var/www/wordpress/wp-content/themes/the-m-x
+```
+
+Depending on how WordPress was installed on Linux, files in your home folder may not have permissions to create a symbolic link or access any files in the server root. In that case, add `sudo` before the link.
+
+```
+sudo ln -s ~/Development/...
+```
+
+Going further, if you would like your user account to have full access to WordPress installed under a root account, please see the article [Ubuntu Linux, Permissions and a Local WordPress Install](https://www.jasong-designs.com/2012/01/14/ubuntu-linux-permissions-and-a-local-wordpress-install/).
+
+**For MacOS and Windows**
+
+For MacOS and Windows, installation can vary greatly.
+
+On MacOS, WordPress.org has the article [Installing WordPress Locally on Your Mac With MAMP](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP). The MAMP document root is referenced in the article.
+
+On Windows, many developers install with WAMP or XAMPP. In these two articles, an install folder is referenced.
+* [How to Install XAMPP and WordPress Locally on Windows PC](https://themeisle.com/blog/install-xampp-and-wordpress-locally/)
+* [How to Install WordPress on your Windows Computer Using WAMP](https://www.wpbeginner.com/wp-tutorials/how-to-install-wordpress-on-your-windows-computer-using-wamp/)
+
+XAMPP installs by default to `C:\xampp`, while WAMP installs to `C:\wamp64`.
+
+Next, install the needed `node_modules` directory. In a terminal application, navigate to where your development files will be. In this case, it is `Development`.
+```
+cd Develpment/the-m-x
+```
+In this directory, type:
+```
+npm install
+```
+
+Finally, we need to generate the `build` folder that WordPress is linked to. For that, there is a convenient `restoreFiles` function.
+```
+gulp restoreFiles
+```
+
+Here are the commands used inside **gulpfile.js**.
 
 ### For Development ###
 
@@ -111,17 +167,25 @@ Generates a right-to-left stylesheet.
 
 Uses BrowserSync to load the theme on a live server. Watches for changes in SASS, JavaScript and PHP files and runs the **style**, **script** and minification functions; uses BrowserSync to reload the page on change.
 
-### For Distribution ###
+### For Build ###
 
-Each of these commands copy files to a **/dist** folder that mirrors the production theme file structure, leaving out any other filetypes than the ones specified.
+Each of these commands copy files to the **/build** folder that mirrors the production theme file structure, leaving out any other filetypes than the ones specified.
 
 **`copyMainFiles`**
 
-Copies the top level php, css files, readme.txt and screenshot.png.
+Copies the top level css files, readme.txt and screenshot.png.
+
+**`copyPHP`**
+
+Copies the top level php files.
 
 **`copyCSS`**
 
 Copies **/css** folder.
+
+**`copyCSSLayout`**
+
+Copies **/css/layouts** folder.
 
 **`copyCSSImgs`**
 
@@ -139,13 +203,17 @@ Copies the **/inc** folder (PHP includes)
 
 Copies JavaScript files.
 
+**`copyJSSrc`**
+
+Copies select files in **/js/source** to be minified/concatenated.
+
+**`copyJSSep`**
+
+Copies select files in **/js/source** only to be minified.
+
 **`copyLang`**
 
 Copies .pot file for translation.
-
-**`copyMaps`**
-
-Copies all sourcemaps.
 
 **`copyPageTemplates`**
 
@@ -159,27 +227,21 @@ Copies SASS files.
 
 Copies theme template parts.
 
-**`zipUp`**
-
-Takes everything in the **/dist** folder and creates a zip archive- **the-m-x.zip**.
-
 **`clean`**
 
-Deletes everything in the **/dist** folder.
-
-**`cleanAfterZip`**
-
-Deletes everything in the **/dist** folder, except **the-m-x.zip**
+Deletes everything in the **/build** folder.
 
 Gulp 4 runs a series of tasks one after the other. Therefore, The M.X. has export tasks to make things more convenient.
 
-**`copyFiles`**
+**`restoreFiles`**
 
-Cleans the **/dist** folder; runs each of the copy commands one after another.
+Cleans the **/build** folder; runs each of the copy commands one after another.
 
-**`finishUp`**
+### For Distribution ###
 
-Creates the zip file; cleans with **cleanAfterZip**.
+**`zipUp`**
+
+Takes everything in the **/build** folder and creates a zip archive- **the-m-x.zip** inside of a **/dist** folder.
 
 ___
 
