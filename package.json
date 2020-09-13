@@ -18,7 +18,7 @@
   "homepage": "https://github.com/jgpws/the-m-x#readme",
   "devDependencies": {
     "ansi-colors": "^4.1.1",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.12",
     "es6-promise": "^4.2.8",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
@@ -41,6 +41,7 @@
   "dependencies": {
     "del": "^4.1.1",
     "gulp-sourcemaps": "^2.6.5",
+    "http-proxy": "^1.18.1",
     "readable-stream": "^3.6.0"
   }
 }

@@ -107,7 +107,7 @@ function concatLayoutCSS() {
 	return gulp.src(layoutStyles)
 		.pipe(concatCSS('layout-styles.min.css'))
 		.pipe(cleanCSS())
-		.pipe(gulp.dest('./css/minfiles'))
+		.pipe(gulp.dest('./build/css/minfiles'))
 		.pipe(browserSync.stream());
 }
 
@@ -115,7 +115,7 @@ function concatAnimCSS() {
 	return gulp.src(animStyles)
 		.pipe(concatCSS('animation-styles.min.css'))
 		.pipe(cleanCSS())
-		.pipe(gulp.dest('./css/minfiles'));
+		.pipe(gulp.dest('./build/css/minfiles'));
 }
 
 function reloadLayoutDir() {
@@ -352,4 +352,4 @@ exports.restoreFiles = series(clean, copyMainFiles, copyCSS, copyCSSImgs, copyFo
 exports.zipUp = zipUp;
 exports.clean = clean;
 exports.finishUp = series(cleanMaps, zipUp);
-exports.watch = parallel(watch, rtl);
+exports.watch = watch;
