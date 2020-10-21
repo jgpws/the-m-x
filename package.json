@@ -18,7 +18,7 @@
   "homepage": "https://github.com/jgpws/the-m-x#readme",
   "devDependencies": {
     "ansi-colors": "^4.1.1",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.26.13",
     "es6-promise": "^4.2.8",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
@@ -36,12 +36,13 @@
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.2",
-    "jshint": "^2.11.1"
+    "jshint": "^2.12.0"
   },
   "dependencies": {
     "del": "^4.1.1",
     "gulp-sourcemaps": "^2.6.5",
     "http-proxy": "^1.18.1",
+    "lodash.template": "file:node_modules/lodash.template",
     "readable-stream": "^3.6.0"
   }
 }
