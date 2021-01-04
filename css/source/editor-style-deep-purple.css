@@ -32,14 +32,14 @@ mark {
   border-bottom-color: #cddc39;
 }
 
-button:not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser),
+button:not(.button-primary):not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser),
 .editor-styles-wrapper input[type="button"],
 .editor-styles-wrapper input[type="reset"],
 .editor-styles-wrapper input[type="submit"] {
 	background-color: #cddc39;
 }
 
-button:not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser):hover,
+button:not(.button-primary):not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser):hover,
 .editor-styles-wrapper input[type="button"]:hover,
 .editor-styles-wrapper input[type="reset"]:hover,
 .editor-styles-wrapper input[type="submit"]:hover {

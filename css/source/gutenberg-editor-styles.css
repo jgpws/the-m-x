@@ -147,7 +147,7 @@ dt {
 	font-weight: bold;
 }
 
-button:not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser),
+button:not(.button-primary):not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser),
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
@@ -168,7 +168,7 @@ input[type="submit"],
 	text-transform: uppercase;
 }
 
-button:not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser),
+button:not(.button-primary):not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser),
 .editor-styles-wrapper input[type="button"]:hover,
 .editor-styles-wrapper input[type="reset"]:hover,
 .editor-styles-wrapper input[type="submit"]:hover {
@@ -671,6 +671,10 @@ textarea {
 .wp-block-image img {
 	margin: 0px auto;
 	width: auto;
+}
+
+[data-align="full"] > .wp-block-image img {
+	width: 100%;
 }
 
 .wp-block-image figcaption {

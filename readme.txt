@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.9 January 3 2021 =
+CSS fixes for Gutenberg in backend editor.
+
 = 1.3.8 June 28 2020 =
 Further styling compatibility for WooCommerce; Most core blocks are now styled; matching for editor styles.
 
