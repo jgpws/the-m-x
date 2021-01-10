@@ -55,6 +55,16 @@
 	border-bottom: transparent;
 }
 
+// For Animate.css
+/*.animate .animated {
+	&.gallery-item,
+	&.blocks-gallery-item {
+		&.fadeIn {
+			animation-duration: 2s;
+		}
+	}
+}*/
+
 // For Colorbox
 .animate #cboxLoadedContent.fadeIn {
 	animation-duration: 3s;

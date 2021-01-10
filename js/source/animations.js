@@ -152,65 +152,36 @@
 		} );
 	}
 
-	function animateFormLabels() {
-		var commentTextarea = $( '.comment-form-comment' );
-		var commentAuthor = $( '.comment-form-author' );
-		var commentEmail = $( '.comment-form-email' );
-		var commentUrl = $( '.comment-form-url' );
+	var commentTextarea = $( '.comment-form-comment' );
+	var commentAuthor = $( '.comment-form-author' );
+	var commentEmail = $( '.comment-form-email' );
+	var commentUrl = $( '.comment-form-url' );
 
-		var commentLabel = $( '.comment-form-comment label' );
-		var commentAuthorLabel = $( '.comment-form-author label' );
-		var commentEmailLabel = $( '.comment-form-email label' );
-		var commentUrlLabel = $( '.comment-form-url label' );
+	var commentLabel = $( '.comment-form-comment label' );
+	var commentAuthorLabel = $( '.comment-form-author label' );
+	var commentEmailLabel = $( '.comment-form-email label' );
+	var commentUrlLabel = $( '.comment-form-url label' );
 
-		commentLabel.addClass( 'animated' );
-		commentAuthorLabel.addClass( 'animated' );
-		commentEmailLabel.addClass( 'animated' );
-		commentUrlLabel.addClass( 'animated' );
+	commentLabel.addClass( 'animated' );
+	commentAuthorLabel.addClass( 'animated' );
+	commentEmailLabel.addClass( 'animated' );
+	commentUrlLabel.addClass( 'animated' );
 
-		commentTextarea.on( 'focusin', function() {
-			commentLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
-			commentTextarea.addClass( 'isActive' );
+	function animateFormLabels(formElement, formLabel) {
+		/* Animates labels inside form elements */
+		formElement.on( 'focusin', function() {
+			formLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
+			formElement.addClass( 'isActive' );
 		} );
 
-		commentTextarea.on( 'focusout', function() {
-			commentLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
-			commentTextarea.removeClass( 'isActive' );
-		} );
-
-		commentAuthor.on( 'focusin', function() {
-			commentAuthorLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
-			commentAuthor.addClass( 'isActive' );
-		} );
-
-		commentAuthor.on( 'focusout', function() {
-			commentAuthorLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
-			commentAuthor.removeClass( 'isActive' );
-		} );
-
-		commentEmail.on( 'focusin', function() {
-			commentEmailLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
-			commentEmail.addClass( 'isActive' );
-		} );
-
-		commentEmail.on( 'focusout', function() {
-			commentEmailLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
-			commentEmail.removeClass( 'isActive' );
-		} );
-
-		commentUrl.on( 'focusin', function() {
-			commentUrlLabel.addClass( 'fadeOutLeft' ).removeClass( 'fadeInLeft' );
-			commentUrl.addClass( 'isActive' );
-		} );
-
-		commentUrl.on( 'focusout', function() {
-			commentUrlLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
-			commentUrl.removeClass( 'isActive' );
+		formElement.on( 'focusout', function() {
+			formLabel.removeClass( 'fadeOutLeft' ).addClass( 'fadeInLeft' );
+			formElement.removeClass( 'isActive' );
 		} );
 	}
 
 	function animateCboxSlides() {
-		// For animations between Colorbox slides
+		/* For animations between Colorbox slides */
 		var colorboxNext = $( '#cboxNext' );
 		var colorboxPrevious = $( '#cboxPrevious' );
 		var colorboxContent = $( '#cboxLoadedContent' );
@@ -230,243 +201,122 @@
 		} );
 	}
 
-	function countSlides( obj ) {
-		var counter = 0;
-		return {
-			increase: function() {
-				counter++;
-				if ( counter === obj.length ) {
-					counter = obj.length - 1;
-				}
-				//console.log( counter );
-				return counter;
-			},
-			decrease: function() {
-				counter--;
-				if ( counter < 0 ) {
-					counter = 0;
-				}
-				//console.log(counter);
-				return counter;
-			}
-		};
-	}
-
 	// Global variables for the slide animations
-	var slides1 = $( '.single.slider #gallery-1 .gallery-item' );
-	var slides2 = $( '.single.slider #gallery-2 .gallery-item' );
-	var slides3 = $( '.single.slider #gallery-3 .gallery-item' );
-	var slides4 = $( '.single.slider #gallery-4 .gallery-item' );
-	var slides5 = $( '.single.slider #gallery-5 .gallery-item' );
-
 	var gallery1 = $( '#gallery-1' );
 	var gallery2 = $( '#gallery-2' );
 	var gallery3 = $( '#gallery-3' );
 	var gallery4 = $( '#gallery-4' );
 	var gallery5 = $( '#gallery-5' );
+	var gallery6 = $( '.wp-block-gallery:nth-of-type(1)' );
+	var gallery7 = $( '.wp-block-gallery:nth-of-type(2)' );
+	var gallery8 = $( '.wp-block-gallery:nth-of-type(3)' );
+	var gallery9 = $( '.wp-block-gallery:nth-of-type(4)' );
+	var gallery10 = $( '.wp-block-gallery:nth-of-type(5)' );
 
-	var currentSlide1 = countSlides( slides1 );
-	var currentSlide2 = countSlides( slides2 );
-	var currentSlide3 = countSlides( slides3 );
-	var currentSlide4 = countSlides( slides4 );
-	var currentSlide5 = countSlides( slides5 );
+	var slides1 = $( '.single.slider #gallery-1 .gallery-item' );
+	var slides2 = $( '.single.slider #gallery-2 .gallery-item' );
+	var slides3 = $( '.single.slider #gallery-3 .gallery-item' );
+	var slides4 = $( '.single.slider #gallery-4 .gallery-item' );
+	var slides5 = $( '.single.slider #gallery-5 .gallery-item' );
+	var slides6 = $( '.single.slider .wp-block-gallery:nth-of-type(1) .blocks-gallery-item' );
+	var slides7 = $( '.single.slider .wp-block-gallery:nth-of-type(2) .blocks-gallery-item' );
+	var slides8 = $( '.single.slider .wp-block-gallery:nth-of-type(3) .blocks-gallery-item' );
+	var slides9 = $( '.single.slider .wp-block-gallery:nth-of-type(4) .blocks-gallery-item' );
+	var slides10 = $( '.single.slider .wp-block-gallery:nth-of-type(5) .blocks-gallery-item' );
 
-	function animateSlidesOnclick() {
-		// Gallery with Slider animations between slides when clicking next/previous buttons
-		var nextBtn1 = $( '#gallery-1 + .slider-button-panel .slider-next' );
-		var nextBtn2 = $( '#gallery-2 + .slider-button-panel .slider-next' );
-		var nextBtn3 = $( '#gallery-3 + .slider-button-panel .slider-next' );
-		var nextBtn4 = $( '#gallery-4 + .slider-button-panel .slider-next' );
-		var nextBtn5 = $( '#gallery-5 + .slider-button-panel .slider-next' );
+	var nextBtn1 = $( '#gallery-1 + .slider-button-panel .slider-next' );
+	var nextBtn2 = $( '#gallery-2 + .slider-button-panel .slider-next' );
+	var nextBtn3 = $( '#gallery-3 + .slider-button-panel .slider-next' );
+	var nextBtn4 = $( '#gallery-4 + .slider-button-panel .slider-next' );
+	var nextBtn5 = $( '#gallery-5 + .slider-button-panel .slider-next' );
+	var nextBtn6 = $( '.wp-block-gallery:nth-of-type(1) + .slider-button-panel .slider-next' );
+	var nextBtn7 = $( '.wp-block-gallery:nth-of-type(2) + .slider-button-panel .slider-next' );
+	var nextBtn8 = $( '.wp-block-gallery:nth-of-type(3) + .slider-button-panel .slider-next' );
+	var nextBtn9 = $( '.wp-block-gallery:nth-of-type(4) + .slider-button-panel .slider-next' );
+	var nextBtn10 = $( '.wp-block-gallery:nth-of-type(5) + .slider-button-panel .slider-next' );
 
-		var previousBtn1 = $( '#gallery-1 + .slider-button-panel .slider-previous' );
-		var previousBtn2 = $( '#gallery-2 + .slider-button-panel .slider-previous' );
-		var previousBtn3 = $( '#gallery-3 + .slider-button-panel .slider-previous' );
-		var previousBtn4 = $( '#gallery-4 + .slider-button-panel .slider-previous' );
-		var previousBtn5 = $( '#gallery-5 + .slider-button-panel .slider-previous' );
+	var previousBtn1 = $( '#gallery-1 + .slider-button-panel .slider-previous' );
+	var previousBtn2 = $( '#gallery-2 + .slider-button-panel .slider-previous' );
+	var previousBtn3 = $( '#gallery-3 + .slider-button-panel .slider-previous' );
+	var previousBtn4 = $( '#gallery-4 + .slider-button-panel .slider-previous' );
+	var previousBtn5 = $( '#gallery-5 + .slider-button-panel .slider-previous' );
+	var previousBtn6 = $( '.wp-block-gallery:nth-of-type(1) + .slider-button-panel .slider-previous' );
+	var previousBtn7 = $( '.wp-block-gallery:nth-of-type(2) + .slider-button-panel .slider-previous' );
+	var previousBtn8 = $( '.wp-block-gallery:nth-of-type(3) + .slider-button-panel .slider-previous' );
+	var previousBtn9 = $( '.wp-block-gallery:nth-of-type(4) + .slider-button-panel .slider-previous' );
+	var previousBtn10 = $( '.wp-block-gallery:nth-of-type(5) + .slider-button-panel .slider-previous' );
 
-		nextBtn1.on( 'click', function() {
-			gallery1.find( slides1[ currentSlide1.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function() {
+	var slideshowBtn1 = $( '#gallery-1 + .slider-button-panel .slider-startshow' );
+	var slideshowBtn2 = $( '#gallery-2 + .slider-button-panel .slider-startshow' );
+	var slideshowBtn3 = $( '#gallery-3 + .slider-button-panel .slider-startshow' );
+	var slideshowBtn4 = $( '#gallery-4 + .slider-button-panel .slider-startshow' );
+	var slideshowBtn5 = $( '#gallery-5 + .slider-button-panel .slider-startshow' );
+	var slideshowBtn6 = $( '.wp-block-gallery:nth-of-type(1) + .slider-button-panel .slider-startshow' );
+	var slideshowBtn7 = $( '.wp-block-gallery:nth-of-type(2) + .slider-button-panel .slider-startshow' );
+	var slideshowBtn8 = $( '.wp-block-gallery:nth-of-type(3) + .slider-button-panel .slider-startshow' );
+	var slideshowBtn9 = $( '.wp-block-gallery:nth-of-type(4) + .slider-button-panel .slider-startshow' );
+	var slideshowBtn10 = $( '.wp-block-gallery:nth-of-type(5) + .slider-button-panel .slider-startshow' );
+
+	function animateSlide(btn, gallery, slides, counter) {
+		btn.on( 'click', function() {
+			gallery.find( slides[ counter.value() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function() {
 				$(this).removeClass( 'animated fadeIn' );
+			} );
+				//console.log(counter.value());
 				//console.log($(this));
-			} );
-			//console.log(currentSlide1);
-		} );
-
-		nextBtn2.on( 'click', function() {
-			gallery2.find( slides2[ currentSlide2.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function() {
-				$(this).removeClass( 'animated fadeIn' );
+			gallery.find( slides[ counter.value() - 1 ] ).addClass( 'animated fadeOut' ).removeClass( 'hide' ).one( animationEnd, function() {
 				//console.log($(this));
-			} );
-			//console.log(currentSlide2);
-		} );
-
-		nextBtn3.on( 'click', function() {
-			gallery3.find( slides3[ currentSlide3.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function() {
-				$(this).removeClass( 'animated fadeIn' );
-				//console.log($(this));
-			} );
-			//console.log(currentSlide3);
-		} );
-
-		nextBtn4.on( 'click', function() {
-			gallery4.find( slides4[ currentSlide4.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function() {
-				$(this).removeClass( 'animated fadeIn' );
-				//console.log($(this));
-			} );
-			//console.log(currentSlide4);
-		} );
-
-		nextBtn5.on( 'click', function() {
-			gallery5.find( slides5[ currentSlide5.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function() {
-				$(this).removeClass( 'animated fadeIn' );
-				//console.log($(this));
-			} );
-			//console.log(currentSlide5);
-		} );
-
-		previousBtn1.on( 'click', function() {
-			gallery1.find( slides1[ currentSlide1.decrease() ] ).next().addClass( 'animated fadeIn' ).one( animationEnd, function(){
-				$(this).removeClass( 'animation fadeIn' );
-			} );
-		} );
-
-		previousBtn2.on( 'click', function() {
-			gallery2.find( slides2[ currentSlide2.decrease() ] ).next().addClass( 'animated fadeIn' ).one( animationEnd, function() {
-				$(this).removeClass( 'animation fadeIn' );
-			} );
-		} );
-
-		previousBtn3.on( 'click', function() {
-			gallery3.find( slides3[ currentSlide3.decrease() ] ).next().addClass( 'animated fadeIn' ).one( animationEnd, function() {
-				$(this).removeClass( 'animation fadeIn' );
-			} );
-		} );
-
-		previousBtn4.on( 'click', function() {
-			gallery4.find( slides4[ currentSlide4.decrease() ] ).next().addClass( 'animated fadeIn' ).one( animationEnd, function() {
-				$(this).removeClass( 'animation fadeIn' );
-			} );
-		} );
-
-		previousBtn5.on( 'click', function() {
-			gallery5.find( slides5[ currentSlide5.decrease() ] ).next().addClass( 'animated fadeIn' ).one( animationEnd, function() {
-				$(this).removeClass( 'animation fadeIn' );
+				$(this).removeClass( 'animated fadeOut' ).addClass( 'hide' );
 			} );
 		} );
 	}
 
-	function animateSlideshows() {
-		var startShwBtn1 = $( '#gallery-1 + .slider-button-panel .slider-startshow' );
-		var startShwBtn2 = $( '#gallery-2 + .slider-button-panel .slider-startshow' );
-		var startShwBtn3 = $( '#gallery-3 + .slider-button-panel .slider-startshow' );
-		var startShwBtn4 = $( '#gallery-4 + .slider-button-panel .slider-startshow' );
-		var startShwBtn5 = $( '#gallery-5 + .slider-button-panel .slider-startshow' );
-
-		var sliderBtnPanel = $( '.slider-button-panel' );
-		var galleryItm = $( '.gallery-item' );
-
-		var fadeSlide1;
-		var fadeSlide2;
-		var fadeSlide3;
-		var fadeSlide4;
-		var fadeSlide5;
+	function animateSlideshow(slideshowBtn, gallery, slideItems, counter) {
 		var isPlaying = false;
+		var currentIndex = counter.value();
+		var slideInterval;
 
-		startShwBtn1.on( 'click', function() {
-			var that = $(this);
-			if ( isPlaying === false ) {
-				isPlaying = true;
-				fadeSlide1 = setInterval( function() {
-					gallery1.find( slides1[ currentSlide1.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function(){
-						that.closest( sliderBtnPanel ).prev().find( galleryItm ).next().removeClass( 'animated fadeIn' );
-					} );
-					that.closest( sliderBtnPanel ).prev().find( galleryItm ).last().removeClass( 'animated fadeIn' );
-					//console.log(isPlaying);
-				}, 5000 );
-			} else {
-				isPlaying = false;
-				clearInterval( fadeSlide1 );
-				//console.log( isPlaying );
+		function startAnimation() {
+			isPlaying = true;
+			slideInterval = window.setInterval(fadeSlide, 5000);
+		}
+
+		function fadeSlide() {
+			console.log(currentIndex++);
+			gallery.find( slideItems[currentIndex] ).addClass( 'animated fadeIn' ).one( animationEnd, function() {
+				console.log($(this));
+				$(this).prev().removeClass( 'animated fadeIn' );
+			} );
+			gallery.find( slideItems[currentIndex - 1] ).addClass( 'animated fadeOut' ).removeClass( 'hide' ).one( animationEnd, function() {
+				console.log($(this));
+				$(this).removeClass( 'animated fadeOut' ).addClass( 'hide' );
+			} );
+
+			if ( slideItems[currentIndex + 1] === slideItems[currentIndex.length] ) {
+				clearInterval( slideInterval );
 			}
-		} );
+		}
 
-		startShwBtn2.on( 'click', function() {
-			var that = $(this);
-			if ( isPlaying === false ) {
-				isPlaying = true;
-				fadeSlide2 = setInterval( function() {
-					gallery2.find( slides2[ currentSlide2.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function(){
-						that.closest( sliderBtnPanel ).prev().find( galleryItm ).next().removeClass( 'animated fadeIn' );
-					} );
-					that.closest( sliderBtnPanel ).prev().find( galleryItm ).last().removeClass( 'animated fadeIn' );
-					//console.log(isPlaying);
-				}, 5000 );
-			} else {
-				isPlaying = false;
-				clearInterval( fadeSlide2 );
-				//console.log(isPlaying);
-			}
-		} );
+		function pauseAnimation() {
+			isPlaying = false;
+			clearInterval( slideInterval );
+		}
 
-		startShwBtn3.on( 'click', function() {
-			var that = $(this);
-			if ( isPlaying === false ) {
-				isPlaying = true;
-				fadeSlide3 = setInterval( function() {
-					gallery3.find( slides3[ currentSlide3.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function(){
-						that.closest( sliderBtnPanel ).prev().find( galleryItm ).next().removeClass( 'animated fadeIn' );
-					} );
-					that.closest( sliderBtnPanel ).prev().find( galleryItm ).last().removeClass( 'animated fadeIn' );
-					//console.log(isPlaying);
-				}, 5000 );
+		slideshowBtn.on( 'click', function() {
+			if (isPlaying === false) {
+				startAnimation();
+				console.log('The slideshow animation is playing.');
 			} else {
-				isPlaying = false;
-				clearInterval( fadeSlide3 );
-				//console.log(isPlaying);
-			}
-		} );
-
-		startShwBtn4.on( 'click', function() {
-			var that = $(this);
-			if ( isPlaying === false ) {
-				isPlaying = true;
-				fadeSlide4 = setInterval( function() {
-					gallery4.find( slides4[ currentSlide4.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function(){
-						that.closest( sliderBtnPanel ).prev().find( galleryItm ).next().removeClass( 'animated fadeIn' );
-					} );
-					that.closest( sliderBtnPanel ).prev().find( galleryItm ).last().removeClass( 'animated fadeIn' );
-					//console.log(isPlaying);
-				}, 5000 );
-			} else {
-				isPlaying = false;
-				clearInterval( fadeSlide4 );
-				//console.log(isPlaying);
-			}
-		} );
-
-		startShwBtn5.on( 'click', function() {
-			var that = $(this);
-			if ( isPlaying === false ) {
-				isPlaying = true;
-				fadeSlide5 = setInterval( function() {
-					gallery5.find( slides5[ currentSlide5.increase() ] ).addClass( 'animated fadeIn' ).one( animationEnd, function(){
-						that.closest( sliderBtnPanel ).prev().find( galleryItm ).next().removeClass( 'animated fadeIn' );
-					} );
-					that.closest( sliderBtnPanel ).prev().find( galleryItm ).last().removeClass( 'animated fadeIn' );
-					//console.log(isPlaying);
-				}, 5000 );
-			} else {
-				isPlaying = false;
-				clearInterval( fadeSlide5 );
-				//console.log(isPlaying);
+				pauseAnimation();
+				//clearInterval( setInterval );
+				console.log('The slideshow animation is not playing.');
 			}
 		} );
 	}
 
 	function addMaterialInk() {
+		/* Add .material-ripple class to auto-generated WordPress HTML, including menus */
 
-		// Add .material-ripple class to auto-generated WordPress HTML, including menus
 		$( menuItems ).addClass( 'material-ripple' );
 		$( sidebarItems ).addClass( 'material-ripple' );
 		$( 'button:not(.menu-down-arrow), input[type="button"], .wp-block-button__link' ).addClass( 'material-ripple' );
@@ -479,9 +329,54 @@
 			animateSearchbar();
 			animateMenu();
 			animateSidebar();
-			animateFormLabels();
-			animateSlidesOnclick();
-			animateSlideshows();
+
+			animateFormLabels(commentTextarea, commentLabel);
+			animateFormLabels(commentAuthor, commentAuthorLabel);
+			animateFormLabels(commentEmail, commentEmailLabel);
+			animateFormLabels(commentUrl, commentUrlLabel);
+
+			animateSlide(nextBtn1, gallery1, slides1, counter0);
+			animateSlide(previousBtn1, gallery1, slides1, counter0);
+
+			animateSlide(nextBtn2, gallery2, slides2, counter1);
+			animateSlide(previousBtn2, gallery2, slides2, counter1);
+
+			animateSlide(nextBtn3, gallery3, slides3, counter2);
+			animateSlide(previousBtn3, gallery3, slides3, counter2);
+
+			animateSlide(nextBtn4, gallery4, slides4, counter3);
+			animateSlide(previousBtn4, gallery4, slides4, counter3);
+
+			animateSlide(nextBtn5, gallery5, slides5, counter4);
+			animateSlide(previousBtn1, gallery1, slides1, counter0);
+
+			animateSlide(nextBtn6, gallery6, slides6, counter5);
+			animateSlide(previousBtn6, gallery6, slides6, counter5);
+
+			animateSlide(nextBtn7, gallery7, slides7, counter6);
+			animateSlide(previousBtn7, gallery7, slides7, counter6);
+
+			animateSlide(nextBtn8, gallery8, slides8, counter7);
+			animateSlide(previousBtn8, gallery8, slides8, counter7);
+
+			animateSlide(nextBtn9, gallery9, slides9, counter8);
+			animateSlide(previousBtn9, gallery9, slides9, counter8);
+
+			animateSlide(nextBtn10, gallery10, slides10, counter9);
+			animateSlide(previousBtn10, gallery10, slides10, counter9);
+
+			animateSlideshow(slideshowBtn1, gallery1, slides1, counter0);
+			animateSlideshow(slideshowBtn2, gallery2, slides2, counter1);
+			animateSlideshow(slideshowBtn3, gallery3, slides3, counter2);
+			animateSlideshow(slideshowBtn4, gallery4, slides4, counter3);
+			animateSlideshow(slideshowBtn5, gallery5, slides5, counter4);
+			animateSlideshow(slideshowBtn6, gallery6, slides6, counter5);
+			animateSlideshow(slideshowBtn7, gallery7, slides7, counter6);
+			animateSlideshow(slideshowBtn8, gallery8, slides8, counter7);
+			animateSlideshow(slideshowBtn9, gallery9, slides9, counter8);
+			animateSlideshow(slideshowBtn10, gallery10, slides10, counter9);
+
+			//animateSlideshows();
 			animateCboxSlides();
 			addMaterialInk();
 		} );

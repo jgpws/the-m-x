@@ -5,6 +5,41 @@
  * Licenses for the scripts are GPLv3 or compatible
  */
 
+var makeCounter = function() {
+ var privateCounter = 0;
+
+ function changeBy(val) {
+   privateCounter += val;
+ }
+
+ return {
+   increment: function() {
+     changeBy(1);
+   },
+
+   decrement: function() {
+     changeBy(-1);
+   },
+
+   value: function() {
+     return privateCounter;
+   }
+ }
+};
+
+/* Global counter variables for next/previous buttons in this file and animations.js */
+var counter0 = makeCounter();
+var counter1 = makeCounter();
+var counter2 = makeCounter();
+var counter3 = makeCounter();
+var counter4 = makeCounter();
+var counter5 = makeCounter();
+var counter6 = makeCounter();
+var counter7 = makeCounter();
+var counter8 = makeCounter();
+var counter9 = makeCounter();
+//console.log(counter5);
+
 (function() {
 
 	// Global variables
@@ -419,72 +454,74 @@
 	// Supports up to five galleries
 
 	// Setup global variables for the gallery
-	var gallery = document.querySelectorAll('.single.slider .gallery');
+	var gallery = document.querySelectorAll('.single.slider .gallery, .single.slider .wp-block-gallery');
 
 	var galleries = [	document.querySelector('.single.slider #gallery-1'),
-							document.querySelector('.single.slider #gallery-2'),
-							document.querySelector('.single.slider #gallery-3'),
-							document.querySelector('.single.slider #gallery-4'),
-							document.querySelector('.single.slider #gallery-5') ];
+      							document.querySelector('.single.slider #gallery-2'),
+      							document.querySelector('.single.slider #gallery-3'),
+      							document.querySelector('.single.slider #gallery-4'),
+      							document.querySelector('.single.slider #gallery-5'),
+                    document.querySelector('.single.slider .wp-block-gallery:nth-of-type(1)'),
+                    document.querySelector('.single.slider .wp-block-gallery:nth-of-type(2)'),
+                    document.querySelector('.single.slider .wp-block-gallery:nth-of-type(3)'),
+                    document.querySelector('.single.slider .wp-block-gallery:nth-of-type(4)'),
+                    document.querySelector('.single.slider .wp-block-gallery:nth-of-type(5)') ];
 
 	var slides = [ 	document.querySelectorAll('.single.slider #gallery-1 .gallery-item'),
-							document.querySelectorAll('.single.slider #gallery-2 .gallery-item'),
-							document.querySelectorAll('.single.slider #gallery-3 .gallery-item'),
-							document.querySelectorAll('.single.slider #gallery-4 .gallery-item'),
-							document.querySelectorAll('.single.slider #gallery-5 .gallery-item') ];
+    							document.querySelectorAll('.single.slider #gallery-2 .gallery-item'),
+    							document.querySelectorAll('.single.slider #gallery-3 .gallery-item'),
+    							document.querySelectorAll('.single.slider #gallery-4 .gallery-item'),
+    							document.querySelectorAll('.single.slider #gallery-5 .gallery-item'),
+                  document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(1) .blocks-gallery-item'),
+                  document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(2) .blocks-gallery-item'),
+                  document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(3) .blocks-gallery-item'),
+                  document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(4) .blocks-gallery-item'),
+                  document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(5) .blocks-gallery-item') ];
 	var i, len;
 
-	function showFirstSlide() {
+  // Some of the articles and tutorials consulted for these functions are:
+	// Understand JavaScript Closures With Ease- http://javascriptissexy.com/understand-javascript-closures-with-ease/
+	// Make a Simple JavaScript Slideshow without jQuery- https://www.sitepoint.com/make-a-simple-javascript-slideshow-without-jquery/ <- for the start and pause functions
+  // Closures- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 
-		// slides[0] = first location of the array in the slides variable, slides[1] = second, etc.
+	function showFirstSlide(arrayOfGals, arrayOfSlides) {
+		/* arrayOfGals should be an array of galleries ex. var galleries = [ document.querySelector('.gallery-1'), document.querySelector('.gallery-2') ]; */
+    /* arrayOfSlides should be an array of slides within the arrayOfGals ex. var slides = [ document.querySelectorAll('.gallery-1 .slides'), document.querySelectorAll('.gallery-2 .slides') ]; */
+
+    // slides[0] = first location of the array in the slides variable, slides[1] = second, etc.
 		// slides[0][0] = first slide inside of the first array
 
-		for (var iGal = 0, len = galleries.length; iGal < len; iGal++) {
-			//console.log('number of galleries: ' + iGal);
-			for (var jSlide = 0, lenSlide = slides.length; jSlide < lenSlide; jSlide++) {
-				//console.log('number of slides within gallery: ' + slides[jSlide].length); // for debugging
-				//console.log(slides[0][0]); // for debugging
+    for (var iGal = 0, len = arrayOfGals.length; iGal < len; iGal++) {
+      // Loop through number of galleries
+      //console.log('number of galleries: ' + iGal);
 
-				// We must loop over each slide when using querySelectorAll
-				for (var kEachSlide = 0; kEachSlide < slides[jSlide].length; kEachSlide++) {
-					//console.log(slides[jSlide].length); // Number of slides within current selected query
+      for (var jSlide = 0, lenSlide = arrayOfSlides.length; jSlide < lenSlide; jSlide++) {
+        // Loop through each set of slides
+        //console.log('number of slides within gallery: ' + arrayOfSlides[jSlide].length); // for debugging
+				//console.log(arrayOfSlides[0][0]); // for debugging
+        //console.log(arrayOfSlides[jSlide]);
 
-					// Hide all slides within each slides array;
-					if (slides[0][kEachSlide]) {
-						slides[0][kEachSlide].classList.add('hide');
-					}
-					if (slides[1][kEachSlide]) {
-						slides[1][kEachSlide].classList.add('hide');
-					}
-					if (slides[2][kEachSlide]) {
-						slides[2][kEachSlide].classList.add('hide');
-					}
-					if (slides[3][kEachSlide]) {
-						slides[3][kEachSlide].classList.add('hide');
-					}
-					if (slides[4][kEachSlide]) {
-						slides[4][kEachSlide].classList.add('hide');
-					}
+        // We must loop over each slide in the set when using querySelectorAll
+        for (var kEachSlide = 0; kEachSlide < arrayOfSlides[jSlide].length; kEachSlide++) {
+          //console.log(arrayOfSlides[jSlide][kEachSlide]);
 
-					// Show first slide within each slides array
-					if (slides[0][0]) {
-						slides[0][0].classList.remove('hide');
-					}
-					if (slides[1][0]) {
-						slides[1][0].classList.remove('hide');
-					}
-					if (slides[2][0]) {
-						slides[2][0].classList.remove('hide');
-					}
-					if (slides[3][0]) {
-						slides[3][0].classList.remove('hide');
-					}
-					if (slides[4][0]) {
-						slides[4][0].classList.remove('hide');
-					}
-				}
-			}
-		}
+          if (arrayOfSlides[jSlide] !== undefined) {
+            //console.log(arrayOfSlides[counter][kEachSlide]);
+
+            // Hide all slides within each slides array
+            if (arrayOfSlides[jSlide][kEachSlide]) {
+  						arrayOfSlides[jSlide][kEachSlide].classList.add('hide');
+  					}
+
+            // Show first slide within each slides array
+            if (arrayOfSlides[jSlide][0]) {
+              //console.log(arrayOfSlides[jSlide][0]);
+              arrayOfSlides[jSlide][0].classList.remove('hide');
+            }
+          }
+        }
+      }
+    }
 	}
 
 	for (i = 0, len = gallery.length; i < len; i++) {
@@ -497,25 +534,40 @@
 	var buttonPanel = document.querySelectorAll('.single.slider .slider-button-panel');
 
 	var sliderNext = [	document.querySelector('.single.slider #gallery-1 + .slider-button-panel .slider-next'),
-								document.querySelector('.single.slider #gallery-2 + .slider-button-panel .slider-next'),
-								document.querySelector('.single.slider #gallery-3 + .slider-button-panel .slider-next'),
-								document.querySelector('.single.slider #gallery-4 + .slider-button-panel .slider-next'),
-								document.querySelector('.single.slider #gallery-5 + .slider-button-panel .slider-next') ];
+      								document.querySelector('.single.slider #gallery-2 + .slider-button-panel .slider-next'),
+      								document.querySelector('.single.slider #gallery-3 + .slider-button-panel .slider-next'),
+      								document.querySelector('.single.slider #gallery-4 + .slider-button-panel .slider-next'),
+      								document.querySelector('.single.slider #gallery-5 + .slider-button-panel .slider-next'),
+                      document.querySelector('.single.slider .wp-block-gallery:nth-of-type(1) + .slider-button-panel .slider-next'),
+                      document.querySelector('.single.slider .wp-block-gallery:nth-of-type(2) + .slider-button-panel .slider-next'),
+                      document.querySelector('.single.slider .wp-block-gallery:nth-of-type(3) + .slider-button-panel .slider-next'),
+                      document.querySelector('.single.slider .wp-block-gallery:nth-of-type(4) + .slider-button-panel .slider-next'),
+                      document.querySelector('.single.slider .wp-block-gallery:nth-of-type(5) + .slider-button-panel .slider-next') ];
 
 	var sliderPrevious = [	document.querySelector('.single.slider #gallery-1 + .slider-button-panel .slider-previous'),
-									document.querySelector('.single.slider #gallery-2 + .slider-button-panel .slider-previous'),
-									document.querySelector('.single.slider #gallery-3 + .slider-button-panel .slider-previous'),
-									document.querySelector('.single.slider #gallery-4 + .slider-button-panel .slider-previous'),
-									document.querySelector('.single.slider #gallery-5 + .slider-button-panel .slider-previous') ];
+        									document.querySelector('.single.slider #gallery-2 + .slider-button-panel .slider-previous'),
+        									document.querySelector('.single.slider #gallery-3 + .slider-button-panel .slider-previous'),
+        									document.querySelector('.single.slider #gallery-4 + .slider-button-panel .slider-previous'),
+        									document.querySelector('.single.slider #gallery-5 + .slider-button-panel .slider-previous'),
+                          document.querySelector('.single.slider .wp-block-gallery:nth-of-type(1) + .slider-button-panel .slider-previous'),
+                          document.querySelector('.single.slider .wp-block-gallery:nth-of-type(2) + .slider-button-panel .slider-previous'),
+                          document.querySelector('.single.slider .wp-block-gallery:nth-of-type(3) + .slider-button-panel .slider-previous'),
+                          document.querySelector('.single.slider .wp-block-gallery:nth-of-type(4) + .slider-button-panel .slider-previous'),
+                          document.querySelector('.single.slider .wp-block-gallery:nth-of-type(5) + .slider-button-panel .slider-previous') ];
 
-	var slideshowBtn = [ document.querySelector('.single.slider #gallery-1 + .slider-button-panel .slider-startshow'),
-								document.querySelector('.single.slider #gallery-2 + .slider-button-panel .slider-startshow'),
-								document.querySelector('.single.slider #gallery-3 + .slider-button-panel .slider-startshow'),
-								document.querySelector('.single.slider #gallery-4 + .slider-button-panel .slider-startshow'),
-								document.querySelector('.single.slider #gallery-5 + .slider-button-panel .slider-startshow') ];
+	var slideshowBtn = [  document.querySelector('.single.slider #gallery-1 + .slider-button-panel .slider-startshow'),
+        								document.querySelector('.single.slider #gallery-2 + .slider-button-panel .slider-startshow'),
+        								document.querySelector('.single.slider #gallery-3 + .slider-button-panel .slider-startshow'),
+        								document.querySelector('.single.slider #gallery-4 + .slider-button-panel .slider-startshow'),
+        								document.querySelector('.single.slider #gallery-5 + .slider-button-panel .slider-startshow'),
+                        document.querySelector('.single.slider .wp-block-gallery:nth-of-type(1) + .slider-button-panel .slider-startshow'),
+                        document.querySelector('.single.slider .wp-block-gallery:nth-of-type(2) + .slider-button-panel .slider-startshow'),
+                        document.querySelector('.single.slider .wp-block-gallery:nth-of-type(3) + .slider-button-panel .slider-startshow'),
+                        document.querySelector('.single.slider .wp-block-gallery:nth-of-type(4) + .slider-button-panel .slider-startshow'),
+                        document.querySelector('.single.slider .wp-block-gallery:nth-of-type(5) + .slider-button-panel .slider-startshow') ];
 
-	// Hide any galleries and button panels that are more than five;
-	// for this we start the counter at 4
+  /* Hide any galleries and button panels that are more than five; */
+	/* for this we start the counter at 4 */
 	for (i = 5, len = gallery.length; i < len; i++) {
 		//console.log(gallery[i]);
 		gallery[i].classList.add('hide');
@@ -526,260 +578,122 @@
 		buttonPanel[i].classList.add('hide');
 	}
 
-	// Some of the articles and tutorials consulted for these functions are:
-	// Understand JavaScript Closures With Ease- http://javascriptissexy.com/understand-javascript-closures-with-ease/
-	// Make a Simple JavaScript Slideshow without jQuery- https://www.sitepoint.com/make-a-simple-javascript-slideshow-without-jquery/ <- for the start and pause functions
+  /* Show each subsequent slide one at a time by clicking the next and previous buttons */
+	/* checking if each button exists on the page first */
 
-	// Next slide function
-	function showSlide(obj) {
-		var counter = 0;
-		return {
-			showNext: function() {
-				counter++;
-				if (counter === obj.length) {
-					counter = obj.length - 1;
-				}
-				//console.log('Next slide: ' + counter);
-				return counter;
-			},
-			showPrevious: function() {
-				counter--;
-				if (counter < 0) {
-					counter = 0;
-				}
-				//console.log('Previous slide: ' + counter);
-				return counter;
-			}
-		};
+	function addSlideClickEvents(slideItems, nextBtn, prevBtn, counter) {
+    /* Next and previous buttons */
+    /* ex: var sliderNext = document.querySelector('.gallery-1 .next-btn'); */
+    /*     or var sliderNext = [ document.querySelector('.gallery-1 .next-btn'), document.querySelector('.gallery-2 .next-btn') ]
+
+    /* Slide items */
+    /* ex: var slides = document.querySelectorAll('.gallery-1 .gallery-item'); */
+    /*     or var slides = [ document.querySelectorAll('.gallery-1 .gallery-item'), document.querySelectorAll('.gallery-2 .gallery-item') ] */
+
+    if (nextBtn !== null) {
+      nextBtn.addEventListener('click', function() {
+        var currentIndex = counter.value();
+
+        counter.increment();
+
+        //console.log(slideItems.length - 1);
+        //console.log(currentIndex + 1);
+
+        slideItems[currentIndex].classList.add('hide');
+        if (slideItems[currentIndex + 1] !== undefined) {
+          slideItems[0].classList.add('hide');
+          slideItems[currentIndex + 1].classList.remove('hide');
+        }
+
+        if (currentIndex + 1 === slideItems.length - 1) {
+          nextBtn.setAttribute('disabled', '');
+        }
+
+        prevBtn.removeAttribute('disabled');
+      });
+    }
+
+    if (prevBtn !== null) {
+      /* Set previous button to disabled on page load, since there are no previous slides. */
+      prevBtn.setAttribute('disabled', '');
+
+      prevBtn.addEventListener('click', function() {
+        currentIndex = counter.value();
+
+        counter.decrement();
+
+        //console.log(currentIndex - 1);
+
+        if (slideItems[currentIndex - 1] !== undefined) {
+          slideItems[currentIndex - 1].classList.remove('hide');
+        }
+        if(slideItems[currentIndex] !== undefined) {
+          slideItems[currentIndex].classList.add('hide');
+        }
+
+        if ((currentIndex - 1) === 0) {
+          prevBtn.setAttribute('disabled', '');
+        }
+
+        nextBtn.removeAttribute('disabled');
+      });
+    }
 	}
 
-	// Show each subsequent slide one at a time by clicking the next and previous buttons
-	// checking if each button exists on the page first
-	var currentSlide1 = showSlide(slides[0]);
-	var currentSlide2 = showSlide(slides[1]);
-	var currentSlide3 = showSlide(slides[2]);
-	var currentSlide4 = showSlide(slides[3]);
-	var currentSlide5 = showSlide(slides[4]);
+	function addSlideshowEvents(slideshowBtn, nextBtn, prevBtn, slideItems, counter) {
+    var isPlaying = false;
+    var currentIndex = counter.value();
+    var slideInterval;
 
-	function addSlideClickEvents() {
-		if (sliderNext[0]) {
-			sliderNext[0].addEventListener('click', function() {
-				slides[0][currentSlide1.showPrevious()].classList.add('hide');
-				slides[0][currentSlide1.showNext()].classList.remove('hide');
-				slides[0][currentSlide1.showNext()].classList.add('hide');
-			});
-		}
-		if (sliderNext[1]) {
-			sliderNext[1].addEventListener('click', function() {
-				slides[1][currentSlide2.showPrevious()].classList.add('hide');
-				slides[1][currentSlide2.showNext()].classList.remove('hide');
-				slides[1][currentSlide2.showNext()].classList.add('hide');
-			});
-		}
-		if (sliderNext[2]) {
-			sliderNext[2].addEventListener('click', function() {
-				slides[2][currentSlide3.showPrevious()].classList.add('hide');
-				slides[2][currentSlide3.showNext()].classList.remove('hide');
-				slides[2][currentSlide3.showNext()].classList.add('hide');
-			});
-		}
-		if (sliderNext[3]) {
-			sliderNext[3].addEventListener('click', function() {
-				slides[3][currentSlide4.showPrevious()].classList.add('hide');
-				slides[3][currentSlide4.showNext()].classList.remove('hide');
-				slides[3][currentSlide4.showNext()].classList.add('hide');
-			});
-		}
-		if (sliderNext[4]) {
-			sliderNext[4].addEventListener('click', function() {
-				slides[4][currentSlide5.showPrevious()].classList.add('hide');
-				slides[4][currentSlide5.showNext()].classList.remove('hide');
-				slides[4][currentSlide5.showNext()].classList.add('hide');
-			});
-		}
+    function startShow() {
+      nextBtn.setAttribute('disabled', '');
+      prevBtn.setAttribute('disabled', '');
+      isPlaying = true;
+      slideshowBtn.innerHTML = '<i class="material-icons">pause</i>';
 
-		if (sliderPrevious[0]) {
-			sliderPrevious[0].addEventListener('click', function() {
-				slides[0][currentSlide1.showPrevious()].classList.remove('hide');
-				slides[0][currentSlide1.showNext()].classList.add('hide');
-				slides[0][currentSlide1.showPrevious()].classList.remove('hide');
-			});
-		}
-		if (sliderPrevious[1]) {
-			sliderPrevious[1].addEventListener('click', function() {
-				slides[1][currentSlide2.showPrevious()].classList.remove('hide');
-				slides[1][currentSlide2.showNext()].classList.add('hide');
-				slides[1][currentSlide2.showPrevious()].classList.remove('hide');
-			});
-		}
-		if (sliderPrevious[2]) {
-			sliderPrevious[2].addEventListener('click', function() {
-				slides[2][currentSlide3.showPrevious()].classList.remove('hide');
-				slides[2][currentSlide3.showNext()].classList.add('hide');
-				slides[2][currentSlide3.showPrevious()].classList.remove('hide');
-			});
-		}
-		if (sliderPrevious[3]) {
-			sliderPrevious[3].addEventListener('click', function() {
-				slides[3][currentSlide4.showPrevious()].classList.remove('hide');
-				slides[3][currentSlide4.showNext()].classList.add('hide');
-				slides[3][currentSlide4.showPrevious()].classList.remove('hide');
-			});
-		}
-		if (sliderPrevious[4]) {
-			sliderPrevious[4].addEventListener('click', function() {
-				slides[4][currentSlide5.showPrevious()].classList.remove('hide');
-				slides[4][currentSlide5.showNext()].classList.add('hide');
-				slides[4][currentSlide5.showPrevious()].classList.remove('hide');
-			});
-		}
-	}
+      slideInterval = window.setInterval(incrementSlide, 5000);
+    }
 
-	function addSlideshowEvents() {
-		var isPlaying = false;
+    function incrementSlide() {
+      if (slideItems[currentIndex] !== undefined) {
+        slideItems[currentIndex].classList.add('hide');
+      }
+      if (slideItems[currentIndex + 1] !== undefined) {
+        slideItems[currentIndex + 1].classList.remove('hide');
+      }
 
-		function startShow1() {
-			isPlaying = true;
-			slideshowBtn[0].innerHTML = '<i class="material-icons">pause</i>';
-			slideInterval1 = setInterval(function() {
-				slides[0][currentSlide1.showPrevious()].classList.add('hide');
-				slides[0][currentSlide1.showNext()].classList.remove('hide');
-				slides[0][currentSlide1.showNext()].classList.add('hide');
-			}, 5000);
-		}
+      if (currentIndex + 1 === slideItems.length - 1) {
+        slideshowBtn.innerHTML = '<i class="material-icons">play_arrow</i>';
+        isPlaying = false;
 
-		function pauseShow1() {
-			isPlaying = false;
-			slideshowBtn[0].innerHTML = '<i class="material-icons">play_arrow</i>';
-			clearInterval(slideInterval1);
-		}
+      }
 
-		if (slideshowBtn[0]) {
-			startShow1();
-			pauseShow1();
-			slideshowBtn[0].addEventListener('click', function() {
-				if (isPlaying === false) {
-					startShow1();
-					//console.log('The slideshow is playing');
-				} else {
-					pauseShow1();
-					//console.log('The slideshow is not playing');
-				}
-			});
-			//console.log('The slideshow is not playing');
-		}
+      if (currentIndex + 1 === slideItems.length) {
+        nextBtn.removeAttribute('disabled');
+        clearInterval(slideInterval);
+        //console.log(slideItems[slideItems.length - 1]);
+        slideItems[0].classList.remove('hide');
+      }
+      currentIndex++;
+    }
 
-		function startShow2() {
-			isPlaying = true;
-			slideshowBtn[1].innerHTML = '<i class="material-icons">pause</i>';
-			slideInterval2 = setInterval(function() {
-				slides[1][currentSlide2.showPrevious()].classList.add('hide');
-				slides[1][currentSlide2.showNext()].classList.remove('hide');
-				slides[1][currentSlide2.showNext()].classList.add('hide');
-			}, 5000);
-		}
+    function pauseShow() {
+      isPlaying = false;
+      slideshowBtn.innerHTML = '<i class="material-icons">play_arrow</i>';
+      clearInterval(slideInterval);
+    }
 
-		function pauseShow2() {
-			isPlaying = false;
-			slideshowBtn[1].innerHTML = '<i class="material-icons">play_arrow</i>';
-			clearInterval(slideInterval2);
-		}
-
-		if (slideshowBtn[1]) {
-			startShow2();
-			pauseShow2();
-			slideshowBtn[1].addEventListener('click', function() {
-				if (isPlaying === false) {
-					startShow2();
-				} else {
-					pauseShow2();
-				}
-			});
-		}
-
-		function startShow3() {
-			isPlaying = true;
-			slideshowBtn[2].innerHTML = '<i class="material-icons">pause</i>';
-			slideInterval3 = setInterval(function() {
-				slides[2][currentSlide3.showPrevious()].classList.add('hide');
-				slides[2][currentSlide3.showNext()].classList.remove('hide');
-				slides[2][currentSlide3.showNext()].classList.add('hide');
-			}, 5000);
-		}
-
-		function pauseShow3() {
-			isPlaying = false;
-			slideshowBtn[2].innerHTML = '<i class="material-icons">play_arrow</i>';
-			clearInterval(slideInterval3);
-		}
-
-		if (slideshowBtn[2]) {
-			startShow3();
-			pauseShow3();
-			slideshowBtn[2].addEventListener('click', function() {
-				if (isPlaying === false) {
-					startShow3();
-				} else {
-					pauseShow3();
-				}
-			});
-		}
-
-		function startShow4() {
-			isPlaying = true;
-			slideshowBtn[3].innerHTML = '<i class="material-icons">pause</i>';
-			slideInterval4 = setInterval(function() {
-				slides[3][currentSlide3.showPrevious()].classList.add('hide');
-				slides[3][currentSlide3.showNext()].classList.remove('hide');
-				slides[3][currentSlide3.showNext()].classList.add('hide');
-			}, 5000);
-		}
-
-		function pauseShow4() {
-			isPlaying = false;
-			slideshowBtn[3].innerHTML = '<i class="material-icons">play_arrow</i>';
-			clearInterval(slideInterval4);
-		}
-
-		if (slideshowBtn[3]) {
-			startShow4();
-			pauseShow4();
-			slideshowBtn[3].addEventListener('click', function() {
-				if (isPlaying === false) {
-					startShow4();
-				} else {
-					pauseShow4();
-				}
-			});
-		}
-
-		function startShow5() {
-			isPlaying = true;
-			slideshowBtn[4].innerHTML = '<i class="material-icons">pause</i>';
-			slideInterval5 = setInterval(function() {
-				slides[4][currentSlide3.showPrevious()].classList.add('hide');
-				slides[4][currentSlide3.showNext()].classList.remove('hide');
-				slides[4][currentSlide3.showNext()].classList.add('hide');
-			}, 5000);
-		}
-
-		function pauseShow5() {
-			isPlaying = false;
-			slideshowBtn[4].innerHTML = '<i class="material-icons">play_arrow</i>';
-			clearInterval(slideInterval5);
-		}
-
-		if (slideshowBtn[4]) {
-			startShow5();
-			pauseShow5();
-			slideshowBtn[4].addEventListener('click', function() {
-				if (isPlaying === false) {
-					startShow5();
-				} else {
-					pauseShow5();
-				}
-			});
-		}
+    if (slideshowBtn) {
+      slideshowBtn.addEventListener('click', function() {
+        if (isPlaying === false) {
+          startShow();
+          //console.log('The slideshow is playing.');
+        } else {
+          pauseShow();
+          //console.log('The slideshow is not playing.');
+        }
+      });
+    }
 	}
 
 	function theMXInit() {
@@ -795,9 +709,29 @@
 		toggleMenuItems();
 		loadInitMenuState();
 		disappearingHeader();
-		showFirstSlide();
-		addSlideClickEvents();
-		addSlideshowEvents();
+		showFirstSlide(galleries, slides);
+
+    addSlideClickEvents(slides[0], sliderNext[0], sliderPrevious[0], counter0);
+    addSlideClickEvents(slides[1], sliderNext[1], sliderPrevious[1], counter1);
+    addSlideClickEvents(slides[2], sliderNext[2], sliderPrevious[2], counter2);
+    addSlideClickEvents(slides[3], sliderNext[3], sliderPrevious[3], counter3);
+    addSlideClickEvents(slides[4], sliderNext[4], sliderPrevious[4], counter4);
+		addSlideClickEvents(slides[5], sliderNext[5], sliderPrevious[5], counter5);
+    addSlideClickEvents(slides[6], sliderNext[6], sliderPrevious[6], counter6);
+    addSlideClickEvents(slides[7], sliderNext[7], sliderPrevious[7], counter7);
+    addSlideClickEvents(slides[8], sliderNext[8], sliderPrevious[8], counter8);
+    addSlideClickEvents(slides[9], sliderNext[9], sliderPrevious[9], counter9);
+
+		addSlideshowEvents(slideshowBtn[0], sliderNext[0], sliderPrevious[0], slides[0], counter0);
+    addSlideshowEvents(slideshowBtn[1], sliderNext[1], sliderPrevious[1], slides[1], counter1);
+    addSlideshowEvents(slideshowBtn[2], sliderNext[2], sliderPrevious[2], slides[2], counter2);
+    addSlideshowEvents(slideshowBtn[3], sliderNext[3], sliderPrevious[3], slides[3], counter3);
+    addSlideshowEvents(slideshowBtn[4], sliderNext[4], sliderPrevious[4], slides[4], counter4);
+    addSlideshowEvents(slideshowBtn[5], sliderNext[5], sliderPrevious[5], slides[5], counter5);
+    addSlideshowEvents(slideshowBtn[6], sliderNext[6], sliderPrevious[6], slides[6], counter6);
+    addSlideshowEvents(slideshowBtn[7], sliderNext[7], sliderPrevious[7], slides[7], counter7);
+    addSlideshowEvents(slideshowBtn[8], sliderNext[8], sliderPrevious[8], slides[8], counter8);
+    addSlideshowEvents(slideshowBtn[9], sliderNext[9], sliderPrevious[9], slides[9], counter9);
 	}
 	document.addEventListener( 'DOMContentLoaded', theMXInit );
 

@@ -134,7 +134,7 @@ function minifyJS() {
     gulp.src(jsFiles),
     mode.development(sourcemaps.init()),
     concatJS('scripts.min.js'),
-    uglify(),
+    mode.production(uglify()),
     mode.development(sourcemaps.write('../../maps')),
     gulp.dest('./build/js/minfiles')
   );
@@ -144,7 +144,7 @@ function minifySepJS() {
 	return pipeline(
 		gulp.src(jsSepFiles),
     mode.development(sourcemaps.init()),
-		uglify(),
+		mode.production(uglify()),
 		rename({
 			suffix: '.min'
 		}),
@@ -163,10 +163,10 @@ function watch() {
 	browserSync.init({
 		proxy: 'localhost/wordpress/'
 	});
-	gulp.watch('./sass/**/*.scss', style);
+	gulp.watch('./sass/**/*.scss', series(style, copyMaps, copyStyle));
 	gulp.watch('./sass/layout/mx-grid.scss', gridStyle);
 	//gulp.watch('./js/source/*.js', jsHint);
-	gulp.watch(jsFiles, series(copyJSSrc, minifyJS));
+	gulp.watch(jsFiles, series(copyMaps, copyJSSrc, minifyJS));
 	gulp.watch(jsSepFiles, series(copyJSSep, minifySepJS));
 	gulp.watch('./style.css', parallel(series(rtl, copyRTL), minifyStyle));
 	gulp.watch(layoutStyles, series(copyCSSLayout, concatLayoutCSS));
@@ -206,6 +206,13 @@ function copyCSS(done) {
 		.pipe(gulp.dest('./build/css'));
 	done();
 	console.log('CSS folder copied.');
+}
+
+function copyStyle(done) {
+  gulp.src('./style.css')
+    .pipe(gulp.dest('./build'));
+  done();
+  console.log('style.css copied.');
 }
 
 function copyRTL(done) {
@@ -338,6 +345,7 @@ exports.jsHint = jsHint;
 exports.copyMainFiles = copyMainFiles;
 exports.copyPHP = copyPHP;
 exports.copyCSS = copyCSS;
+exports.copyStyle = copyStyle;
 exports.copyCSSLayout = copyCSSLayout;
 exports.copyCSSImgs = copyCSSImgs;
 exports.copyInc = copyInc;

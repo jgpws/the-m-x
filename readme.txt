@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.10 January  2021 =
+Applied the single slider Customizer setting to Block Editor galleries. Code refactoring of single slider functions for less code, smoother animations.
+
 = 1.3.9 January 3 2021 =
 CSS fixes for Gutenberg in backend editor.
 

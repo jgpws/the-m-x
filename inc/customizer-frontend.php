@@ -527,6 +527,10 @@ function the_mx_reverse_supporting_color_css() {
 			color: #000000;
 		}
 
+		.wp-block-gallery .blocks-gallery-item figcaption {
+			color: rgba(0, 0, 0, 0.87);
+		}
+
 		.is-style-outline .wp-block-button__link {
 			color: rgba(0, 0, 0, 0.54);
 		}

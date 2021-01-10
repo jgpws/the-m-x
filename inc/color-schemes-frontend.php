@@ -356,7 +356,8 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['primary_2']} !important;
   }
 
-  .single.slider .gallery {
+  .single.slider .gallery,
+  .single.slider .wp-block-gallery {
     background-color: {$colors['primary_2']};
   }
 
