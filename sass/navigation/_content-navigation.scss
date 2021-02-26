@@ -51,24 +51,3 @@
 		border-radius: 2px;
 	}
 }
-
-@media (min-width: 80em) {
-	.blog .site-main,
-	.search .site-main,
-	.archive .site-main {
-
-		.posts-navigation {
-			border-bottom-left-radius: 2px;
-			border-bottom-right-radius: 2px;
-		}
-
-		article + .posts-navigation {
-			border-top-left-radius: 2px;
-			border-top-right-radius: 2px;
-			border-bottom-left-radius: 0px;
-			border-bottom-right-radius: 0px;
-		}
-
-	}
-
-}

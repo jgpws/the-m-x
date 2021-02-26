@@ -57,7 +57,8 @@
     grid-row-start: 1;
   }
 
-  .sidebar-left.page-template-template-landing .content-area {
+  .sidebar-left.page-template-template-landing .content-area,
+  .attachment.colorbox.sidebar-left .content-area {
     grid-column: 1 / 4;
   }
 

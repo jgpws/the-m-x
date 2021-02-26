@@ -253,16 +253,6 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['primary_1']};
   }
 
-  /*.blog .format-gallery.sticky,
-  .blog .format-aside.sticky,
-  .blog .format-image.sticky,
-  .blog .format-video.sticky,
-  .blog .format-audio.sticky,
-  .blog .format-status.sticky,
-  .blog .format-quote.sticky {
-  background-color: {$colors['primary_4']};
-  }*/
-
   .format-image,
   .format-audio,
   .format-video,

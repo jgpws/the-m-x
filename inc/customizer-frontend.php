@@ -403,7 +403,8 @@ function the_mx_reverse_supporting_color_css() {
 			color: rgba(0, 0, 0, 0.7);
 		}
 
-		.header-button-panel #menu-social ul li a:hover {
+		.header-button-panel #menu-social ul li a:link:hover,
+		.header-button-panel #menu-social ul li a:visited:hover {
 			color: #000000;
 		}
 

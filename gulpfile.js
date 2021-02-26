@@ -30,7 +30,8 @@ const { parallel } = require('gulp');
 var layoutStyles = [	'./css/layouts/mx-grid.css',
  							'./css/layouts/content-sidebar-overlay.css',
 							'./css/layouts/content-sidebar.css',
-							'./css/layouts/sidebar-content.css'];
+							'./css/layouts/sidebar-content.css',
+              './css/layouts/rtl.css'];
 var animStyles = [ 	'./css/vendor/animate.css',
 							'./css/vendor/ripple.css',
 							'./css/vendor/spinner.css' ];
@@ -39,6 +40,7 @@ var jsFiles = [ 	'./js/source/jgd-grid.js',
 						'./js/source/navigation.js',
 						'./js/source/skip-link-focus-fix.js',
 						'./js/source/animations.js',
+            './js/source/rtl-animations.js',
 						'./js/source/colorbox-main.js',
 						'./js/source/restore-js.js' ];
 var jsSepFiles = [	'./js/source/add-skrollr-data-attributes.js',
@@ -168,7 +170,8 @@ function watch() {
 	//gulp.watch('./js/source/*.js', jsHint);
 	gulp.watch(jsFiles, series(copyMaps, copyJSSrc, minifyJS));
 	gulp.watch(jsSepFiles, series(copyJSSep, minifySepJS));
-	gulp.watch('./style.css', parallel(series(rtl, copyRTL), minifyStyle));
+	//gulp.watch('./style.css', parallel(series(rtl, copyRTL), minifyStyle));
+  gulp.watch('./style.css', parallel(copyRTL, minifyStyle));
 	gulp.watch(layoutStyles, series(copyCSSLayout, concatLayoutCSS));
 	gulp.watch(layoutStyles, reloadLayoutDir);
 	gulp.watch(animStyles, reloadAnimDir);
@@ -346,6 +349,7 @@ exports.copyMainFiles = copyMainFiles;
 exports.copyPHP = copyPHP;
 exports.copyCSS = copyCSS;
 exports.copyStyle = copyStyle;
+exports.copyRTL = copyRTL;
 exports.copyCSSLayout = copyCSSLayout;
 exports.copyCSSImgs = copyCSSImgs;
 exports.copyInc = copyInc;

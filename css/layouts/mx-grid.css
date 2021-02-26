@@ -80,7 +80,9 @@
 }
 
 /* Content */
-.site-content {
+.site-content,
+.attachment.colorbox.sidebar-right.centered .site-content,
+.attachment.colorbox.sidebar-left.centered .site-content {
 	display: grid;
 	grid-template-columns: minmax(20em, 100%);
 }
