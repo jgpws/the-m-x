@@ -1,4 +1,8 @@
 /* Right-to-left overrides */
+.rtl .site {
+	overflow-x: hidden;
+}
+
 .rtl blockquote,
 .rtl q,
 .rtl .wp-block-pullquote {
@@ -7,7 +11,7 @@
 
 .rtl.sidebar-overlay .site-content .widget-area {
 	right: auto;
-	left: 0;
+	left: 0 !important;
 }
 
 .rtl.sidebar-overlay .site-content .widget-area.hide {
@@ -18,6 +22,7 @@
 .rtl .nav-links .nav-next .material-icons,
 .rtl .images-navigation .nav-previous .material-icons,
 .rtl .images-navigation .nav-next .material-icons,
+.rtl .search-icon .material-icons,
 .rtl .sidebar-toggle .material-icons,
 .rtl .slider-previous .material-icons,
 .rtl .slider-next .material-icons {

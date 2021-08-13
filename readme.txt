@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.12 August 9 2021 =
+Removed button styling in Gutenberg backend stylesheet; updated animations.js file to use more recent code from Animate.css (a promise based function); animations.js is now a vanilla JS file; fixed matching rtl-animations file; removed Ripple.js add-on script and created my own.
+
 = 1.3.11 February 26 2021 =
 Updated to the latest version of animate.css; Added additional layout support for right-to-left languages.
 
@@ -153,7 +156,6 @@ Please update to the latest version, as an error with HEREDOC blocks was causing
 * Themify Icons, Copyright 2019 Lally Elias, SIL Open Font License, https://github.com/lykmapipo/themify-icons
 * Animate.css, Copyright 2018 Daniel Eden, MIT, https://daneden.github.io/animate.css/
 * Colorbox, Copyright 2016 Jack Moore, MIT, http://www.jacklmoore.com/colorbox/
-* jQuery throttle/debounce, Copyright 2010 "Cowboy" Ben Alman, MIT/GPL2, http://benalman.com/projects/jquery-throttle-debounce-plugin/
 * Skrollr, Copyright 2012-2014 Alexander Prinzhorn (@Prinzhorn), MIT, https://prinzhorn.github.io/skrollr/
 * Ripple.js Copyright (c) 2014 Jacob Kelley, MIT, https://github.com/jakiestfu/Ripple.js
 * Spinner.css Copyright (c) 2014-2017 loading.io, CC0, https://loading.io/css/

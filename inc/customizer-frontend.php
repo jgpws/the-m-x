@@ -41,6 +41,16 @@ function the_mx_color_scheme_css() {
 		wp_add_inline_style( 'the-mx-style', $user_color_scheme_css );
 	}
 	wp_add_inline_style( 'the-mx-style', $misc_color_css );
+
+	// Material ink effect fixes for the white color scheme
+	$material_ink_css = '
+span.ripple {
+	background-color: rgba(0, 0, 0, 0.25);
+}
+	';
+	if ( get_theme_mod( 'the_mx_color_scheme' ) == 'white' ) {
+		wp_add_inline_style( 'the-mx-style', $material_ink_css );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'the_mx_color_scheme_css' );
 
@@ -412,7 +422,8 @@ function the_mx_reverse_supporting_color_css() {
 			color: rgba(0, 0, 0, 0.4);
 		}
 
-		.header-button-panel .search-field {
+		.header-button-panel .search-field,
+		.header-button-panel .search-field:focus {
 			color: rgba(0, 0, 0, 0.87);
 		}
 

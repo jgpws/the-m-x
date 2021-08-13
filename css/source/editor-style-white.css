@@ -31,20 +31,6 @@ mark {
   border-bottom-color: #9e9e9e;
 }
 
-button:not(.button-primary):not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser),
-.editor-styles-wrapper input[type="button"],
-.editor-styles-wrapper input[type="reset"],
-.editor-styles-wrapper input[type="submit"] {
-	background-color: #9e9e9e;
-}
-
-button:not(.button-primary):not(.components-button):not(.mce-open):not([role="presentation"]):not(.media-button):not(.media-menu-item):not(.media-modal-close):not(.button-link):not(.browser):hover,
-.editor-styles-wrapper input[type="button"]:hover,
-.editor-styles-wrapper input[type="reset"]:hover,
-.editor-styles-wrapper input[type="submit"]:hover {
-	background-color: #616161;
-}
-
 table tbody tr:hover,
 .wp-block-code {
   background-color: #fafafa;

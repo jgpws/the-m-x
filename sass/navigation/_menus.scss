@@ -153,7 +153,7 @@
 }
 
 .menu-toggle {
-	position: absolute;
+	position: absolute !important;
 	top: 0.5em;
 	left: 1em;
 	z-index: 200;

@@ -24,7 +24,7 @@ var makeCounter = function() {
     value: function() {
       return privateCounter;
     }
-  }
+  };
 };
 
 /* Global counter variables for next/previous buttons in this file and animations.js */

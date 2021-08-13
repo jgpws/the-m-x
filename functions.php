@@ -207,7 +207,7 @@ function the_mx_gutenberg_editor_color_overrides() {
 
 	switch ( $color_choices ) {
 		case 'blue_gray':
-			wp_enqueue_style( 'the-mx-gutenberg-override-deep-purple', get_theme_file_uri( '/css/source/editor-style-blue-gray.css' ), array( 'the-mx-gutenberg-styles' ), '', false );
+			wp_enqueue_style( 'the-mx-gutenberg-override-blue-gray', get_theme_file_uri( '/css/source/editor-style-blue-gray.css' ), array( 'the-mx-gutenberg-styles' ), '', false );
 			break;
 		case 'deep_purple':
 			wp_enqueue_style( 'the-mx-gutenberg-override-deep-purple', get_theme_file_uri( '/css/source/editor-style-deep-purple.css' ), array( 'the-mx-gutenberg-styles' ), '', false );
@@ -340,7 +340,7 @@ function the_mx_enqueue_scripts() {
 	$mx_colorbox = get_theme_mod( 'the_mx_enable_colorbox', 0 );
 
 	// Styles
-	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.min.css' );
+	wp_enqueue_style( 'the-mx-style', get_template_directory_uri() . '/style.css' );
 
 	// Add Gutenberg custom colors to the front end
 	wp_add_inline_style( 'the-mx-style', the_mx_gutenberg_colors() );
@@ -406,8 +406,6 @@ function the_mx_enqueue_scripts() {
 		'primaryColor3' => esc_html( get_theme_mod( 'the_mx_primary_3', '#3e2723' ) ),
 	) );
 
-	wp_enqueue_script( 'throttle-debounce', get_template_directory_uri() . '/js/minfiles/ba-throttle-debounce.min.js', array(), '', true );
-
 	// Conditionally loaded
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -420,10 +418,6 @@ function the_mx_enqueue_scripts() {
 	if ( get_theme_mod( 'the_mx_single_slider' ) == 1 && is_single() ) {
 		wp_dequeue_script( 'colorbox' );
 		wp_dequeue_style( 'the-mx-colorbox-styles' );
-	}
-
-	if( $mx_animate ) {
-		wp_enqueue_script( 'ripple', get_template_directory_uri() . '/js/minfiles/ripple.min.js', array( 'jquery' ), '', true );
 	}
 
 	if( is_page_template( 'page-templates/template-landing.php' ) ) {
