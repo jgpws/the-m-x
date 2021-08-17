@@ -353,6 +353,7 @@ exports.copyRTL = copyRTL;
 exports.copyCSSLayout = copyCSSLayout;
 exports.copyCSSImgs = copyCSSImgs;
 exports.copyInc = copyInc;
+exports.copyJS = copyJS;
 exports.copyJSSrc = copyJSSrc;
 exports.copyJSSep = copyJSSep;
 exports.copyMaps = copyMaps;

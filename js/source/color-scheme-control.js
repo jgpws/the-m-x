@@ -28,7 +28,7 @@
       'the_mx_accent_3'
     ];
 
-  api.controlConstructor.select = api.Control.extend( {
+  /*api.controlConstructor.select = api.Control.extend( {
 		ready: function() {
       //console.log('ID of this object is: ' + this.id);
 			if ( 'the_mx_color_scheme' === this.id ) {
@@ -89,7 +89,7 @@
         } );
       }
     }
-  } );
+  } );*/
 
   // Generate the CSS for the current Color Scheme.
   function updateCSS() {

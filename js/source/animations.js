@@ -380,7 +380,7 @@ let animateSlideshow = (slideshowBtn, gallery, slideItems, counter) => {
 }
 
 
-  // Add .material-ripple class to auto-generated WordPress HTML, including menus
+  // Add .ripple class to auto-generated WordPress HTML, including menus
   // See CSS-Tricks article How to Recreate the Ripple Effect of Material Design Buttons
   // https://css-tricks.com/how-to-recreate-the-ripple-effect-of-material-design-buttons/
   let addMaterialInk = (event) => {
@@ -450,7 +450,6 @@ let animateSlideshow = (slideshowBtn, gallery, slideItems, counter) => {
       animateSlideshow(slideshowBtn10, gallery10, slides10, counter9);
 
       animateCboxSlides();
-      //addMaterialInk();
 
       const buttons = document.querySelectorAll('button:not(.menu-down-arrow), input[type="button"], .wp-block-button__link');
       const menuItems = document.querySelectorAll('.main-navigation .menu-item a, .main-navigation .page_item a');
