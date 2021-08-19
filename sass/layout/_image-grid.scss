@@ -1,5 +1,5 @@
 .tile {
-	background-color: $white;
+	background-color: var(--white);
 	border-radius: 2px;
 	box-shadow: $box-shadow-small;
 	height: 300px;
@@ -32,12 +32,12 @@
 
 		a:link,
 		a:visited {
-			color: $primary-text-color;
+			color: var(--primary-text-color);
 		}
 
 		a:hover,
 		a:focus {
-			color: $black;
+			color: var(--black);
 		}
 	}
 
@@ -50,7 +50,7 @@
 	}
 
 	.scrim {
-		background-color: $primary-text-color-medium-white;
+		background-color: var(--primary-text-color-medium-white);
 		background-image: none;
 		bottom: 0px;
 		height: 3rem;

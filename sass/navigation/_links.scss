@@ -1,16 +1,16 @@
 a {
 	&:link {
-		color: $color__link;
+		color: var(--primary-color);
 		text-decoration: none;
 	}
 
 	&:visited {
-		color: $color__link-visited;
+		color: var(--primary-color-medium);
 	}
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color__link-hover;
+		color: var(--primary-color-dark);
 	}
 	&:focus {
 		outline: thin dotted;

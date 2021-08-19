@@ -165,6 +165,23 @@
   }
 
 
+  function animateSocialMenu() {
+    let socialToggleButton = document.querySelector('#social-button');
+    let socialPanel = document.querySelector('#menu-social');
+
+    //if (viewportWidth < 600 && socialToggleButton !== null) {
+      socialToggleButton.addEventListener('click', function() {
+        if (socialPanel.classList.contains('toggled')) {
+          animateCSS('#menu-social', 'slideInUp');
+        } else {
+          animateCSS('#menu-social', 'slideOutDown');
+          hideAfterAnimation(socialPanel, 1000);
+        }
+      });
+    //}
+  }
+
+
   function animateSidebar() {
     // Sidebar
     let sidebarPanel = document.querySelector('#secondary');
@@ -409,6 +426,8 @@ let animateSlideshow = (slideshowBtn, gallery, slideItems, counter) => {
     window.addEventListener('load', () => {
       preloadDiv.style.display = 'none';
       bodyDiv.classList.add('animate__animated', 'animate__fadeIn');
+
+      animateSocialMenu();
 
       animateFormLabels(commentTextarea, commentLabel);
       animateFormLabels(commentAuthor, commentAuthorLabel);

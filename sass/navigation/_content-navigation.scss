@@ -2,7 +2,7 @@
 .posts-navigation,
 .post-navigation {
 	.site-main & {
-		background-color: $primary-color-medium;
+		background-color: var(--primary-color-medium);
 		padding: 1em;
 		overflow: hidden;
 		width: 100%;
@@ -18,7 +18,7 @@
 	.nav-next {
 		a:link,
 		a:visited {
-			color: $primary-text-color;
+			color: var(--primary-text-color);
 		}
 	}
 

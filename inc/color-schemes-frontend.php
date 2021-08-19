@@ -26,184 +26,19 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   $css = <<<CSS
 
   /* Preset color schemes */
-
-  body {
-    background-color: {$colors['background_color']};
-  }
-
-  a:link {
-    color: {$colors['primary_1']};
-  }
-
-  a:visited {
-    color: {$colors['primary_4']};
-  }
-
-  a:hover,
-  a:focus {
-    color: {$colors['primary_2']};
-  }
-
-  blockquote, q, .wp-block-pullquote {
-    border-left-color: {$colors['primary_1']};
-  }
-
-  pre,
-  table tbody tr:hover {
-    background-color: {$colors['background_color']};
-  }
-
-  mark, ins {
-    background-color: {$colors['primary_3']};
-  }
-
-  button,
-  input[type="button"],
-  input[type="reset"],
-  input[type="submit"],
-  .wp-block-button__link,
-  .wp-block-file .wp-block-file__button {
-    background-color: {$colors['accent_1']};
-  }
-
-  .wp-block-button__link {
-    color: rgba(0, 0, 0, 0.87);
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="url"],
-  input[type="password"],
-  input[type="search"],
-  input[type="number"],
-  input[type="tel"],
-  input[type="range"],
-  input[type="date"],
-  input[type="month"],
-  input[type="week"],
-  input[type="time"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="color"],
-  textarea,
-  select,
-  .header-button-panel .search-field,
-  .animate .isActive {
-    border-bottom-color: {$colors['accent_1']};
-  }
-
-  button:hover,
-  input[type="button"]:hover,
-  input[type="reset"]:hover,
-  input[type="submit"]:hover,
-  .wp-block-button__link:hover,
-  .wp-block-file .wp-block-file__button:hover {
-    background-color: {$colors['accent_2']};
-  }
-
-  button:active,
-  button:focus,
-  input[type="button"]:active,
-  input[type="button"]:focus,
-  input[type="reset"]:active,
-  input[type="reset"]:focus,
-  input[type="submit"]:active,
-  input[type="submit"]:focus,
-  .wp-block-button__link:active,
-  .wp-block-button__link:focus,
-  .wp-block-file .wp-block-file__button:active,
-  .wp-block-file .wp-block-file__button:focus {
-    background-color: {$colors['accent_2']};
-  }
-
-  .site-branding {
-    background-color: {$colors['primary_1']};
-  }
-
-  .site-header .header-button-panel {
-    background-color: {$colors['primary_2']};
-  }
-
-  .menu-toggle:hover,
-  .social-toggle:hover,
-  .search-toggle:hover,
-  .sidebar-toggle:hover {
-    color: {$colors['accent_1']};
-  }
-
-  .menu-toggle:focus,
-  .social-toggle:focus,
-  .search-toggle:focus,
-  .sidebar-toggle:focus,
-  .searchform.toggled + .search-toggle {
-    color: {$colors['accent_1']};
-  }
-
-  .sidebar-toggle.toggled:focus {
-    color: rgba(0, 0, 0, 0.87);
-  }
-
-  .header-button-panel .searchform {
-    background-color: {$colors['primary_2']};
-  }
-
-  #menu-social ul li a:link,
-  #menu-social ul li a:visited {
-    color: {$colors['primary_1']};
-  }
-
-  .main-navigation a:hover,
-  .main-navigation a:focus {
-    color: {$colors['accent_3']};
-  }
-
-  .main-navigation ul ul a:hover,
-  .main-navigation ul ul a.focus {
-    color: {$colors['accent_3']};
-  }
-
-  .main-navigation .current_page_item > a,
-  .main-navigation .current-menu-item > a,
-  .main-navigation .current_page_ancestor > a,
-  .main-navigation .current-menu-ancestor > a {
-    color: {$colors['accent_2']};
-  }
-
-  .site-main .comment-navigation,
-  .site-main .posts-navigation,
-  .site-main .post-navigation,
-  .site-main .images-navigation {
-    background-color: {$colors['primary_4']};
-  }
-
-  .entry-title a:link,
-  .page-title a:link {
-    color: {$colors['primary_1']};
-  }
-
-  .entry-title a:visited,
-  .page-title a:visited {
-    color: {$colors['primary_4']};
-  }
-
-  .entry-title a:hover,
-  .entry-title a:focus,
-  .page-title a:hover,
-  .page-title a:focus {
-    color: {$colors['primary_2']};
-  }
-
-  .cat-links a:link,
-  .cat-links a:visited,
-  .tags-links a:link,
-  .tags-links a:visited,
-  .edit-link a:link,
-  .edit-link a:visited,
-  .comments-link a:link,
-  .comments-link a:visited,
-  .posted-on a:link,
-  .posted-on a:visited {
-    background-color: {$colors['meta_links_color']};
+  :root {
+    /* Color overrides */
+    --primary-color: {$colors['primary_1']};
+    --primary-color-pale: {$colors['background_color']};
+    --primary-color-medium: {$colors['primary_4']};
+    --primary-color-dark: {$colors['primary_2']};
+    --primary-color-darker: {$colors['primary_3']};
+    --primary-color-darker-faded: {$colors['meta_links_color']};
+    --primary-color-opacity-12: {$color_outline_button_bg_focus};
+    --primary-color-opacity-04: {$color_outline_button_bg_hover};
+    --accent-color: {$colors['accent_1']};
+    --accent-color-dark: {$colors['accent_2']};
+    --accent-color-darker: {$colors['accent_3']};
   }
 
   .cat-links a:hover,
@@ -219,224 +54,19 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     background-color: {$colors['meta_links_hover_color']};
   }
 
-  .search .format-standard.has-post-thumbnail .entry-title a:link,
-  .search .format-image.has-post-thumbnail .entry-title a:link {
-    color: {$colors['primary_1']};
-  }
-
-  .search .cat-links a:link,
-  .search .cat-links a:visited,
-  .search .tags-links a:link,
-  .search .tags-links a:visited,
-  .search .posted-on a:link,
-  .search .posted-on a:visited,
-  .search .has-post-thumbnail .posted-on a:link,
-  .search .has-post-thumbnail .posted-on a:visited {
-    color: {$colors['primary_1']};
-  }
-
-  .search .format-standard.has-post-thumbnail .entry-title a:visited,
-  .search .format-image.has-post-thumbnail .entry-title a:visited {
-    color: {$colors['primary_4']};
-  }
-
-  .search .cat-links a:hover,
-  .search .cat-links a:focus,
-  .search .tags-links a:hover,
-  .search .tags-links a:focus,
-  .search .posted-on a:hover,
-  .search .posted-on a:focus {
-    color: {$colors['primary_2']};
-  }
-
-  .sticky {
-    background-color: {$colors['primary_1']};
-  }
-
-  .format-image,
-  .format-audio,
-  .format-video,
-  .format-aside,
-  .format-status,
-  .format-quote {
-    background-color: {$colors['primary_4']};
-  }
-
-  .more-link:link,
-  .more-link:visited,
-  .more-images-link a:link,
-  .more-images-link a:visited {
-    background-color: {$colors['accent_1']};
-  }
-
-  .more-link:hover,
-  .more-link:focus,
-  .more-images-link a:hover,
-  .more-images-link a:focus {
-    background-color: {$colors['accent_2']};
-    color: #000000;
-  }
-
-  .bypostauthor .comment-content {
-    background-color: {$colors['background_color']};
-  }
-
-  .wp-block-button.is-style-outline .wp-block-button__link {
-    color: {$colors['primary_3']};
-  }
-
-  .is-style-outline .wp-block-button__link:hover {
-    background-color: {$color_outline_button_bg_hover};
-  }
-
-  .is-style-outline .wp-block-button__link:active,
-  .is-style-outline .wp-block-button__link:focus {
-    background-color: {$color_outline_button_bg_focus};
-  }
-
-  .wp-block-calendar table caption {
-    background-color: {$colors['primary_1']};
-  }
-
-  .wp-block-calendar table th {
-    background-color: {$colors['background_color']};
-  }
-
-  .wp-block-table.is-style-stripes {
-    border-bottom-color: {$colors['background_color']};
-  }
-
-  .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-    background-color: {$colors['background_color']};
-  }
-
-  .widget li a:hover,
-  .widget li a:focus {
-    color: {$colors['accent_3']};
-  }
-
-  .widget .recentcomments a:hover,
-  .widget .recentcomments a:focus,
-  .widget ul li .rsswidget:hover,
-  .widget ul li .rsswidget:focus {
-    border-bottom-color: {$colors['accent_3']};
-  }
-
-  .widget .calendar_wrap caption,
-  .widget .calendar_wrap td a {
-    background-color: {$colors['primary_1']};
-  }
-
-  .site-footer {
-    background-color: {$colors['primary_1']};
-  }
-
-  .gallery-icon.portrait {
-    background-color: {$colors['background_color']};
-  }
-
-  .featured-image {
-    background-color: {$colors['primary_2']};
-  }
-
   .mejs-container,
   .mejs-container .mejs-controls,
   .mejs-embed,
   .mejs-embed body {
-    background-color: {$colors['primary_2']} !important;
-  }
-
-  .single.slider .gallery,
-  .single.slider .wp-block-gallery {
-    background-color: {$colors['primary_2']};
-  }
-
-  .single.slider .slider-button-panel {
-    background-color: {$colors['primary_3']};
-  }
-
-  .single.slider .slider-button-panel .slider-previous,
-  .single.slider .slider-button-panel .slider-next {
-    background-color: {$colors['accent_1']};
-  }
-
-  .single.slider .slider-button-panel .slider-previous:hover,
-  .single.slider .slider-button-panel .slider-next:hover,
-  .single.slider .slider-button-panel .slider-previous:focus,
-  .single.slider .slider-button-panel .slider-next:focus {
-    background-color: {$colors['accent_2']};
-  }
-
-  #custom-header {
-    background-color: {$colors['primary_1']};
-  }
-
-  .page-template-template-landing .site-header {
-    background-color: {$colors['primary_1']};
-  }
-
-  .return-to-parent {
-    background-color: {$colors['primary_4']};
-  }
-
-  body.attachment.colorbox .entry-attachment-image p {
-    background-color: {$colors['background_color']};
-  }
-
-  .wp-block-image.alignfull,
-  .wp-block-image.alignwide {
-    background-color: {$colors['primary_2']};
-  }
-
-  .wp-block-archives a:hover,
-  .wp-block-archives a:focus,
-  .wp-block-categories a:hover,
-  .wp-block-categories a:focus,
-  .wp-block-latest-comments a:hover,
-  .wp-block-latest-comments a:focus,
-  .wp-block-latest-posts a:hover,
-  .wp-block-latest-posts a:focus {
-    color: {$colors['accent_3']};
-  }
-
-  #infinite-handle span {
-    background-color: {$colors['primary_1']};
-  }
-
-  .lds-ring div {
-    border-color: {$colors['primary_1']} transparent transparent transparent !important;
+    background-color: var(--primary-color-dark) !important;
   }
 
   #cboxContent {
-    background-color: {$colors['primary_4']} !important;
+    background-color: var(--primary-color-medium) !important;
   }
 
-  @media screen and (min-width: 37.5em) {
-    .site-header .main-navigation {
-      background-color: {$colors['primary_2']};
-    }
-
-    .site-header .main-navigation ul li a:hover,
-    .site-header .main-navigation ul li a:focus,
-    .site-header .main-navigation .current_page_item > a,
-    .site-header .main-navigation .current-menu-item > a,
-    .site-header .main-navigation .current_page_ancestor > a,
-    .site-header .main-navigation .current-menu-ancestor > a {
-      border-bottom-color: {$colors['accent_1']};
-    }
-
-    .site-header .main-navigation .children a:hover,
-    .site-header .main-navigation .children a:focus,
-    .site-header .main-navigation .sub-menu a:hover,
-    .site-header .main-navigation .sub-menu a:focus {
-      color: {$colors['accent_3']};
-    }
-  }
-
-  @media screen and (min-width: 80em) {
-    .site-header .header-button-panel {
-      background-color: {$colors['primary_1']};
-    }
+  .lds-ring div {
+    border-color: var(--primary-color) transparent transparent transparent !important;
   }
 CSS;
 
@@ -475,166 +105,19 @@ function the_mx_frontend_user_color_styles() {
 
   /* User selected color scheme */
 
-  body {
-    background-color: #' . esc_attr( $background_color ) . ';
-  }
-
-  a:link {
-    color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  a:visited {
-    color: ' . esc_attr( $primary_color_4 ) . ';
-  }
-
-  a:hover,
-  a:focus {
-    color: ' . esc_attr( $primary_color_2 ) . ';
-  }
-
-  blockquote, q, .wp-block-pullquote {
-    border-left-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  pre,
-  table tbody tr:hover {
-    background-color: #' . esc_attr( $background_color ) . ';
-  }
-
-  mark, ins {
-    background-color: ' . esc_attr( $primary_color_3 ) . ';
-  }
-
-  button,
-  input[type="button"],
-  input[type="reset"],
-  input[type="submit"],
-  .wp-block-button__link,
-  .wp-block-file .wp-block-file__button {
-    background-color: ' . esc_attr( $accent_color_1 ) . ';
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="url"],
-  input[type="password"],
-  input[type="search"],
-  input[type="number"],
-  input[type="tel"],
-  input[type="range"],
-  input[type="date"],
-  input[type="month"],
-  input[type="week"],
-  input[type="time"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="color"],
-  textarea,
-  select,
-  .header-button-panel .search-field,
-  .animate .isActive {
-    border-bottom-color: ' . esc_attr( $accent_color_1 ) . ';
-  }
-
-  button:hover,
-  input[type="button"]:hover,
-  input[type="reset"]:hover,
-  input[type="submit"]:hover,
-  .wp-block-button__link:hover,
-  .wp-block-file .wp-block-file__button:hover {
-    background-color: ' . esc_attr( $accent_color_2 ) . ';
-  }
-
-  button:active,
-  button:focus,
-  input[type="button"]:active,
-  input[type="button"]:focus,
-  input[type="reset"]:active,
-  input[type="reset"]:focus,
-  input[type="submit"]:active,
-  input[type="submit"]:focus,
-  .wp-block-button__link:active,
-  .wp-block-button__link:focus,
-  .wp-block-file .wp-block-file__button:active,
-  .wp-block-file .wp-block-file__button:focus {
-    background-color: ' . esc_attr( $accent_color_2 ) . ';
-  }
-
-  .site-branding {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .site-header .header-button-panel {
-    background-color: ' . esc_attr( $primary_color_2 ) . ';
-  }
-
-  .menu-toggle:hover,
-  .social-toggle:hover,
-  .search-toggle:hover,
-  .sidebar-toggle:hover {
-    color: ' . esc_attr( $accent_color_1 ) . ';
-  }
-
-  .menu-toggle:focus,
-  .social-toggle:focus,
-  .search-toggle:focus,
-  .sidebar-toggle:focus,
-  .searchform.toggled + .search-toggle {
-    color: ' . esc_attr( $accent_color_1 ) . ';
-  }
-
-  .main-navigation a:hover,
-  .main-navigation a:focus {
-    color: ' . esc_attr( $accent_color_3 ) . ';
-  }
-
-  .main-navigation ul ul a:hover,
-  .main-navigation ul ul a.focus {
-    color: ' . esc_attr( $accent_color_3 ) . ';
-  }
-
-  .main-navigation .current_page_item > a,
-  .main-navigation .current-menu-item > a,
-  .main-navigation .current_page_ancestor > a,
-  .main-navigation .current-menu-ancestor > a {
-    color: ' . esc_attr( $accent_color_2 ) . ';
-  }
-
-  .site-main .comment-navigation,
-  .site-main .posts-navigation,
-  .site-main .post-navigation,
-  .site-main .images-navigation {
-    background-color: ' . esc_attr( $primary_color_4 ) . ';
-  }
-
-  .entry-title a:link,
-  .page-title a:link {
-    color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .entry-title a:visited,
-  .page-title a:visited {
-    color: ' . esc_attr( $primary_color_4 ) . ';
-  }
-
-  .entry-title a:hover,
-  .entry-title a:focus,
-  .page-title a:hover,
-  .page-title a:focus {
-    color: ' . esc_attr( $primary_color_2 ) . ';
-  }
-
-  .cat-links a:link,
-  .cat-links a:visited,
-  .tags-links a:link,
-  .tags-links a:visited,
-  .edit-link a:link,
-  .edit-link a:visited,
-  .comments-link a:link,
-  .comments-link a:visited,
-  .posted-on a:link,
-  .posted-on a:visited {
-    background-color: ' . esc_attr( $color_meta_links ) . ';
+  :root {
+    /* Color overrides */
+    --primary-color: ' . esc_attr( $primary_color_1 ) . ';
+    --primary-color-pale: #' . esc_attr( $background_color ) . ';
+    --primary-color-medium: ' . esc_attr( $primary_color_4 ) . ';
+    --primary-color-dark: ' . esc_attr( $primary_color_2 ) . ';
+    --primary-color-darker: ' . esc_attr( $primary_color_3 ) . ';
+    --primary-color-darker-faded: ' . esc_attr( $color_meta_links ) . ';
+    --primary-color-opacity-12: ' . esc_attr( $color_outline_button_bg_focus ) . ';
+    --primary-color-opacity-04: ' . esc_attr( $color_outline_button_bg_hover ) . ';
+    --accent-color: ' . esc_attr( $accent_color_1 ) . ';
+    --accent-color-dark: ' . esc_attr( $accent_color_2 ) . ';
+    --accent-color-darker: ' . esc_attr( $accent_color_3 ) . ';
   }
 
   .cat-links a:hover,
@@ -650,224 +133,19 @@ function the_mx_frontend_user_color_styles() {
     background-color: ' . esc_attr( $color_meta_links_hover ) . ';
   }
 
-  .search .format-standard.has-post-thumbnail .entry-title a:link,
-  .search .format-image.has-post-thumbnail .entry-title a:link {
-    color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .search .cat-links a:link,
-  .search .cat-links a:visited,
-  .search .tags-links a:link,
-  .search .tags-links a:visited,
-  .search .posted-on a:link,
-  .search .posted-on a:visited,
-  .search .has-post-thumbnail .posted-on a:link,
-  .search .has-post-thumbnail .posted-on a:visited {
-    color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .search .format-standard.has-post-thumbnail .entry-title a:visited,
-  .search .format-image.has-post-thumbnail .entry-title a:visited {
-    color: ' . esc_attr( $primary_color_4 ) . ';
-  }
-
-  .search .cat-links a:hover,
-  .search .cat-links a:focus,
-  .search .tags-links a:hover,
-  .search .tags-links a:focus,
-  .search .posted-on a:hover,
-  .search .posted-on a:focus {
-    color: ' . esc_attr( $primary_color_2 ) . ';
-  }
-
-  .sticky {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .format-image,
-  .format-audio,
-  .format-video,
-  .format-aside,
-  .format-status,
-  .format-quote {
-    background-color: ' . esc_attr( $primary_color_4 ) . ';
-  }
-
-  .more-link:link,
-  .more-link:visited,
-  .more-images-link a:link,
-  .more-images-link a:visited {
-    background-color: ' . esc_attr( $accent_color_1 ) . ';
-  }
-
-  .more-link:hover,
-  .more-link:focus,
-  .more-images-link a:hover,
-  .more-images-link a:focus {
-    background-color: ' . esc_attr( $accent_color_2 ) . ';
-    color: #000000;
-  }
-
-  .bypostauthor .comment-content {
-    background-color: ' . esc_attr( $background_color ) . ';
-  }
-
-  .wp-block-button.is-style-outline .wp-block-button__link {
-    color: ' . esc_attr( $primary_color_3 ) . ';
-  }
-
-  .is-style-outline .wp-block-button__link:hover {
-    background-color: ' . esc_attr( $color_outline_button_bg_hover ) . ';
-  }
-
-  .is-style-outline .wp-block-button__link:active,
-  .is-style-outline .wp-block-button__link:focus {
-    background-color: ' . esc_attr( $color_outline_button_bg_focus ) . ';
-  }
-
-  .wp-block-calendar table caption {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .wp-block-calendar table th {
-    background-color: #' . esc_attr( $background_color ) . ';
-  }
-
-  .wp-block-table.is-style-stripes {
-    border-bottom-color: #' . esc_attr( $background_color ) . ';
-  }
-
-  .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-    background-color: #' . esc_attr( $background_color ) . ';
-  }
-
-  .wp-block-archives a:hover,
-  .wp-block-archives a:focus,
-  .wp-block-categories a:hover,
-  .wp-block-categories a:focus,
-  .wp-block-latest-comments a:hover,
-  .wp-block-latest-comments a:focus,
-  .wp-block-latest-posts a:hover,
-  .wp-block-latest-posts a:focus {
-    color: ' . esc_attr( $accent_color_3 ) . ';
-  }
-
-  .widget li a:hover,
-  .widget li a:focus {
-    color: ' . esc_attr( $accent_color_3 ) . ';
-  }
-
-  .widget .recentcomments a:hover,
-  .widget .recentcomments a:focus,
-  .widget ul li .rsswidget:hover,
-  .widget ul li .rsswidget:focus {
-    border-bottom-color: ' . esc_attr( $accent_color_3 ) . ';
-  }
-
-  .widget .calendar_wrap caption,
-  .widget .calendar_wrap td a {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .site-footer {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .gallery-icon.portrait {
-    background-color: ' . esc_attr( $background_color ) . ';
-  }
-
-  .featured-image {
-    background-color: ' . esc_attr( $primary_color_2 ) . ';
-  }
-
   .mejs-container,
   .mejs-container .mejs-controls,
   .mejs-embed,
   .mejs-embed body {
-    background-color: ' . esc_attr( $primary_color_2 ) . ' !important;
-  }
-
-  .single.slider .gallery {
-    background-color: ' . esc_attr( $primary_color_2 ) . ';
-  }
-
-  .single.slider .slider-button-panel {
-    background-color: ' . esc_attr( $primary_color_3 ) . ';
-  }
-
-  .single.slider .slider-button-panel .slider-previous,
-  .single.slider .slider-button-panel .slider-next {
-    background-color: ' . esc_attr( $accent_color_1 ) . ';
-  }
-
-  .single.slider .slider-button-panel .slider-previous:hover,
-  .single.slider .slider-button-panel .slider-next:hover,
-  .single.slider .slider-button-panel .slider-previous:focus,
-  .single.slider .slider-button-panel .slider-next:focus {
-    background-color: ' . esc_attr( $accent_color_2 ) . ';
-  }
-
-  #custom-header {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .page-template-template-landing .site-header {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
-  }
-
-  .return-to-parent {
-    background-color: ' . esc_attr( $primary_color_4 ) . ';
-  }
-
-  body.attachment.colorbox .entry-attachment-image p {
-    background-color: #' . esc_attr( $background_color ) . ';
-  }
-
-  .wp-block-image.alignfull {
-    background-color: ' . esc_attr( $primary_color_2 ) . ';
-  }
-
-  #infinite-handle span {
-    background-color: ' . esc_attr( $primary_color_1 ) . ';
+    background-color: var(--primary-color-dark) !important;
   }
 
   .lds-ring div {
-    border-color: ' . esc_attr( $primary_color_1 ) . ' transparent transparent transparent !important;
+    border-color: var(--primary-color) transparent transparent transparent !important;
   }
 
   #cboxContent {
-    background-color: ' . esc_attr( $primary_color_4 ) . ' !important;
-  }
-
-  @media screen and (min-width: 37.5em) {
-    .site-header .main-navigation {
-      background-color: ' . esc_attr( $primary_color_2 ) . ';
-    }
-
-    .site-header .main-navigation ul li a:hover,
-    .site-header .main-navigation ul li a:focus,
-    .site-header .main-navigation .current_page_item > a,
-    .site-header .main-navigation .current-menu-item > a,
-    .site-header .main-navigation .current_page_ancestor > a,
-    .site-header .main-navigation .current-menu-ancestor > a {
-      border-bottom-color: ' . esc_attr( $accent_color_1 ) . ';
-    }
-
-    .site-header .main-navigation .children a:hover,
-    .site-header .main-navigation .children a:focus,
-    .site-header .main-navigation .sub-menu a:hover,
-    .site-header .main-navigation .sub-menu a:focus {
-      color: ' . esc_attr( $accent_color_3 ) . ';
-    }
-  }
-
-  @media screen and (min-width: 80em) {
-    .site-header .header-button-panel {
-      background-color: ' . esc_attr( $primary_color_1 ) . ';
-    }
-
-
+    background-color: var(--primary-color-medium) !important;
   }';
 
   return $css;
@@ -887,7 +165,7 @@ function the_mx_misc_styles() {
   .format-standard.has-post-thumbnail .entry-title a:hover,
   .format-standard.has-post-thumbnail .entry-title a:focus,
   .format-image.has-post-thumbnail .entry-title a:hover,
-  .format-image.has-post-thumbnail .entry-title a:hover {
+  .format-image.has-post-thumbnail .entry-title a:focus {
     color: #ffffff !important;
   }
 

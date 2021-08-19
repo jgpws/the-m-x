@@ -47,7 +47,7 @@
 }
 
 .animate .isActive {
-	border-bottom-color: $accent-color;
+	border-bottom-color: var(--accent-color);
 }
 
 .animate .main-navigation ul ul a:hover,

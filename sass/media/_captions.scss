@@ -26,8 +26,8 @@
 }
 
 .wp-block-image figcaption {
-	background-color: $white;
-	color: $primary-text-color;
+	background-color: var(--white);
+	color: var(--primary-text-color);
 	margin-top: 0px;
 	padding: 0.8075em;
 	text-align: center;

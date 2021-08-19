@@ -5,7 +5,6 @@
 	wp.customize.bind( 'ready', function() {
 
 		function hideShowCustomMoreTitle() {
-			//var imgGridMoreLink = $( '#customize-control-the_mx_customize_showmore_title' );
 			var imgGridMoreBtn = document.querySelector('#customize-control-the_mx_add_showmore_button');
 			var imgGridMoreLink = document.querySelector( '#customize-control-the_mx_customize_showmore_title' );
 
@@ -44,11 +43,9 @@
 			];
 
 			if ( wp.customize.instance( 'the_mx_color_scheme' ).get() === 'custom' ) {
-				console.log('Color scheme is custom.');
 				colorControlIds.forEach( function( element ) {
 					let control = document.querySelector('#customize-control-' + element);
 
-					//console.log(control);
 					control.style.display = 'list-item';
 				} );
 			} else {

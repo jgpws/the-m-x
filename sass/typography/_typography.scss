@@ -3,8 +3,8 @@ button,
 input,
 select,
 textarea {
-	color: $color__text-main;
-	font-family: $font__main;
+	color: var(--primary-text-color);
+	font-family: var(--body-font);
 	@include font-size(0.875);
 	font-weight: $font__weight-normal;
 	line-height: $font__line-height-body;

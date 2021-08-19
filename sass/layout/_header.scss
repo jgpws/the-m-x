@@ -13,7 +13,7 @@
 	/* Other flexbox properties are provided by .jgd-grid-wrap inside jgd-material-grid.css file */
 	justify-content: flex-end;
 	@include padding-four-values(0.5em, 0.5em, 0.5em, 4.5rem);
-	background-color: $primary-color-dark;
+	background-color: var(--primary-color-dark);
 }
 
 .page-template-template-landing {
@@ -22,7 +22,7 @@
 	}
 
 	.site-header {
-		background-color: $primary-color;
+		background-color: var(--primary-color);
 		z-index: 100;
 
 		.site-branding,
@@ -57,13 +57,13 @@
 
 @media screen and (min-width: 80em) {
 	.site-header .header-button-panel {
-		background-color: $primary-color;
+		background-color: var(--primary-color);
 		height: auto;
 	}
 }
 
 .site-branding {
-	background-color: $primary-color;
+	background-color: var(--primary-color);
 }
 
 .site-branding {
@@ -101,11 +101,11 @@
 .site-title a:visited,
 .site-title a:hover,
 .site-title a:focus {
-	color: $white;
+	color: var(--white);
 }
 
 .site-description {
-	color: $white;
+	color: var(--white);
 }
 
 .custom-logo-link {
@@ -136,7 +136,7 @@
 
 /* Social media icons */
 .header-button-panel .menu-social-container {
-	background-color: $white;
+	background-color: var(--white);
 	box-shadow: $box-shadow-large;
 	position: absolute;
 	top: 4rem;
@@ -189,10 +189,10 @@
 
 		#menu-social ul li a:link,
 		#menu-social ul li a:visited {
-			color: $primary-text-color-white;
+			color: var(--primary-text-color-white);
 
 			&:hover {
-				color: $white;
+				color: var(--white);
 			}
 		}
 	}

@@ -27,6 +27,7 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 == Changelog ==
 
 = 1.3.13 August 16 2021 =
+Refactoring of CSS and inline CSS to use custom properties (variables); added cache busting to some enqueued scripts, etc.
 
 = 1.3.12 August 9 2021 =
 Removed button styling in Gutenberg backend stylesheet; updated animations.js file to use more recent code from Animate.css (a promise based function); animations.js is now a vanilla JS file; fixed matching rtl-animations file; removed Ripple.js add-on script and created my own.

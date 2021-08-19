@@ -27,6 +27,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Normalize
+# CSS Variables
+# Common Classes and IDs
 # Typography
 # Elements
 # Forms
@@ -60,6 +62,39 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 @import "normalize";
+
+/*--------------------------------------------------------------
+# CSS Variables
+--------------------------------------------------------------*/
+:root {
+	/* Colors */
+	--primary-text-color: rgba(0, 0, 0, 0.87);
+	--primary-text-color-medium-black: rgba(0, 0, 0, 0.54);
+	--primary-text-color-white: rgba(255, 255, 255, 0.87);
+	--primary-text-color-medium-white: rgba(255, 255, 255, 0.7);
+	--primary-text-color-light-white: rgba(255, 255, 255, 0.4);
+	--primary-color: #795548;
+	--primary-color-pale: #efebe9;
+	--primary-color-medium: #bcaaa4;
+	--primary-color-dark: #5d4037;
+	--primary-color-darker: #3e2723;
+	--primary-color-darker-faded: rgba(62, 39, 35, 0.54);
+	--primary-color-opacity-12: rgba(62, 39, 35, 0.12);
+	--primary-color-opacity-04: rgba(62, 39, 35, 0.04);
+	--accent-color: #ffc107;
+	--accent-color-dark: #ffa000;
+	--accent-color-darker: #ff6f00;
+	--white: #ffffff;
+	--pale-gray: #eeeeee;
+	--silver: #c0c0c0;
+	--black: #000000;
+	--black-opacity-2: rgba(0, 0, 0, 0.2);
+
+	/* Fonts */
+	--body-font: 'Raleway', sans-serif;
+	--code-font: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	--pre-font: "Courier 10 Pitch", Courier, monospace;
+}
 
 /*--------------------------------------------------------------
 # Common Classes and IDs

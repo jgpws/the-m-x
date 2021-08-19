@@ -45,6 +45,9 @@ var jsFiles = [ 	'./js/source/jgd-grid.js',
 						'./js/source/restore-js.js' ];
 var jsSepFiles = [	'./js/source/add-skrollr-data-attributes.js',
 							'./js/source/mx-skrollr-init.js'	];
+var jsCustomizerFiles = [ './js/source/color-scheme-control.js',
+            './js/source/customize-controls.js',
+            './js/source/customize-preview.js'  ];
 
 var onError = function(err) {
 	console.log('An error occurred:', c.magenta(err.message));
@@ -170,6 +173,7 @@ function watch() {
 	//gulp.watch('./js/source/*.js', jsHint);
 	gulp.watch(jsFiles, series(copyMaps, copyJSSrc, minifyJS));
 	gulp.watch(jsSepFiles, series(copyJSSep, minifySepJS));
+  gulp.watch(jsCustomizerFiles, copyCustomizerJS);
 	//gulp.watch('./style.css', parallel(series(rtl, copyRTL), minifyStyle));
   gulp.watch('./style.css', parallel(copyRTL, minifyStyle));
 	gulp.watch(layoutStyles, series(copyCSSLayout, concatLayoutCSS));
@@ -212,7 +216,7 @@ function copyCSS(done) {
 }
 
 function copyStyle(done) {
-  gulp.src('./style.css')
+  gulp.src(['./style.css', './style.min.css'])
     .pipe(gulp.dest('./build'));
   done();
   console.log('style.css copied.');
@@ -257,6 +261,13 @@ function copyJS(done) {
     .pipe(gulp.dest('./build/js'));
 	done();
 	console.log('JS folder copied.');
+}
+
+function copyCustomizerJS(done) {
+  gulp.src(jsCustomizerFiles)
+    .pipe(gulp.dest('./build/js/source'));
+  done();
+  console.log('JS Customizer files copied.');
 }
 
 function copyJSSrc(done) {
@@ -354,6 +365,7 @@ exports.copyCSSLayout = copyCSSLayout;
 exports.copyCSSImgs = copyCSSImgs;
 exports.copyInc = copyInc;
 exports.copyJS = copyJS;
+exports.copyCustomizerJS = copyCustomizerJS;
 exports.copyJSSrc = copyJSSrc;
 exports.copyJSSep = copyJSSep;
 exports.copyMaps = copyMaps;

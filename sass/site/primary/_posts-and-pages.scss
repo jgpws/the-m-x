@@ -5,7 +5,7 @@ article.page,
 .search .post.format-image,
 .search .post.format-video,
 .search .post.format-audio {
-	background-color: $white;
+	background-color: var(--white);
 	border-radius: 2px;
 	box-shadow: $box-shadow-small;
 }
@@ -58,16 +58,16 @@ article.page:hover,
 	line-height: 2rem;
 
 	a:link {
-		color: $primary-color;
+		color: var(--primary-color);
 	}
 
 	a:visited {
-		color: $primary-color-medium;
+		color: var(--primary-color-medium);
 	}
 
 	a:hover,
 	a:focus {
-		color: $primary-color-dark;
+		color: var(--primary-color-dark);
 	}
 }
 
@@ -162,13 +162,13 @@ article.page:hover,
 
 .landing-to-parent a:link,
 .landing-to-parent a:visited {
-	color: $primary-text-color-white;
+	color: var(--primary-text-color-white);
 	font-weight: $font__weight-bold;
 }
 
 .landing-to-parent a:hover,
 .landing-to-parent a:focus {
-	color: $white;
+	color: var(--white);
 }
 
 .page-template-template-landing {
@@ -289,7 +289,7 @@ article.page:hover,
 .image-size-meta .material-icons,
 .entry-title .material-icons,
 .single .format-image.has-post-thumbnail .entry-title .material-icons {
-	color: $primary-text-color-medium;
+	color: var(--primary-text-color-medium-black);
 	margin-right: 0.5em;
 	vertical-align: bottom;
 }
@@ -321,36 +321,36 @@ article.page:hover,
 }
 
 .sticky {
-	background-color: $primary-color;
-	color: $white;
+	background-color: var(--primary-color);
+	color: var(--white);
 	display: block;
 
 	a:link,
 	a:visited,
 	.entry-title a:link,
 	.entry-title a:visited {
-		color: $primary-text-color-white;
+		color: var(--primary-text-color-white);
 	}
 
 	a:hover,
 	a:focus,
 	.entry-title a:hover,
 	.entry-title a:focus {
-		color: $white;
+		color: var(--white);
 	}
 
 	a.more-link:link,
 	a.more-link:visited {
-		color: $primary-text-color;
+		color: var(--primary-text-color);
 	}
 
 	a.more-link:hover,
 	a.more-link:focus {
-		color: $black;
+		color: var(--black);
 	}
 
 	.material-icons {
-		color: $white;
+		color: var(--white);
 	}
 
 }
@@ -378,7 +378,7 @@ article.page:hover,
 
 	a:hover,
 	a:focus {
-		background-color: $pale-black;
+		background-color: var(--black-opacity-2);
 	}
 
 	.post-page-numbers {
@@ -395,16 +395,16 @@ article.page:hover,
 	.wp-block-button__link {
 		background-color: transparent;
 		box-shadow: none;
-		border: 1px solid $silver;
-		color: $primary-color;
+		border: 1px solid var(--silver);
+		color: var(--primary-color);
 
 		&:hover {
-			background-color: $primary-color-4-pcnt-opacity;
+			background-color: var(--primary-color-opacity-04);
 		}
 
 		&:active,
 		&:focus {
-			background-color: $primary-color-12-pcnt-opacity;
+			background-color: var(--primary-color-opacity-12);
 		}
 	}
 }
@@ -416,11 +416,11 @@ article.page:hover,
 .wp-block-button {
 	&__link {
 		height: auto;
-		padding: 1em;
+		padding: 1em !important;
 
 		&:hover,
 		&:focus {
-			color: $primary-text-color;
+			color: var(--primary-text-color);
 		}
 	}
 }
@@ -460,7 +460,7 @@ article.page:hover,
 		&:hover,
 		&:visited {
 			box-shadow: $box-shadow-small;
-			color: $primary-text-color;
+			color: var(--primary-text-color);
 			opacity: 1;
 		}
 	}
@@ -545,7 +545,7 @@ article.page:hover,
 }
 
 .wp-block-table.is-style-stripes {
-	border-bottom-color: $primary-color-pale;
+	border-bottom-color: var(--primary-color-pale);
 
 	td,
 	th {
@@ -557,7 +557,7 @@ article.page:hover,
 	}
 
 	tbody tr:nth-child(odd) {
-		background-color: $primary-color-pale;
+		background-color: var(--primary-color-pale);
 	}
 }
 
@@ -574,12 +574,12 @@ article.page:hover,
 }
 
 .wp-block-code code {
-		font-family: $font__pre;
+		font-family: var(--pre-font);
 }
 
 .wp-block-verse {
 	background-color: transparent;
-	font-family: $font__main;
+	font-family: var(--body-font);
 }
 
 .alignfull {
@@ -589,7 +589,7 @@ article.page:hover,
 }
 
 .wp-block-image.alignfull {
-	background-color: $primary-color-darker;
+	background-color: var(--primary-color-darker);
 }
 
 .wp-block-image.alignfull img,
@@ -618,12 +618,12 @@ article.page:hover,
 
 	a:link,
 	a:visited {
-		color: $primary-text-color;
+		color: var(--primary-text-color);
 	}
 
 	a:hover,
 	a:focus {
-		color: $accent-color-darker;
+		color: var(--accent-color-darker);
 	}
 }
 
@@ -634,7 +634,7 @@ article.page:hover,
 }
 
 .wp-block-latest-comments__comment-date {
-	color: $primary-text-color-medium;
+	color: var(--primary-text-color-medium-black);
 	@include font-size(0.875);
 }
 
@@ -646,18 +646,18 @@ article.page:hover,
 	}
 
 	table caption {
-		background-color: $primary-color;
-		color: $white;
+		background-color: var(--primary-color);
+		color: var(--white);
 		@include font-size(2);
 	}
 
 	table tbody {
-		color: $primary-text-color;
+		color: var(--primary-text-color);
 	}
 
 	td a {
-		background-color: $primary-color;
-		color: $white;
+		background-color: var(--primary-color);
+		color: var(--white);
 		border-radius: 50%;
 		display: inline-table;
 		height: 1.5em;
@@ -665,7 +665,7 @@ article.page:hover,
 	}
 
 	table th {
-		background-color: $primary-color-pale;
+		background-color: var(--primary-color-pale);
 	}
 
 	th,
@@ -756,7 +756,7 @@ article.page:hover,
 }
 
 .woocommerce div.product {
-	background-color: $white;
+	background-color: var(--white);
 	border-radius: 2px;
 	box-shadow: $box-shadow-small;
 	margin-top: 1em;
@@ -796,12 +796,12 @@ article.page:hover,
 
 .wc-block-grid__product-add-to-cart a:visited,
 .wc-block-grid__product-add-to-cart a:link {
-	color: $primary-text-color !important;
+	color: var(--primary-text-color) !important;
 }
 
 .wc-block-grid__product .wc-block-grid__product-title {
 	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
-	color: $primary-text-color-white;
+	color: var(--primary-text-color-white);
 	@include font-size(1);
 	height: 5.25em;
 	margin-top: -6em;
@@ -811,20 +811,20 @@ article.page:hover,
 	z-index: 50;
 
 	a {
-		color: $primary-text-color-white;
+		color: var(--primary-text-color-white);
 		display: block;
 	}
 }
 
 .wc-block-grid__product-onsale {
-	background-color: $pale-black;
+	background-color: var(--black-opacity-2);
 	border-color: transparent;
 	border-radius: 2px;
-	color: $primary-text-color;
+	color: var(--primary-text-color);
 }
 
 .wc-block-grid__product-price .wc-block-grid__product-price__value {
-	color: $primary-text-color;
+	color: var(--primary-text-color);
 	@include font-size(1);
 	font-weight: $font__weight-normal;
 }
@@ -835,13 +835,13 @@ article.page:hover,
 
 .wc-block-pagination-page {
 	box-shadow: none;
-	color: $primary-text-color;
+	color: var(--primary-text-color);
 	min-height: 3rem;
 	min-width: 3rem;
 
 	&:hover,
 	&:focus {
-		background-color: $pale-black;
+		background-color: var(--black-opacity-2);
 	}
 }
 
@@ -862,7 +862,7 @@ article.page:hover,
 
 /* Attachment pages */
 .attachment {
-	background-color: $white;
+	background-color: var(--white);
 }
 
 .entry-attachment-image img {
@@ -886,20 +886,20 @@ article.attachment {
 }
 
 .return-to-parent {
-	background-color: $primary-color-medium;
+	background-color: var(--primary-color-medium);
 	padding: 1rem;
 	text-align: center;
 	width: 100%;
 
 	a:link,
 	a:visited {
-		color: $white;
+		color: var(--white);
 	}
 
 }
 
 .return-to-text {
-	color: $primary-text-color-white;
+	color: var(--primary-text-color-white);
 	font-weight: $font__weight-heavy;
 }
 
@@ -927,7 +927,7 @@ body.attachment.colorbox .entry-attachment-image {
 }
 
 body.attachment.colorbox .entry-attachment-image p {
-	background-color: $primary-color-pale;
+	background-color: var(--primary-color-pale);
 	margin-left: -15.5%;
 	margin-right: -15.5%;
 }

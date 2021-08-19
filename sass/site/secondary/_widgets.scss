@@ -1,5 +1,5 @@
 .widget-area {
-	background-color: $white;
+	background-color: var(--white);
 	box-shadow: $box-shadow-large;
 }
 
@@ -37,7 +37,7 @@
 	.recentcomments a:focus,
 	ul li .rsswidget:hover,
 	ul li .rsswidget:focus {
-		border-bottom-color: $accent-color-darker;
+		border-bottom-color: var(--accent-color-darker);
 	}
 
 	.rsswidget {
@@ -82,7 +82,7 @@
 		width: 100%;
 
 		caption {
-			background-color: $primary-color;
+			background-color: var(--primary-color);
 			@include font-size(2);
 			margin: 0 -1em;
 			padding-left: 2rem;
@@ -101,7 +101,7 @@
 		}
 
 		td a {
-			background-color: $primary-color;
+			background-color: var(--primary-color);
 			border-radius: 50%;
 			display: inline-table;
 			height: 1.5em;
@@ -109,7 +109,7 @@
 		}
 
 		caption, td a {
-			color: $white;
+			color: var(--white);
 		}
 
 		td#prev {

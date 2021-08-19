@@ -8,6 +8,7 @@
 ( function( api ) {
   var cssTemplate = wp.template( 'the-mx-color-scheme' ),
     colorSchemeKeys = [
+      'header_textcolor',
       'background_color',
       'the_mx_primary_1',
       'the_mx_primary_2',
@@ -18,6 +19,7 @@
       'the_mx_accent_3'
     ],
     colorSettings = [
+      'header_textcolor',
       'background_color',
       'the_mx_primary_1',
       'the_mx_primary_2',
@@ -28,7 +30,7 @@
       'the_mx_accent_3'
     ];
 
-  /*api.controlConstructor.select = api.Control.extend( {
+    api.controlConstructor.select = api.Control.extend( {
 		ready: function() {
       //console.log('ID of this object is: ' + this.id);
 			if ( 'the_mx_color_scheme' === this.id ) {
@@ -89,7 +91,7 @@
         } );
       }
     }
-  } );*/
+  } );
 
   // Generate the CSS for the current Color Scheme.
   function updateCSS() {

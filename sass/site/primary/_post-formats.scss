@@ -25,7 +25,7 @@
 .format-status,
 .format-quote {
 	box-shadow: $box-shadow-small;
-	background-color: $primary-color-medium;
+	background-color: var(--primary-color-medium);
 }
 
 .format-image .entry-content,
@@ -46,7 +46,7 @@
 }
 
 .format-image.has-post-thumbnail .entry-title .material-icons {
-	color: $white;
+	color: var(--white);
 }
 
 .single .format-image.has-post-thumbnail .entry-title {
@@ -82,7 +82,7 @@
 .mejs-container .mejs-controls,
 .mejs-embed,
 .mejs-embed body {
-	background-color: $primary-color-dark !important;
+	background-color: var(--primary-color-dark) !important;
 }
 
 .mejs-container button {
@@ -151,7 +151,6 @@ iframe.twitter-tweet {
 .blog .format-audio.sticky,
 .blog .format-status.sticky,
 .blog .format-quote.sticky {
-	/*background-color: $primary-color-medium;*/
 	box-shadow: $box-shadow-small;
 }
 
@@ -162,7 +161,7 @@ iframe.twitter-tweet {
 .blog .format-audio.sticky .entry-content p,
 .blog .format-status.sticky .entry-content p,
 .blog .format-quote.sticky .entry-content p {
-	color: $primary-text-color-white;
+	color: var(--primary-text-color-white);
 }
 
 .blog .format-gallery.sticky .entry-title,
@@ -172,12 +171,12 @@ iframe.twitter-tweet {
 .blog .format-video.sticky .entry-title,
 .blog .format-status.sticky .entry-title,
 .blog .format-quote.sticky .entry-title {
-	color: $primary-text-color-white;
+	color: var(--primary-text-color-white);
 }
 
 .blog .format-gallery.sticky .more-images-link a:link,
 .blog .format-gallery.sticky .more-images-link a:visited {
-	color: $primary-text-color;
+	color: var(--primary-text-color);
 }
 
 /* Reverse styles for search pages */
@@ -204,21 +203,21 @@ iframe.twitter-tweet {
 	}
 
 	.entry-title a:link {
-		color: $primary-color;
+		color: var(--primary-color);
 	}
 
 	.entry-title a:visited {
-		color: $primary-color-medium;
+		color: var(--primary-color-medium);
 	}
 
 	.entry-meta .material-icons {
-		color: $primary-text-color-medium;
+		color: var(--primary-text-color-medium-black);
 	}
 }
 
 .search .format-aside,
 .search .format-status,
 .search .format-quote {
-	background-color: $white;
+	background-color: var(--white);
 	box-shadow: $box-shadow-small;
 }

@@ -21,16 +21,16 @@ input[type="datetime-local"],
 input[type="color"],
 textarea,
 select {
-	background-color: $pale-gray;
+	background-color: var(--pale-gray);
 	border-top: transparent;
 	border-right: transparent;
-	border-bottom: 2px solid $accent-color;
+	border-bottom: 2px solid var(--accent-color);
 	border-left: transparent;
 	border-radius: 2px 2px 0 0;
-	color: $color__text-input;
+	color: var(--primary-text-color);
 
 	&:focus {
-		color: $color__text-input-focus;
+		color: var(--primary-text-color);
 	}
 }
 
@@ -72,13 +72,13 @@ textarea {
 .comment-form-author,
 .comment-form-email,
 .comment-form-url {
-	background-color: $pale-gray;
+	background-color: var(--pale-gray);
 	border-radius: 8px 8px 0 0;
 	margin-bottom: 1em;
 	padding-bottom: 10px;
 	position: relative;
-	color: $color__text-input;
-	border-bottom: 2px solid $pale-black;
+	color: var(--primary-text-color);
+	border-bottom: 2px solid var(--black-opacity-2);
 
 	input[type="text"],
 	input[type="password"],
@@ -103,7 +103,7 @@ textarea {
 	}
 
 	fieldset {
-		border-color: $pale-gray;
+		border-color: var(--pale-gray);
 	}
 }
 
@@ -111,7 +111,7 @@ textarea {
 
 .header-button-panel .searchform {
 	@include flex-row-right-aligned;
-	background-color: $primary-color-dark;
+	background-color: var(--primary-color-dark);
 	align-items: flex-end;
 	height: 3rem;
 	left: 0px;
@@ -133,30 +133,22 @@ textarea {
 
 .header-button-panel .search-field {
 	background-color: transparent;
-	border-top: $color__border-input;
-	border-right: $color__border-input;
-	border-bottom: 2px solid $accent-color;
-	border-left: $color__border-input;
-	color: $primary-text-color-white;
+	border-top: transparent;
+	border-right: transparent;
+	border-bottom: 2px solid var(--accent-color);
+	border-left: transparent;
+	color: var(--primary-text-color-white);
 	margin-bottom: 0;
 	width: 95%; /* fallback for browsers that don't support calc */
 	width: calc(100% - 0.5em);
 
 	&:focus {
-		color: $white;
+		color: var(--white);
 	}
 }
 
-.header-button-panel input.search-field::-webkit-input-placeholder {
-	color: $primary-text-color-faded;
-}
-
-.header-button-panel input.search-field::-moz-placeholder {
-	color: $primary-text-color-faded;
+.header-button-panel input.search-field::placeholder {
+	color: var(--primary-text-color-light-white);
 	font-weight: $font__weight-heavy;
 	opacity: 1;
-}
-
-.header-button-panel input.search-field::-ms-input-placeholder {
-	color: $primary-text-color-faded;
 }

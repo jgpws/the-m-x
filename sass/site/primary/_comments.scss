@@ -1,13 +1,13 @@
 .comments-area {
-	background-color: $white;
+	background-color: var(--white);
 	border-radius: 2px;
 	box-shadow: $box-shadow-small;
 	width: 100%;
-	
+
 	&:hover {
 		box-shadow: $box-shadow-large;
 	}
-	
+
 }
 
 .comment-list li {
@@ -33,7 +33,7 @@
 .comment-reply-link:link,
 .comment-reply-link:visited {
 	border-radius: 2px;
-	color: $primary-text-color;
+	color: var(--primary-text-color);
 	font-weight: $font__weight-bold;
 	padding: 0.5em;
 	text-transform: uppercase;
@@ -41,7 +41,7 @@
 
 .comment-reply-link:hover,
 .comment-reply-link:focus {
-	background-color: $pale-black;
+	background-color: var(--black-opacity-2);
 }
 
 @media screen and (min-width: 37.5em) {
@@ -59,7 +59,7 @@
 }
 
 .bypostauthor .comment-content {
-	background-color: $primary-color-pale;
+	background-color: var(--primary-color-pale);
 	border-radius: 2px;
 	font-weight: $font__weight-bold;
 	margin: 1em;

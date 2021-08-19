@@ -15,10 +15,10 @@
 	text-align: center;
 
 	span {
-		background-color: $primary-color;
+		background-color: var(--primary-color);
 		border-radius: 2px;
 		box-shadow: $box-shadow-small;
-		color: $white;
+		color: var(--white);
 	}
 
 	button {

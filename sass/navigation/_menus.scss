@@ -3,7 +3,7 @@
 .sidebar-toggle,
 .search-toggle {
 	box-shadow: none;
-	color: $primary-text-color-white;
+	color: var(--primary-text-color-white);
 	min-height: 3rem;
 	min-width: 3rem;
 	padding: 0.75em;
@@ -20,7 +20,7 @@
 	li {
 
 		a:link, a:visited {
-			color: $primary-color;
+			color: var(--primary-color);
 			padding: 0.5rem;
 		}
 
@@ -45,7 +45,7 @@
 	width: 100%;
 
 	ul {
-		background-color: $white;
+		background-color: var(--white);
 		display: flex;
 		flex-direction: column;
 		list-style: none;
@@ -58,7 +58,7 @@
 			a:hover,
 			a:focus {
 				border-bottom: transparent;
-				color: $accent-color-darker;
+				color: var(--accent-color-darker);
 			}
 		}
 	}
@@ -71,19 +71,19 @@
 	a:link,
 	a:visited {
 		@include vertical-menu;
-		color: $primary-text-color;
+		color: var(--primary-text-color);
 	}
 
 	a:hover,
 	a:focus {
-		color: $accent-color-darker;
+		color: var(--accent-color-darker);
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
-		color: $accent-color-darker;
+		color: var(--accent-color-darker);
 	}
 }
 
@@ -93,12 +93,12 @@
 
 		a:link,
 		a:visited {
-			color: $primary-text-color;
+			color: var(--primary-text-color);
 		}
 
 		a:hover,
 		a:focus {
-			color: $accent-color-darker;
+			color: var(--accent-color-darker);
 		}
 
 		.children,
@@ -149,7 +149,7 @@
 .social-toggle:hover,
 .search-toggle:hover,
 .sidebar-toggle:hover {
-	color: $accent-color;
+	color: var(--accent-color);
 }
 
 .menu-toggle {
@@ -179,13 +179,13 @@
 .search-toggle:focus,
 .sidebar-toggle:focus,
 .searchform.toggled + .search-toggle {
-	background-color: $pale-black;
-	color: $accent-color;
+	background-color: var(--black-opacity-2);
+	color: var(--accent-color);
 }
 
 .sidebar-toggle.toggled,
 .main-navigation.toggled .menu-toggle {
-	color: $primary-text-color;
+	color: var(--primary-text-color);
 }
 
 .search-icon {
@@ -217,7 +217,7 @@
 		}
 
 		.main-navigation {
-			background-color: $primary-color-dark;
+			background-color: var(--primary-color-dark);
 
 			li {
 				padding: 0px;
@@ -226,7 +226,7 @@
 			a:link,
 			a:visited {
 				border-bottom-color: transparent;
-				color: $primary-text-color-medium-white;
+				color: var(--primary-text-color-medium-white);
 				display: block;
 				height: 3rem;
 				@include padding-two-values(0.75em, 1em);
@@ -242,7 +242,7 @@
 				min-height: 3em;
 
 				ul {
-					background-color: $white;
+					background-color: var(--white);
 					float: left;
 					@include padding-four-values(0, 0, 1em, 0);
 					position: absolute;
@@ -283,7 +283,7 @@
 			.children a:visited,
 			.sub-menu a:link,
 			.sub-menu a:visited {
-				color: $primary-text-color;
+				color: var(--primary-text-color);
 				height: auto;
 				min-width: 9.375em;
 				text-transform: unset;
@@ -294,7 +294,7 @@
 			.children a:focus,
 			.sub-menu a:hover,
 			.sub-menu a:focus {
-				color: $accent-color-darker;
+				color: var(--accent-color-darker);
 				border-bottom: none;
 			}
 
@@ -310,7 +310,7 @@
 			}
 
 			.children .menu-down-arrow {
-				color: $black;
+				color: var(--black);
 			}
 
 			.menu-item-has-children,
@@ -320,13 +320,13 @@
 
 			.menu-down-arrow {
 				background-color: transparent;
-				color: $white;
+				color: var(--white);
 				height: 3rem;
 			}
 
 			.page_item_has_children .page_item_has_children .menu-down-arrow,
 			.menu-item-has-children .menu-item-has-children .menu-down-arrow {
-				color: $black;
+				color: var(--black);
 			}
 
 			ul li a:hover,
@@ -335,8 +335,8 @@
 			.current-menu-item > a,
 			.current_page_ancestor > a,
 			.current-menu-ancestor > a {
-				border-bottom: 2px solid $accent-color;
-				color: $primary-text-color-white;
+				border-bottom: 2px solid var(--accent-color);
+				color: var(--primary-text-color-white);
 			}
 
 			.children .current_page_item a,

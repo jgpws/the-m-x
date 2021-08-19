@@ -15,11 +15,11 @@
 	.entry-title,
 	.entry-meta {
 		position: absolute;
-		color: $primary-text-color-white;
+		color: var(--primary-text-color-white);
 
 		a:link,
 		a:visited {
-			color: $primary-text-color-white;
+			color: var(--primary-text-color-white);
 		}
 
 	}
@@ -53,11 +53,11 @@
 
 .format-standard.has-post-thumbnail .entry-meta .material-icons,
 .format-image.has-post-thumbnail .entry-meta .material-icons {
-	color: $white;
+	color: var(--white);
 }
 
 .featured-image {
-	background-color: $primary-color-dark;
+	background-color: var(--primary-color-dark);
 	margin: -1em;
 }
 

@@ -12,7 +12,7 @@ table tbody tr {
 	height: 3.25em;
 
 	&:hover {
-		background-color: $primary-color-pale;
+		background-color: var(--primary-color-pale);
 	}
 }
 
