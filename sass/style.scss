@@ -41,8 +41,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Clearings
 # Header
 # Widgets/Sidebar
+# Content Layout
 # Content
-   ## Posts and pages
+  ## Posts and pages
 	## Post Formats
 	## Comments
 # Footer
@@ -147,6 +148,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Widgets/Sidebar
 --------------------------------------------------------------*/
 @import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Content Layout
+--------------------------------------------------------------*/
+@import "layout/content";
 
 /*--------------------------------------------------------------
 # Content

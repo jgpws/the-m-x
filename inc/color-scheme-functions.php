@@ -1,6 +1,5 @@
 <?php
 
-/* Color Scheme functions */
 function the_mx_color_scheme_array() {
 	/*
 	 * Get color scheme values from a nested array

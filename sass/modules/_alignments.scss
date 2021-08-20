@@ -4,6 +4,13 @@
 	margin-right: 1.5em;
 }
 
+img.alignleft,
+.wp-caption.alignleft,
+img.alignright,
+.wp-caption.alignright {
+	display: block;
+}
+
 .alignright {
 	display: inline;
 	float: right;
@@ -13,4 +20,103 @@
 .aligncenter {
 	clear: both;
 	@include center-block;
+}
+
+.alignfull {
+	margin: 1em -1em;
+	max-width: 1000%;
+	width: auto;
+}
+
+/* Page Template alignments */
+.page-template-template-landing .alignwide {
+	width: auto;
+}
+
+.page-template-template-landing .alignfull {
+	margin: 1em -2em;
+}
+
+@media (min-width: 48em) {
+	.alignfull {
+		margin: 1em -1.5em;
+	}
+
+	.three-fourths-centered-r .entry-content,
+  .jgd-column-1 .entry-content {
+		> .alignwide {
+			margin: 1em 4em;
+		}
+
+		> .alignwide,
+		> .alignfull {
+			max-width: none;
+		}
+	}
+
+	.page-template-template-image-grid.two-by-two .entry-content,
+	.page.imagegrid .three-fourths-centered-r .entry-content,
+	.single.imagegrid .three-fourths-centered-r .entry-content {
+		> .alignwide,
+		> .alignfull {
+			max-width: none;
+		}
+	}
+
+  .three-fourths-centered-r .wp-block-cover.alignwide {
+    max-width: calc(100% - 8em);
+  }
+
+	.page-template-template-landing .entry-content {
+		.alignwide {
+			margin: 1em calc(25% - 25vw);
+		}
+
+		.alignfull {
+			margin: 1em calc(52.5% - 52.5vw) !important;
+		}
+	}
+}
+
+@media (min-width: 80em) {
+	.alignwide {
+		width: auto;
+	}
+
+	.jgd-column-1 .entry-content .alignwide {
+    margin: 1em 8em;
+  }
+
+  .jgd-column-1 .wp-block-cover.alignwide {
+    max-width: calc(100% - 16em);
+  }
+
+	.three-fourths-centered-r .wp-caption.alignleft {
+	  margin-left: 12.5%;
+	}
+
+	.three-fourths-centered-r .wp-caption.alignright {
+	  margin-right: 12.5%;
+	}
+
+	.jgd-column-1 .wp-caption.alignleft {
+	  margin-left: 25%;
+	}
+
+	.jgd-column-1 .wp-caption.alignright {
+	  margin-right: 25%;
+	}
+
+	body:not(.single) .two-by-two-centered-r .alignfull {
+		margin: 1em -1.5em;
+	}
+
+	/* Page Template alignments */
+	.page-template-template-landing .three-fourths-centered-r .alignwide,
+	.page-template-template-landing .jgd-column-1 .alignwide,
+	.page-template-template-landing .three-fourths-centered-r .wp-block-cover.alignwide,
+	.page-template-template-landing .jgd-column-1 .wp-block-cover.alignwide {
+		margin: 1em calc(25% - 25vw);
+		max-width: 1000%;
+	}
 }

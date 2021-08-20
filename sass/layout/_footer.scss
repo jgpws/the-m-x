@@ -29,7 +29,7 @@
 	}
 
 	ol, ul {
-		@include padding-four-values(0, 1em, 1em, 3em);
+		padding: 0 1em 1em 3em;
 	}
 
 	ol {
@@ -52,7 +52,7 @@
 		}
 
 		.widget {
-			@include margin-two-values(0px, auto);
+			margin: 0 auto;
 			padding: 1em;
 			width: 50%;
 		}

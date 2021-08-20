@@ -26,24 +26,6 @@
 	width: 75%;
 }
 
-// Margins
-@mixin margin-two-values($topbottom, $rightleft) {
-	margin: $topbottom $rightleft;
-}
-
-@mixin margin-four-values($top, $right, $bottom, $left) {
-	margin: $top $right $bottom $left;
-}
-
-// Padding
-@mixin padding-two-values($topbottom, $rightleft) {
-	padding: $topbottom $rightleft;
-}
-
-@mixin padding-four-values($top, $right, $bottom, $left) {
-	padding: $top $right $bottom $left;
-}
-
 // Width
 @mixin width-100() {
 	// 100% width with 0.5em left and right padding
@@ -74,7 +56,7 @@
 	display: block;
 	font-weight: $font__weight-bold;
 	min-height: 3em;
-	@include padding-two-values(0.5em, 0);
+	padding: 0.5em 0;
 }
 
 // Restore regular link styles; used for resetting custom link styles to the default
@@ -106,7 +88,8 @@
 	@include font-size(0.875);
 	height: 2.25em;
 	line-height: 1;
-	@include padding-two-values(0, 1em);
+	padding: 0 1em;
+
 	text-align: center;
 	text-transform: uppercase;
 
@@ -131,7 +114,7 @@
 	border-radius: 2px;
 	color: var(--primary-text-color-white);
 	font-weight: $font__weight-bold;
-	@include padding-two-values(0.25em, 0.5em);
+	padding: 0.25em 0.5em;
 	text-transform: uppercase;
 }
 

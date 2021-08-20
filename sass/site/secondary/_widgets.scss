@@ -22,7 +22,7 @@
 	ul {
 		list-style: none;
 		margin: 0;
-		@include padding-two-values(0, 1rem);
+		padding: 0 1rem;
 	}
 
 	/* For specific widgets */
@@ -130,15 +130,4 @@
 		}
 	}
 
-}
-
-/* Override column-1 in jgd-material-grid.css */
-.widget.column-1 {
-	@include padding-two-values(0, 1rem);
-}
-
-@media screen and (min-width: 80em) {
-	.widget.column-1 {
-		@include padding-two-values(0, 1.5rem);
-	}
 }

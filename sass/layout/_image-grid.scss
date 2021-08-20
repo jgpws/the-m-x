@@ -24,7 +24,7 @@
 	.entry-title,
 	.entry-title-imagegrid {
 		@include font-size(1);
-		@include margin-two-values(0.5rem, 1rem);
+		margin: 0.5rem 1rem;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -59,6 +59,7 @@
 	}
 
 	.size-gallery-thumb {
+		height: 300px;
 		max-height: 300px;
 		width: auto;
 	}
@@ -116,7 +117,7 @@
 	}
 
 	.page-template-page_image-grid .more-link {
-		@include margin-two-values(0px, 12.5%);
+		margin: 0 12.5%;
 	}
 }
 
@@ -139,12 +140,12 @@
 
 	.page-template-template-image-grid {
 		.three-fourths-centered-r .more-link {
-			margin: 0px 12.5% 0.5em;
+			margin: 0 12.5% 0.5em;
 		}
 
 		.jgd-column-1 .more-link,
 		&.two-by-two .three-fourths-centered-r .more-link {
-			margin: 0px 25% 0.5em;
+			margin: 0 25% 0.5em;
 		}
 	}
 }

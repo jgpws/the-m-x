@@ -309,14 +309,18 @@ dt {
 	align-self: center;
 }
 
+.wp-block-button__link,
+.wp-block-file__button {
+	box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+	color: rgba(0, 0, 0, 0.87);
+	font-weight: 500;
+	font-size: 1em;
+	text-transform: uppercase;
+}
+
 .wp-block-button__link {
 	height: auto;
 	padding: 1em;
-}
-
-a.wp-block-button__link,
-button.wp-block-button__link {
-	color: rgba(0, 0, 0, 0.87) !important;
 }
 
 .wp-block-button__link:hover,

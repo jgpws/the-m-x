@@ -12,7 +12,7 @@
 
 .comment-list li {
 	min-height: 4.5rem;
-	@include padding-two-values(1rem, 0);
+	padding: 1rem 0;
 }
 
 .comment-list,
@@ -63,7 +63,7 @@
 	border-radius: 2px;
 	font-weight: $font__weight-bold;
 	margin: 1em;
-	@include padding-two-values(0, 1rem);
+	padding: 0 1rem;
 }
 
 .comment-author {

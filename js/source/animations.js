@@ -57,11 +57,13 @@
     let searchIcon = document.querySelector('.search-icon .material-icons');
 
     // Since the icon was dynamically created, it must be searched from a parent object via event delegation
-    searchButton.addEventListener('mouseenter', event => {
-      if (event.target.className === 'search-icon') {
-        animateCSS('.search-icon .material-icons', 'rubberBand');
-      }
-    });
+    if (searchButton !== null) {
+      searchButton.addEventListener('mouseenter', event => {
+        if (event.target.className === 'search-icon') {
+          animateCSS('.search-icon .material-icons', 'rubberBand');
+        }
+      });
+    }
 
     // Check if search button exists on the page
     if (searchToggleButton !== null) {

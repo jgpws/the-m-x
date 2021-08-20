@@ -1,6 +1,6 @@
 .gallery,
 .wp-block-gallery {
-	@include margin-two-values(2em, auto);
+	margin: 2em auto;
 }
 
 .gallery-columns-1 {
@@ -26,7 +26,7 @@
 
 	img {
 		display: block;
-		@include margin-two-values(0px, auto);
+		margin: 0 auto;
 	}
 
 	.gallery-icon.portrait {
@@ -70,32 +70,38 @@
 
 	}
 
-	.gallery-columns-3,
-	.gallery-columns-5,
-	.gallery-columns-6,
-	.gallery-columns-7,
-	.gallery-columns-8,
-	.gallery-columns-9 {
-		max-width: 900px;
-	}
+	.three-fourths-centered-r .entry-content,
+	.jgd-column-1 .entry-content,
+	.page-template-template-image-grid.two-by-two .entry-content,
+  .page.imagegrid .three-fourths-centered-r .entry-content,
+  .single.imagegrid .three-fourths-centered-r .entry-content {
+		.gallery-columns-3,
+		.gallery-columns-5,
+		.gallery-columns-6,
+		.gallery-columns-7,
+		.gallery-columns-8,
+		.gallery-columns-9 {
+			max-width: 900px;
+		}
 
-	.gallery-columns-2,
-	.gallery-columns-4 {
-		max-width: 600px;
-	}
+		.gallery-columns-2,
+		.gallery-columns-4 {
+			max-width: 600px;
+		}
 
-	.gallery-columns-2 + .more-images-link,
-	.gallery-columns-4 + .more-images-link {
-		max-width: 600px;
-	}
+		.gallery-columns-2 + .more-images-link,
+		.gallery-columns-4 + .more-images-link {
+			max-width: 600px;
+		}
 
-	.gallery-columns-3 + .more-images-link,
-	.gallery-columns-5 + .more-images-link,
-	.gallery-columns-6 + .more-images-link,
-	.gallery-columns-7 + .more-images-link,
-	.gallery-columns-8 + .more-images-link,
-	.gallery-columns-9 + .more-images-link {
-		max-width: 900px;
+		.gallery-columns-3 + .more-images-link,
+		.gallery-columns-5 + .more-images-link,
+		.gallery-columns-6 + .more-images-link,
+		.gallery-columns-7 + .more-images-link,
+		.gallery-columns-8 + .more-images-link,
+		.gallery-columns-9 + .more-images-link {
+			max-width: 900px;
+		}
 	}
 }
 
@@ -180,7 +186,7 @@
 
 .more-images-link {
 	text-align: center;
-	@include margin-two-values(1em, auto);
+	margin: 1em auto;
 	width: 90%;
 }
 
@@ -237,7 +243,6 @@
 	@include flex-row-space-around;
 	background-color: var(--primary-color-darker);
 	margin-bottom: 2em;
-	//@include padding-two-values(1em, 25%);
 	padding: 1em;
 
 	.slider-previous:hover,
@@ -298,7 +303,7 @@
 	}
 
 	.single.slider .slider-button-panel {
-		@include padding-two-values(1em, 25%);
+		padding: 1em 25%;
 	}
 
 	.single.slider .wp-block-gallery .blocks-gallery-item {

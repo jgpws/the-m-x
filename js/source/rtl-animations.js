@@ -49,11 +49,13 @@
     let searchIcon = document.querySelector('.search-icon .material-icons');
 
     // Since the icon was dynamically created, it must be searched from a parent object via event delegation
-    rtlSearchButton.addEventListener('mouseenter', event => {
-      if (event.target.className === '.search-icon .material-icons') {
-        animateCSS('.search-icon .material-icons', 'rubberBand');
-      }
-    });
+    if (rtlSearchButton !== null) {
+      rtlSearchButton.addEventListener('mouseenter', event => {
+        if (event.target.className === '.search-icon .material-icons') {
+          animateCSS('.search-icon .material-icons', 'rubberBand');
+        }
+      });
+    }
 
     // Check if body elements has the class rtl
     // to isolate functions from ltr animation script

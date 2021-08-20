@@ -116,7 +116,7 @@
 		ul#primary-menu,
 		ul.nav-menu {
 			box-shadow: $box-shadow-large;
-			@include padding-four-values(4.5em, 1em, 1em, 1em);
+			padding: 4.5em 1em 1em 1em;
 			position: absolute;
 			top: 0;
 			width: 73%;
@@ -229,7 +229,7 @@
 				color: var(--primary-text-color-medium-white);
 				display: block;
 				height: 3rem;
-				@include padding-two-values(0.75em, 1em);
+				padding: 0.75em 1em;
 				text-transform: uppercase;
 				white-space: nowrap;
 			}
@@ -244,7 +244,7 @@
 				ul {
 					background-color: var(--white);
 					float: left;
-					@include padding-four-values(0, 0, 1em, 0);
+					padding: 0 0 1em 0;
 					position: absolute;
 					top: 1.5em;
 					z-index: 99999;
@@ -256,7 +256,7 @@
 				box-shadow: none;
 				min-height: 3rem;
 				position: relative;
-				@include padding-two-values(0, 1em);
+				padding: 0 1em;
 				width: 100%;
 				width: calc(100% - 1em);
 			}
