@@ -26,6 +26,12 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.15 August 27 2021 =
+Bug fix: Added null check to the animateCSS function in case the item being animated doesn't exist on the page.
+
+= 1.3.14 August 26 2021 =
+Bug fix: wrong version of animate.css enqueued.
+
 = 1.3.13 August 19 2021 =
 Refactoring of CSS and inline CSS to use custom properties (variables); added cache busting to some enqueued scripts; removed *-two-values, *-four-values mixins; made featured images in image-grid template expand to horizontal full width, etc.
 

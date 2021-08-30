@@ -11,15 +11,18 @@
       const animationName = `${prefix}${animation}`;
       const node = document.querySelector(element);
 
-      node.classList.add(`${prefix}animated`, animationName);
+      // Check if node exists on page
+      if (node !== 'undefined' && node !== null) {
+        node.classList.add(`${prefix}animated`, animationName);
 
-      function handleAnimationEnd(event) {
-        event.stopPropagation();
-        node.classList.remove(`${prefix}animated`, animationName);
-        resolve('Animation ended');
+        function handleAnimationEnd(event) {
+          event.stopPropagation();
+          node.classList.remove(`${prefix}animated`, animationName);
+          resolve('Animation ended');
+        }
+
+        node.addEventListener('animationend', handleAnimationEnd, {once: true});
       }
-
-      node.addEventListener('animationend', handleAnimationEnd, {once: true});
     });
 
 
@@ -171,7 +174,7 @@
     let socialToggleButton = document.querySelector('#social-button');
     let socialPanel = document.querySelector('#menu-social');
 
-    //if (viewportWidth < 600 && socialToggleButton !== null) {
+    if (socialToggleButton !== null) {
       socialToggleButton.addEventListener('click', function() {
         if (socialPanel.classList.contains('toggled')) {
           animateCSS('#menu-social', 'slideInUp');
@@ -180,7 +183,7 @@
           hideAfterAnimation(socialPanel, 1000);
         }
       });
-    //}
+    }
   }
 
 

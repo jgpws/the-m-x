@@ -33,7 +33,6 @@ var layoutStyles = [	'./css/layouts/mx-grid.css',
 							'./css/layouts/sidebar-content.css',
               './css/layouts/rtl.css'];
 var animStyles = [ 	'./css/vendor/animate.css',
-							'./css/vendor/ripple.css',
 							'./css/vendor/spinner.css' ];
 var jsFiles = [ 	'./js/source/jgd-grid.js',
 						'./js/source/the-mx-scripts.js',
