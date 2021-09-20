@@ -8,7 +8,7 @@
  * License: GNU GPL, version 3
  */
 
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
  	function gridSizes() {
  		var windowWidth = window.innerWidth;

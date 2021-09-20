@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.16 September 20 2021 =
+Added styling for more link inside a paragraph tag.
+
 = 1.3.15 August 27 2021 =
 Bug fix: Added null check to the animateCSS function in case the item being animated doesn't exist on the page.
 
@@ -165,6 +168,7 @@ Please update to the latest version, as an error with HEREDOC blocks was causing
 * Themify Icons, Copyright 2019 Lally Elias, SIL Open Font License, https://github.com/lykmapipo/themify-icons
 * Animate.css, Copyright 2018 Daniel Eden, MIT, https://daneden.github.io/animate.css/
 * Colorbox, Copyright 2016 Jack Moore, MIT, http://www.jacklmoore.com/colorbox/
+* jQuery throttle/debounce, Copyright 2010 "Cowboy" Ben Alman, MIT/GPL2, http://benalman.com/projects/jquery-throttle-debounce-plugin/
 * Skrollr, Copyright 2012-2014 Alexander Prinzhorn (@Prinzhorn), MIT, https://prinzhorn.github.io/skrollr/
 * Ripple.js Copyright (c) 2014 Jacob Kelley, MIT, https://github.com/jakiestfu/Ripple.js
 * Spinner.css Copyright (c) 2014-2017 loading.io, CC0, https://loading.io/css/
