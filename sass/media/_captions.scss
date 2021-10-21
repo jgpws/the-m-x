@@ -17,6 +17,7 @@
 
 .wp-caption-text,
 .wp-block-audio figcaption,
+.wp-block-embed figcaption,
 .wp-block-image figcaption,
 .wp-block-gallery .blocks-gallery-item figcaption,
 .wp-block-table figcaption,
@@ -25,6 +26,7 @@
 	font-weight: $font__weight-heavy;
 }
 
+.wp-block-embed figcaption,
 .wp-block-image figcaption {
 	background-color: var(--white);
 	color: var(--primary-text-color);

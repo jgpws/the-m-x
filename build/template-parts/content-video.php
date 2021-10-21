@@ -47,25 +47,25 @@ if( get_theme_mod( 'the_mx_layout' ) == 'imagegrid' ) {
 
 				if( !empty( $the_m_x_embeds ) ) {
 					$first_embed = $the_m_x_embeds[0];
-					if( class_exists( 'Jetpack' ) ) { ?>
+					if( class_exists( 'Jetpack' ) && !has_block( 'video' ) ) { ?>
 						<div class="jetpack-video-wrapper">
 							<?php echo $first_embed; ?>
 						</div><?php
 					} else {
 						echo $first_embed;
 					}
-				}
-			} else {
-				the_content( sprintf(
-					/* translators: %s: Name of current post. */
-					__( 'Continue reading %s...', 'the-m-x' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				) );
+				} else {
+					the_content( sprintf(
+						/* translators: %s: Name of current post. */
+						__( 'Continue reading %s...', 'the-m-x' ),
+						the_title( '<span class="screen-reader-text">"', '"</span>', false )
+					) );
 
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-m-x' ),
-					'after'  => '</div>',
-				) );
+					wp_link_pages( array(
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'the-m-x' ),
+						'after'  => '</div>',
+					) );
+				}
 			}
 			?>
 		</div><!-- .entry-content -->

@@ -653,12 +653,14 @@ textarea {
 	width: 100%;
 }
 
+.wp-block-embed figcaption,
 .wp-block-image figcaption {
 	background-color: #ffffff;
 	color: rgba(0, 0, 0, 0.87);
 	font-weight: 600;
 	margin-top: 0px;
 	padding: 0.8075em 0;
+	text-align: center;
 }
 
 .wp-block-media-text {

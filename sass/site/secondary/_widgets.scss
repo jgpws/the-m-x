@@ -10,6 +10,10 @@
 	overflow-x: hidden;
 }
 
+.widget-title {
+	margin-top: 1rem;
+}
+
 .widget {
 	margin: 0 0 1.5em;
 
@@ -130,4 +134,18 @@
 		}
 	}
 
+}
+
+/* Block widgets */
+.widget_block {
+	&.jgd-column-1 {
+		margin: 0 0 1.5em;
+		padding: 0 1rem;
+		width: 100%;
+	}
+
+	.wp-block-calendar {
+		margin-left: -1rem;
+		margin-right: -1rem;
+	}
 }

@@ -4,7 +4,7 @@ Contributors: jgpws
 Tags: block-styles, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 Requires at least: 4.0
 Requires PHP: 5.6
-Tested up to: 5.1.1
+Tested up to: 5.8.1
 Stable tag: 1.3
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
@@ -25,6 +25,9 @@ The M.X. stands for The Modern Experience. Give your content a trendy new style 
 The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
+
+= 1.3.17 October 14 2021 =
+Styling for video block captions; added support for responsive embeds; CSS adjustments for widgets/Widget Group block; cleaned up functions.php by placing some functions in inc folder.
 
 = 1.3.16 September 20 2021 =
 Added styling for more link inside a paragraph tag.

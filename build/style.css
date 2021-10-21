@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
-Version: 1.3.16
+Version: 1.3.17
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
@@ -12,14 +12,11 @@ License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
 Tags: block-styles, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+The M.X. WordPress theme. (C) 2021 Jason G. Designs
+The M.X. is distributed under the terms of the GNU GPL.
 
 The M.X. is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -1692,6 +1689,10 @@ html.skrollr-mobile {
 	overflow-x: hidden;
 }
 
+.widget-title {
+	margin-top: 1rem;
+}
+
 .widget {
 	margin: 0 0 1.5em;
 	/* Make sure select elements fit in widgets. */
@@ -1815,6 +1816,18 @@ html.skrollr-mobile {
 	height: auto;
 	padding: 0.5em;
 	width: auto;
+}
+
+/* Block widgets */
+.widget_block.jgd-column-1 {
+	margin: 0 0 1.5em;
+	padding: 0 1rem;
+	width: 100%;
+}
+
+.widget_block .wp-block-calendar {
+	margin-left: -1rem;
+	margin-right: -1rem;
 }
 
 /*--------------------------------------------------------------
@@ -2199,7 +2212,7 @@ article.page:hover,
 	}
 	.three-fourths-centered-r .entry-content p > .more-link,
 	.jgd-column-1 .entry-content p > .more-link {
-		margin-left: 0;
+		margin: 1em 0 0 0;
 	}
 }
 
@@ -3464,7 +3477,7 @@ object {
 
 .featured-image {
 	background-color: var(--primary-color-dark);
-	margin: 1em -1em;
+	margin: -1em -1em;
 }
 
 .imagegrid .featured-image,
@@ -3532,6 +3545,7 @@ img.wp-post-image {
 
 .wp-caption-text,
 .wp-block-audio figcaption,
+.wp-block-embed figcaption,
 .wp-block-image figcaption,
 .wp-block-gallery .blocks-gallery-item figcaption,
 .wp-block-table figcaption,
@@ -3541,6 +3555,7 @@ img.wp-post-image {
 	font-weight: 600;
 }
 
+.wp-block-embed figcaption,
 .wp-block-image figcaption {
 	background-color: var(--white);
 	color: var(--primary-text-color);
