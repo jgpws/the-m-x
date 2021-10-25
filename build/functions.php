@@ -104,7 +104,7 @@ function the_mx_setup() {
 
 	add_theme_support( 'responsive-embeds' );
 
-	require get_template_directory() . '/inc/editor-colors-gradients.php';
+	//require get_template_directory() . '/inc/editor-colors-gradients.php';
 
 	add_theme_support( 'editor-styles' );
 

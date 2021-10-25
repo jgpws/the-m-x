@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "settings": {
+    "layout": {
+      "contentSize": "75%",
+      "wideSize": "87.5%"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "white",
+          "color": "#ffffff",
+          "name": "White"
+        },
+        {
+          "slug": "black",
+          "color": "#000000",
+          "name": "Black"
+        },
+        {
+          "slug": "primary-brown",
+          "color": "#795548",
+          "name": "Primary Color Brown"
+        },
+        {
+          "slug": "primary-light-brown",
+          "color": "#bcaaa4",
+          "name": "Primary Color Light Brown"
+        },
+        {
+          "slug": "accent-amber",
+          "color": "#ffc107",
+          "name": "Accent Color Amber"
+        },
+        {
+          "slug": "primary-blue-gray",
+          "color": "#607d8b",
+          "name": "Primary Color Blue Gray"
+        },
+        {
+          "slug": "primary-light-blue-gray",
+          "color": "#b0bec5",
+          "name": "Primary Color Light Blue Gray"
+        },
+        {
+          "slug": "primary-deep-purple",
+          "color": "#673ab7",
+          "name": "Primary Color Deep Purple"
+        },
+        {
+          "slug": "primary-light-deep-purple",
+          "color": "#b39ddb",
+          "name": "Primary Color Light Deep Purple"
+        },
+        {
+          "slug": "accent-lime",
+          "color": "#cddc39",
+          "name": "Accent Color Lime"
+        },
+        {
+          "slug": "primary-pale-orange",
+          "color": "#ffe0b2",
+          "name": "Primary Color Pale Orange"
+        },
+        {
+          "slug": "accent-teal",
+          "color": "#009688",
+          "name": "Accent Color Teal"
+        },
+        {
+          "slug": "primary-almost-black",
+          "color": "#212121",
+          "name": "Primary Color Almost Black"
+        },
+        {
+          "slug": "primary-light-gray",
+          "color": "#bdbdbd",
+          "name": "Primary Color Light Gray"
+        },
+        {
+          "slug": "accent-almost-white",
+          "color": "#fafafa",
+          "name": "Accent Color Almost White"
+        }
+      ],
+      "gradients": [
+        {
+          "slug": "accent-amber",
+          "gradient": "linear-gradient(180deg, var(--wp--preset--color--accent-amber) 0%, #ffa000 100%)",
+          "name": "Accent Color Gradient Amber"
+        },
+        {
+          "slug": "accent-amber-translucent",
+          "gradient": "linear-gradient(180deg, rgba(255, 193, 7, 0.0) 0%, rgba(255, 160, 0, 0.0) 100%)",
+          "name": "Accent Color Amber Translucent Gradient"
+        },
+        {
+          "slug": "accent-brown",
+          "gradient": "linear-gradient(180deg, var(--wp--preset--color--primary-brown) 0%, #5d4037 100%)",
+          "name": "Accent Color Gradient Brown"
+        },
+        {
+          "slug": "accent-brown-translucent",
+          "gradient": "linear-gradient(180deg, rgba(121, 85, 72, 0.0) 0%, rgba(93, 64, 55, 0.0) 100%)",
+          "name": "Accent Color Brown Translucent Gradient"
+        },
+        {
+          "slug": "accent-lime",
+          "gradient": "linear-gradient(180deg, var(--wp--preset--color--accent-lime), #afb42b 100%)",
+          "name": "Accent Color Gradient Lime"
+        },
+        {
+          "slug": "accent-lime-translucent",
+          "gradient": "linear-gradient(180deg, rgba(205, 220, 57, 0.0) 0%, rgba(175, 180, 43, 0.0) 100%)",
+          "name": "Accent Color Gradient Translucent Lime"
+        },
+        {
+          "slug": "accent-teal",
+          "gradient": "linear-gradient(180deg, var(--wp--preset--color--accent-teal) 0%, #00796b 100%)",
+          "name": "Accent Color Gradient Teal"
+        },
+        {
+          "slug": "accent-teal-translucent",
+          "gradient": "linear-gradient(180deg, rgba(0, 150, 136, 0.0) 0%, rgba(0, 121, 107, 0.0) 100%)",
+          "name": "Accent Color Gradient Translucent Teal"
+        },
+        {
+          "slug": "accent-almost-white",
+          "gradient": "linear-gradient(180deg, var(--wp--preset--color--accent-almost-white) 0%, #bdbdbd 100%)",
+          "name": "Accent Color Gradient Almost White"
+        },
+        {
+          "slug": "accent-almost-white-translucent",
+          "gradient": "linear-gradient(180deg, rgba(250, 250, 250, 0.0) 0%, rgba(189, 189, 189, 0.0) 100%)",
+          "name": "Accent Color Gradient Translucent Almost White"
+        }
+      ],
+      "duotone": [
+        {
+          "colors": [ "#795548", "#ffc107" ],
+          "slug": "brown-and-amber",
+          "name": "Brown and Amber"
+        },
+        {
+          "colors": [ "#795548", "#b0bec5" ],
+          "slug": "brown-and-blue-gray",
+          "name": "Brown and Blue Gray"
+        },
+        {
+          "colors": [ "#673ab7", "#cddc39" ],
+          "slug": "deep-purple-and-lime",
+          "name": "Deep Purple and Lime"
+        },
+        {
+          "colors": [ "#009688", "#ffe0b2" ],
+          "slug": "teal-and-pale-orange",
+          "name": "Teal and Pale Orange"
+        },
+        {
+          "colors": [ "#212121", "#fafafa" ],
+          "slug": "black-and-white",
+          "name": "Black and White"
+        }
+      ]
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "0.75rem",
+          "name": "Small"
+        },
+        {
+          "slug": "normal",
+          "size": "0.875rem",
+          "name": "Normal"
+        },
+        {
+          "slug": "large",
+          "size": "1.25rem",
+          "name": "Large"
+        },
+        {
+          "slug": "extra-large",
+          "size": "1.5rem",
+          "name": "Extra large"
+        }
+      ]
+    }
+  }
+}

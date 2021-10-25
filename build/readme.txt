@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.18 October 24 2021 =
+Moved theme support for Gutenberg colors to the new theme.json file; added duotone filter support.
+
 = 1.3.17 October 14 2021 =
 Styling for video block captions; added support for responsive embeds; CSS adjustments for widgets/Widget Group block; cleaned up functions.php by placing some functions in inc folder.
 
