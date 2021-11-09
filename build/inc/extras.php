@@ -64,24 +64,26 @@ function the_mx_body_classes( $classes ) {
 
 	// Sidebars
 	$sidebar_layout = get_theme_mod( 'the_mx_sidebar_layout', 'overlay' );
-	if( $sidebar_layout != ''
-	&& !is_woocommerce()
-	&& !is_cart()
-	&& !is_checkout()
-	&& !is_account_page() ) {
-		switch ( $sidebar_layout ) {
-			case 'overlay':
-				$classes[] = 'sidebar-overlay';
-				break;
-			case 'right':
-				$classes[] = 'sidebar-right';
-				break;
-			case 'left':
-				$classes[] = 'sidebar-left';
-				break;
-			default:
-				$classes[] = 'sidebar-overlay';
-				break;
+	if( $sidebar_layout != '' ) {
+		if( is_woocommerce_activated()
+		&& !is_woocommerce()
+		&& !is_cart()
+		&& !is_checkout()
+		&& !is_account_page() ) { 
+			switch ( $sidebar_layout ) {
+				case 'overlay':
+					$classes[] = 'sidebar-overlay';
+					break;
+				case 'right':
+					$classes[] = 'sidebar-right';
+					break;
+				case 'left':
+					$classes[] = 'sidebar-left';
+					break;
+				default:
+					$classes[] = 'sidebar-overlay';
+					break;
+			}
 		}
 	}
 
