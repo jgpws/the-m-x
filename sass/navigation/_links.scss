@@ -7,14 +7,17 @@ a {
 	&:visited {
 		color: var(--primary-color-medium);
 	}
+
 	&:hover,
 	&:focus,
 	&:active {
 		color: var(--primary-color-dark);
 	}
+
 	&:focus {
 		outline: thin dotted;
 	}
+	
 	&:hover,
 	&:active {
 		outline: 0;

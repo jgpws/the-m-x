@@ -42,6 +42,24 @@ function the_mx_color_scheme_css() {
 	}
 	wp_add_inline_style( 'the-mx-style', $misc_color_css );
 
+	// Adjustment for the Blue Gray color scheme
+
+	$css = '
+	.woocommerce #respond input#submit,
+	.woocommerce #respond input#submit.alt,
+	.woocommerce a.button,
+	.woocommerce a.button.alt,
+	.woocommerce button.button,
+	.woocommerce button.button.alt,
+	.woocommerce input.button,
+	.woocommerce input.button.alt {
+		color: var(--primary-text-color-white) !important;
+	}
+	';
+	if ( get_theme_mod( 'the_mx_color_scheme' ) == 'blue_gray' ) {
+		wp_add_inline_style( 'the-mx-style', $css );
+	}
+
 	// Material ink effect fixes for the white color scheme
 	$material_ink_css = '
 span.ripple {
@@ -260,6 +278,27 @@ function the_mx_reverse_primary_4_css() {
 
 		.error-404 {
 			color: rgba(255, 255, 255, 0.87);
+		}
+
+		.woocommerce .woocommerce-ordering select {
+			color: rgba(255, 255, 255, 0.87);
+		}
+
+		.woocommerce .woocommerce-ordering select option {
+			color: rgba(0, 0, 0, 0.87);
+		}
+
+		.woocommerce nav.woocommerce-pagination ul li a,
+		.woocommerce nav.woocommerce-pagination ul li a:focus,
+		.woocommerce nav.woocommerce-pagination ul li a:hover,
+		.woocommerce nav.woocommerce-pagination ul li span,
+		.woocommerce nav.woocommerce-pagination ul li span.current {
+			color: rgba(255, 255, 255, 0.87);
+		}
+
+		.woocommerce nav.woocommerce-pagination ul li a:focus,
+		.woocommerce nav.woocommerce-pagination ul li a:hover {
+			background-color: rgba(255, 255, 255, 0.2);
 		}
 
 		.woocommerce:not(.single-product) ul.products li.product a:not(.button),
@@ -535,6 +574,14 @@ function the_mx_reverse_supporting_color_css() {
 			color: rgba(0, 0, 0, 0.87) !important;
 		}
 
+		a.cart-widget {
+			color: rgba(0, 0, 0, 0.7) !important;
+		}
+
+		a.cart-widget:hover {
+			color: #000000 !important;
+		}
+
 		.wp-block-calendar table caption {
 			color: #000000;
 		}
@@ -560,6 +607,10 @@ function the_mx_reverse_supporting_color_css() {
 			color: #000000;
 		}
 
+		.site-footer a {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important;
+		}
+
 		.site-footer a:link,
 		.site-footer a:visited,
 		.site-footer .widget li a:link,
@@ -582,6 +633,20 @@ function the_mx_reverse_supporting_color_css() {
 
 		#infinite-handle span {
 			color: #000000;
+		}
+
+		.shop-back-link {
+			color: #000000 !important;
+		}
+
+		.shop-back-link a {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important;
+			color: rgba(0, 0, 0, 0.87) !important;
+		}
+
+		.shop-back-link a:hover,
+		.shop-back-link a:focus {
+			color: #000000 !important;
 		}
 CSS;
 		wp_add_inline_style( 'the-mx-style', $reverse_supporting_color_css );

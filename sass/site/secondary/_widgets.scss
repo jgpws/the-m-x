@@ -1,6 +1,10 @@
 .widget-area {
 	background-color: var(--white);
-	box-shadow: $box-shadow-large;
+	box-shadow: $box-shadow-small;
+
+	&:hover {
+		box-shadow: $box-shadow-large;
+	}
 }
 
 /* Refer to menu section for widget link styling */

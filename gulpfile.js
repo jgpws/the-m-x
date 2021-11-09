@@ -1,7 +1,7 @@
 require('es6-promise').polyfill();
 
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var sourcemaps = require('gulp-sourcemaps');
 var newer = require('gulp-newer');
 var mode = require('gulp-mode')();
@@ -55,7 +55,7 @@ var onError = function(err) {
 
 // Styles
 function style() {
-	return gulp.src(['./sass/**/*.scss', '!./sass/layout/mx-grid.scss'])
+	return gulp.src(['./sass/**/*.scss', '!./sass/layout/mx-grid.scss', '!./sass/site/primary/mx-woocommerce-styles.scss'])
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(sourcemaps.init())
 		.pipe(sass({
@@ -77,12 +77,26 @@ function gridStyle() {
 		.pipe(sass({
 			indentType: 'tab',
 			indentWidth: 1,
-			outputStyle: 'expanded',
+			outputStyle: 'expanded'
 		}))
 		.pipe(autoprefixer())
 		.pipe(mode.development(sourcemaps.write('../../maps')))
 		.pipe(gulp.dest('./build/css/layouts/'))
 		.pipe(browserSync.stream());
+}
+
+function wcStyle(done) {
+  return gulp.src('./sass/site/primary/mx-woocommerce-styles.scss')
+    .pipe(mode.development(sourcemaps.init()))
+    .pipe(sass({
+      indentType: 'tab',
+      indentWidth: 1,
+      outputStyle: 'expanded'
+    }))
+    .pipe(autoprefixer())
+    .pipe(mode.development(sourcemaps.write('../../maps')))
+    .pipe(gulp.dest('./build/css/source/'))
+    .pipe(browserSync.stream());
 }
 
 function minifyStyle(done) {
@@ -94,6 +108,16 @@ function minifyStyle(done) {
 		.pipe(gulp.dest('./build'))
 		.pipe(browserSync.stream());
 	done();
+}
+
+function minifyWCStyle(done) {
+  return gulp.src('./build/css/source/mx-woocommerce-styles.css')
+    .pipe(cleanCSS())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('./build/css/minfiles'))
+    .pipe(browserSync.stream());
 }
 
 // Adjust rtl.css file manually
@@ -154,12 +178,16 @@ function jsHint() {
 		.pipe(jshint.reporter('default'));
 }
 
-function watch() {
-	browserSync.init({
+function browsersyncStart() {
+  browserSync.init({
 		proxy: 'localhost/wordpress/'
 	});
+}
+
+function watch() {
 	gulp.watch('./sass/**/*.scss', style);
 	gulp.watch('./sass/layout/mx-grid.scss', gridStyle);
+  gulp.watch('./sass/site/primary/mx-woocommerce-styles.scss', series(wcStyle, minifyWCStyle));
 	//gulp.watch('.build/js/source/*.js', jsHint);
 	gulp.watch(jsFiles, minifyJS);
 	gulp.watch(jsSepFiles, minifySepJS);
@@ -196,7 +224,9 @@ function cleanAfterZip() {
 exports.default = series(style, gridStyle, concatLayoutCSS, minifyStyle, minifyJS, minifySepJS, watch);
 exports.style = style;
 exports.gridStyle = gridStyle;
+exports.wcStyle = wcStyle;
 exports.minifyStyle = minifyStyle;
+exports.minifyWCStyle = minifyWCStyle;
 exports.concatLayoutCSS = concatLayoutCSS;
 exports.concatAnimCSS = concatAnimCSS;
 exports.minifyJS = minifyJS;
@@ -205,4 +235,4 @@ exports.jsHint = jsHint;
 
 exports.zipUp = zipUp;
 exports.finishUp = series(cleanMaps, zipUp);
-exports.watch = watch;
+exports.watch = parallel(browsersyncStart, watch);

@@ -328,8 +328,8 @@ var counter9 = makeCounter();
 
     if (document.body.contains(headerPanel)) { // check if headerPanel exists
 
-      if (document.body.classList.contains('page-template-template-landing')) {
-        // show nothing
+      if (document.body.classList.contains('page-template-template-landing') || document.body.classList.contains('woocommerce-page')) {
+        return;
       } else {
         // Create and add searchToggleButton to header button panel
         searchToggleButton = document.createElement('button');

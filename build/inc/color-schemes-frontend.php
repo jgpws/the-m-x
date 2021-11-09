@@ -19,6 +19,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
       'meta_links_hover_color' => '',
     )
   );
+  $primary_medium = the_mx_adjust_brightness( $colors['primary_1'], 0.2 );
   $color_outline_button = the_mx_hex_to_rgb( get_theme_mod( 'the_mx_primary_1' ) );
   $color_outline_button_bg_hover = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.04 )', $color_outline_button );
   $color_outline_button_bg_focus = vsprintf( 'rgba( %1$s, %2$s, %3$s, 0.12 )', $color_outline_button );
@@ -30,7 +31,8 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
     /* Color overrides */
     --primary-color: {$colors['primary_1']};
     --primary-color-pale: {$colors['background_color']};
-    --primary-color-medium: {$colors['primary_4']};
+    --primary-color-light: {$colors['primary_4']};
+    --primary-color-medium: {$primary_medium};
     --primary-color-dark: {$colors['primary_2']};
     --primary-color-darker: {$colors['primary_3']};
     --primary-color-darker-faded: {$colors['meta_links_color']};
@@ -62,7 +64,7 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
   }
 
   #cboxContent {
-    background-color: var(--primary-color-medium) !important;
+    background-color: var(--primary-color-light) !important;
   }
 
   .lds-ring div {
@@ -71,7 +73,6 @@ function the_mx_frontend_color_scheme_styles( $colors ) {
 CSS;
 
 if (  $color_scheme_option == 'blue_gray' ||
-      $color_scheme_option == 'deep_purple' ||
       $color_scheme_option == 'black' ) {
   $css .= '
   mark,
@@ -109,7 +110,8 @@ function the_mx_frontend_user_color_styles() {
     /* Color overrides */
     --primary-color: ' . esc_attr( $primary_color_1 ) . ';
     --primary-color-pale: #' . esc_attr( $background_color ) . ';
-    --primary-color-medium: ' . esc_attr( $primary_color_4 ) . ';
+    --primary-color-light: ' . esc_attr( $primary_color_4 ) . ';
+    --primary-color-medium: ' . the_mx_adjust_brightness( esc_attr( $primary_color_1 ), '0.2' ) . ';
     --primary-color-dark: ' . esc_attr( $primary_color_2 ) . ';
     --primary-color-darker: ' . esc_attr( $primary_color_3 ) . ';
     --primary-color-darker-faded: ' . esc_attr( $color_meta_links ) . ';
@@ -145,7 +147,7 @@ function the_mx_frontend_user_color_styles() {
   }
 
   #cboxContent {
-    background-color: var(--primary-color-medium) !important;
+    background-color: var(--primary-color-light) !important;
   }';
 
   return $css;

@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.19 November 08 2021 =
+Completed styling for non-block WooCommerce pages; added Customizer options for WooCommerce only sidebars, header cart widget; reorganized structure of WC CSS to load only when WooCommerce is activated.
+
 = 1.3.18 October 24 2021 =
 Moved theme support for Gutenberg colors to the new theme.json file; added duotone filter support.
 

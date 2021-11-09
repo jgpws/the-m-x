@@ -323,9 +323,7 @@ function the_mx_customize_register( $wp_customize ) {
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' => 'centered',
-			'transport' => 'refresh',
 			'sanitize_callback' => 'the_mx_sanitize_layout_choices',
-			'sanitize_js_callback' => 'the_mx_sanitize_layout_choices',
 		)
 	);
 
@@ -341,6 +339,7 @@ function the_mx_customize_register( $wp_customize ) {
 				'twobytwo' => esc_html__( 'Two by two- A grid of posts two across the screen', 'the-m-x' ),
 				'imagegrid' => esc_html__( 'Image grid- A grid designed for image or gallery posts, supporting only featured images and captions.', 'the-m-x' ),
 			),
+			'priority' => 10,
 		)
 	);
 
@@ -361,6 +360,7 @@ function the_mx_customize_register( $wp_customize ) {
 				'right' => esc_html__( 'Right Sidebar', 'the-m-x' ),
 				'left' => esc_html__( 'Left Sidebar', 'the-m-x' ),
 			),
+			'priority' => 20,
 		)
 	);
 
@@ -383,6 +383,7 @@ function the_mx_customize_register( $wp_customize ) {
 				'full' => esc_html__( 'Full Content', 'the-m-x' ),
 				'excerpt' => esc_html__( 'Excerpt', 'the-m-x' ),
 			),
+			'priority' => 30,
 		)
 	);
 
@@ -649,6 +650,89 @@ function the_mx_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'the_mx_customize_register' );
 
+/* WooCommerce Customizer controls */
+if ( is_woocommerce_activated() ) {
+	function the_mx_wc_customize_register( $wp_customize ) {
+
+		$wp_customize->add_setting(
+			'the_mx_enable_wc_sidebar', array(
+				'type' => 'theme_mod',
+				'default' => 0,
+				'sanitize_callback' => 'the_mx_sanitize_checkbox',
+			)
+		);
+
+		$wp_customize->add_control(
+			'the_mx_enable_wc_sidebar', array(
+				'type' => 'checkbox',
+				'label' => esc_html__( 'Enable a separate sidebar for WooCommerce shop/product page.', 'the-m-x' ),
+				'section' => 'the_mx_layout_section',
+				'priority' => 22,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'the_mx_wc_sidebar_layout', array(
+				'type' => 'theme_mod',
+				'default' => 'right',
+				'sanitize_callback' => 'the_mx_sanitize_wc_layout_choices',
+			)
+		);
+
+		$wp_customize->add_control(
+			'the_mx_wc_sidebar_layout', array(
+				'type' => 'radio',
+				'label' => esc_html__( 'Choose from two WooCommerce store sidebar layouts.', 'the-m-x' ),
+				'choices' => array(
+					'right' => esc_html__( 'Right Sidebar', 'the-m-x' ),
+					'left' => esc_html__( 'Left Sidebar', 'the-m-x' ),
+				),
+				'section' => 'the_mx_layout_section',
+				'priority' => 25,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'the_mx_wc_sidebar_onpage', array(
+				'type' => 'theme_mod',
+				'default' => 0,
+				'sanitize_callback' => 'the_mx_sanitize_checkbox',
+			)
+		);
+
+		$wp_customize->add_control(
+			'the_mx_wc_sidebar_onpage', array(
+				'type' => 'checkbox',
+				'label' => esc_html__( 'Show the sidebar only on Single product page.', 'the-m-x' ),
+				'section' => 'the_mx_layout_section',
+				'priority' => 27,
+			)
+		);
+
+		$wp_customize->add_section(
+			'the_mx_store_options', array(
+				'title' => esc_html__( 'Store Options', 'the-m-x' ),
+				'description' => esc_html__( 'Optional features for your WooCommerce store.', 'the-m-x' ),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'the_mx_show_cart_icon', array(
+				'default' => 0,
+				'sanitize_callback' => 'the_mx_sanitize_checkbox',
+			)
+		);
+
+		$wp_customize->add_control(
+			'the_mx_show_cart_icon', array(
+				'type' => 'checkbox',
+				'label' => esc_html__( 'Show cart icon in the header on WooCommerce pages.', 'the-m-x' ),
+				'section' => 'the_mx_store_options',
+			)
+		);
+	}
+}
+add_action( 'customize_register', 'the_mx_wc_customize_register' );
 
 /* Color Scheme functions */
 
@@ -703,12 +787,16 @@ if ( ! function_exists( 'the_mx_sanitize_color_scheme' ) ) :
 	}
 endif;
 
-
-/* Sanitization functions */
-
 function the_mx_sanitize_layout_choices( $input ) {
 	if( !in_array( $input, array( 'centered', 'wide', 'twobytwo', 'imagegrid' ) ) ) {
 		$input = 'centered';
+	}
+	return $input;
+}
+
+function the_mx_sanitize_wc_layout_choices( $input ) {
+	if ( !in_array( $input, array( 'right', 'left' ) ) ) {
+		$input = 'right';
 	}
 	return $input;
 }
@@ -762,6 +850,46 @@ function the_mx_sanitize_heroalign( $input ) {
 	return $input;
 }
 
+/* Helper functions */
+
 function the_mx_page_callback() {
 	return is_page();
+}
+
+function the_mx_wc_sidebar_choosepages() {
+	/* This function displays a sidebar
+	 * on a WooCommerce page
+	 * depending on whether it is a shop or product page
+	 */
+
+	 // First check if WooCommerce sidebar is enabled
+	 $wc_sidebar_enabled = get_theme_mod( 'the_mx_enable_wc_sidebar', 0 );
+
+	if ( is_woocommerce_activated() && $wc_sidebar_enabled ) {
+	 	$wc_sidebar_choices = get_theme_mod( 'the_mx_wc_sidebar_onpage', 0 );
+
+		if ( $wc_sidebar_choices == 1 ) {
+			if( is_product() ) {
+				get_sidebar( 'wc' );
+			}
+		} else {
+			if ( is_woocommerce() ) {
+				get_sidebar( 'wc' );
+			}
+		}
+	}
+}
+
+function the_mx_cart_icon_switcher() {
+
+	// Check if cart icon is enabled
+	$wc_cart_icon_enabled = get_theme_mod( 'the_mx_show_cart_icon', 0 );
+
+	if ( is_woocommerce_activated() && $wc_cart_icon_enabled ) { ?>
+		<a class="cart-widget" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'the-m-x' ); ?>">
+			<span class="cart-icon material-icons">shopping_cart</span>
+			<span class="cart-items-number"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+		</a>
+	<?php
+	}
 }

@@ -86,8 +86,8 @@
 	color: var(--primary-text-color);
 	font-weight: $font__weight-bold;
 	@include font-size(0.875);
-	height: 2.25em;
-	line-height: 1;
+	line-height: 1.2;
+	min-height: 2.25em;
 	padding: 0 1em;
 
 	text-align: center;

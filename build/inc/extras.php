@@ -64,7 +64,11 @@ function the_mx_body_classes( $classes ) {
 
 	// Sidebars
 	$sidebar_layout = get_theme_mod( 'the_mx_sidebar_layout', 'overlay' );
-	if( $sidebar_layout != '' ) {
+	if( $sidebar_layout != ''
+	&& !is_woocommerce()
+	&& !is_cart()
+	&& !is_checkout()
+	&& !is_account_page() ) {
 		switch ( $sidebar_layout ) {
 			case 'overlay':
 				$classes[] = 'sidebar-overlay';
@@ -78,6 +82,37 @@ function the_mx_body_classes( $classes ) {
 			default:
 				$classes[] = 'sidebar-overlay';
 				break;
+		}
+	}
+
+	$wc_sidebar_enabled = get_theme_mod( 'the_mx_enable_wc_sidebar', 0 );
+	$wc_sidebar_layout = get_theme_mod( 'the_mx_wc_sidebar_layout', 'right' );
+	$wc_sidebar_onpage = get_theme_mod( 'the_mx_wc_sidebar_onpage', 0 );
+	if (	is_woocommerce_activated() &&
+				is_woocommerce() &&
+				$wc_sidebar_enabled == 1 &&
+				!$wc_sidebar_onpage &&
+				$wc_sidebar_layout != '' ) {
+		if( $wc_sidebar_layout == 'left' ) {
+			$classes[] = 'wc-sidebar-left';
+		} elseif( $wc_sidebar_layout == 'right' ) {
+			$classes[] = 'wc-sidebar-right';
+		} else {
+			$classes[] = '';
+		}
+	}
+
+	if (	is_woocommerce_activated() &&
+				is_product() &&
+				$wc_sidebar_enabled == 1 &&
+				$wc_sidebar_onpage == 1 &&
+				$wc_sidebar_layout != '' ) {
+		if( $wc_sidebar_layout == 'left' ) {
+			$classes[] = 'wc-sidebar-left';
+		} elseif( $wc_sidebar_layout == 'right' ) {
+			$classes[] = 'wc-sidebar-right';
+		} else {
+			$classes[] = '';
 		}
 	}
 

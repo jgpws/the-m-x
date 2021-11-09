@@ -18,19 +18,20 @@
 // Classes added with .animation class added to body tag
 // The .animation class is active when "Enable simple animations..." is checked in the Customizer
 
-.animate a:link,
-.animate a:visited,
+.animate a,
 .animate button,
 .animate .wp-block-button__link,
 .animate input[type="submit"],
 .animate input[type="reset"],
 .animate .gallery-item,
+.animate a.cart-widget .cart-icon,
 .animate.woocommerce div.product,
 .animate .wc-block-grid__product .wc-block-grid__product-image__image,
 .animate .wc-block-grid__product-image img,
 .animate .post,
 .animate .page,
 .animate .tile,
+.animate .widget-area,
 .animate .comments-area {
 	transition-duration: 1s;
 }

@@ -3,7 +3,9 @@
 	position: relative;
 
 	.sidebar-right &,
-	.sidebar-left & {
+	.sidebar-left &,
+	.wc-sidebar-right &,
+	.wc-sidebar-left & {
 		z-index: 10;
 	}
 }

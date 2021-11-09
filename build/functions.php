@@ -104,8 +104,6 @@ function the_mx_setup() {
 
 	add_theme_support( 'responsive-embeds' );
 
-	//require get_template_directory() . '/inc/editor-colors-gradients.php';
-
 	add_theme_support( 'editor-styles' );
 
 	// the_mx_editor_override_filepaths() function is in /inc/gutenberg-backend-color-overrides.php.
@@ -158,9 +156,9 @@ function the_mx_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name' 			=> esc_html__( 'Hero Image Widget', 'the-m-x' ),
-		'id'				=> 'hero-image-widget',
-		'description'	=> esc_html__( 'Add widget to be displayed above Hero (header) Image.', 'the-m-x' ),
+		'name' 					=> esc_html__( 'Hero Image Widget', 'the-m-x' ),
+		'id'						=> 'hero-image-widget',
+		'description'		=> esc_html__( 'Add widget to be displayed above Hero (header) Image.', 'the-m-x' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s jgd-column-1">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -168,13 +166,23 @@ function the_mx_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'			=> esc_html__( 'Footer Widgets', 'the-m-x' ),
-		'id'				=> 'footer-widget-area',
-		'description'	=> esc_html__( 'Add widgets to the Footer.', 'the-m-x' ),
+		'name'					=> esc_html__( 'Footer Widgets', 'the-m-x' ),
+		'id'						=> 'footer-widget-area',
+		'description'		=> esc_html__( 'Add widgets to the Footer.', 'the-m-x' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name' => esc_html__( 'WooCommerce Widgets', 'the-m-x' ),
+		'id' => 'wc-widget-area',
+		'description' => esc_html__( 'Add widgets to your WooCommerce shop in a sidebar.', 'the-m-x' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s jgd-column-1">',
+		'after_widget' => '</section>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'the_mx_widgets_init' );
@@ -220,8 +228,12 @@ function the_mx_enqueue_scripts() {
 		wp_enqueue_style( 'the-mx-colorbox-styles', get_template_directory_uri() . '/css/minfiles/the-mx-colorbox.min.css' );
 	}
 
-	if( $mx_animate == 1 ) {
+	if ( $mx_animate == 1 ) {
 		wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/minfiles/animation-styles.min.css' );
+	}
+
+	if ( is_woocommerce_activated() ) {
+		wp_enqueue_style( 'the-mx-wc-styles', get_theme_file_uri( '/css/minfiles/mx-woocommerce-styles.min.css' ) );
 	}
 
 
@@ -425,7 +437,8 @@ function the_mx_hex_to_rgb( $color ) {
 function the_mx_adjust_brightness( $hexCode, $adjustPercent ) {
   /* See the Stack Overflow page https://stackoverflow.com/questions/3512311/how-to-generate-lighter-darker-color-with-php
   */
-  $hexCode = ltrim($hexCode, '#');
+
+	$hexCode = preg_replace("/[^0-9a-fA-F]/", "", $hexCode);
 
   if ( strlen( $hexCode ) == 3 ) {
     $hexCode = $hexCode[0] . $hexCode[0] . $hexCode[1] . $hexCode[1] . $hexCode[2] . $hexCode[2];

@@ -1,27 +1,23 @@
 <?php
 /**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying all WooCommerce pages.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package The_M.X.
  */
 
-get_header(); ?>
+get_template_part( 'template-parts/header', 'wc' ); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
+			<?php woocommerce_breadcrumb(); ?>
 			<?php woocommerce_content(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+the_mx_wc_sidebar_choosepages();
 get_footer();
