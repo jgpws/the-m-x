@@ -589,6 +589,14 @@ textarea {
   font-weight: bold;
 }
 
+.wp-block-gallery {
+	margin: 2em auto;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image) {
+	margin: 0;
+}
+
 .wp-block-table thead {
 	border-bottom: none;
 }

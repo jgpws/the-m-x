@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.3.21 December 06 2021 =
+Updated Gallery Block for the upcoming 5.9 release.
+
 = 1.3.20 November 08 2021 =
 Bug Fix: Added check in extras.php file to see if WooCommerce is loaded before adding classes. This was preventing the site from loading when WC was not activated!
 
