@@ -3,14 +3,14 @@ Theme Name: The M.X.
 Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
-Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
-Version: 1.3.21
+Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with a block header option, full width post images, editor color palette and gradients.
+Version: 1.4.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: the-m-x
-Tags: block-styles, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
+Tags: block-styles, block-patterns, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 
 The M.X. WordPress theme. (C) 2021 Jason G. Designs
 The M.X. is distributed under the terms of the GNU GPL.
@@ -68,6 +68,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	/* Colors */
 	--primary-text-color: rgba(0, 0, 0, 0.87);
 	--primary-text-color-medium-black: rgba(0, 0, 0, 0.54);
+	--primary-text-color-faded-black: rgba(0, 0, 0, 0.54);
+	--primary-text-color-light-black: rgba(0, 0, 0, 0.4);
 	--primary-text-color-white: rgba(255, 255, 255, 0.87);
 	--primary-text-color-medium-white: rgba(255, 255, 255, 0.7);
 	--primary-text-color-light-white: rgba(255, 255, 255, 0.4);

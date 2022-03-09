@@ -44,6 +44,37 @@
 	}
 }
 
+.site-header-blocks {
+	box-shadow: $box-shadow-large;
+	position: relative;
+}
+
+.site-header-blocks > * {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 75%;
+}
+
+.site-header-blocks > .alignwide {
+	max-width: 87.5%;
+}
+
+.site-header-blocks > .alignfull {
+	max-width: none;
+}
+
+.create-header-message-wrap {
+	padding: 1em;
+}
+
+.create-header-message-body {
+	font-size: 1.25rem;
+}
+
+a.create-header-link {
+	font-weight: $font__weight-bold;
+}
+
 @media screen and (min-width: 48em) {
 	.page-template-template-landing {
 		.site-header {

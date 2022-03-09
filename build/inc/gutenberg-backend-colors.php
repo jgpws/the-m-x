@@ -56,14 +56,14 @@ function the_mx_editor_custom_override() {
   border-bottom-color: ' . esc_attr( $accent_color_1 ) . ' !important;
 }
 
-.editor-styles-wrapper button:not(.components-button):not(.mce-open):not([role="presentation"]),
+.editor-styles-wrapper button,
 .editor-styles-wrapper input[type="button"],
 .editor-styles-wrapper input[type="reset"],
 .editor-styles-wrapper input[type="submit"] {
 	background-color: ' . esc_attr( $accent_color_1 ) . ' !important;
 }
 
-.editor-styles-wrapper button:not(.components-button):not(.mce-open):not([role="presentation"]):hover,
+.editor-styles-wrapper button:hover,
 .editor-styles-wrapper input[type="button"]:hover,
 .editor-styles-wrapper input[type="reset"]:hover,
 .editor-styles-wrapper input[type="submit"]:hover {
@@ -142,6 +142,61 @@ function the_mx_editor_custom_override() {
 
 button.wc-block-pagination-page:not(.components-button):not(.mce-open):not([role="presentation"]):not(.toggle) {
 	background-color: transparent !important;
+}
+
+.editor-styles-wrapper .is-menu-open .wp-block-navigation-item__content {
+	color: ' . esc_attr( $primary_color_1 ) . ' !important;
+}
+
+.editor-styles-wrapper .is-menu-open .wp-block-navigation-item__content:hover,
+.editor-styles-wrapper .is-menu-open .wp-block-navigation-item__content:focus {
+	color: ' . esc_attr( $primary_color_1 ) . ' !important;
+}
+
+@media screen and (min-width: 37.5em) {
+	.wp-block-navigation .wp-block-navigation-item__content {
+		color: rgba(255, 255, 255, 0.7) !important;
+	}
+	
+	.the-mx-columns--light-bg .wp-block-navigation .wp-block-navigation-item__content {
+		color: rgba(0, 0, 0, 0.7) !important;
+	}
+	
+	.wp-block-navigation .wp-block-navigation-item__content:hover,
+	.wp-block-navigation .wp-block-navigation-item__content:focus {
+		border-bottom-color: ' . esc_attr( $accent_color_1 ) . ' !important;
+		color: rgba(255, 255, 255, 0.87) !important;
+	}
+	
+	.the-mx-columns--light-bg .wp-block-navigation .wp-block-navigation-item__content:hover,
+	.the-mx-columns--light-bg .wp-block-navigation .wp-block-navigation-item__content:focus {
+		color: rgba(0, 0, 0, 0.87) !important;
+	}
+	
+	.wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+		color: rgba(0, 0, 0, 0.7) !important;
+	}
+	
+	.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+		border-bottom-color: transparent;
+	}
+	
+	.wp-block-navigation__submenu-container .wp-block-navigation-item__content:focus,
+	.wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
+		color: ' . esc_attr( $accent_color_3 ) . ' !important;
+	}
+}
+
+.editor-styles-wrapper .wp-block-site-title a {
+	color: #ffffff !important;
+}
+
+.editor-styles-wrapper .the-mx-columns--light-bg .wp-block-site-title a {
+	color: #000000 !important;
+}
+
+input.wp-block-search__input {
+	border-bottom-color: ' . esc_attr( $accent_color_1 ) . ' !important;
 }';
 
 	return $css;

@@ -235,7 +235,24 @@ function the_mx_customize_register( $wp_customize ) {
 	/* Header images settings */
 	// Change title of Header Image section to Hero Image
 	// from http://natko.com/changing-default-wordpress-theme-customization-api-sections/
-	$wp_customize->get_section('header_image')->title = esc_html__( 'Hero Image', 'the-m-x' );
+	$wp_customize->get_section('header_image')->title = esc_html__( 'Hero Image/Header', 'the-m-x' );
+	
+	$wp_customize->add_setting(
+		'the_mx_block_header', array(
+			'default' => 0,
+			'sanitize_callback' => 'the_mx_sanitize_checkbox',
+		)
+	);
+
+	$wp_customize->add_control(
+		'the_mx_block_header', array(
+			'type' => 'checkbox',
+			'label' => esc_html__( 'Use Blocks/Pattern for the Header.', 'the-m-x' ),
+			'description' => sprintf( esc_html__( 'You can edit an existing header from the %3$sReusable blocks%4$s admin page. %5$s%1$sGo to the Reusable blocks page%2$s%6$s', 'the-m-x' ), '<a href="' . esc_url( admin_url() ) . 'edit.php?post_type=wp_block">', '</a>', '<strong>', '</strong>', '<h3>', '</h3>' ),
+			'section' => 'header_image',
+			'priority' => 5,
+		)
+	);
 
 	$wp_customize->add_setting(
 		'the_mx_herotext_color', array(

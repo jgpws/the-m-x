@@ -59,6 +59,36 @@
 		}
 
 		hideShowColorControls();
+		
+		function hideShowHeaderControls() {
+			/* Hide Header Image controls when "Use Blocks for Header" is checked */
+			
+			let blockHeaderCheck = document.querySelector('#customize-control-the_mx_block_header');
+			
+			// array for our ID titles
+			let headerControlIds = [
+				'header_image',
+				'the_mx_herotext_color',
+				'the_mx_herotext_alignment',
+				'the_mx_homepage_only'
+			];
+			
+			if ( wp.customize.instance( 'the_mx_block_header' ).get() === false ) {
+				headerControlIds.forEach( function( element ) {
+					let control = document.querySelector('#customize-control-' + element);
+					control.style.display = 'list-item';
+				} );
+			} else {
+				headerControlIds.forEach( function( element ) {
+					let control = document.querySelector('#customize-control-' + element);
+					control.style.display = 'none';
+				} );
+			}
+			
+			blockHeaderCheck.addEventListener( 'change', hideShowHeaderControls );
+		}
+		
+		hideShowHeaderControls();
 
 		function hideShowWCSidebarControls() {
 			let wcSidebarControl = document.querySelector('#customize-control-the_mx_enable_wc_sidebar');

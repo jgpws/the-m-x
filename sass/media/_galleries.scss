@@ -19,7 +19,6 @@
 /* New gallery block styles */
 .wp-block-gallery.has-nested-images {
 	.wp-block-image > a:hover {
-		//box-shadow: $box-shadow-large;
 		filter: $filter-shadow-large;
 		z-index: 100;
 	}

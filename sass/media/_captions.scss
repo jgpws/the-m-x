@@ -28,8 +28,8 @@
 
 .wp-block-embed figcaption,
 .wp-block-image figcaption {
-	background-color: var(--white);
-	color: var(--primary-text-color);
+	background-color: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--primary-text-color);
 	margin-top: 0px;
 	padding: 0.8075em;
 	text-align: center;

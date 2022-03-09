@@ -1,0 +1,77 @@
+.wp-block-button.is-style-outline .wp-block-button__link {
+   color: var(--wp--preset--color--accent-medium-gray);
+}
+
+.wp-block-button__link {
+   background-color: var(--wp--preset--color--accent-medium-gray);
+}
+
+.wp-block-button__link:focus,
+.wp-block-button__link:hover {
+   background-color: var(--wp--preset--color--primary-dark-gray);
+}
+
+.wp-block-calendar table caption {
+   background-color: var(--wp--preset--color--white);
+}
+
+.wp-block-calendar td a {
+   background-color: var(--wp--preset--color--white);
+}
+
+.wp-block-file a.wp-block-file__button {
+   background-color: var(--wp--preset--color--accent-medium-gray);
+}
+
+.wp-block-file a.wp-block-file__button:focus,
+.wp-block-file a.wp-block-file__button:hover {
+   background-color: var(--wp--preset--color--primary-dark-gray);
+}
+
+.is-style-the-mx-nav .is-menu-open {
+   color: var(--wp--preset--color--accent-medium-gray) !important;
+}
+
+.is-style-the-mx-nav .is-menu-open .wp-block-navigation-item__content:focus,
+.is-style-the-mx-nav .is-menu-open .wp-block-navigation-item__content:hover {
+   color: var(--wp--preset--color--primary-dark-gray);
+}
+
+.wp-block-pullquote {
+   border-left-color: var(--wp--preset--color--white);
+}
+
+input.wp-block-search__input {
+   border-bottom-color: var(--wp--preset--color--accent-medium-gray);
+}
+
+.wp-block-archives a:hover,
+.wp-block-archives a:focus,
+.wp-block-categories a:hover,
+.wp-block-categories a:focus,
+.wp-block-latest-comments a:hover,
+.wp-block-latest-comments a:focus,
+.wp-block-latest-posts a:hover,
+.wp-block-latest-posts a:focus {
+   color: var(--wp--preset--color--primary-almost-black);
+}
+
+@media screen and (min-width: 37.5em) {
+   .wp-block-navigation .wp-block-navigation-item__content:hover,
+   .wp-block-navigation .wp-block-navigation-item__content:focus {
+      border-bottom-color: var(--wp--preset--color--accent-medium-gray);
+   }
+	
+   .wp-block-navigation .current-menu-item .wp-block-navigation-item__content {
+      border-bottom-color: var(--wp--preset--color--accent-medium-gray);
+   }
+	
+   .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+      border-bottom-color: transparent;
+   }
+			
+   .is-style-the-mx-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content:focus,
+   .is-style-the-mx-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
+      color: var(--wp--preset--color--primary-almost-black) !important;
+   }
+}

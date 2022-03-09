@@ -71,6 +71,10 @@
   grid-template-columns: minmax(20em, 100%);
 }
 
+.site-header-blocks + .site-content {
+  clear: left;
+}
+
 .content-area {
   min-height: 48rem;
 }

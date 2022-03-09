@@ -112,6 +112,8 @@ function the_mx_setup() {
 endif;
 add_action( 'after_setup_theme', 'the_mx_setup' );
 
+require get_template_directory() . '/inc/gutenberg-frontend-color-overrides.php';
+
 require get_template_directory() . '/inc/gutenberg-frontend-colors.php';
 
 require get_template_directory() . '/inc/gutenberg-backend-color-overrides.php';
@@ -126,6 +128,61 @@ function the_mx_image_sizes( $sizes ) {
 	return $newsizes;
 }
 add_filter( 'image_size_names_choose', 'the_mx_image_sizes' );
+
+/**
+ * Prints the header reusable block.
+ * If a "site-header" reusable block doesn't exist, return false.
+ *
+ * @return bool
+ */
+function the_mx_header_reusable_block() {
+
+	// Run the query.
+	$posts = get_posts( [
+		'post_type' => 'wp_block',
+		'title' => 'site-header',
+	] );
+
+	// If a block was located print it and return true.
+	if ( $posts && isset( $posts[0] ) ) {
+		echo do_blocks( $posts[0]->post_content );
+		return true;
+	}
+
+	// If we got this far the header block doesn't exist.
+	// Return false.
+	return false;
+}
+
+function the_mx_header() {
+	?>
+	<?php if (get_theme_mod( 'the_mx_block_header' ) === 1 ) { ?>
+		<header id="masthead" class="site-header-blocks" role="banner">
+		<?php // Print the header. If one doesn't exist, print custom content. ?>
+		<?php if ( ! the_mx_header_reusable_block() ) : ?>
+			<?php //get_template_part( 'fallback-header' ); ?>
+			<?php if ( current_user_can( 'edit_theme_options' ) ) { ?>
+				<div class="create-header-message-wrap">
+				<p class="create-header-message-body">
+					<?php esc_html_e( 'Ready to use blocks for your header?', 'the-m-x' ); ?>
+				</p>
+				<p>
+					<a class="create-header-link" href="<?php echo esc_url( admin_url( 'post-new.php?post_type=wp_block&post_title=site-header' ) ); ?>">
+						<?php esc_html_e( 'Create a new header', 'the-m-x' ); ?></a>
+				</p>
+				</div>
+			<?php } ?>
+			<?php endif; ?>
+		</header>
+	<?php } else { ?>
+		<header id="masthead" class="site-header" role="banner">
+			<?php get_template_part( 'fallback-header' ); ?>
+		</header>
+	<?php } ?>
+	<?php
+}
+
+require get_template_directory() . '/inc/block-patterns.php';
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -313,6 +370,15 @@ function the_mx_add_gutenberg_styles() {
 	wp_add_inline_style( 'the-mx-gutenberg-styles', the_mx_gutenberg_colors() );
 }
 add_action( 'enqueue_block_editor_assets', 'the_mx_add_gutenberg_styles' );
+
+/**
+ * Scripts for custom block styles
+ */
+function the_mx_block_styles() {
+	wp_enqueue_script( 'the-mx-block-styles', get_stylesheet_directory_uri() . '/js/source/block-styles.js', array( 'wp-blocks', 'wp-dom' ),
+	filemtime( get_stylesheet_directory() . '/assets/js/editor.js' ), true );
+}
+add_action( 'enqueue_block_editor_assets', 'the_mx_block_styles' );
 
 /**
  * Colorbox content

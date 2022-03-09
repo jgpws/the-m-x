@@ -1,11 +1,11 @@
 === The M.X. ===
 
 Contributors: jgpws
-Tags: block-styles, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
+Tags: block-styles, block-patterns, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 Requires at least: 4.0
 Requires PHP: 5.6
 Tested up to: 5.8.1
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -25,6 +25,9 @@ The M.X. stands for The Modern Experience. Give your content a trendy new style 
 The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
+
+= 1.4.0 February 28 2022 =
+Major update adding support for FSE style Headers, adding several new block patterns and block styles.
 
 = 1.3.21 December 06 2021 =
 Updated Gallery Block for the upcoming 5.9 release.

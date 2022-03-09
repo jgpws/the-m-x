@@ -245,28 +245,30 @@ var counter9 = makeCounter();
 
       // set initial menu state here, instead of CSS file, in case JavaScript is turned off in browser.
       sidebar.classList.add('hide');
-      toggleButton.appendChild(chevronLeft);
-      toggleButton.setAttribute('title', 'Click or press Enter to open/close the sidebar.');
+      if (document.body.contains(toggleButton)) {
+        toggleButton.appendChild(chevronLeft);
+        toggleButton.setAttribute('title', 'Click or press Enter to open/close the sidebar.');
 
-      toggleButton.onclick = function() {
-        if (-1 !== container.className.indexOf('toggled')) {
-          container.className = container.className.replace(' toggled', '');
-          toggleButton.className = toggleButton.className.replace(' toggled', '');
-          toggleButton.setAttribute('aria-expanded', 'false');
-          sidebar.setAttribute('aria-expanded', 'false');
-          sidebar.classList.add('hide');
-          toggleButton.appendChild(chevronLeft);
-          toggleButton.removeChild(chevronRight);
-        } else {
-          container.className += ' toggled';
-          toggleButton.className += ' toggled';
-          toggleButton.setAttribute('aria-expanded', 'true');
-          sidebar.setAttribute('aria-expanded', 'true');
-          sidebar.classList.remove('hide');
-          toggleButton.removeChild(chevronLeft);
-          toggleButton.appendChild(chevronRight);
-        }
-      };
+        toggleButton.onclick = function() {
+          if (-1 !== container.className.indexOf('toggled')) {
+            container.className = container.className.replace(' toggled', '');
+            toggleButton.className = toggleButton.className.replace(' toggled', '');
+            toggleButton.setAttribute('aria-expanded', 'false');
+            sidebar.setAttribute('aria-expanded', 'false');
+            sidebar.classList.add('hide');
+            toggleButton.appendChild(chevronLeft);
+            toggleButton.removeChild(chevronRight);
+          } else {
+            container.className += ' toggled';
+            toggleButton.className += ' toggled';
+            toggleButton.setAttribute('aria-expanded', 'true');
+            sidebar.setAttribute('aria-expanded', 'true');
+            sidebar.classList.remove('hide');
+            toggleButton.removeChild(chevronLeft);
+            toggleButton.appendChild(chevronRight);
+          }
+        };
+      }
 
     }
   }
@@ -285,8 +287,8 @@ var counter9 = makeCounter();
         theScrim.style.bottom = '0px';
         window.addEventListener('scroll', scrimTimeout);
       } else {
-        console.log(document.body.clientHeight);
-        console.log(theSidebar.getBoundingClientRect().height);
+        //console.log(document.body.clientHeight);
+        //console.log(theSidebar.getBoundingClientRect().height);
         theScrim.style.position = 'fixed';
         theScrim.style.bottom = document.body.clientHeight - theSidebar.getBoundingClientRect().height + 'px';
       }
@@ -399,7 +401,7 @@ var counter9 = makeCounter();
     /* The code below roughly follows the Vanilla JS method in the article "Lose the jQuery Bloat" */
     /* https://www.sitepoint.com/dom-manipulation-with-nodelist-js/ */
     // loop through each element that has .sub-menu
-    var customSubmenuButton = document.querySelectorAll('.main-navigation .menu-down-arrow');
+    var customSubmenuButton = document.querySelectorAll('.main-navigation .menu-down-arrow, .is-style-the-mx-nav .wp-block-navigation-submenu__toggle');
 
     for (var iSub = 0; iSub < customSubmenuButton.length; iSub++) {
       // Add click event to the button to show ul.sub-menu
@@ -418,6 +420,18 @@ var counter9 = makeCounter();
       });
       //console.log( customSubmenuButton[iSub] );
     } // ends for loop
+    
+    // Override to remove toggled-submenu class when clicking outside of the nav block
+    window.addEventListener('click', function(e) {
+    	var navBlock = document.querySelector('.is-style-the-mx-nav');
+    	var navBlockSubmenu = document.querySelectorAll('.is-style-the-mx-nav .wp-block-navigation__submenu-container');
+    	
+    	if (document.body.contains(navBlock) && !navBlock.contains(e.target)) {
+    		for (var iSub = 0; iSub < navBlockSubmenu.length; iSub++) {
+    			navBlockSubmenu[iSub].classList.remove('toggled-submenu');
+    		}
+    	}
+    });
   }
 
   function loadInitMenuState() {

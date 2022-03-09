@@ -23,6 +23,16 @@
           "name": "Primary Color Brown"
         },
         {
+          "slug": "primary-dark-brown",
+          "color": "#5d4037",
+          "name": "Primary Color Dark Brown"
+        },
+        {
+          "slug": "primary-darker-brown",
+          "color": "#3e2723",
+          "name": "Primary Color Darker Brown"
+        },
+        {
           "slug": "primary-light-brown",
           "color": "#bcaaa4",
           "name": "Primary Color Light Brown"
@@ -33,9 +43,29 @@
           "name": "Accent Color Amber"
         },
         {
+          "slug": "accent-dark-amber",
+          "color": "#ffa000",
+          "name": "Accent Color Dark Amber"
+        },
+        {
+          "slug": "accent-darker-amber",
+          "color": "#ff6f00",
+          "name": "Accent Color Darker Amber"
+        },
+        {
           "slug": "primary-blue-gray",
           "color": "#607d8b",
           "name": "Primary Color Blue Gray"
+        },
+        {
+          "slug": "primary-dark-blue-gray",
+          "color": "#455a64",
+          "name": "Primary Color Dark Blue Gray"
+        },
+        {
+          "slug": "primary-darker-blue-gray",
+          "color": "#263238",
+          "name": "Primary Color Darker Blue Gray"
         },
         {
           "slug": "primary-light-blue-gray",
@@ -48,6 +78,16 @@
           "name": "Primary Color Deep Purple"
         },
         {
+          "slug": "primary-dark-deep-purple",
+          "color": "#512da8",
+          "name": "Primary Color Dark Deep Purple"
+        },
+        {
+          "slug": "primary-darker-deep-purple",
+          "color": "#311b92",
+          "name": "Primary Color Darker Deep Purple"
+        },
+        {
           "slug": "primary-light-deep-purple",
           "color": "#b39ddb",
           "name": "Primary Color Light Deep Purple"
@@ -58,9 +98,24 @@
           "name": "Accent Color Lime"
         },
         {
+          "slug": "accent-dark-lime",
+          "color": "#afb42b",
+          "name": "Accent Color Dark Lime"
+        },
+        {
+          "slug": "accent-darker-lime",
+          "color": "#827717",
+          "name": "Accent Color Darker Lime"
+        },
+        {
           "slug": "primary-pale-orange",
           "color": "#ffe0b2",
           "name": "Primary Color Pale Orange"
+        },
+        {
+          "slug": "primary-light-orange",
+          "color": "#ffb74d",
+          "name": "Primary Color Light Orange"
         },
         {
           "slug": "accent-teal",
@@ -68,9 +123,29 @@
           "name": "Accent Color Teal"
         },
         {
+          "slug": "accent-dark-teal",
+          "color": "#00796b",
+          "name": "Accent Color Dark Teal"
+        },
+        {
+          "slug": "accent-darker-teal",
+          "color": "#004d40",
+          "name": "Accent Color Darker Teal"
+        },
+        {
           "slug": "primary-almost-black",
           "color": "#212121",
           "name": "Primary Color Almost Black"
+        },
+        {
+        	 "slug": "primary-dark-gray",
+        	 "color": "#616161",
+        	 "name": "Primary Color Dark Gray"
+        },
+        {
+        	 "slug": "accent-medium-gray",
+        	 "color": "#9e9e9e",
+        	 "name": "Accent Color Medium Gray"
         },
         {
           "slug": "primary-light-gray",
@@ -78,9 +153,49 @@
           "name": "Primary Color Light Gray"
         },
         {
+        	 "slug": "accent-pale-gray",
+        	 "color": "#eeeeee",
+        	 "name": "Accent Color Pale Gray"
+        },
+        {
           "slug": "accent-almost-white",
           "color": "#fafafa",
           "name": "Accent Color Almost White"
+        },
+        {
+			 "slug": "primary-text-color",
+        	 "color": "rgba(0, 0, 0, 0.87)",
+        	 "name": "Primary Text Color"
+        },
+        {
+          "slug": "primary-text-color-medium-black",
+        	 "color": "rgba(0, 0, 0, 0.7)",
+        	 "name": "Primary Text Color (Medium Black)"
+        },
+        {
+          "slug": "primary-text-color-faded-black",
+        	 "color": "rgba(0, 0, 0, 0.54)",
+        	 "name": "Primary Text Color (Faded Black)"
+        },
+        {
+          "slug": "primary-text-color-light-black",
+        	 "color": "rgba(0, 0, 0, 0.4)",
+        	 "name": "Primary Text Color (Light Black)"
+        },
+        {
+          "slug": "primary-text-color-white",
+          "color": "rgba(255, 255, 255, 0.87)",
+          "name": "Primary Text Color White"
+        },
+        {
+          "slug": "primary-text-color-medium-white",
+          "color": "rgba(255, 255, 255, 0.7)",
+          "name": "Primary Text Color (Medium White)"
+        },
+        {
+          "slug": "primary-text-color-light-white",
+          "color": "rgba(255, 255, 255, 0.4)",
+          "name": "Primary Text Color (Light White)"
         }
       ],
       "gradients": [

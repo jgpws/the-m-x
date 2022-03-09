@@ -24,7 +24,6 @@ body {
 
 /* Styling from Materialize CSS; see http://materializecss.com/typography.html. */
 blockquote, .wp-block-pullquote {
-	border-left: 5px solid var(--primary-color);
 	font-weight: $font__weight-bold;
 	margin: 1.25em 0;
 	padding-left: 1.25rem;
@@ -34,6 +33,14 @@ blockquote, .wp-block-pullquote {
 	&:after {
 		content: "";
 	}
+}
+
+blockquote {
+	border-left: 5px solid var(--primary-color);
+}
+
+.wp-block-pullquote {
+	border-left: 5px solid var(--wp--preset--color--primary-brown);
 }
 
 hr, .wp-block-separator {
