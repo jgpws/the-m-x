@@ -101,16 +101,16 @@
       menuDropdownButton[i].classList.add('transitionHalfSec')
     }
     
-	function fadeIn(el) {
-		el.classList.add('animate__fadeInUp');
-		el.classList.remove('animate__fadeOutDown');
-	}
+   function fadeIn(el) {
+      el.classList.add('animate__fadeInUp');
+      el.classList.remove('animate__fadeOutDown');
+   }
 	
-	function fadeOut(el) {
-		// Leave in .toggled-submenu class while animating
-		el.classList.add('animate__fadeOutDown', 'toggled-submenu');
-		el.classList.remove('animate__fadeInUp');
-	}
+   function fadeOut(el) {
+      // Leave in .toggled-submenu class while animating
+      el.classList.add('animate__fadeOutDown', 'toggled-submenu');
+      el.classList.remove('animate__fadeInUp');
+   }
 
     if (viewportWidth >= 600) {
 
@@ -140,46 +140,46 @@
       }
       
       for (var i = 0, len = menuDropdownOnClick.length; i < len; i++) {
-      	menuDropdownOnClick[i].addEventListener('click', function () {
-      		let thisSubmenu = this.nextElementSibling;
+         menuDropdownOnClick[i].addEventListener('click', function () {
+            let thisSubmenu = this.nextElementSibling;
       		
-      		thisSubmenu.classList.add('animate__animated');
+            thisSubmenu.classList.add('animate__animated');
       		
-      		if (thisSubmenu.classList.contains('toggled-submenu')) {
-            	thisSubmenu.classList.add('animate__fadeInUp');
-            	thisSubmenu.classList.remove('animate__fadeOutDown');
-          	} else {
+            if (thisSubmenu.classList.contains('toggled-submenu')) {
+               thisSubmenu.classList.add('animate__fadeInUp');
+               thisSubmenu.classList.remove('animate__fadeOutDown');
+            } else {
 
-            	// Leave in .toggled-submenu class while animating
-            	thisSubmenu.classList.add('animate__fadeOutDown', 'toggled-submenu');
-            	thisSubmenu.classList.remove('animate__fadeInUp');
+               // Leave in .toggled-submenu class while animating
+               thisSubmenu.classList.add('animate__fadeOutDown', 'toggled-submenu');
+               thisSubmenu.classList.remove('animate__fadeInUp');
 
-            	// Remove .toggled-submenu after length of animation
-            	setTimeout(function() {
-              		thisSubmenu.classList.remove('toggled-submenu');
-            	}, 1000);
-          	}
-      	});
+               // Remove .toggled-submenu after length of animation
+               setTimeout(function() {
+                  thisSubmenu.classList.remove('toggled-submenu');
+               }, 1000);
+            }
+         });
       }
       
       window.addEventListener('click', function(e) {
-      	var navBlock = document.querySelector('.is-style-the-mx-nav');
-      	var navBlockBtn = document.querySelectorAll('.is-style-the-mx-nav .open-on-hover-click .wp-block-navigation-submenu__toggle');
-    		var navBlockSubmenu = document.querySelectorAll('.is-style-the-mx-nav .wp-block-navigation__submenu-container');
+         var navBlock = document.querySelector('.is-style-the-mx-nav');
+         var navBlockBtn = document.querySelectorAll('.is-style-the-mx-nav .open-on-hover-click .wp-block-navigation-submenu__toggle');
+         var navBlockSubmenu = document.querySelectorAll('.is-style-the-mx-nav .wp-block-navigation__submenu-container');
     		
-    		if (document.body.contains(navBlock) && !navBlock.contains(e.target)) {
+         if (document.body.contains(navBlock) && !navBlock.contains(e.target)) {
     			
-    			for (let i = 0, len = navBlockSubmenu.length; i < len; i++ ) {
-    				navBlockBtn[i].classList.remove('rotate180');
+            for (let i = 0, len = navBlockSubmenu.length; i < len; i++ ) {
+               navBlockBtn[i].classList.remove('rotate180');
     				
-    				navBlockSubmenu[i].classList.remove('animate__fadeInUp');
-    				navBlockSubmenu[i].classList.add('animate__fadeOutDown', 'toggled-submenu');
+               navBlockSubmenu[i].classList.remove('animate__fadeInUp');
+               navBlockSubmenu[i].classList.add('animate__fadeOutDown', 'toggled-submenu');
     				
-    				setTimeout(() => {
-              		navBlockSubmenu[i].classList.remove('toggled-submenu');
-            	}, 1000);
+               setTimeout(() => {
+                  navBlockSubmenu[i].classList.remove('toggled-submenu');
+               }, 1000);
             }
-    		}
+         }
       });
     }
 

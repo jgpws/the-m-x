@@ -5,8 +5,8 @@
  */
 
 function the_mx_register_block_patterns() {
-	if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
-		$content_header1 = '<!-- wp:columns {"align":"full","backgroundColor":"primary-brown","className":"is-style-the-mx-columns"} -->
+   if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
+      $content_header1 = '<!-- wp:columns {"align":"full","backgroundColor":"primary-brown","className":"is-style-the-mx-columns"} -->
 <div class="wp-block-columns alignfull is-style-the-mx-columns has-primary-brown-background-color has-background"><!-- wp:column {"verticalAlignment":"bottom","width":"75%"} -->
 <div class="wp-block-column is-vertically-aligned-bottom" style="flex-basis:75%"><!-- wp:group {"className":"is-style-the-mx-group-p1em"} -->
 <div class="wp-block-group is-style-the-mx-group-p1em"><!-- wp:site-title {"textColor":"white"} /-->
@@ -22,17 +22,17 @@ function the_mx_register_block_patterns() {
 
 <!-- wp:navigation {"ref":11153,"textColor":"primary-text-color-medium-white","backgroundColor":"primary-dark-brown","align":"full","className":"the-mx-nav-darkbg is-style-the-mx-nav","layout":{"type":"flex","justifyContent":"left"},"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}}} /-->';
 
-		register_block_pattern(
-			'the-mx-patterns/header-title-menu-search',
-			array(
-				'title' => esc_html__( 'Header- Title, Menu, Search Bar', 'the-m-x' ),
-				'content' => trim( $content_header1 ),
-				'categories' => array( 'header', 'the-m-x' ),
-				'viewportWidth' => 1280,
-			)
-		);
+      register_block_pattern(
+         'the-mx-patterns/header-title-menu-search',
+         array(
+            'title' => esc_html__( 'Header- Title, Menu, Search Bar', 'the-m-x' ),
+            'content' => trim( $content_header1 ),
+            'categories' => array( 'header', 'the-m-x' ),
+            'viewportWidth' => 1280,
+         )
+      );
 		
-		$content_header5 = '<!-- wp:columns {"align":"full","backgroundColor":"white","className":"is-style-the-mx-columns"} -->
+      $content_header5 = '<!-- wp:columns {"align":"full","backgroundColor":"white","className":"is-style-the-mx-columns"} -->
 <div class="wp-block-columns alignfull is-style-the-mx-columns has-white-background-color has-background"><!-- wp:column {"verticalAlignment":"bottom","width":"75%"} -->
 <div class="wp-block-column is-vertically-aligned-bottom" style="flex-basis:75%"><!-- wp:group {"className":"is-style-the-mx-group-p1em"} -->
 <div class="wp-block-group is-style-the-mx-group-p1em"><!-- wp:site-title /-->
@@ -48,17 +48,17 @@ function the_mx_register_block_patterns() {
 
 <!-- wp:navigation {"ref":11153,"backgroundColor":"white","align":"full","className":"is-style-the-mx-nav","layout":{"type":"flex","justifyContent":"left"},"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}}} /-->';
 
-		register_block_pattern(
-			'the-mx-patterns/header-lightbg-title-menu-search',
-			array(
-				'title' => esc_html__( 'Header (Light Background)- Title, Menu, Search Bar', 'the-m-x' ),
-				'content' => trim( $content_header5 ),
-				'categories' => array( 'header', 'the-m-x' ),
-				'viewportWidth' => 1280,
-			)
-		);
+      register_block_pattern(
+         'the-mx-patterns/header-lightbg-title-menu-search',
+         array(
+            'title' => esc_html__( 'Header (Light Background)- Title, Menu, Search Bar', 'the-m-x' ),
+            'content' => trim( $content_header5 ),
+            'categories' => array( 'header', 'the-m-x' ),
+            'viewportWidth' => 1280,
+         )
+      );
 		
-		$content_header2 = '<!-- wp:columns {"align":"full","backgroundColor":"primary-brown","className":"is-style-the-mx-columns"} -->
+      $content_header2 = '<!-- wp:columns {"align":"full","backgroundColor":"primary-brown","className":"is-style-the-mx-columns"} -->
 <div class="wp-block-columns alignfull is-style-the-mx-columns has-primary-brown-background-color has-background"><!-- wp:column {"width":"15%"} -->
 <div class="wp-block-column" style="flex-basis:15%"><!-- wp:site-logo {"align":"left"} /--></div>
 <!-- /wp:column -->
@@ -78,17 +78,17 @@ function the_mx_register_block_patterns() {
 
 <!-- wp:navigation {"ref":11153,"textColor":"primary-text-color-medium-white","backgroundColor":"primary-dark-brown","align":"full","className":"is-style-the-mx-nav the-mx-nav-darkbg","layout":{"type":"flex","justifyContent":"left"},"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}}} /-->';
 
-		register_block_pattern(
-			'the-mx-patterns/header-logo-menu-social',
-			array(
-				'title' => esc_html__( 'Header- Logo, Menu, Social Badges', 'the-m-x' ),
-				'content' => trim( $content_header2 ),
-				'categories' => array( 'header', 'the-m-x' ),
-				'viewportWidth' => 1280,
-			)
-		);
+      register_block_pattern(
+         'the-mx-patterns/header-logo-menu-social',
+         array(
+            'title' => esc_html__( 'Header- Logo, Menu, Social Badges', 'the-m-x' ),
+            'content' => trim( $content_header2 ),
+            'categories' => array( 'header', 'the-m-x' ),
+            'viewportWidth' => 1280,
+         )
+      );
 		
-		$content_header3 = '<!-- wp:columns {"align":"full","backgroundColor":"primary-brown","className":"is-style-the-mx-columns"} -->
+      $content_header3 = '<!-- wp:columns {"align":"full","backgroundColor":"primary-brown","className":"is-style-the-mx-columns"} -->
 <div class="wp-block-columns alignfull is-style-the-mx-columns has-primary-brown-background-color has-background"><!-- wp:column {"width":"75%"} -->
 <div class="wp-block-column" style="flex-basis:75%"><!-- wp:site-logo {"align":"left"} /--></div>
 <!-- /wp:column -->
@@ -100,17 +100,17 @@ function the_mx_register_block_patterns() {
 
 <!-- wp:navigation {"ref":11153,"textColor":"primary-text-color-medium-white","backgroundColor":"primary-dark-brown","align":"full","className":"is-style-the-mx-nav the-mx-nav-darkbg","layout":{"type":"flex","justifyContent":"left"},"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}}} /-->';
 
-		register_block_pattern(
-			'the-mx-patterns/header-logo-menu-search',
-			array(
-				'title' => esc_html__( 'Header- Logo, Menu, Search Bar', 'the-m-x' ),
-				'content' => trim( $content_header3 ),
-				'categories' => array( 'header', 'the-m-x' ),
-				'viewportWidth' => 1280,
-			)
-		);
+      register_block_pattern(
+         'the-mx-patterns/header-logo-menu-search',
+         array(
+            'title' => esc_html__( 'Header- Logo, Menu, Search Bar', 'the-m-x' ),
+            'content' => trim( $content_header3 ),
+            'categories' => array( 'header', 'the-m-x' ),
+            'viewportWidth' => 1280,
+         )
+      );
 		
-		$content_header4 = '<!-- wp:columns {"isStackedOnMobile":false,"align":"full","backgroundColor":"primary-brown","className":"is-style-the-mx-columns"} -->
+      $content_header4 = '<!-- wp:columns {"isStackedOnMobile":false,"align":"full","backgroundColor":"primary-brown","className":"is-style-the-mx-columns"} -->
 <div class="wp-block-columns alignfull is-not-stacked-on-mobile is-style-the-mx-columns has-primary-brown-background-color has-background"><!-- wp:column {"width":"100%"} -->
 <div class="wp-block-column" style="flex-basis:100%"><!-- wp:site-logo /--></div>
 <!-- /wp:column --></div>
@@ -118,17 +118,17 @@ function the_mx_register_block_patterns() {
 
 <!-- wp:navigation {"ref":11153,"textColor":"primary-text-color-medium-white","backgroundColor":"primary-dark-brown","align":"full","className":"is-style-the-mx-nav the-mx-nav-darkbg","layout":{"type":"flex","justifyContent":"left","orientation":"horizontal"},"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}}} /-->';
 		
-		register_block_pattern(
-			'the-mx-patterns/header-logo-menu',
-			array(
-				'title' => esc_html__( 'Header- Logo, Menu', 'the-m-x' ),
-				'content' => trim( $content_header4 ),
-				'categories' => array( 'header', 'the-m-x' ),
-				'viewportWidth' => 1280,
-			)
-		);
+      register_block_pattern(
+         'the-mx-patterns/header-logo-menu',
+         array(
+            'title' => esc_html__( 'Header- Logo, Menu', 'the-m-x' ),
+            'content' => trim( $content_header4 ),
+            'categories' => array( 'header', 'the-m-x' ),
+            'viewportWidth' => 1280,
+         )
+      );
 		
-		$content_hero1 = '<!-- wp:cover {"url":"https://www.jgpws.com/the-mx-block-images/StockSnap_ROOAD1EI11_1920_optimized.jpg","id":6684,"dimRatio":50,"contentPosition":"bottom center","isDark":false,"align":"full"} -->
+      $content_hero1 = '<!-- wp:cover {"url":"https://www.jgpws.com/the-mx-block-images/StockSnap_ROOAD1EI11_1920_optimized.jpg","id":6684,"dimRatio":50,"contentPosition":"bottom center","isDark":false,"align":"full"} -->
 <div class="wp-block-cover alignfull is-light has-custom-content-position is-position-bottom-center"><span aria-hidden="true" class="wp-block-cover__gradient-background has-background-dim"></span><img class="wp-block-cover__image-background wp-image-6684" alt="" src="https://www.jgpws.com/the-mx-block-images/StockSnap_ROOAD1EI11_1920_optimized.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase"}},"textColor":"white","fontSize":"extra-large"} -->
 <p class="has-text-align-center has-white-color has-text-color has-extra-large-font-size" style="text-transform:uppercase">A Headline</p>
 <!-- /wp:paragraph -->
@@ -140,17 +140,17 @@ function the_mx_register_block_patterns() {
 <!-- wp:navigation {"ref":11190,"textColor":"primary-text-color-medium-white","className":"is-style-the-mx-nav the-mx-nav-darkbg","layout":{"type":"flex","justifyContent":"left"},"style":{"typography":{"fontStyle":"normal","fontWeight":"500"}}} /--></div></div>
 <!-- /wp:cover -->';
 
-		register_block_pattern(
-			'the-mx-patterns/hero-menu',
-			array(
-				'title' => esc_html__( 'Header- Hero Image, Menu', 'the-m-x' ),
-				'content' => trim( $content_hero1 ),
-				'categories' => array( 'header', 'the-m-x' ),
-				'viewportWidth' => 1280,
-			)
-		);
+      register_block_pattern(
+         'the-mx-patterns/hero-menu',
+         array(
+            'title' => esc_html__( 'Header- Hero Image, Menu', 'the-m-x' ),
+            'content' => trim( $content_hero1 ),
+            'categories' => array( 'header', 'the-m-x' ),
+            'viewportWidth' => 1280,
+         )
+      );
 		
-		$content_hero2 = '<!-- wp:cover {"url":"https://www.jgpws.com/the-mx-block-images/StockSnap_KJ9ZK1L8WS_1920px_optimized.jpg","id":11480,"dimRatio":50,"overlayColor":"white","contentPosition":"bottom center","isDark":false,"align":"full"} -->
+      $content_hero2 = '<!-- wp:cover {"url":"https://www.jgpws.com/the-mx-block-images/StockSnap_KJ9ZK1L8WS_1920px_optimized.jpg","id":11480,"dimRatio":50,"overlayColor":"white","contentPosition":"bottom center","isDark":false,"align":"full"} -->
 <div class="wp-block-cover alignfull is-light has-custom-content-position is-position-bottom-center"><span aria-hidden="true" class="has-white-background-color wp-block-cover__gradient-background has-background-dim"></span><img class="wp-block-cover__image-background wp-image-11480" alt="" src="https://www.jgpws.com/the-mx-block-images/StockSnap_KJ9ZK1L8WS_1920px_optimized.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase"}},"textColor":"black","fontSize":"extra-large"} -->
 <p class="has-text-align-center has-black-color has-text-color has-extra-large-font-size" style="text-transform:uppercase">Exclusive Sale at Our Store</p>
 <!-- /wp:paragraph -->
@@ -174,25 +174,28 @@ function the_mx_register_block_patterns() {
 <!-- /wp:spacer --></div></div>
 <!-- /wp:cover -->';
 
-		register_block_pattern(
-			'the-mx-patterns/hero-cta',
-			array(
-				'title' => esc_html__( 'Header- Hero Image, Call-to-Action', 'the-m-x' ),
-				'content' => trim( $content_hero2 ),
-				'categories' => array( 'header', 'the-m-x' ),
-				'viewportWidth' => 1280,
-			)
-		);
-	}
+      register_block_pattern(
+         'the-mx-patterns/hero-cta',
+         array(
+            'title' => esc_html__( 'Header- Hero Image, Call-to-Action', 'the-m-x' ),
+            'content' => trim( $content_hero2 ),
+            'categories' => array( 'header', 'the-m-x' ),
+            'viewportWidth' => 1280,
+         )
+      );
+   }
 
 }
 
+
 function the_mx_register_block_pattern_cats() {
-	// Add new block pattern category for this theme.
-	register_block_pattern_category(
-		'the-m-x',
-		array( 'label' => esc_html__( 'The M.X.', 'the-m-x' ) )
-	);
+	if( function_exists( 'register_block_pattern_category' ) ) {
+   	// Add new block pattern category for this theme.
+   	register_block_pattern_category(
+      	'the-m-x',
+      	array( 'label' => esc_html__( 'The M.X.', 'the-m-x' ) )
+   	);
+   }
 }
 
 add_action( 'init', 'the_mx_register_block_patterns' );

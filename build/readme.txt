@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.4.1 March 13 2022 =
+Bug fix: Added check for register_block_pattern_category function for backward compatibility (theme was broken in > 5.5). Cleaned up errors/duplicate code in gutenberg-editor-styles.css file.
+
 = 1.4.0 February 28 2022 =
 Major update adding support for FSE style Headers, adding several new block patterns and block styles.
 
