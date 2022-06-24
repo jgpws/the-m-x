@@ -275,11 +275,6 @@ function the_mx_enqueue_scripts() {
    wp_enqueue_style( 'the-mx-icons', get_template_directory_uri() . '/css/vendor/themify-icons.css' );
    wp_enqueue_style( 'the-mx-layout-style', get_template_directory_uri() . '/css/minfiles/layout-styles.min.css', array( 'the-mx-style' ) );
 
-   // Icon fonts
-   wp_enqueue_style( 'the-mx-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,500,300', false );
-
-   wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
-
    // Conditionally loaded
    if ( $mx_colorbox == 1 && shortcode_exists( 'gallery' ) ) {
       wp_enqueue_style( 'the-mx-colorbox-styles', get_template_directory_uri() . '/css/minfiles/the-mx-colorbox.min.css' );

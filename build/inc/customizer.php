@@ -668,9 +668,9 @@ function the_mx_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'the_mx_customize_register' );
 
 /* WooCommerce Customizer controls */
-if ( is_woocommerce_activated() ) {
-	function the_mx_wc_customize_register( $wp_customize ) {
 
+function the_mx_wc_customize_register( $wp_customize ) {
+	if ( is_woocommerce_activated() ) {
 		$wp_customize->add_setting(
 			'the_mx_enable_wc_sidebar', array(
 				'type' => 'theme_mod',

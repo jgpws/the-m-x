@@ -65,36 +65,46 @@ function the_mx_body_classes( $classes ) {
 	// Sidebars
 	$sidebar_layout = get_theme_mod( 'the_mx_sidebar_layout', 'overlay' );
 	if( $sidebar_layout != '' ) {
-		if( is_woocommerce_activated()
-		&& !is_woocommerce()
-		&& !is_cart()
-		&& !is_checkout()
-		&& !is_account_page() ) { 
-			switch ( $sidebar_layout ) {
-				case 'overlay':
-					$classes[] = 'sidebar-overlay';
-					break;
-				case 'right':
-					$classes[] = 'sidebar-right';
-					break;
-				case 'left':
-					$classes[] = 'sidebar-left';
-					break;
-				default:
-					$classes[] = 'sidebar-overlay';
-					break;
-			}
+		switch ( $sidebar_layout ) {
+			case 'overlay':
+				$classes[] = 'sidebar-overlay';
+				break;
+			case 'right':
+				$classes[] = 'sidebar-right';
+				break;
+			case 'left':
+				$classes[] = 'sidebar-left';
+				break;
+			default:
+				$classes[] = 'sidebar-overlay';
+				break;
 		}
 	}
 
 	$wc_sidebar_enabled = get_theme_mod( 'the_mx_enable_wc_sidebar', 0 );
 	$wc_sidebar_layout = get_theme_mod( 'the_mx_wc_sidebar_layout', 'right' );
 	$wc_sidebar_onpage = get_theme_mod( 'the_mx_wc_sidebar_onpage', 0 );
+	
+	// See https://w3codegenerator.com/code-snippets/wordpress/remove-class-from-body-tag-in-wordpress
+	$remove_sidebar_classes = [ 'sidebar-overlay', 'sidebar-right', 'sidebar-left' ];
+	
+	// Remove standard sidebar classes on WooCommerce pages that use templates
+	if ( is_woocommerce_activated() && is_woocommerce() ) {
+		$classes = array_diff( $classes, $remove_sidebar_classes );
+	}
+	
+	// Remove standard sidebar classes on 
+	if ( 	is_page( 'cart' ) ||
+			is_page( 'checkout' ) ||
+			is_page( 'my-account' ) ) {
+		$classes = array_diff( $classes, $remove_sidebar_classes );
+	}
+	
 	if (	is_woocommerce_activated() &&
-				is_woocommerce() &&
-				$wc_sidebar_enabled == 1 &&
-				!$wc_sidebar_onpage &&
-				$wc_sidebar_layout != '' ) {
+			is_woocommerce() &&
+			$wc_sidebar_enabled == 1 &&
+			!$wc_sidebar_onpage &&
+			$wc_sidebar_layout != '' ) {
 		if( $wc_sidebar_layout == 'left' ) {
 			$classes[] = 'wc-sidebar-left';
 		} elseif( $wc_sidebar_layout == 'right' ) {
@@ -105,10 +115,10 @@ function the_mx_body_classes( $classes ) {
 	}
 
 	if (	is_woocommerce_activated() &&
-				is_product() &&
-				$wc_sidebar_enabled == 1 &&
-				$wc_sidebar_onpage == 1 &&
-				$wc_sidebar_layout != '' ) {
+			is_product() &&
+			$wc_sidebar_enabled == 1 &&
+			$wc_sidebar_onpage == 1 &&
+			$wc_sidebar_layout != '' ) {
 		if( $wc_sidebar_layout == 'left' ) {
 			$classes[] = 'wc-sidebar-left';
 		} elseif( $wc_sidebar_layout == 'right' ) {

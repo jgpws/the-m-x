@@ -45,10 +45,16 @@ function the_mx_color_scheme_css() {
 	// Adjustment for the Blue Gray color scheme
 
 	$css = '
+	.more-link:link,
+	.more-link:visited,
+	.more-images-link a:link,
+	.more-images-link a:visited,
 	.woocommerce #respond input#submit,
 	.woocommerce #respond input#submit.alt,
 	.woocommerce a.button,
 	.woocommerce a.button.alt,
+	.woocommerce .wc-block-grid__product-add-to-cart a:link,
+	.woocommerce .wc-block-grid__product-add-to-cart a:visited,
 	.woocommerce button.button,
 	.woocommerce button.button.alt,
 	.woocommerce input.button,

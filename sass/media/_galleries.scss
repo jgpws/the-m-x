@@ -25,6 +25,15 @@
 
 	.wp-block-image figcaption {
 		z-index: 100;
+		
+		a:link {
+			border-bottom: 1px solid var(--wp--preset--color--primary-text-color-light-white);
+			color: var(--wp--preset--color--primary-text-color-white);
+		}
+		
+		a:hover {
+			color: var(--wp--preset--color--white);
+		}
 	}
 
 	figure.wp-block-image:not(#individual-image) {
@@ -288,14 +297,15 @@
 	max-width: calc(100% + 2em);
 }
 
-.single.slider .wp-block-gallery .blocks-gallery-item {
+.single.slider .wp-block-gallery .blocks-gallery-item,
+.single.slider .wp-block-gallery .wp-block-image {
 	position: absolute;
-	width: 100%;
+	width: 100% !important;
 
 	img {
 		margin: 0 auto;
 		max-height: 300px;
-		width: auto;
+		width: auto !important;
 	}
 
 	figure {
@@ -322,7 +332,8 @@
 		padding: 1em 25%;
 	}
 
-	.single.slider .wp-block-gallery .blocks-gallery-item {
+	.single.slider .wp-block-gallery .blocks-gallery-item,
+	.single.slider .wp-block-gallery .wp-block-image {
 		display: inline-block;
 
 		img {
@@ -362,7 +373,8 @@
     	margin-right: 12.5%;
 	}
 
-	.single.slider .wp-block-gallery .blocks-gallery-item {
+	.single.slider .wp-block-gallery .blocks-gallery-item,
+	.single.slider .wp-block-gallery .wp-block-image {
 		img {
 			max-height: 640px;
 		}

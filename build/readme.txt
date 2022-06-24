@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.4.2 June 24 2022 =
+Bug Fix: Customizer was producing a fatal error when WooCommerce was not activated; fixed the code in customizer.php to remedy (placing check for WooCommerce inside the function); updated body class filtering in extras.php for WooCommerce pages; Updated slider functionality and CSS to work with nested image galleries; set up local font loading for compliance with GDPR.
+
 = 1.4.1 March 13 2022 =
 Bug fix: Added check for register_block_pattern_category function for backward compatibility (theme was broken in > 5.5). Cleaned up errors/duplicate code in gutenberg-editor-styles.css file.
 
@@ -177,9 +180,6 @@ Updated frontend and backend styles for Gutenberg's newest iteration; regenerate
 
 Please update to the latest version, as an error with HEREDOC blocks was causing a fatal error.
 
-= 1.0 =
-* Initial release
-
 == Credits ==
 
 * The M.X. is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -212,5 +212,5 @@ The screenshot image is not bundled with this theme.
 == Notes ==
 
 * CSS for style.css minified with CSS Minifier https://cssminifier.com/
-* JS for the-mx-scripts.js, animations.js, restore-js.js and jgd-grid.js minified with Minify https://www.minifier.org/
-* Sass files are compiled with Ruby on the command line.
+* JS for the-mx-scripts.js, animations.js, restore-js.js and jgd-grid.js minified with Gulp.
+* Sass files are compiled with Gulp on the command line.

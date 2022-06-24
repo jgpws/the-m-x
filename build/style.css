@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with a block header option, full width post images, editor color palette and gradients.
-Version: 1.4.1
+Version: 1.4.2
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
@@ -306,6 +306,73 @@ th {
 .hide {
 	position: absolute !important;
 	left: -9999em;
+}
+
+/*--------------------------------------------------------------
+# Font Face declarations
+--------------------------------------------------------------*/
+/* Embedded fonts */
+/* Body */
+/* raleway-300 - latin */
+@font-face {
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: local(""), url("fonts/raleway-v27-latin-300.woff2") format("woff2"), url("../fonts/raleway-v27-latin-300.woff") format("woff");
+	/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-regular - latin */
+@font-face {
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local(""), url("fonts/raleway-v27-latin-regular.woff2") format("woff2"), url("../fonts/raleway-v27-latin-regular.woff") format("woff");
+	/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-500 - latin */
+@font-face {
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: local(""), url("fonts/raleway-v27-latin-500.woff2") format("woff2"), url("fonts/raleway-v27-latin-500.woff") format("woff");
+	/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-italic - latin */
+@font-face {
+	font-family: "Raleway";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: local(""), url("fonts/raleway-v27-latin-italic.woff2") format("woff2"), url("fonts/raleway-v27-latin-italic.woff") format("woff");
+	/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* Icons */
+@font-face {
+	font-family: "Material Icons";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Material Icons"), local("MaterialIcons-Regular"), url("fonts/MaterialIcons-Regular.ttf") format("truetype");
+}
+.material-icons {
+	direction: ltr;
+	display: inline-block;
+	font-family: "Material Icons";
+	font-size: 24px;
+	font-style: normal;
+	letter-spacing: normal;
+	line-height: 1;
+	text-transform: none;
+	white-space: nowrap;
+	word-wrap: normal;
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
 }
 
 /*--------------------------------------------------------------
@@ -1816,7 +1883,7 @@ html.skrollr-mobile {
 /* Block widgets */
 .widget_block.jgd-column-1 {
 	margin: 0 0 1.5em;
-	padding: 0 1rem;
+	padding: 1rem;
 	width: 100%;
 }
 .widget_block .wp-block-calendar {
@@ -3111,7 +3178,7 @@ iframe.twitter-tweet {
 
 .blog .format-status .entry-content,
 .archive .format-status .entry-content {
-	border-left: 5px solid #c0c0c0;
+	border-left: 5px solid var(--black-opacity-2);
 	margin: 1.25em 0;
 	padding-left: 1.5rem;
 }
@@ -3667,6 +3734,13 @@ img.wp-post-image {
 .wp-block-gallery.has-nested-images .wp-block-image figcaption {
 	z-index: 100;
 }
+.wp-block-gallery.has-nested-images .wp-block-image figcaption a:link {
+	border-bottom: 1px solid var(--wp--preset--color--primary-text-color-light-white);
+	color: var(--wp--preset--color--primary-text-color-white);
+}
+.wp-block-gallery.has-nested-images .wp-block-image figcaption a:hover {
+	color: var(--wp--preset--color--white);
+}
 .wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image) {
 	margin: 0 !important;
 }
@@ -3947,19 +4021,23 @@ img.wp-post-image {
 	max-width: calc(100% + 2em);
 }
 
-.single.slider .wp-block-gallery .blocks-gallery-item {
+.single.slider .wp-block-gallery .blocks-gallery-item,
+.single.slider .wp-block-gallery .wp-block-image {
 	position: absolute;
-	width: 100%;
+	width: 100% !important;
 }
-.single.slider .wp-block-gallery .blocks-gallery-item img {
+.single.slider .wp-block-gallery .blocks-gallery-item img,
+.single.slider .wp-block-gallery .wp-block-image img {
 	margin: 0 auto;
 	max-height: 300px;
-	width: auto;
+	width: auto !important;
 }
-.single.slider .wp-block-gallery .blocks-gallery-item figure {
+.single.slider .wp-block-gallery .blocks-gallery-item figure,
+.single.slider .wp-block-gallery .wp-block-image figure {
 	display: block;
 }
-.single.slider .wp-block-gallery .blocks-gallery-item figcaption {
+.single.slider .wp-block-gallery .blocks-gallery-item figcaption,
+.single.slider .wp-block-gallery .wp-block-image figcaption {
 	background: transparent;
 	position: static;
 }
@@ -3978,10 +4056,12 @@ img.wp-post-image {
 		padding: 1em 25%;
 	}
 
-	.single.slider .wp-block-gallery .blocks-gallery-item {
+	.single.slider .wp-block-gallery .blocks-gallery-item,
+.single.slider .wp-block-gallery .wp-block-image {
 		display: inline-block;
 	}
-	.single.slider .wp-block-gallery .blocks-gallery-item img {
+	.single.slider .wp-block-gallery .blocks-gallery-item img,
+.single.slider .wp-block-gallery .wp-block-image img {
 		max-height: 480px;
 	}
 }
@@ -4015,7 +4095,8 @@ img.wp-post-image {
 		margin-right: 12.5%;
 	}
 
-	.single.slider .wp-block-gallery .blocks-gallery-item img {
+	.single.slider .wp-block-gallery .blocks-gallery-item img,
+.single.slider .wp-block-gallery .wp-block-image img {
 		max-height: 640px;
 	}
 }

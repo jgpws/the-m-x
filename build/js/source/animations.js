@@ -335,11 +335,11 @@ let slides4 = document.querySelectorAll('.single.slider #gallery-4 .gallery-item
 let slides5 = document.querySelectorAll('.single.slider #gallery-5 .gallery-item');
 
 // Block gallery slides
-let slides6 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(1) .blocks-gallery-item');
-let slides7 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(2) .blocks-gallery-item');
-let slides8 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(3) .blocks-gallery-item');
-let slides9 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(4) .blocks-gallery-item');
-let slides10 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(5) .blocks-gallery-item');
+let slides6 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(1) .blocks-gallery-item, .single.slider .wp-block-gallery:nth-of-type(1) .wp-block-image');
+let slides7 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(2) .blocks-gallery-item, .single.slider .wp-block-gallery:nth-of-type(2) .wp-block-image');
+let slides8 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(3) .blocks-gallery-item, .single.slider .wp-block-gallery:nth-of-type(3) .wp-block-image');
+let slides9 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(4) .blocks-gallery-item, .single.slider .wp-block-gallery:nth-of-type(4) .wp-block-image');
+let slides10 = document.querySelectorAll('.single.slider .wp-block-gallery:nth-of-type(5) .blocks-gallery-item, .single.slider .wp-block-gallery:nth-of-type(5) .wp-block-image');
 
 // Next panel buttons
 let nextBtn1 = document.querySelector('#gallery-1 + .slider-button-panel .slider-next');
