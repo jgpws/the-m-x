@@ -50,15 +50,15 @@ function the_mx_body_classes( $classes ) {
 	}
 
 	// Layouts
-	if( get_theme_mod( 'the_mx_layout' ) == 'centered' ) {
+	if( get_theme_mod( 'the_mx_layout', 'centered' ) == 'centered' ) {
 		$classes[] = 'centered';
 	}
 
-	if( get_theme_mod( 'the_mx_layout' ) == 'twobytwo' ) {
+	if( get_theme_mod( 'the_mx_layout', 'centered' ) == 'twobytwo' ) {
 		$classes[] = 'two-by-two';
 	}
 
-	if( get_theme_mod( 'the_mx_layout' ) == 'wide' ) {
+	if( get_theme_mod( 'the_mx_layout', 'centered' ) == 'wide' ) {
 		$classes[] = 'wide';
 	}
 
