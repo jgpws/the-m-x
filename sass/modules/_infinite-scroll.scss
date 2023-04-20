@@ -33,3 +33,24 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 }
+
+.archive.imagegrid .infinite-wrap,
+.blog.imagegrid .infinite-wrap {
+	justify-content: center;
+}
+
+@media (min-width: 37.5em) {
+	.archive.imagegrid .infinite-wrap,
+	.blog.imagegrid .infinite-wrap {
+		margin-left: 12.5%;
+		margin-right: 12.5%;
+	}
+}
+
+@media (min-width: 80em) {
+	.archive.two-by-two .infinite-wrap,
+	.blog.two-by-two .infinite-wrap {
+		margin-left: 12.5%;
+		margin-right: 12.5%;
+	}
+}

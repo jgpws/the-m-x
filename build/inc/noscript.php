@@ -57,6 +57,11 @@
 			position: static !important;
 		}
 		
+		.header-button-panel .menu-social-container ul li a::before {
+			content: "\279A";
+			margin-right: 0.25em;
+		}
+		
 		.header-button-panel .searchform {
 			background-color: transparent;
 			margin: 0.5em;
@@ -93,11 +98,6 @@
 			
 			.header-button-panel .menu-social-container ul li a:link {
 				color: rgba(255, 255, 255, 0.87);
-			}
-			
-			.header-button-panel .menu-social-container ul li a::before {
-				content: "\279A";
-				margin-right: 0.25em;
 			}
 		}
 		

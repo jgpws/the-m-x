@@ -9,7 +9,7 @@ html[amp] {
 	
 	.header-button-panel {
 		order: 2; /* second in order */
-		/*z-index: 100;*/
+		z-index: 50;
 	}
 	
 	.main-navigation {
@@ -33,8 +33,21 @@ html[amp] {
 		background-color: var(--primary-color-dark);
 	}
 	
+	.header-button-panel .menu-social-container {
+		position: absolute;
+		
+		&.toggled {
+			left: 0;
+		}
+	}
+	
 	.header-button-panel .searchform {
+		display: flex;
+		flex-direction: row;
+		background-color: var(--primary-color-dark);
 		margin: 0 0 0 0.5em;
+		position: absolute;
+		z-index: 250;
 	}
 }
 
@@ -73,7 +86,7 @@ html[amp] .sidebar-overlay .site-content .widget-area {
 	top: 0;
 	right: 0;
 	padding-top: 4.5em;
-	z-index: 100;
+	z-index: 0;
 }
 
 @media (min-width: 37.5em) {
@@ -96,6 +109,11 @@ html[amp] .sidebar-overlay .site-content .widget-area {
 	} 
 	
 	html[amp] {
+		.site-header .header-button-panel .searchform {
+			background-color: transparent;
+			position: static;
+		}
+		
 		.sidebar-overlay .main-navigation,
 		.sidebar-overlay .site-header .main-navigation ul#primary-menu {
 			position: static;

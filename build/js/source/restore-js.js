@@ -11,8 +11,6 @@
 	var mobile = (/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera);
 	
 	if ( infiniteScrollLoaded ) {
-		$( document.body ).on( 'post-load', addJGDGrid );
-		
 		if ( !mobile ) {
 			$( document.body ).on( 'post-load', addSkrollrEffects );
 			if ( $( 'body' ).hasClass( 'skrollr-animate' ) ) {
@@ -28,39 +26,6 @@
 	var windowWidth = window.innerWidth;
 	var windowHeight = window.innerHeight;
 	var i, len;
-	
-	function addJGDGrid() {
-		var infSearch = document.querySelectorAll( '.search .infinite-wrap .post, .search .infinite-wrap .page' );
-		var infStickyArticles = document.querySelectorAll( '.infinite-wrap .post.sticky' );
-		
-		if ( windowWidth >= 1280 ) {
-			for ( i = 0; i < infStickyArticles.length; i++ ) {
-				if ( jgdGridParams.layouts === 'twobytwo' ) {
-					infStickyArticles[i].classList.add( 'two-by-two-centered-r' );
-					infStickyArticles[i].classList.remove( 'three-fourths-centered-r' );
-					infStickyArticles[i].classList.remove( 'jgd-column-1' );
-				}
-			}
-		} else if ( windowWidth <= 1279 && windowWidth >= 720 ) {
-			for ( i = 0, len = infStickyArticles.length; i < len; i++ ) {
-				if ( jgdGridParams.layouts === 'twobytwo' ) {
-					infStickyArticles[i].classList.add( 'three-fourths-centered-r' );
-					infStickyArticles[i].classList.remove( 'jgd-column-1' );
-					infStickyArticles[i].classList.remove( 'two-by-two-centered-r' );
-				}
-			}
-		} else {
-			for ( i = 0, len = infStickyArticles.length; i < len; i++ ) {
-				if ( jgdGridParams.layouts === 'twobytwo' ) {
-					infStickyArticles[i].classList.add( 'jgd-column-1' );
-					infStickyArticles[i].classList.remove( 'three-fourths-centered-r' );
-					infStickyArticles[i].classList.remove( 'two-by-two-centered-r' );
-				}
-			}
-		}
-		
-		return addJGDGrid;
-	}
 
 	function addSkrollrEffects() {
 		//console.log('addSkrollrEffects is loaded');

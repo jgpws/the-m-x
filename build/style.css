@@ -3483,6 +3483,25 @@ iframe.twitter-tweet {
 	flex-wrap: wrap;
 }
 
+.archive.imagegrid .infinite-wrap,
+.blog.imagegrid .infinite-wrap {
+	justify-content: center;
+}
+
+@media (min-width: 37.5em) {
+	.archive.imagegrid .infinite-wrap,
+.blog.imagegrid .infinite-wrap {
+		margin-left: 12.5%;
+		margin-right: 12.5%;
+	}
+}
+@media (min-width: 80em) {
+	.archive.two-by-two .infinite-wrap,
+.blog.two-by-two .infinite-wrap {
+		margin-left: 12.5%;
+		margin-right: 12.5%;
+	}
+}
 /*--------------------------------------------------------------
 # AMP
 --------------------------------------------------------------*/
@@ -3495,7 +3514,7 @@ html[amp] .site-branding {
 html[amp] .header-button-panel {
 	order: 2;
 	/* second in order */
-	/*z-index: 100;*/
+	z-index: 50;
 }
 html[amp] .main-navigation {
 	order: 1;
@@ -3514,8 +3533,19 @@ html[amp] .site-header .header-button-panel {
 	padding: 0.5em 0.5em 0.5em 4.5rem;
 	background-color: var(--primary-color-dark);
 }
+html[amp] .header-button-panel .menu-social-container {
+	position: absolute;
+}
+html[amp] .header-button-panel .menu-social-container.toggled {
+	left: 0;
+}
 html[amp] .header-button-panel .searchform {
+	display: flex;
+	flex-direction: row;
+	background-color: var(--primary-color-dark);
 	margin: 0 0 0 0.5em;
+	position: absolute;
+	z-index: 250;
 }
 
 /* Main Navigation */
@@ -3548,7 +3578,7 @@ html[amp] .sidebar-overlay .site-content .widget-area {
 	top: 0;
 	right: 0;
 	padding-top: 4.5em;
-	z-index: 100;
+	z-index: 0;
 }
 
 @media (min-width: 37.5em) {
@@ -3565,6 +3595,10 @@ html[amp] .sidebar-overlay .site-content .widget-area {
 		order: 4;
 	}
 
+	html[amp] .site-header .header-button-panel .searchform {
+		background-color: transparent;
+		position: static;
+	}
 	html[amp] .sidebar-overlay .main-navigation,
 html[amp] .sidebar-overlay .site-header .main-navigation ul#primary-menu {
 		position: static;
