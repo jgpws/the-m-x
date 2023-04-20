@@ -34,6 +34,12 @@ article.page:hover,
 	.three-fourths-centered-r .entry-footer {
 		padding: 0 12.5%;
 	}
+	
+	.two-by-two-centered-r.sticky .entry-title,
+	.two-by-two-centered-r.sticky .entry-meta,
+	.two-by-two-centered-r.sticky .entry-footer {
+		padding: 0 12.5%;
+	}
 
 	.format-aside.three-fourths-centered-r .entry-meta,
 	.format-link.three-fourths-centered-r .entry-meta,
@@ -71,25 +77,29 @@ article.page:hover,
 	}
 }
 
-.page-title {
+.page-title,
+.taxonomy-description {
 	margin-left: 1rem;
 	margin-right: 1rem;
 }
 
 @media (min-width: 48em) {
-	.page-title {
+	.page-title,
+	.taxonomy-description {
 		margin-left: 12.5%;
 		margin-right: 12.5%;
 	}
 
-	.two-by-two .page-title {
+	.two-by-two .page-title,
+	.two-by-two .taxonomy-description {
 		margin-left: 0;
 		margin-right: 0;
 	}
 }
 
 @media (min-width: 80em) {
-	.centered .page-title {
+	.centered .page-title,
+	.centered .taxonomy-description {
 		margin-left: 25%;
 		margin-right: 25%;
 	}
@@ -157,6 +167,7 @@ article.page:hover,
 
 .landing-to-parent {
 	padding: 0 1em;
+	margin: 0.5em 0;
 	text-align: center;
 }
 

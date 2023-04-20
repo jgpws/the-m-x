@@ -16,38 +16,52 @@
 		}
 		
 		.lds-ring,
-		#sidebar-button,
+		.sidebar-toggle,
 		.menu-toggle {
 			display: none;
 		}
 		
 		.site-branding {
 			order: 1;
+			width: 100%;
 		}
 		
 		.main-navigation {
 			order: 2;
 		}
 		
-		.site-header #header-button-panel {
+		.site-header .header-button-panel {
 			height: auto;
 			padding: 0 0 0.5em 0;
 		}
 		
-		#header-button-panel .menu-social-media-icons-container {
+		.menu-toggle,
+		.search-toggle,
+		.social-toggle,
+		.sidebar-toggle {
+			max-height: 3.5em;
+		}
+		
+		.header-button-panel .menu-social-container {
 			position: static;
 			width: 100%;
 		}
 		
-		#header-button-panel .searchform {
+		.menu-social-container ul {
+			justify-content: center;
+		}
+		
+		.header-button-panel .menu-social-container .screen-reader-text {
+			clip: auto;
+			clip-path: none;
+			position: static !important;
+		}
+		
+		.header-button-panel .searchform {
 			background-color: transparent;
 			margin: 0.5em;
 			position: static;
-			width: 100%;
-		}
-		
-		.menu-social-media-icons-container .screen-reader-text {
-			position: static !important;
+			z-index: 50;
 		}
 		
 		.site-header .main-navigation ul#primary-menu,
@@ -57,31 +71,58 @@
 			width: 100%;
 		}
 		
-		#sidebar-button {
-			display: none;
-		}
-		
-		.site-content .widget-area {
+		.sidebar-overlay .site-content .widget-area {
 			position: static;
 			width: 100%;
 		}
 		
 		@media screen and (min-width: 37.5em) {
-			#header-button-panel .menu-social-media-icons-container {
+			.site-header .main-navigation ul#primary-menu {
+			   padding: 0;
+			}
+		}
+		
+		@media screen and (min-width: 48em) {
+			.header-button-panel .menu-social-container {
 				background-color: transparent;
 				box-shadow: none;
-				width: 50%;
+				flex-grow: 1;
+				padding: 0;
+				width: auto;
 			}
 			
-			#menu-social ul li a:link,
-			#menu-social ul li a:visited {
+			.header-button-panel .menu-social-container ul li a:link {
 				color: rgba(255, 255, 255, 0.87);
+			}
+			
+			.header-button-panel .menu-social-container ul li a::before {
+				content: "\279A";
+				margin-right: 0.25em;
 			}
 		}
 		
 		@media screen and (min-width: 80em) {
-			#header-button-panel .menu-social-media-icons-container {
-				position: absolute;
+			.site-header .site-branding {
+				width: 50%;
+			}
+			
+			.site-header .header-button-panel {
+				width: 50%;
+			}
+			
+			.site-branding-text {
+				flex-grow: 1;
+			}
+			
+			.header-button-panel .menu-social-container {
+				margin-top: 0;
+			}
+			
+			.menu-social-container ul {
+				justify-content: left;
+			}
+			
+			.site-header .header-button-panel .searchform {
 				width: auto;
 			}
 		}

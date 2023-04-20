@@ -136,20 +136,41 @@ function the_mx_add_grid_layouts( $classes ) {
 	// Switches post classes dependent on layout choices in the Customizer
 	$grid_layout = get_theme_mod( 'the_mx_layout', 'centered' );
 	if( $grid_layout != '' ) {
-		switch ( $grid_layout ) { // opens switch
-			case 'centered':
-				$classes[] = 'three-fourths-centered-r';
-				break;
-			case 'wide':
-				$classes[] = 'jgd-column-1';
-				break;
-			case 'twobytwo':
-				$classes[] = 'two-by-two-centered-r';
-				break;
-			default:
-				$classes[] = 'three-fourths-centered-r';
-				break;
-		} // closes switch
+		// Defaults on posts page
+		if( is_home() || is_archive() ) {
+			switch ( $grid_layout ) {
+				case 'centered':
+					$classes[] = 'three-fourths-centered-r';
+					break;
+				case 'wide':
+					$classes[] = 'jgd-column-1';
+					break;
+				case 'twobytwo':
+					$classes[] = 'two-by-two-centered-r';
+					break;
+				default:
+					$classes[] = 'three-fourths-centered-r';
+					break;
+			}
+		}
+		
+		if( is_singular() ) {
+			switch( $grid_layout ) {
+				case 'centered':
+					$classes[] = 'three-fourths-centered-r';
+					break;
+				case 'wide':
+					$classes[] = 'jgd-column-1';
+					break;
+				case 'twobytwo':
+					$classes[] = 'three-fourths-centered-r';
+					break;
+				default:
+					$classes[] = 'three-fourths-centered-r';
+					break;
+			}
+		}
+		
 		return $classes;
 	} else { // default when no theme mods have been set
 		$classes[] = 'three-fourths-centered-r';

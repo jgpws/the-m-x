@@ -11,11 +11,14 @@
 }
 
 .site-header .header-button-panel {
-	height: 4rem;
 	/* Other flexbox properties are provided by .jgd-grid-wrap inside jgd-material-grid.css file */
 	justify-content: flex-end;
 	padding: 0.5em 0.5em 0.5em 4.5rem;
 	background-color: var(--primary-color-dark);
+}
+
+.site-header .header-button-panel {
+	height: 4rem;
 }
 
 .page-template-template-landing {
@@ -211,7 +214,7 @@ a.create-header-link {
 			width: auto;
 		}
 
-		#menu-social {
+		.menu-social-container {
 			padding: 0.75em;
 			margin-right: 0.5em;
 		}
@@ -220,8 +223,8 @@ a.create-header-link {
 			padding: 0px;
 		}
 
-		#menu-social ul li a:link,
-		#menu-social ul li a:visited {
+		.menu-social-container ul li a:link,
+		.menu-social-container ul li a:visited {
 			color: var(--primary-text-color-white);
 
 			&:hover {

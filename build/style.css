@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with a block header option, full width post images, editor color palette and gradients.
-Version: 1.4.2
+Version: 1.4.4
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
@@ -958,15 +958,15 @@ a:hover, a:active {
 	z-index: 200;
 }
 
-#menu-social ul {
+.menu-social-container ul {
 	display: flex;
 	flex-wrap: wrap;
 }
-#menu-social ul li a:link, #menu-social ul li a:visited {
+.menu-social-container ul li a:link, .menu-social-container ul li a:visited {
 	color: var(--primary-color);
 	padding: 0.5rem;
 }
-#menu-social ul li a::before {
+.menu-social-container ul li a::before {
 	font-size: 18px;
 	font-size: 1.125rem;
 	min-height: 3rem;
@@ -1257,10 +1257,6 @@ a:hover, a:active {
 		border-bottom-color: transparent;
 	}
 
-	/*.animate .site-header .main-navigation .children,
-	.animate .site-header .main-navigation .sub-menu {
-		left: auto;
-	}*/
 	.error404 .widget li a {
 		display: inline-block;
 	}
@@ -1341,22 +1337,29 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 /* Text meant only for screen readers. */
 .screen-reader-text {
+	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
+	-webkit-clip-path: inset(50%);
+	        clip-path: inset(50%);
 	height: 1px;
-	width: 1px;
+	margin: -1px;
 	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
 }
 .screen-reader-text:focus {
 	background-color: var(--primary-color-pale);
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
+	-webkit-clip-path: none;
+	        clip-path: none;
 	color: var(--primary-text-color);
 	display: block;
-	font-size: 14px;
 	font-size: 0.875rem;
-	font-weight: bold;
+	font-weight: 700;
 	height: auto;
 	left: 5px;
 	line-height: normal;
@@ -1365,7 +1368,6 @@ a:hover, a:active {
 	top: 5px;
 	width: auto;
 	z-index: 100000;
-	/* Above WP toolbar. */
 }
 
 /* Do not show the outline on the skip link target. */
@@ -1542,11 +1544,14 @@ img.alignright,
 }
 
 .site-header .header-button-panel {
-	height: 4rem;
 	/* Other flexbox properties are provided by .jgd-grid-wrap inside jgd-material-grid.css file */
 	justify-content: flex-end;
 	padding: 0.5em 0.5em 0.5em 4.5rem;
 	background-color: var(--primary-color-dark);
+}
+
+.site-header .header-button-panel {
+	height: 4rem;
 }
 
 .page-template-template-landing .site {
@@ -1713,19 +1718,19 @@ a.create-header-link {
 		position: static;
 		width: auto;
 	}
-	.header-button-panel #menu-social {
+	.header-button-panel .menu-social-container {
 		padding: 0.75em;
 		margin-right: 0.5em;
 	}
 	.header-button-panel #menu-social-items {
 		padding: 0px;
 	}
-	.header-button-panel #menu-social ul li a:link,
-.header-button-panel #menu-social ul li a:visited {
+	.header-button-panel .menu-social-container ul li a:link,
+.header-button-panel .menu-social-container ul li a:visited {
 		color: var(--primary-text-color-white);
 	}
-	.header-button-panel #menu-social ul li a:link:hover,
-.header-button-panel #menu-social ul li a:visited:hover {
+	.header-button-panel .menu-social-container ul li a:link:hover,
+.header-button-panel .menu-social-container ul li a:visited:hover {
 		color: var(--white);
 	}
 }
@@ -2002,6 +2007,12 @@ article.page:hover,
 		padding: 0 12.5%;
 	}
 
+	.two-by-two-centered-r.sticky .entry-title,
+.two-by-two-centered-r.sticky .entry-meta,
+.two-by-two-centered-r.sticky .entry-footer {
+		padding: 0 12.5%;
+	}
+
 	.format-aside.three-fourths-centered-r .entry-meta,
 .format-link.three-fourths-centered-r .entry-meta,
 .format-quote.three-fourths-centered-r .entry-meta,
@@ -2055,24 +2066,28 @@ article.page:hover,
 	color: var(--primary-color-dark);
 }
 
-.page-title {
+.page-title,
+.taxonomy-description {
 	margin-left: 1rem;
 	margin-right: 1rem;
 }
 
 @media (min-width: 48em) {
-	.page-title {
+	.page-title,
+.taxonomy-description {
 		margin-left: 12.5%;
 		margin-right: 12.5%;
 	}
 
-	.two-by-two .page-title {
+	.two-by-two .page-title,
+.two-by-two .taxonomy-description {
 		margin-left: 0;
 		margin-right: 0;
 	}
 }
 @media (min-width: 80em) {
-	.centered .page-title {
+	.centered .page-title,
+.centered .taxonomy-description {
 		margin-left: 25%;
 		margin-right: 25%;
 	}
@@ -2152,6 +2167,7 @@ article.page:hover,
 
 .landing-to-parent {
 	padding: 0 1em;
+	margin: 0.5em 0;
 	text-align: center;
 }
 
@@ -3467,6 +3483,141 @@ iframe.twitter-tweet {
 	flex-wrap: wrap;
 }
 
+/*--------------------------------------------------------------
+# AMP
+--------------------------------------------------------------*/
+/* CSS for Google AMP pages */
+/* Layout Grid */
+html[amp] .site-branding {
+	order: 3;
+	padding: 0 0.5em;
+}
+html[amp] .header-button-panel {
+	order: 2;
+	/* second in order */
+	/*z-index: 100;*/
+}
+html[amp] .main-navigation {
+	order: 1;
+	/* first in order */
+}
+
+/* Header */
+html[amp] .sidebar-overlay .main-navigation {
+	position: absolute;
+}
+html[amp] #custom-header ~ .main-navigation {
+	z-index: 100;
+}
+html[amp] .site-header .header-button-panel {
+	justify-content: flex-end;
+	padding: 0.5em 0.5em 0.5em 4.5rem;
+	background-color: var(--primary-color-dark);
+}
+html[amp] .header-button-panel .searchform {
+	margin: 0 0 0 0.5em;
+}
+
+/* Main Navigation */
+html[amp] .menu-toggle,
+html[amp] .social-toggle,
+html[amp] .sidebar-toggle {
+	display: flex;
+	flex-direction: column;
+}
+html[amp] .sidebar-overlay .site-header .main-navigation ul#primary-menu,
+html[amp] .sidebar-overlay .site-header .main-navigation ul.nav-menu {
+	position: absolute;
+	left: -9999em;
+}
+html[amp] .site-header .main-navigation ul#primary-menu {
+	padding-top: 4.5em;
+	width: 73%;
+}
+html[amp] .site-header .main-navigation.toggled ul#primary-menu,
+html[amp] .site-header .main-navigation.toggled .main-navigation ul.nav-menu {
+	left: 0;
+}
+
+/* Sidebar */
+html[amp] .sidebar-overlay .site-content .widget-area {
+	overflow: auto;
+	width: 73%;
+	width: calc(75% - 1em);
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-top: 4.5em;
+	z-index: 100;
+}
+
+@media (min-width: 37.5em) {
+	html[amp] .header-button-panel {
+		order: 1;
+	}
+	html[amp] .site-branding {
+		order: 2;
+	}
+	html[amp] #custom-header {
+		order: 3;
+	}
+	html[amp] .main-navigation {
+		order: 4;
+	}
+
+	html[amp] .sidebar-overlay .main-navigation,
+html[amp] .sidebar-overlay .site-header .main-navigation ul#primary-menu {
+		position: static;
+	}
+	html[amp] .sidebar-overlay .site-header .main-navigation ul#primary-menu {
+		padding-top: 0;
+		width: 100%;
+	}
+	html[amp] .menu-toggle {
+		display: none;
+	}
+
+	html[amp] .sidebar-overlay .site-content .widget-area {
+		width: 31.33%;
+		width: calc(33.33% - 1em);
+	}
+}
+@media screen and (min-width: 48em) {
+	html[amp] .social-toggle {
+		display: none;
+	}
+
+	html[amp] .header-button-panel .menu-social-container,
+html[amp] .header-button-panel .menu-social-container.hide {
+		position: static !important;
+	}
+}
+@media screen and (min-width: 80em) {
+	html[amp] .site-branding {
+		order: 1;
+	}
+	html[amp] .header-button-panel {
+		order: 2;
+	}
+	html[amp] .menu-social-container {
+		max-width: 50%;
+	}
+	html[amp] .searchform {
+		max-width: 25%;
+	}
+
+	html[amp] .site-header .header-button-panel {
+		align-items: flex-start;
+		background-color: var(--primary-color);
+		height: auto;
+		padding: 0.5em;
+	}
+
+	html[amp] .sidebar-overlay .site-content .widget-area {
+		width: 23%;
+		width: calc(25% - 1em);
+	}
+}
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/

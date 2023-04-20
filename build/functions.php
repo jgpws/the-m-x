@@ -283,6 +283,10 @@ function the_mx_enqueue_scripts() {
    if ( $mx_animate == 1 ) {
       wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/minfiles/animation-styles.min.css' );
    }
+   
+   if ( the_mx_example_is_amp() ) { // Don't load animate.css on AMP pages
+   	wp_dequeue_style( 'animate' );
+   }
 
    if ( is_woocommerce_activated() ) {
       wp_enqueue_style( 'the-mx-wc-styles', get_theme_file_uri( '/css/minfiles/mx-woocommerce-styles.min.css' ) );
@@ -290,6 +294,10 @@ function the_mx_enqueue_scripts() {
 
 
    // Scripts
+   if ( the_mx_example_is_amp() ) {
+       return;
+   }
+   
    if ( get_theme_mod( 'the_mx_skrollr_animations' ) == 1 ) {
       wp_enqueue_script( 'the-mx-skrollr-data-atts', get_template_directory_uri() . '/js/minfiles/add-skrollr-data-attributes.min.js', array(), '', true );
       $parameters = array(
@@ -371,7 +379,7 @@ add_action( 'enqueue_block_editor_assets', 'the_mx_add_gutenberg_styles' );
  */
 function the_mx_block_styles() {
    wp_enqueue_script( 'the-mx-block-styles', get_stylesheet_directory_uri() . '/js/source/block-styles.js', array( 'wp-blocks', 'wp-dom' ),
-   filemtime( get_stylesheet_directory() . '/assets/js/editor.js' ), true );
+   filemtime( get_stylesheet_directory() . '/js/source/block-styles.js' ), true );
 }
 add_action( 'enqueue_block_editor_assets', 'the_mx_block_styles' );
 
@@ -461,6 +469,11 @@ if( defined( 'JETPACK__VERSION' ) ) {
 
 /* include gallery functions */
 require get_template_directory() . '/inc/gallery-functions.php';
+
+function the_mx_example_is_amp() {
+	// Determines whether this is an AMP response.
+	return function_exists( 'amp_is_request' ) && amp_is_request();
+}
 
 /* Hex to RGB converter */
 

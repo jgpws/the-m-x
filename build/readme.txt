@@ -26,6 +26,13 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.4.4 April 2023 =
+Added compatibility for Google AMP pages.
+Bug fix: CSS was updated in style files, but not in noscript CSS, producing broken pages when JavaScript was turned off; refactored styling for two-by-two layout to remove jgd-grid.js.
+
+= 1.4.3 December 29 2022 =
+Added default states for layout when Customizer is cleared.
+
 = 1.4.2 June 24 2022 =
 Bug Fix: Customizer was producing a fatal error when WooCommerce was not activated; fixed the code in customizer.php to remedy (placing check for WooCommerce inside the function); updated body class filtering in extras.php for WooCommerce pages; Updated slider functionality and CSS to work with nested image galleries; set up local font loading for compliance with GDPR.
 

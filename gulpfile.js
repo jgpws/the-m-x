@@ -34,7 +34,7 @@ var layoutStyles = [	'./build/css/layouts/mx-grid.css',
               './build/css/layouts/rtl.css'];
 var animStyles = [ 	'./build/css/vendor/animate.css',
 							'./build/css/vendor/spinner.css' ];
-var jsFiles = [ 	'./build/js/source/jgd-grid.js',
+var jsFiles = [ 	//'./build/js/source/jgd-grid.js',
 						'./build/js/source/the-mx-scripts.js',
 						'./build/js/source/navigation.js',
 						'./build/js/source/skip-link-focus-fix.js',

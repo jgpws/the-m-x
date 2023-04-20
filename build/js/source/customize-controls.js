@@ -1,120 +1,97 @@
 /**
  * Scripts to alter the behavior of Customizer controls.
  */
-( function () {
-	wp.customize.bind( 'ready', function() {
+(function () {
+  wp.customize.bind("ready", function () {
+    function hideShowCustomMoreTitle() {
+      var imgGridMoreBtn = document.querySelector(
+        "#customize-control-the_mx_add_showmore_button"
+      );
+      var imgGridMoreLink = document.querySelector(
+        "#customize-control-the_mx_customize_showmore_title"
+      );
 
-		function hideShowCustomMoreTitle() {
-			var imgGridMoreBtn = document.querySelector('#customize-control-the_mx_add_showmore_button');
-			var imgGridMoreLink = document.querySelector( '#customize-control-the_mx_customize_showmore_title' );
+      if (wp.customize.instance("the_mx_add_showmore_button").get() === true) {
+        imgGridMoreLink.style.display = "list-item";
+      } else {
+        imgGridMoreLink.style.display = "none";
+      }
 
-			if ( wp.customize.instance( 'the_mx_add_showmore_button' ).get() === true ) {
-				imgGridMoreLink.style.display = 'list-item';
-			} else {
-				imgGridMoreLink.style.display = 'none';
-			}
+      if (imgGridMoreBtn !== undefined) {
+        imgGridMoreBtn.addEventListener("change", hideShowCustomMoreTitle);
+      }
 
-			if( imgGridMoreBtn !== undefined ) {
-				imgGridMoreBtn.addEventListener( 'change', hideShowCustomMoreTitle );
-			}
+      return hideShowCustomMoreTitle;
+    }
 
-			return hideShowCustomMoreTitle;
-		}
+    hideShowCustomMoreTitle();
 
-		hideShowCustomMoreTitle();
+    function hideShowColorControls() {
+      /* Hide and show controls for custom color schemes only when "Custom" color scheme is chosen" */
 
+      let colorSchemeSelect = document.querySelector(
+        "#customize-control-the_mx_color_scheme"
+      );
 
-		function hideShowColorControls() {
-			/* Hide and show controls for custom color schemes only when "Custom" color scheme is chosen" */
+      // array for our id titles
+      let colorControlIds = [
+        "header_textcolor",
+        "background_color",
+        "the_mx_primary_1",
+        "the_mx_primary_2",
+        "the_mx_primary_3",
+        "the_mx_primary_4",
+        "the_mx_accent_1",
+        "the_mx_accent_2",
+        "the_mx_accent_3",
+      ];
 
-			let colorSchemeSelect = document.querySelector('#customize-control-the_mx_color_scheme');
+      if (wp.customize.instance("the_mx_color_scheme").get() === "custom") {
+        colorControlIds.forEach(function (element) {
+          let control = document.querySelector("#customize-control-" + element);
 
-			// array for our id titles
-			let colorControlIds = [
-				'header_textcolor',
-				'background_color',
-				'the_mx_primary_1',
-				'the_mx_primary_2',
-				'the_mx_primary_3',
-				'the_mx_primary_4',
-				'the_mx_accent_1',
-				'the_mx_accent_2',
-				'the_mx_accent_3'
-			];
+          control.style.display = "list-item";
+        });
+      } else {
+        colorControlIds.forEach(function (element) {
+          let control = document.querySelector("#customize-control-" + element);
+          control.style.display = "none";
+        });
+      }
 
-			if ( wp.customize.instance( 'the_mx_color_scheme' ).get() === 'custom' ) {
-				colorControlIds.forEach( function( element ) {
-					let control = document.querySelector('#customize-control-' + element);
+      colorSchemeSelect.addEventListener("change", hideShowColorControls);
+    }
 
-					control.style.display = 'list-item';
-				} );
-			} else {
-				colorControlIds.forEach( function( element ) {
-					let control = document.querySelector('#customize-control-' + element);
-					control.style.display = 'none';
-				} );
-			}
+    hideShowColorControls();
 
-			colorSchemeSelect.addEventListener( 'change', hideShowColorControls );
-		}
+    function hideShowHeaderControls() {
+      /* Hide Header Image controls when "Use Blocks for Header" is checked */
 
-		hideShowColorControls();
-		
-		function hideShowHeaderControls() {
-			/* Hide Header Image controls when "Use Blocks for Header" is checked */
-			
-			let blockHeaderCheck = document.querySelector('#customize-control-the_mx_block_header');
-			
-			// array for our ID titles
-			let headerControlIds = [
-				'header_image',
-				'the_mx_herotext_color',
-				'the_mx_herotext_alignment',
-				'the_mx_homepage_only'
-			];
-			
-			if ( wp.customize.instance( 'the_mx_block_header' ).get() === false ) {
-				headerControlIds.forEach( function( element ) {
-					let control = document.querySelector('#customize-control-' + element);
-					control.style.display = 'list-item';
-				} );
-			} else {
-				headerControlIds.forEach( function( element ) {
-					let control = document.querySelector('#customize-control-' + element);
-					control.style.display = 'none';
-				} );
-			}
-			
-			blockHeaderCheck.addEventListener( 'change', hideShowHeaderControls );
-		}
-		
-		hideShowHeaderControls();
+      let blockHeaderCheck = document.querySelector(
+        "#customize-control-the_mx_block_header"
+      );
 
-		function hideShowWCSidebarControls() {
-			let wcSidebarControl = document.querySelector('#customize-control-the_mx_enable_wc_sidebar');
+      // array for our ID titles
+      let headerControlIds = [
+        "header_image",
+        "the_mx_herotext_color",
+        "the_mx_herotext_alignment",
+        "the_mx_homepage_only",
+      ];
 
-			let wcSidebarControlIds = [
-				'the_mx_wc_sidebar_layout',
-				'the_mx_wc_sidebar_onpage'
-			];
+      headerControlIds.forEach(function (element) {
+        let control = document.querySelector("#customize-control-" + element);
 
-			if ( wp.customize.instance( 'the_mx_enable_wc_sidebar' ).get() === true ) {
-				wcSidebarControlIds.forEach( function( element ) {
-					let control = document.querySelector('#customize-control-' + element);
-					control.style.display = 'list-item';
-				} );
-			} else {
-				wcSidebarControlIds.forEach( function( element ) {
-					let control = document.querySelector('#customize-control-' + element);
-					control.style.display = 'none';
-				} );
-			}
+        if (wp.customize.instance("the_mx_block_header").get() === true) {
+          control.style.display = "none";
+        } else {
+          control.style.display = "list-item";
+        }
+      });
 
-			wcSidebarControl.addEventListener( 'change', hideShowWCSidebarControls );
-		}
+      blockHeaderCheck.addEventListener("change", hideShowHeaderControls);
+    }
 
-		hideShowWCSidebarControls();
-
-	} );
-
-}() );
+    hideShowHeaderControls();
+  });
+})();
