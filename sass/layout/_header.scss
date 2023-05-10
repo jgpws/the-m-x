@@ -52,12 +52,6 @@
 	position: relative;
 }
 
-.site-header-blocks > * {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 75%;
-}
-
 .site-header-blocks > .alignwide {
 	max-width: 87.5%;
 }
@@ -159,6 +153,10 @@ a.create-header-link {
 			margin: 0 0 0 -0.75em; /* negative left margin accounts for padding from the .jgd-grid class */
 			max-width: 400px; /* Fixes flexbox shrinkage of child images */
 		}
+	}
+	
+	.site-header-blocks .custom-logo-link img {
+		margin: 0;
 	}
 
 	.wp-custom-logo .site-branding {

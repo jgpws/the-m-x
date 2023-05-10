@@ -105,6 +105,8 @@ function the_mx_setup() {
    add_theme_support( 'responsive-embeds' );
 
    add_theme_support( 'editor-styles' );
+   
+   add_theme_support( 'block-template-parts' );
 
    // the_mx_editor_override_filepaths() function is in /inc/gutenberg-backend-color-overrides.php.
    add_editor_style( array( 'css/source/gutenberg-editor-styles.css', the_mx_editor_override_filepaths() ) );
@@ -135,45 +137,11 @@ add_filter( 'image_size_names_choose', 'the_mx_image_sizes' );
  *
  * @return bool
  */
-function the_mx_header_reusable_block() {
-
-   // Run the query.
-   $posts = get_posts( [
-      'post_type' => 'wp_block',
-      'title' => 'site-header',
-   ] );
-
-   // If a block was located print it and return true.
-   if ( $posts && isset( $posts[0] ) ) {
-      echo do_blocks( $posts[0]->post_content );
-      return true;
-   }
-
-   // If we got this far the header block doesn't exist.
-   // Return false.
-   return false;
-}
 
 function the_mx_header() {
    ?>
    <?php if ( get_theme_mod( 'the_mx_block_header' ) === 1 ) { ?>
-      <header id="masthead" class="site-header-blocks" role="banner">
-      <?php // Print the header. If one doesn't exist, print custom content. ?>
-      <?php if ( ! the_mx_header_reusable_block() ) : ?>
-         <?php //get_template_part( 'fallback-header' ); ?>
-         <?php if ( current_user_can( 'edit_theme_options' ) ) { ?>
-            <div class="create-header-message-wrap">
-            <p class="create-header-message-body">
-               <?php esc_html_e( 'Ready to use blocks for your header?', 'the-m-x' ); ?>
-            </p>
-            <p>
-               <a class="create-header-link" href="<?php echo esc_url( admin_url( 'post-new.php?post_type=wp_block&post_title=site-header' ) ); ?>">
-                  <?php esc_html_e( 'Create a new header', 'the-m-x' ); ?></a>
-            </p>
-            </div>
-         <?php } ?>
-         <?php endif; ?>
-      </header>
+      <?php block_template_part( 'header' ); ?>
    <?php } else { ?>
       <header id="masthead" class="site-header" role="banner">
          <?php get_template_part( 'fallback-header' ); ?>

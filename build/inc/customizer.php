@@ -248,7 +248,9 @@ function the_mx_customize_register( $wp_customize ) {
 		'the_mx_block_header', array(
 			'type' => 'checkbox',
 			'label' => esc_html__( 'Use Blocks/Pattern for the Header.', 'the-m-x' ),
-			'description' => sprintf( esc_html__( 'You can edit an existing header from the %3$sReusable blocks%4$s admin page. %5$s%1$sGo to the Reusable blocks page%2$s%6$s', 'the-m-x' ), '<a href="' . esc_url( admin_url() ) . 'edit.php?post_type=wp_block">', '</a>', '<strong>', '</strong>', '<h3>', '</h3>' ),
+			'description' => sprintf(
+			/* translators: %1$s: html paragraph opening tag, %2$s: html paragraph closing tag, %3$s: html strong opening tag, %4$s: html strong closing tag */
+			esc_html__( '%1$sYou can edit an existing header from the %3$sAppearance%4$s > %3$sTemplate Parts%4$s admin page.%2$s', 'the-m-x' ), '<p>', '</p>', '<strong>', '</strong>' ),
 			'section' => 'header_image',
 			'priority' => 5,
 		)

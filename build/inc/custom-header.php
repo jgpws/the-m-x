@@ -55,6 +55,11 @@ function the_mx_header_style() {
 		// Has the text been hidden?
 		if ( ! display_header_text() ) :
 	?>
+		.site-branding {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+		}
+		
 		.site-branding-text {
 			position: absolute;
 			clip: rect(1px, 1px, 1px, 1px);

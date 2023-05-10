@@ -1,20 +1,21 @@
-# Copyright (C) 2020 jgpws
+# Copyright (C) 2023 jgpws
 # This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: The M.X. 1.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/the-m-x\n"
+"Project-Id-Version: The M.X. 1.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/build\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-04-12T18:54:34+00:00\n"
-"PO-Revision-Date: 2020-04-12T18:54:34+00:00\n"
-"X-Generator: WP-CLI 2.0.1\n"
+"POT-Creation-Date: 2023-05-09T04:01:36+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: the-m-x\n"
 
 #. Theme Name of the theme
+#: inc/block-patterns.php:177
 msgid "The M.X."
 msgstr ""
 
@@ -23,7 +24,7 @@ msgid "http://www.jasong-designs.com/2018/06/07/the-m-x/"
 msgstr ""
 
 #. Description of the theme
-msgid "The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients."
+msgid "The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. When you are ready to add a store, The M.X. supports WooCommerce, with dedicated sidebar and shopping cart icon options. In addition, The M.X. has support for the Block Editor, with a block header option, full width post images, editor color palette and gradients."
 msgstr ""
 
 #. Author of the theme
@@ -35,230 +36,680 @@ msgid "http://www.jasong-designs.com"
 msgstr ""
 
 #: 404.php:17
-#: dist/404.php:17
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
 #: 404.php:21
-#: dist/404.php:21
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
 #: 404.php:33
-#: dist/404.php:33
 msgid "Most Used Categories"
 msgstr ""
 
 #. translators: %1$s: smiley
 #: 404.php:51
-#: dist/404.php:51
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-#. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
-#: single.php:22
-#: dist/single.php:22
-msgid "arrow_back"
+#. translators: 1: title
+#: comments.php:34
+msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
-#: single.php:22
-#: index.php:23
-#: index.php:48
-#: dist/single.php:22
-#: dist/index.php:23
-#: dist/index.php:48
-msgid "Previous Posts"
+#. translators: 1: comment count number, 2: title.
+#: comments.php:40
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:50
+#: comments.php:71
+msgid "Comment navigation"
 msgstr ""
 
-#. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
-#: single.php:25
-#: index.php:24
-#: index.php:49
-#: dist/single.php:25
-#: dist/index.php:24
-#: dist/index.php:49
-msgid "Next Posts"
+#: comments.php:53
+#: comments.php:74
+msgid "Older Comments"
 msgstr ""
 
-#. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
-#: single.php:25
-#: dist/single.php:25
-msgid "arrow_forward"
+#: comments.php:54
+#: comments.php:75
+msgid "Newer Comments"
 msgstr ""
 
-#: searchform.php:10
-#: searchform.php:11
-#: dist/searchform.php:10
-#: dist/searchform.php:11
-msgid "Search for:"
+#: comments.php:88
+msgid "Comments are closed."
 msgstr ""
 
-#: searchform.php:11
-#: dist/searchform.php:11
-msgctxt "placeholder"
-msgid "Search..."
-msgstr ""
-
-#. translators: %s: Search query results
-#: search.php:22
-#: dist/search.php:22
-msgid "Search Results for: "
-msgstr ""
-
-#: header.php:26
-#: dist/header.php:26
-#: dist/inc/colorbox-gallery-content.php:28
-#: dist/template-parts/header-landing.php:26
-#: dist/template-parts/header-none.php:24
-#: inc/colorbox-gallery-content.php:28
-#: template-parts/header-landing.php:26
-#: template-parts/header-none.php:24
-msgid "Skip to content"
-msgstr ""
-
-#: header.php:73
-#: dist/header.php:73
-msgid "Toggle the navigation menu"
-msgstr ""
-
-#: header.php:73
-#: dist/header.php:73
+#: fallback-header.php:77
+#: fallback-header.php:82
+#: template-parts/header-wc.php:56
 msgid "menu"
 msgstr ""
 
+#: fallback-header.php:82
+#: template-parts/header-wc.php:56
+msgid "Toggle the navigation menu"
+msgstr ""
+
+#. translators: %s: WordPress
+#: footer.php:26
+msgid "Proudly powered by %s"
+msgstr ""
+
+#. translators: %1$s: The M.X. %2$s: http://www.jasong-designs.com
+#: footer.php:32
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
 #: functions.php:54
-#: dist/functions.php:54
 msgid "Primary"
 msgstr ""
 
 #: functions.php:55
-#: dist/functions.php:55
 msgid "Social Profiles"
 msgstr ""
 
-#: functions.php:116
-#: dist/functions.php:116
-#: dist/inc/customizer.php:732
-#: inc/customizer.php:732
-msgid "White"
-msgstr ""
-
-#: functions.php:121
-#: dist/functions.php:121
-#: dist/inc/customizer.php:718
-#: inc/customizer.php:718
-msgid "Black"
-msgstr ""
-
-#: functions.php:126
-#: dist/functions.php:126
-#: dist/inc/customizer.php:70
-#: inc/customizer.php:70
-msgid "Primary Color"
-msgstr ""
-
-#: functions.php:131
-#: dist/functions.php:131
-#: dist/inc/customizer.php:90
-#: inc/customizer.php:90
-msgid "Primary Color Dark Variant"
-msgstr ""
-
-#: functions.php:136
-#: dist/functions.php:136
-#: dist/inc/customizer.php:110
-#: inc/customizer.php:110
-msgid "Primary Color Darker Variant"
-msgstr ""
-
-#: functions.php:141
-#: dist/functions.php:141
-#: dist/inc/customizer.php:130
-#: inc/customizer.php:130
-msgid "Primary Color Light Variant"
-msgstr ""
-
-#: functions.php:146
-#: dist/functions.php:146
-#: dist/inc/customizer.php:150
-#: inc/customizer.php:150
-msgid "Accent Color"
-msgstr ""
-
-#: functions.php:151
-#: dist/functions.php:151
-#: dist/inc/customizer.php:170
-#: inc/customizer.php:170
-msgid "Accent Color Dark Variant"
-msgstr ""
-
-#: functions.php:156
-#: dist/functions.php:156
-#: dist/inc/customizer.php:190
-#: inc/customizer.php:190
-msgid "Accent Color Darker Variant"
-msgstr ""
-
-#: functions.php:166
-#: dist/functions.php:166
-msgid "Primary Color gradient"
-msgstr ""
-
-#: functions.php:171
-#: dist/functions.php:171
-msgid "Secondary Color gradient"
-msgstr ""
-
-#: functions.php:176
-#: dist/functions.php:176
-msgid "Primary Color translucent gradient"
-msgstr ""
-
-#: functions.php:181
-#: dist/functions.php:181
-msgid "Accent Color translucent gradient"
-msgstr ""
-
-#: functions.php:529
-#: dist/functions.php:529
+#: functions.php:127
 msgid "Gallery Thumbnail (300 x 300, hard cropped)"
 msgstr ""
 
-#: functions.php:555
-#: dist/functions.php:555
+#: functions.php:174
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:557
-#: dist/functions.php:557
+#: functions.php:176
 msgid "Add widgets to the Sidebar."
 msgstr ""
 
-#: functions.php:565
-#: dist/functions.php:565
+#: functions.php:184
 msgid "Hero Image Widget"
 msgstr ""
 
-#: functions.php:567
-#: dist/functions.php:567
+#: functions.php:186
 msgid "Add widget to be displayed above Hero (header) Image."
 msgstr ""
 
-#: functions.php:575
-#: dist/functions.php:575
+#: functions.php:194
 msgid "Footer Widgets"
 msgstr ""
 
-#: functions.php:577
-#: dist/functions.php:577
+#: functions.php:196
 msgid "Add widgets to the Footer."
+msgstr ""
+
+#: functions.php:204
+msgid "WooCommerce Widgets"
+msgstr ""
+
+#: functions.php:206
+msgid "Add widgets to your WooCommerce shop in a sidebar."
+msgstr ""
+
+#: header.php:27
+#: inc/colorbox-gallery-content.php:28
+#: template-parts/header-landing.php:26
+#: template-parts/header-none.php:24
+#: template-parts/header-wc.php:27
+#: template-parts/header-wcsimple.php:27
+msgid "Skip to content"
 msgstr ""
 
 #. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
 #: image.php:29
-#: dist/image.php:29
 msgid "Return to:"
+msgstr ""
+
+#: inc/block-patterns.php:30
+msgid "Header (Light Background)- Title, Menu, Search Bar"
+msgstr ""
+
+#: inc/block-patterns.php:61
+msgid "Header- Logo, Menu, Social Badges"
+msgstr ""
+
+#: inc/block-patterns.php:84
+msgid "Header- Logo, Menu, Search Bar"
+msgstr ""
+
+#: inc/block-patterns.php:103
+msgid "Header- Logo, Menu"
+msgstr ""
+
+#: inc/block-patterns.php:126
+msgid "Header- Hero Image, Menu"
+msgstr ""
+
+#: inc/block-patterns.php:161
+msgid "Header- Hero Image, Call-to-Action"
+msgstr ""
+
+#: inc/color-scheme-functions.php:13
+msgid "Default (Brown)"
+msgstr ""
+
+#: inc/color-scheme-functions.php:27
+msgid "Blue Gray"
+msgstr ""
+
+#: inc/color-scheme-functions.php:41
+msgid "Deep Purple"
+msgstr ""
+
+#: inc/color-scheme-functions.php:55
+msgid "Pale Orange"
+msgstr ""
+
+#: inc/color-scheme-functions.php:69
+msgid "Black"
+msgstr ""
+
+#: inc/color-scheme-functions.php:83
+msgid "White"
+msgstr ""
+
+#: inc/color-scheme-functions.php:97
+msgid "Custom"
+msgstr ""
+
+#: inc/colorbox-gallery-content.php:75
+msgid "pixels"
+msgstr ""
+
+#: inc/customizer-frontend.php:742
+#: inc/customizer.php:498
+msgid "More Posts"
+msgstr ""
+
+#: inc/customizer-frontend.php:746
+#: inc/customizer.php:487
+msgid "More posts"
+msgstr ""
+
+#: inc/customizer.php:31
+msgid "Color Schemes"
+msgstr ""
+
+#. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
+#: inc/customizer.php:34
+msgid "Choose an alternate color scheme."
+msgstr ""
+
+#. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
+#: inc/customizer.php:34
+msgid "For more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline."
+msgstr ""
+
+#. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
+#: inc/customizer.php:34
+msgid "* To restore the default background color: Select Color, then select Default."
+msgstr ""
+
+#: inc/customizer.php:51
+msgid "Color Scheme"
+msgstr ""
+
+#: inc/customizer.php:71
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer.php:72
+msgid "Color for the title bar, footer, links, etc."
+msgstr ""
+
+#: inc/customizer.php:91
+msgid "Primary Color Dark Variant"
+msgstr ""
+
+#: inc/customizer.php:92
+msgid "Color for the header button panel, main site navigation in desktop view, link hover, etc."
+msgstr ""
+
+#: inc/customizer.php:111
+msgid "Primary Color Darker Variant"
+msgstr ""
+
+#: inc/customizer.php:112
+msgid "Background color for post meta links."
+msgstr ""
+
+#: inc/customizer.php:131
+msgid "Primary Color Light Variant"
+msgstr ""
+
+#: inc/customizer.php:132
+msgid "Color behind content navigation bar, etc."
+msgstr ""
+
+#: inc/customizer.php:151
+msgid "Accent Color"
+msgstr ""
+
+#: inc/customizer.php:152
+msgid "Button colors, etc."
+msgstr ""
+
+#: inc/customizer.php:171
+msgid "Accent Color Dark Variant"
+msgstr ""
+
+#: inc/customizer.php:172
+msgid "Button hover colors, etc."
+msgstr ""
+
+#: inc/customizer.php:191
+msgid "Accent Color Darker Variant"
+msgstr ""
+
+#: inc/customizer.php:192
+msgid "Navigation and widget link hover colors, etc."
+msgstr ""
+
+#: inc/customizer.php:210
+msgid "Reverse text against the background to white."
+msgstr ""
+
+#: inc/customizer.php:211
+msgid "Use this setting with an overall dark color scheme; For instance, when the Background and Primary Color Light Variant are set to a dark color."
+msgstr ""
+
+#: inc/customizer.php:228
+msgid "Reverse supporting colors to black."
+msgstr ""
+
+#: inc/customizer.php:229
+msgid "Use this setting if all four primary colors are set to a very light color."
+msgstr ""
+
+#: inc/customizer.php:238
+msgid "Hero Image/Header"
+msgstr ""
+
+#: inc/customizer.php:250
+msgid "Use Blocks/Pattern for the Header."
+msgstr ""
+
+#. translators: %1$s: html paragraph opening tag, %2$s: html paragraph closing tag, %3$s: html strong opening tag, %4$s: html strong closing tag
+#: inc/customizer.php:253
+msgid "%1$sYou can edit an existing header from the %3$sAppearance%4$s > %3$sTemplate Parts%4$s admin page.%2$s"
+msgstr ""
+
+#: inc/customizer.php:274
+msgid "Choose hero image text color."
+msgstr ""
+
+#. translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a>
+#: inc/customizer.php:277
+msgid "Use this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section."
+msgstr ""
+
+#. translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a>
+#: inc/customizer.php:277
+msgid "White text is best used for an image with a dark background, while black text works with images with a light background."
+msgstr ""
+
+#: inc/customizer.php:281
+msgid "White text"
+msgstr ""
+
+#: inc/customizer.php:282
+msgid "Black text"
+msgstr ""
+
+#: inc/customizer.php:301
+msgid "Align the hero image text."
+msgstr ""
+
+#: inc/customizer.php:305
+msgid "Left"
+msgstr ""
+
+#: inc/customizer.php:306
+msgid "Center"
+msgstr ""
+
+#: inc/customizer.php:307
+msgid "Right"
+msgstr ""
+
+#: inc/customizer.php:326
+msgid "Display Hero Image on the home page only."
+msgstr ""
+
+#: inc/customizer.php:335
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer.php:352
+msgid "Choose between three layouts for the blog pages."
+msgstr ""
+
+#: inc/customizer.php:353
+msgid "* The Centered, Wide and Two by two layouts affect widths 1280px and above."
+msgstr ""
+
+#: inc/customizer.php:356
+msgid "Centered- Posts stacked vertically."
+msgstr ""
+
+#: inc/customizer.php:357
+msgid "Wide- Posts stacked vertically with a wide content area."
+msgstr ""
+
+#: inc/customizer.php:358
+msgid "Two by two- A grid of posts two across the screen"
+msgstr ""
+
+#: inc/customizer.php:359
+msgid "Image grid- A grid designed for image or gallery posts, supporting only featured images and captions."
+msgstr ""
+
+#: inc/customizer.php:375
+msgid "Choose from three sidebar layouts."
+msgstr ""
+
+#: inc/customizer.php:378
+msgid "Sliding Overlay (default)"
+msgstr ""
+
+#: inc/customizer.php:379
+#: inc/customizer.php:706
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/customizer.php:380
+#: inc/customizer.php:707
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/customizer.php:398
+msgid "Content Length"
+msgstr ""
+
+#: inc/customizer.php:399
+msgid "Choose between full length content or excerpts on the blog posts page."
+msgstr ""
+
+#: inc/customizer.php:402
+msgid "Full Content"
+msgstr ""
+
+#: inc/customizer.php:403
+msgid "Excerpt"
+msgstr ""
+
+#: inc/customizer.php:414
+msgid "Page Template Customizations"
+msgstr ""
+
+#: inc/customizer.php:415
+msgid "In this section are customizations for some of the page templates that can be applied to a custom home page."
+msgstr ""
+
+#: inc/customizer.php:422
+msgid "Image Grid"
+msgstr ""
+
+#: inc/customizer.php:423
+msgid "Customize the Image Grid page template."
+msgstr ""
+
+#: inc/customizer.php:440
+msgid "Choose a category of posts to display on the Image Grid page"
+msgstr ""
+
+#: inc/customizer.php:455
+msgid "Choose the number of posts to show"
+msgstr ""
+
+#: inc/customizer.php:458
+msgid "Show all image grid posts"
+msgstr ""
+
+#: inc/customizer.php:459
+#: inc/customizer.php:580
+#: inc/customizer.php:610
+msgid "1"
+msgstr ""
+
+#: inc/customizer.php:460
+#: inc/customizer.php:581
+#: inc/customizer.php:611
+msgid "2"
+msgstr ""
+
+#: inc/customizer.php:461
+#: inc/customizer.php:582
+#: inc/customizer.php:612
+msgid "3"
+msgstr ""
+
+#: inc/customizer.php:462
+#: inc/customizer.php:583
+#: inc/customizer.php:613
+msgid "4"
+msgstr ""
+
+#: inc/customizer.php:463
+#: inc/customizer.php:584
+#: inc/customizer.php:614
+msgid "5"
+msgstr ""
+
+#: inc/customizer.php:464
+#: inc/customizer.php:585
+#: inc/customizer.php:615
+msgid "6"
+msgstr ""
+
+#: inc/customizer.php:465
+#: inc/customizer.php:586
+#: inc/customizer.php:616
+msgid "7"
+msgstr ""
+
+#: inc/customizer.php:466
+#: inc/customizer.php:587
+#: inc/customizer.php:617
+msgid "8"
+msgstr ""
+
+#: inc/customizer.php:467
+#: inc/customizer.php:588
+#: inc/customizer.php:618
+msgid "9"
+msgstr ""
+
+#: inc/customizer.php:468
+#: inc/customizer.php:619
+msgid "10"
+msgstr ""
+
+#: inc/customizer.php:469
+#: inc/customizer.php:620
+msgid "11"
+msgstr ""
+
+#: inc/customizer.php:470
+#: inc/customizer.php:621
+msgid "12"
+msgstr ""
+
+#. translators: %1$s, %2$s: <strong>, </strong>
+#: inc/customizer.php:490
+msgid "Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts&rsquo; category page."
+msgstr ""
+
+#: inc/customizer.php:507
+msgid "Change the title of the More Posts button"
+msgstr ""
+
+#: inc/customizer.php:521
+msgid "Gallery Settings"
+msgstr ""
+
+#: inc/customizer.php:522
+msgid "* These settings only apply to galleries displayed on the blog index page. The Gallery post format must be applied to a post containing the gallery. These settings also do not apply to gallery blocks."
+msgstr ""
+
+#: inc/customizer.php:522
+msgid "** This setting disables Colorbox on single posts."
+msgstr ""
+
+#: inc/customizer.php:539
+msgid "Show the gallery inside Colorbox"
+msgstr ""
+
+#: inc/customizer.php:540
+msgid "Display the gallery posts inside of a Colorbox overlay."
+msgstr ""
+
+#: inc/customizer.php:558
+msgid "Show the gallery as a slider on single posts.**"
+msgstr ""
+
+#: inc/customizer.php:576
+msgid "Change the column count*"
+msgstr ""
+
+#: inc/customizer.php:579
+msgid "Select a column number"
+msgstr ""
+
+#: inc/customizer.php:606
+msgid "Limit the number of gallery thumbnails on posts/pages*"
+msgstr ""
+
+#: inc/customizer.php:609
+msgid "Select number of gallery thumbnails"
+msgstr ""
+
+#: inc/customizer.php:629
+msgid "Animation"
+msgstr ""
+
+#: inc/customizer.php:630
+msgid "In this section, you can enable skrollr and animate.css animations."
+msgstr ""
+
+#: inc/customizer.php:647
+msgid "Enable animations on scroll, including fade-in of gallery images (with skrollr.js) on the blog homepage."
+msgstr ""
+
+#: inc/customizer.php:665
+msgid "Enable simple animations with animate.css and CSS3."
+msgstr ""
+
+#: inc/customizer.php:687
+msgid "Enable a separate sidebar for WooCommerce shop/product page."
+msgstr ""
+
+#: inc/customizer.php:704
+msgid "Choose from two WooCommerce store sidebar layouts."
+msgstr ""
+
+#: inc/customizer.php:725
+msgid "Show the sidebar only on Single product page."
+msgstr ""
+
+#: inc/customizer.php:733
+msgid "Store Options"
+msgstr ""
+
+#: inc/customizer.php:734
+msgid "Optional features for your WooCommerce store."
+msgstr ""
+
+#: inc/customizer.php:748
+msgid "Show cart icon in the header on WooCommerce pages."
+msgstr ""
+
+#: inc/customizer.php:912
+msgid "View your shopping cart"
+msgstr ""
+
+#. translators: %s: Name of current post.
+#: inc/imagegrid-function.php:55
+#: template-parts/content-aside.php:26
+#: template-parts/content-audio.php:42
+#: template-parts/content-image.php:80
+#: template-parts/content-quote.php:27
+#: template-parts/content-status.php:26
+#: template-parts/content-video.php:60
+#: template-parts/content.php:47
+msgid "Continue reading %s..."
+msgstr ""
+
+#: inc/imagegrid-function.php:60
+#: template-parts/content-aside.php:31
+#: template-parts/content-audio.php:47
+#: template-parts/content-gallery.php:41
+#: template-parts/content-image.php:85
+#: template-parts/content-imagegrid.php:22
+#: template-parts/content-page.php:28
+#: template-parts/content-quote.php:32
+#: template-parts/content-status.php:31
+#: template-parts/content-video.php:65
+#: template-parts/content.php:52
+msgid "Pages:"
+msgstr ""
+
+#. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
+#: inc/template-tags.php:29
+#: template-parts/content-aside.php:57
+#: template-parts/content-link.php:47
+#: template-parts/content-quote.php:56
+msgctxt "post date"
+msgid "%2$sPosted on%3$s%1$s"
+msgstr ""
+
+#. translators: %s: Post author title
+#: inc/template-tags.php:35
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
+#: inc/template-tags.php:55
+msgid "%2$sPosted in %3$s%1$s"
+msgstr ""
+
+#. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
+#: inc/template-tags.php:64
+msgid "%2$sTagged %3$s%1$s"
+msgstr ""
+
+#. translators: 1: post title, 2: hide text with .screen-reader-text class <span> tag, 3: closing </span> tag
+#: inc/template-tags.php:75
+msgid "Leave a Comment%2$s on %1$s%3$s"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:93
+#: template-parts/content-aside.php:67
+#: template-parts/content-imagegrid.php:33
+#: template-parts/content-link.php:57
+#: template-parts/content-page.php:39
+#: template-parts/content-quote.php:66
+#: template-parts/content-status.php:45
+msgid "Edit %s"
+msgstr ""
+
+#. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
+#: index.php:23
+#: index.php:48
+#: single.php:22
+msgid "Previous Posts"
+msgstr ""
+
+#. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
+#: index.php:24
+#: index.php:49
+#: single.php:25
+msgid "Next Posts"
 msgstr ""
 
 #. Template Name of the theme
@@ -269,671 +720,364 @@ msgstr ""
 msgid "Landing Page"
 msgstr ""
 
-#. translators: %s: WordPress
-#: footer.php:26
-#: dist/footer.php:26
-msgid "Proudly powered by %s"
+#. translators: %s: Search query results
+#: search.php:22
+msgid "Search Results for: "
 msgstr ""
 
-#. translators: %1$s: The M.X. %2$s: http://www.jasong-designs.com
-#: footer.php:32
-#: dist/footer.php:32
-msgid "Theme: %1$s by %2$s."
+#: searchform.php:10
+#: searchform.php:11
+#: template-parts/searchform-amp.php:10
+#: template-parts/searchform-amp.php:11
+msgid "Search for:"
 msgstr ""
 
-#. translators: 1: title
-#: comments.php:34
-#: dist/comments.php:34
-msgid "One thought on &ldquo;%1$s&rdquo;"
+#: searchform.php:11
+#: template-parts/searchform-amp.php:11
+msgctxt "placeholder"
+msgid "Search..."
 msgstr ""
 
-#. translators: 1: comment count number, 2: title.
-#: comments.php:40
-#: dist/comments.php:40
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-
-#: comments.php:50
-#: comments.php:71
-#: dist/comments.php:50
-#: dist/comments.php:71
-msgid "Comment navigation"
-msgstr ""
-
-#: comments.php:53
-#: comments.php:74
-#: dist/comments.php:53
-#: dist/comments.php:74
-msgid "Older Comments"
-msgstr ""
-
-#: comments.php:54
-#: comments.php:75
-#: dist/comments.php:54
-#: dist/comments.php:75
-msgid "Newer Comments"
-msgstr ""
-
-#: comments.php:88
-#: dist/comments.php:88
-msgid "Comments are closed."
-msgstr ""
-
-#: dist/inc/customizer.php:30
-#: inc/customizer.php:30
-msgid "Color Schemes"
-msgstr ""
-
-#. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
-#: dist/inc/customizer.php:33
-#: inc/customizer.php:33
-msgid "Choose an alternate color scheme."
-msgstr ""
-
-#. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
-#: dist/inc/customizer.php:33
-#: inc/customizer.php:33
-msgid "For more information on creating a custom color scheme, see the %3$sGoogle Material Design Color%4$s page as a guideline."
-msgstr ""
-
-#. translators: %1$s: opening html paragraph tag, %2$s: closing html paragraph tag, %3$s: html link -> <a href="https://material.io/guidelines/style/color.html#color-color-palette">, %4$s: closing link tag
-#: dist/inc/customizer.php:33
-#: inc/customizer.php:33
-msgid "* To restore the default background color: Select Color, then select Default."
-msgstr ""
-
-#: dist/inc/customizer.php:50
-#: inc/customizer.php:50
-msgid "Color Scheme"
-msgstr ""
-
-#: dist/inc/customizer.php:71
-#: inc/customizer.php:71
-msgid "Color for the title bar, footer, links, etc."
-msgstr ""
-
-#: dist/inc/customizer.php:91
-#: inc/customizer.php:91
-msgid "Color for the header button panel, main site navigation in desktop view, link hover, etc."
-msgstr ""
-
-#: dist/inc/customizer.php:111
-#: inc/customizer.php:111
-msgid "Background color for post meta links."
-msgstr ""
-
-#: dist/inc/customizer.php:131
-#: inc/customizer.php:131
-msgid "Color behind content navigation bar, etc."
-msgstr ""
-
-#: dist/inc/customizer.php:151
-#: inc/customizer.php:151
-msgid "Button colors, etc."
-msgstr ""
-
-#: dist/inc/customizer.php:171
-#: inc/customizer.php:171
-msgid "Button hover colors, etc."
-msgstr ""
-
-#: dist/inc/customizer.php:191
-#: inc/customizer.php:191
-msgid "Navigation and widget link hover colors, etc."
-msgstr ""
-
-#: dist/inc/customizer.php:209
-#: inc/customizer.php:209
-msgid "Reverse text against the background to white."
-msgstr ""
-
-#: dist/inc/customizer.php:210
-#: inc/customizer.php:210
-msgid "Use this setting with an overall dark color scheme; For instance, when the Background and Primary Color Light Variant are set to a dark color."
-msgstr ""
-
-#: dist/inc/customizer.php:227
-#: inc/customizer.php:227
-msgid "Reverse supporting colors to black."
-msgstr ""
-
-#: dist/inc/customizer.php:228
-#: inc/customizer.php:228
-msgid "Use this setting if all four primary colors are set to a very light color."
-msgstr ""
-
-#: dist/inc/customizer.php:237
-#: inc/customizer.php:237
-msgid "Hero Image"
-msgstr ""
-
-#: dist/inc/customizer.php:254
-#: inc/customizer.php:254
-msgid "Choose hero image text color."
-msgstr ""
-
-#. translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a>
-#: dist/inc/customizer.php:257
-#: inc/customizer.php:257
-msgid "Use this option when a %3$sHero Image Widget%4$s is displayed. A Current header (Hero Image) must be selected first before the Hero Image Widget will display in the Widgets section."
-msgstr ""
-
-#. translators: %3$s: link to internal webpage -> <a href="' . admin_url() . 'customize.php?autofocus[section]=sidebar-widgets-hero-image-widget">, %4$s: </a>
-#: dist/inc/customizer.php:257
-#: inc/customizer.php:257
-msgid "White text is best used for an image with a dark background, while black text works with images with a light background."
-msgstr ""
-
-#: dist/inc/customizer.php:261
-#: inc/customizer.php:261
-msgid "White text"
-msgstr ""
-
-#: dist/inc/customizer.php:262
-#: inc/customizer.php:262
-msgid "Black text"
-msgstr ""
-
-#: dist/inc/customizer.php:281
-#: inc/customizer.php:281
-msgid "Align the hero image text."
-msgstr ""
-
-#: dist/inc/customizer.php:285
-#: inc/customizer.php:285
-msgid "Left"
-msgstr ""
-
-#: dist/inc/customizer.php:286
-#: inc/customizer.php:286
-msgid "Center"
-msgstr ""
-
-#: dist/inc/customizer.php:287
-#: inc/customizer.php:287
-msgid "Right"
-msgstr ""
-
-#: dist/inc/customizer.php:306
-#: inc/customizer.php:306
-msgid "Display Hero Image on the home page only."
-msgstr ""
-
-#: dist/inc/customizer.php:315
-#: inc/customizer.php:315
-msgid "Layout"
-msgstr ""
-
-#: dist/inc/customizer.php:334
-#: inc/customizer.php:334
-msgid "Choose between three layouts for the blog pages."
-msgstr ""
-
-#: dist/inc/customizer.php:335
-#: inc/customizer.php:335
-msgid "* The Centered, Wide and Two by two layouts affect widths 1280px and above."
-msgstr ""
-
-#: dist/inc/customizer.php:338
-#: inc/customizer.php:338
-msgid "Centered- Posts stacked vertically."
-msgstr ""
-
-#: dist/inc/customizer.php:339
-#: inc/customizer.php:339
-msgid "Wide- Posts stacked vertically with a wide content area."
-msgstr ""
-
-#: dist/inc/customizer.php:340
-#: inc/customizer.php:340
-msgid "Two by two- A grid of posts two across the screen"
-msgstr ""
-
-#: dist/inc/customizer.php:341
-#: inc/customizer.php:341
-msgid "Image grid- A grid designed for image or gallery posts, supporting only featured images and captions."
-msgstr ""
-
-#: dist/inc/customizer.php:356
-#: inc/customizer.php:356
-msgid "Choose from three sidebar layouts."
-msgstr ""
-
-#: dist/inc/customizer.php:359
-#: inc/customizer.php:359
-msgid "Sliding Overlay (default)"
-msgstr ""
-
-#: dist/inc/customizer.php:360
-#: inc/customizer.php:360
-msgid "Right Sidebar"
-msgstr ""
-
-#: dist/inc/customizer.php:361
-#: inc/customizer.php:361
-msgid "Left Sidebar"
-msgstr ""
-
-#: dist/inc/customizer.php:378
-#: inc/customizer.php:378
-msgid "Content Length"
-msgstr ""
-
-#: dist/inc/customizer.php:379
-#: inc/customizer.php:379
-msgid "Choose between full length content or excerpts on the blog posts page."
-msgstr ""
-
-#: dist/inc/customizer.php:382
-#: inc/customizer.php:382
-msgid "Full Content"
-msgstr ""
-
-#: dist/inc/customizer.php:383
-#: inc/customizer.php:383
-msgid "Excerpt"
-msgstr ""
-
-#: dist/inc/customizer.php:393
-#: inc/customizer.php:393
-msgid "Page Template Customizations"
-msgstr ""
-
-#: dist/inc/customizer.php:394
-#: inc/customizer.php:394
-msgid "In this section are customizations for some of the page templates that can be applied to a custom home page."
-msgstr ""
-
-#: dist/inc/customizer.php:401
-#: inc/customizer.php:401
-msgid "Image Grid"
-msgstr ""
-
-#: dist/inc/customizer.php:402
-#: inc/customizer.php:402
-msgid "Customize the Image Grid page template."
-msgstr ""
-
-#: dist/inc/customizer.php:419
-#: inc/customizer.php:419
-msgid "Choose a category of posts to display on the Image Grid page"
-msgstr ""
-
-#: dist/inc/customizer.php:434
-#: inc/customizer.php:434
-msgid "Choose the number of posts to show"
-msgstr ""
-
-#: dist/inc/customizer.php:437
-#: inc/customizer.php:437
-msgid "Show all image grid posts"
-msgstr ""
-
-#: dist/inc/customizer.php:438
-#: dist/inc/customizer.php:559
-#: dist/inc/customizer.php:589
-#: inc/customizer.php:438
-#: inc/customizer.php:559
-#: inc/customizer.php:589
-msgid "1"
-msgstr ""
-
-#: dist/inc/customizer.php:439
-#: dist/inc/customizer.php:560
-#: dist/inc/customizer.php:590
-#: inc/customizer.php:439
-#: inc/customizer.php:560
-#: inc/customizer.php:590
-msgid "2"
-msgstr ""
-
-#: dist/inc/customizer.php:440
-#: dist/inc/customizer.php:561
-#: dist/inc/customizer.php:591
-#: inc/customizer.php:440
-#: inc/customizer.php:561
-#: inc/customizer.php:591
-msgid "3"
-msgstr ""
-
-#: dist/inc/customizer.php:441
-#: dist/inc/customizer.php:562
-#: dist/inc/customizer.php:592
-#: inc/customizer.php:441
-#: inc/customizer.php:562
-#: inc/customizer.php:592
-msgid "4"
-msgstr ""
-
-#: dist/inc/customizer.php:442
-#: dist/inc/customizer.php:563
-#: dist/inc/customizer.php:593
-#: inc/customizer.php:442
-#: inc/customizer.php:563
-#: inc/customizer.php:593
-msgid "5"
-msgstr ""
-
-#: dist/inc/customizer.php:443
-#: dist/inc/customizer.php:564
-#: dist/inc/customizer.php:594
-#: inc/customizer.php:443
-#: inc/customizer.php:564
-#: inc/customizer.php:594
-msgid "6"
-msgstr ""
-
-#: dist/inc/customizer.php:444
-#: dist/inc/customizer.php:565
-#: dist/inc/customizer.php:595
-#: inc/customizer.php:444
-#: inc/customizer.php:565
-#: inc/customizer.php:595
-msgid "7"
-msgstr ""
-
-#: dist/inc/customizer.php:445
-#: dist/inc/customizer.php:566
-#: dist/inc/customizer.php:596
-#: inc/customizer.php:445
-#: inc/customizer.php:566
-#: inc/customizer.php:596
-msgid "8"
-msgstr ""
-
-#: dist/inc/customizer.php:446
-#: dist/inc/customizer.php:567
-#: dist/inc/customizer.php:597
-#: inc/customizer.php:446
-#: inc/customizer.php:567
-#: inc/customizer.php:597
-msgid "9"
-msgstr ""
-
-#: dist/inc/customizer.php:447
-#: dist/inc/customizer.php:598
-#: inc/customizer.php:447
-#: inc/customizer.php:598
-msgid "10"
-msgstr ""
-
-#: dist/inc/customizer.php:448
-#: dist/inc/customizer.php:599
-#: inc/customizer.php:448
-#: inc/customizer.php:599
-msgid "11"
-msgstr ""
-
-#: dist/inc/customizer.php:449
-#: dist/inc/customizer.php:600
-#: inc/customizer.php:449
-#: inc/customizer.php:600
-msgid "12"
-msgstr ""
-
-#: dist/inc/customizer.php:466
-#: dist/inc/customizer-frontend.php:641
-#: inc/customizer.php:466
-#: inc/customizer-frontend.php:641
-msgid "More posts"
-msgstr ""
-
-#. translators: %1$s, %2$s: <strong>, </strong>
-#: dist/inc/customizer.php:469
-#: inc/customizer.php:469
-msgid "Add a customizable %1$sMore Posts%2$s button below the posts that links to the posts&rsquo; category page."
-msgstr ""
-
-#: dist/inc/customizer.php:477
-#: dist/inc/customizer-frontend.php:637
-#: inc/customizer.php:477
-#: inc/customizer-frontend.php:637
-msgid "More Posts"
-msgstr ""
-
-#: dist/inc/customizer.php:486
-#: inc/customizer.php:486
-msgid "Change the title of the More Posts button"
-msgstr ""
-
-#: dist/inc/customizer.php:500
-#: inc/customizer.php:500
-msgid "Gallery Settings"
-msgstr ""
-
-#: dist/inc/customizer.php:501
-#: inc/customizer.php:501
-msgid "* These settings only apply to galleries displayed on the blog index page. The Gallery post format must be applied to a post containing the gallery. These settings also do not apply to gallery blocks."
-msgstr ""
-
-#: dist/inc/customizer.php:501
-#: inc/customizer.php:501
-msgid "** This setting disables Colorbox on single posts."
-msgstr ""
-
-#: dist/inc/customizer.php:518
-#: inc/customizer.php:518
-msgid "Show the gallery inside Colorbox"
-msgstr ""
-
-#: dist/inc/customizer.php:519
-#: inc/customizer.php:519
-msgid "Display the gallery posts inside of a Colorbox overlay."
-msgstr ""
-
-#: dist/inc/customizer.php:537
-#: inc/customizer.php:537
-msgid "Show the gallery as a slider on single posts.**"
-msgstr ""
-
-#: dist/inc/customizer.php:555
-#: inc/customizer.php:555
-msgid "Change the column count*"
-msgstr ""
-
-#: dist/inc/customizer.php:558
-#: inc/customizer.php:558
-msgid "Select a column number"
-msgstr ""
-
-#: dist/inc/customizer.php:585
-#: inc/customizer.php:585
-msgid "Limit the number of gallery thumbnails on posts/pages*"
-msgstr ""
-
-#: dist/inc/customizer.php:588
-#: inc/customizer.php:588
-msgid "Select number of gallery thumbnails"
-msgstr ""
-
-#: dist/inc/customizer.php:608
-#: inc/customizer.php:608
-msgid "Animation"
-msgstr ""
-
-#: dist/inc/customizer.php:609
-#: inc/customizer.php:609
-msgid "In this section, you can enable skrollr and animate.css animations."
-msgstr ""
-
-#: dist/inc/customizer.php:626
-#: inc/customizer.php:626
-msgid "Enable animations on scroll, including fade-in of gallery images (with skrollr.js) on the blog homepage."
-msgstr ""
-
-#: dist/inc/customizer.php:644
-#: inc/customizer.php:644
-msgid "Enable simple animations with animate.css and CSS3."
-msgstr ""
-
-#: dist/inc/customizer.php:662
-#: inc/customizer.php:662
-msgid "Default (Brown)"
-msgstr ""
-
-#: dist/inc/customizer.php:676
-#: inc/customizer.php:676
-msgid "Blue Gray"
-msgstr ""
-
-#: dist/inc/customizer.php:690
-#: inc/customizer.php:690
-msgid "Deep Purple"
-msgstr ""
-
-#: dist/inc/customizer.php:704
-#: inc/customizer.php:704
-msgid "Pale Orange"
-msgstr ""
-
-#: dist/inc/customizer.php:746
-#: inc/customizer.php:746
-msgid "Custom"
-msgstr ""
-
-#: dist/inc/colorbox-gallery-content.php:75
-#: inc/colorbox-gallery-content.php:75
-msgid "pixels"
-msgstr ""
-
-#. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
-#: dist/inc/template-tags.php:29
-#: dist/template-parts/content-aside.php:57
-#: dist/template-parts/content-link.php:47
-#: dist/template-parts/content-quote.php:56
-#: inc/template-tags.php:29
-#: template-parts/content-aside.php:57
-#: template-parts/content-link.php:47
-#: template-parts/content-quote.php:56
-msgctxt "post date"
-msgid "%2$sPosted on%3$s%1$s"
-msgstr ""
-
-#. translators: %s: Post author title
-#: dist/inc/template-tags.php:35
-#: inc/template-tags.php:35
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-#. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
-#: dist/inc/template-tags.php:55
-#: inc/template-tags.php:55
-msgid "%2$sPosted in %3$s%1$s"
-msgstr ""
-
-#. translators: 2: text hiding <span class="screen-reader-text">, 3: </span> closing tag
-#: dist/inc/template-tags.php:64
-#: inc/template-tags.php:64
-msgid "%2$sTagged %3$s%1$s"
-msgstr ""
-
-#. translators: 1: post title, 2: hide text with .screen-reader-text class <span> tag, 3: closing </span> tag
-#: dist/inc/template-tags.php:75
-#: inc/template-tags.php:75
-msgid "Leave a Comment%2$s on %1$s%3$s"
-msgstr ""
-
-#. translators: %s: Name of current post
-#: dist/inc/template-tags.php:93
-#: dist/template-parts/content-imagegrid.php:33
-#: dist/template-parts/content-aside.php:67
-#: dist/template-parts/content-link.php:57
-#: dist/template-parts/content-status.php:45
-#: dist/template-parts/content-page.php:39
-#: dist/template-parts/content-quote.php:66
-#: inc/template-tags.php:93
-#: template-parts/content-imagegrid.php:33
-#: template-parts/content-aside.php:67
-#: template-parts/content-link.php:57
-#: template-parts/content-status.php:45
-#: template-parts/content-page.php:39
-#: template-parts/content-quote.php:66
-msgid "Edit %s"
-msgstr ""
-
-#. translators: %s: Name of current post.
-#: dist/inc/imagegrid-function.php:55
-#: dist/template-parts/content-aside.php:26
-#: dist/template-parts/content-image.php:80
-#: dist/template-parts/content-audio.php:42
-#: dist/template-parts/content-status.php:26
-#: dist/template-parts/content-quote.php:27
-#: dist/template-parts/content.php:47
-#: dist/template-parts/content-video.php:61
-#: inc/imagegrid-function.php:55
-#: template-parts/content-aside.php:26
-#: template-parts/content-image.php:80
-#: template-parts/content-audio.php:42
-#: template-parts/content-status.php:26
-#: template-parts/content-quote.php:27
-#: template-parts/content.php:47
-#: template-parts/content-video.php:61
-msgid "Continue reading %s..."
+#. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
+#: single.php:22
+msgid "arrow_back"
 msgstr ""
 
-#: dist/inc/imagegrid-function.php:60
-#: dist/template-parts/content-imagegrid.php:22
-#: dist/template-parts/content-aside.php:31
-#: dist/template-parts/content-image.php:85
-#: dist/template-parts/content-audio.php:47
-#: dist/template-parts/content-status.php:31
-#: dist/template-parts/content-page.php:28
-#: dist/template-parts/content-quote.php:32
-#: dist/template-parts/content.php:52
-#: dist/template-parts/content-video.php:66
-#: dist/template-parts/content-gallery.php:41
-#: inc/imagegrid-function.php:60
-#: template-parts/content-imagegrid.php:22
-#: template-parts/content-aside.php:31
-#: template-parts/content-image.php:85
-#: template-parts/content-audio.php:47
-#: template-parts/content-status.php:31
-#: template-parts/content-page.php:28
-#: template-parts/content-quote.php:32
-#: template-parts/content.php:52
-#: template-parts/content-video.php:66
-#: template-parts/content-gallery.php:41
-msgid "Pages:"
+#. translators: %1$s: opening <span> html tag, %2$s: closing </span> html tag
+#: single.php:25
+msgid "arrow_forward"
 msgstr ""
 
-#: dist/template-parts/content-aside.php:35
-#: dist/template-parts/content-link.php:23
 #: template-parts/content-aside.php:35
 #: template-parts/content-link.php:23
 msgid "View the full post"
 msgstr ""
 
-#: dist/template-parts/content-none.php:14
+#: template-parts/content-gallery.php:46
+msgid "More images"
+msgstr ""
+
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
 #. translators: %1$s: Link to new post in WordPress, %2$s: closing </a> tag
-#: dist/template-parts/content-none.php:25
 #: template-parts/content-none.php:25
 msgid "Ready to publish your first post?"
 msgstr ""
 
 #. translators: %1$s: Link to new post in WordPress, %2$s: closing </a> tag
-#: dist/template-parts/content-none.php:25
 #: template-parts/content-none.php:25
 msgid "Get started here"
 msgstr ""
 
-#: dist/template-parts/content-none.php:35
 #: template-parts/content-none.php:35
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: dist/template-parts/content-none.php:41
 #: template-parts/content-none.php:41
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: dist/template-parts/content-gallery.php:46
-#: template-parts/content-gallery.php:46
-msgid "More images"
+#: template-parts/header-wcsimple.php:43
+#: template-parts/header-wcsimple.php:46
+msgid "Back to "
+msgstr ""
+
+#: template-parts/header-wcsimple.php:43
+msgid "shop page"
+msgstr ""
+
+#: template-parts/header-wcsimple.php:46
+msgid "cart page"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Brown"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Dark Brown"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Darker Brown"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Light Brown"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Amber"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Dark Amber"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Darker Amber"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Blue Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Dark Blue Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Darker Blue Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Light Blue Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Deep Purple"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Dark Deep Purple"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Darker Deep Purple"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Light Deep Purple"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Lime"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Dark Lime"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Darker Lime"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Pale Orange"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Light Orange"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Teal"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Dark Teal"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Darker Teal"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Almost Black"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Dark Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Medium Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Color Light Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Pale Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Accent Color Almost White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Text Color"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Text Color (Medium Black)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Text Color (Faded Black)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Text Color (Light Black)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Text Color White"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Text Color (Medium White)"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary Text Color (Light White)"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Gradient Amber"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Amber Translucent Gradient"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Gradient Brown"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Brown Translucent Gradient"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Gradient Lime"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Gradient Translucent Lime"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Gradient Teal"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Gradient Translucent Teal"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Gradient Almost White"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Accent Color Gradient Translucent Almost White"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Brown and Amber"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Brown and Blue Gray"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Deep Purple and Lime"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Teal and Pale Orange"
+msgstr ""
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Black and White"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Normal"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra large"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
 msgstr ""

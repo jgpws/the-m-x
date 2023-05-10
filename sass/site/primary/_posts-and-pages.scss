@@ -503,6 +503,25 @@ article.page:hover,
 	padding-top: 0.5rem;
 }
 
+.wp-block-navigation .wp-block-page-list,
+.wp-block-navigation__container,
+.wp-block-navigation__responsive-close,
+.wp-block-navigation__responsive-container,
+.wp-block-navigation__responsive-container-content,
+.wp-block-navigation__responsive-dialog,
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container {
+	gap: 0.75rem;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open {
+	max-width: 20em;
+	width: calc(75% - 1em);
+}
+
+.wp-block-navigation__responsive-close {
+	max-width: none;
+}
+
 .wp-block-navigation__responsive-container-open,
 .wp-block-navigation__responsive-container-close {
 	box-shadow: none;
@@ -531,6 +550,10 @@ article.page:hover,
 	a:hover {
 		color: var(--wp--preset--color--primary-dark-brown);
 	}
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
+	padding: 0.75rem 1rem 0;
 }
 
 /* Custom style overrides */
@@ -577,8 +600,13 @@ article.page:hover,
 	.wp-block-navigation__responsive-container-content {
 		gap: 0;
 	}
+	
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container,
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container {
+		gap: 0.75rem;
+	}
 
-	.wp-block-navigation .wp-block-navigation-item__content {
+	.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation-item__content {
 		border-bottom: 2px solid transparent;
 		height: 3rem;
 		padding: 0.75em 1em;
@@ -602,7 +630,7 @@ article.page:hover,
 		box-shadow: none;
 	}
 
-	.wp-block-navigation .has-child :where(.wp-block-navigation__submenu-container) {
+	.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open) .has-child :where(.wp-block-navigation__submenu-container) {
 		box-shadow: $box-shadow-medium;
 	}
 	
@@ -610,7 +638,7 @@ article.page:hover,
 		color: var(--black);
 	}
 	
-	.wp-block-navigation .wp-block-navigation__submenu-container {
+	.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation__submenu-container {
 		.wp-block-navigation-item__content {
 			border-bottom-color: transparent;
 			height: auto;
@@ -618,7 +646,7 @@ article.page:hover,
 	}
 	
 	/* Custom style overrides */
-	.is-style-the-mx-nav .wp-block-navigation-item__content {
+	.is-style-the-mx-nav .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation-item__content {
 		text-transform: uppercase;
 	}
 	
@@ -638,9 +666,7 @@ article.page:hover,
 		}
 	}
 	
-	
-	
-	.is-style-the-mx-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	.is-style-the-mx-nav .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
 		text-transform: none;
 	}
 	
@@ -655,7 +681,7 @@ article.page:hover,
 	 	width: 0.875rem;
 	}
 	 
-	.is-style-the-mx-nav .wp-block-navigation__submenu-container {
+	.is-style-the-mx-nav .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation__submenu-container {
 	 	.wp-block-navigation-item__content {
 			color: var(--wp--preset--color--primary-text-color) !important;
 			
@@ -670,10 +696,15 @@ article.page:hover,
 	 	}
 	}
 	
-	.is-style-the-mx-nav .has-child:where(:not(.open-on-click)):hover >.wp-block-navigation__submenu-container {
+	.is-style-the-mx-nav .wp-block-navigation__responsive-container:not(.is-menu-open) .has-child:not(.open-on-click):hover >.wp-block-navigation__submenu-container {
 		visibility: hidden;
 		overflow: hidden;
 		opacity: 0;
+	}
+	
+	.is-style-the-mx-nav .wp-block-navigation__responsive-container:not(.is-menu-open) .has-child:not(.open-on-click):hover >.wp-block-navigation__submenu-container.toggled-submenu {
+		visibility: visible;
+		overflow: visible;
 	}
 	
 	.wp-block-cover .is-style-the-mx-nav:last-child {

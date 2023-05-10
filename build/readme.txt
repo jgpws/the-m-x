@@ -2,7 +2,7 @@
 
 Contributors: jgpws
 Tags: block-styles, block-patterns, blog, custom-background, custom-colors, custom-header, custom-menu, featured-images, flexible-header, grid-layout, left-sidebar, one-column, post-formats, right-sidebar, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
-Requires at least: 4.0
+Requires at least: 6.1
 Requires PHP: 5.6
 Tested up to: 5.8.1
 Stable tag: 1.4
@@ -16,7 +16,7 @@ The M.X. is distributed under the terms of the GNU GPL.
 
 == Description ==
 
-The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
+The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. When you are ready to add a store, The M.X. supports WooCommerce, with dedicated sidebar and shopping cart icon options. In addition, The M.X. has support for the Block Editor, with full width post images, editor color palette and gradients.
 
 == Frequently Asked Questions ==
 
@@ -25,6 +25,9 @@ The M.X. stands for The Modern Experience. Give your content a trendy new style 
 The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
+
+= 1.4.5 May 9 2023 =
+Bug fix: Updated CSS for Navigation block; menus were hovering instead of on click; updated CSS styling for when the modal menu is open. Block headers are now found in the Template Parts section in Appearance.
 
 = 1.4.4 April 2023 =
 Added compatibility for Google AMP pages.
@@ -201,6 +204,13 @@ Please update to the latest version, as an error with HEREDOC blocks was causing
 * Ripple.js Copyright (c) 2014 Jacob Kelley, MIT, https://github.com/jakiestfu/Ripple.js
 * Spinner.css Copyright (c) 2014-2017 loading.io, CC0, https://loading.io/css/
 * headroom.js Copyright (c) 2013 Nick Williams, MIT, https://wicky.nillia.ms/headroom.js/
+
+== Images ==
+
+Image used in Header- Hero Image, Call-to-Action pattern
+Clothes Clothing Free Stock Image
+License: CC0 Creative Commons
+Source: https://stocksnap.io/photo/clothes-clothing-KJ9ZK1L8WS
 
 == About the Screenshot ==
 
