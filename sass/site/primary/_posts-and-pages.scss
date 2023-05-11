@@ -560,6 +560,7 @@ article.page:hover,
 .is-style-the-mx-nav {
 	.is-menu-open {
 		background-color: var(--wp--preset--color--white) !important;
+		box-shadow: $box-shadow-large;
 		color: var(--wp--preset--color--primary-brown) !important;
 		
 		.wp-block-navigation-item__content:focus,
@@ -595,7 +596,7 @@ article.page:hover,
 	}
 	
 	.wp-block-navigation,
-	.wp-block-navigation .wp-block-page-list,
+	.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-page-list,
 	.wp-block-navigation__container,
 	.wp-block-navigation__responsive-container-content {
 		gap: 0;

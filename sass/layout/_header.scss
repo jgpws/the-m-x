@@ -50,6 +50,13 @@
 .site-header-blocks {
 	box-shadow: $box-shadow-large;
 	position: relative;
+	
+	.sidebar-left &,
+	.sidebar-right &,
+	.wc-sidebar-right &,
+	.wc-sidebar-left & {
+		z-index: 10;
+	}
 }
 
 .site-header-blocks > .alignwide {

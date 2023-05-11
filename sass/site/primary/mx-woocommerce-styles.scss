@@ -294,9 +294,12 @@
 
 /* Breadcrumbs */
 .woocommerce .woocommerce-breadcrumb {
+  background-color: var(--primary-color-light);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
   color: var(--primary-text-color);
   font-weight: $font__weight-heavy;
-  margin: 1em;
+  padding: 1em;
   text-align: center;
 
   a {
