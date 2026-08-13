@@ -250,10 +250,6 @@ function cleanMaps() {
   return del(["./build/maps"]);
 }
 
-function cleanAfterZip() {
-  return del(["./dist/**/*", "!./dist/the-m-x.zip"]);
-}
-
 exports.default = series(
   style,
   gridStyle,

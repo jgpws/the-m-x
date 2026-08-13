@@ -68,7 +68,7 @@ ___
 
 ## Gulp Commands
 
-The M.X. uses Gulp 4 on the backend to automate tasks and create a finalized file, suitable for distribution.
+The M.X. uses Gulp 5 on the backend to automate tasks and create a finalized file, suitable for distribution.
 
 The latest version of The M.X. is now designed for placing the development theme outside of the WordPress `wp-content` directory, with the build version symbolically linked to `wp-content`.
 
@@ -119,128 +119,67 @@ In this directory, type:
 npm install
 ```
 
-Finally, we need to generate the `build` folder that WordPress is linked to. For that, there is a convenient `restoreFiles` function.
-```
-gulp restoreFiles
-```
-
 Here are the commands used inside **gulpfile.js**.
 
 ### For Development ###
+
+**For CSS**
 
 **`style`**
 
 Converts SASS into formatted CSS; adds a sourcemap; auto-prefixes vendor extensions; handles and displays SASS errors in the terminal; uses BrowserSync to live reload CSS.
 
-**`minifyStyle`**
+**`gridStyle`**
 
-Minifies style.css.
+Processes SASS into CSS for the separate mx-grid.css layout file; sourcemap and autoprefixer included.
 
-**`concatenateCSS`**
+**`wcStyle`**
 
-Concatenates selected supporting CSS files inside of the css folder; Minifies the files into a **supporting-styles.min.css** file in a **/css/minfiles** folder.
+Processes SASS into CSS for mx-woocommerce-styles.css (WooCommerce); same includes as above.
+
+**`minifyStyle`**, **`minifyWCStyle`**
+
+Minifies style.css and mx-woocommerce-styles.css.
+
+**`concatLayoutCSS`**
+
+Concatenates selected supporting CSS files inside of the css folder; Minifies the files into a **layout-styles.min.css** file in a **/css/minfiles** folder.
 
 **`concatAnimCSS`**
 
 Does the same as concatenateCSS, but for selected animation related files. Minifies into **animation-styles.min.css** in **/css/minfiles**.
 
-**`reloadCSSDir`**
+**`reloadLayoutDir`**, **`reloadAnimDir`**
 
 Live reloads changes in the css folder with BrowserSync.
 
-**`scripts`**
+**For JavaScript**
 
-**`minifyJS`**
+**`compileJS`**
 
-Takes all non-vendor (3rd Party) JavaScript files, concatenates and minifies them into **scripts.min.js**; adds a sourcemap.
+Uses concatJS (gulp-concat) to concatenate selected JavaScript files into scripts.min.js; includes sourcemaps.
 
-**`minifySepJS`**
+**`compileSepJS`**
 
-Minifies JavaScript files that need to be loaded individually.
+Copies standalone JavaScript files to the **/build/css/minfiles** folder; sourcemaps included.
 
 **`jsHint`**
 
 Linting (finding errors)
 
-**`rtl`**
+**`watchTask`**
 
-Generates a right-to-left stylesheet.
-
-**`watch`**
-
-Uses BrowserSync to load the theme on a live server. Watches for changes in SASS, JavaScript and PHP files and runs the **style**, **script** and minification functions; uses BrowserSync to reload the page on change.
+Uses BrowserSync to load the theme on a live server. Watches for changes in SASS, JavaScript and PHP files and runs the CSS, JavaScript and minification functions; uses BrowserSync to reload the page on change.
 
 ### For Build ###
 
-Each of these commands copy files to the **/build** folder that mirrors the production theme file structure, leaving out any other filetypes than the ones specified.
+**`buildJSProd`**
 
-**`copyMainFiles`**
+Concatenates, minifies selected JavaScript files without sourcemaps, ideal for a production build.
 
-Copies the top level css files, readme.txt and screenshot.png.
+**`buildSepJSProd`**
 
-**`copyPHP`**
-
-Copies the top level php files.
-
-**`copyCSS`**
-
-Copies **/css** folder.
-
-**`copyRTL`**
-
-Copies **rtl.css** file.
-
-**`copyCSSLayout`**
-
-Copies **/css/layouts** folder.
-
-**`copyCSSImgs`**
-
-Copies CSS images to **/dist/css/images**
-
-**`copyFonts`**
-
-Copies Themify icon fonts.
-
-**`copyInc`**
-
-Copies the **/inc** folder (PHP includes)
-
-**`copyJS`**
-
-Copies JavaScript files.
-
-**`copyJSSrc`**
-
-Copies select files in **/js/source** to be minified/concatenated.
-
-**`copyJSSep`**
-
-Copies select files in **/js/source** only to be minified.
-
-**`copyLang`**
-
-Copies .pot file for translation.
-
-**`copyMaps`**
-
-Copies **/maps** folder (sourcemaps).
-
-**`copyPageTemplates`**
-
-Copies page templates.
-
-**`copySass`**
-
-Copies SASS files.
-
-**`copyTempParts`**
-
-Copies theme template parts.
-
-**`clean`**
-
-Deletes everything in the **/build** folder.
+Same as above, but for individual JS files.
 
 ### For Distribution ###
 
@@ -248,19 +187,31 @@ Deletes everything in the **/build** folder.
 
 Removes the **/maps** directory from **/build**.
 
-**`zipUp`**
+**`zipUp`** (This function may soon be replaced by an NPM script)
 
 Takes everything in the **/build** folder and creates a zip archive- **the-m-x.zip** inside of a **/dist** folder.
 
-Gulp 4 runs a series of tasks one after the other. Therefore, The M.X. has export tasks to make things more convenient.
-
-**`restoreFiles`**
-
-Cleans the **/build** folder; runs each of the copy commands one after another.
+Gulp 5 runs a series of tasks one after the other. Therefore, The M.X. has export tasks to make things more convenient.
 
 **`finishUp`**
 
 Runs the `cleanMaps` and `zipUp` functions, in order.
+
+**`watchTask`**
+
+Takes the watchTask function listed above and starts BrowserSync at the same time.
+
+**`buildCSS`**
+
+Combines the minification and concatenation functions for CSS into one task. Run with the **--production** flag.
+
+```
+gulp buildCSS --production
+```
+
+**`buildJS`**
+
+Combines the finalized minification and concatenation functions for JavaScript.
 
 ___
 
