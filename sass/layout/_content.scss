@@ -4,27 +4,27 @@
 .format-image.has-post-thumbnail,
 .type-page.has-post-thumbnail {
   .entry-header {
-		position: relative;
-		z-index: 0;
-	}
+    position: relative;
+    z-index: 0;
+  }
 
   .entry-title,
-	.entry-meta {
+  .entry-meta {
     position: absolute;
   }
 
   .entry-title {
-		bottom: 3em;
-		z-index: 100;
-	}
+    bottom: 3em;
+    z-index: 100;
+  }
 }
 
 .format-standard.has-post-thumbnail .entry-meta {
-	bottom: 2em;
+  bottom: 2em;
 }
 
 .format-image.has-post-thumbnail .entry-meta {
-	bottom: 3em;
+  bottom: 3em;
 }
 
 .search .three-fourths-centered-r,

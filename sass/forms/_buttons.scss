@@ -1,13 +1,15 @@
+@use "../mixins/mixins";
+
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .wp-block-button__link,
 .wp-block-file .wp-block-file__button {
-	@include link-button-style;
-	margin: 0 0.25em;
+  @include mixins.link-button-style;
+  margin: 0 0.25em;
 
-	&:disabled {
-		opacity: 0.5;
-	}
+  &:disabled {
+    opacity: 0.5;
+  }
 }

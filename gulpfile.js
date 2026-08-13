@@ -1,226 +1,267 @@
-require('es6-promise').polyfill();
+require("es6-promise").polyfill();
 
-var gulp = require('gulp');
-var sass = require('gulp-sass')(require('sass'));
-var sourcemaps = require('gulp-sourcemaps');
-var newer = require('gulp-newer');
-var mode = require('gulp-mode')();
-var autoprefixer = require('gulp-autoprefixer');
-var jshint = require('gulp-jshint');
-var rtlcss = require('gulp-rtlcss');
-var plumber = require('gulp-plumber');
-const c = require('ansi-colors');
-var browserSync = require('browser-sync').create();
-var reloadBrowser = browserSync.reload;
-var pipeline = require('readable-stream').pipeline;
-const groupmq = require('gulp-group-css-media-queries');
+const gulp = require("gulp");
+const sass = require("gulp-sass")(require("sass"));
+const sourcemaps = require("gulp-sourcemaps");
+const autoprefixer = require("gulp-autoprefixer");
+const jshint = require("gulp-jshint");
+const plumber = require("gulp-plumber");
+const c = require("ansi-colors");
+const browserSync = require("browser-sync").create();
+const groupmq = require("gulp-group-css-media-queries");
+const orderedStreams = require("ordered-read-streams");
+const gulpIf = require("gulp-if");
+const isProduction = process.argv.includes("--production");
 
-var cleanCSS = require('gulp-clean-css');
-var uglify = require('gulp-uglify');
-var concatCSS = require('gulp-concat-css');
-var concatJS = require('gulp-concat');
+const cleanCSS = require("gulp-clean-css");
+const uglify = require("gulp-terser");
+const concatCSS = require("gulp-concat");
+const concatJS = require("gulp-concat");
 
-const zip = require('gulp-zip');
-const del = require('del');
-var rename = require('gulp-rename');
+const zip = require("gulp-zip");
+const del = require("del");
+const rename = require("gulp-rename");
+const reloadBrowser = browserSync.reload;
 
-const { series } = require('gulp');
-const { parallel } = require('gulp');
+const { series } = require("gulp");
+const { parallel } = require("gulp");
 
-var layoutStyles = [	'./build/css/layouts/mx-grid.css',
- 							'./build/css/layouts/content-sidebar-overlay.css',
-							'./build/css/layouts/content-sidebar.css',
-							'./build/css/layouts/sidebar-content.css',
-              './build/css/layouts/rtl.css'];
-var animStyles = [ 	'./build/css/vendor/animate.css',
-							'./build/css/vendor/spinner.css' ];
-var jsFiles = [ 	'./build/js/source/the-mx-scripts.js',
-						'./build/js/source/navigation.js',
-						'./build/js/source/skip-link-focus-fix.js',
-						'./build/js/source/animations.js',
-            './build/js/source/rtl-animations.js',
-						'./build/js/source/colorbox-main.js',
-						'./build/js/source/restore-js.js' ];
-var jsSepFiles = [	'./build/js/source/add-skrollr-data-attributes.js',
-							'./build/js/source/mx-skrollr-init.js'	];
+const jsFiles = [
+  "./build/js/source/the-mx-scripts.js",
+  "./build/js/source/navigation.js",
+  "./build/js/source/skip-link-focus-fix.js",
+  "./build/js/source/animations.js",
+  "./build/js/source/rtl-animations.js",
+  "./build/js/source/colorbox-main.js",
+  "./build/js/source/restore-js.js",
+];
 
-var onError = function(err) {
-	console.log('An error occurred:', c.magenta(err.message));
-	this.emit('end');
+const layoutStyles = [
+  "./build/css/layouts/mx-grid.css",
+  "./build/css/layouts/content-sidebar-overlay.css",
+  "./build/css/layouts/content-sidebar.css",
+  "./build/css/layouts/sidebar-content.css",
+  "./build/css/layouts/rtl.css",
+];
+const animStyles = [
+  "./build/css/vendor/animate.css",
+  "./build/css/vendor/spinner.css",
+];
+const jsSepFiles = [
+  "./build/js/source/add-skrollr-data-attributes.js",
+  "./build/js/source/mx-skrollr-init.js",
+];
+
+function createOrderedStream(fileArray, options = {}) {
+  const defaultOptions = Object.assign({ read: true }, options);
+  const streams = fileArray.map((path) => gulp.src(path, defaultOptions));
+  return orderedStreams(streams);
+}
+
+var onError = function (err) {
+  console.log("An error occurred:", c.magenta(err.message));
+  this.emit("end");
 };
-
 
 // Development tasks
 
 // Styles
 function style() {
-	return gulp.src(['./sass/**/*.scss', '!./sass/layout/mx-grid.scss', '!./sass/site/primary/mx-woocommerce-styles.scss'])
-		.pipe(plumber({ errorHandler: onError }))
-		.pipe(sourcemaps.init())
-		.pipe(sass({
-			indentType: 'tab',
-			indentWidth: 1,
-			outputStyle: 'expanded',
-		}))
-		.pipe(autoprefixer())
-		//.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
-		.pipe(sourcemaps.write('./maps'))
-		.pipe(gulp.dest('./build'))
-		.pipe(browserSync.stream());
+  return (
+    gulp
+      .src([
+        "./sass/**/*.scss",
+        "!./sass/layout/mx-grid.scss",
+        "!./sass/site/primary/mx-woocommerce-styles.scss",
+      ])
+      .pipe(plumber({ errorHandler: onError }))
+      .pipe(gulpIf(!isProduction, sourcemaps.init()))
+      .pipe(sass())
+      .pipe(autoprefixer())
+      //.pipe(groupmq()) // Uncomment, then run style before running minifyStyle; incompatible with gulp-sourcemaps
+      .pipe(gulpIf(!isProduction, sourcemaps.write("./maps")))
+      .pipe(gulp.dest("./build"))
+      .pipe(browserSync.stream())
+  );
 }
 
 function gridStyle() {
-	return gulp.src('./sass/layout/mx-grid.scss')
-		.pipe(plumber({ errorHandler: onError }))
-		.pipe(mode.development(sourcemaps.init()))
-		.pipe(sass({
-			indentType: 'tab',
-			indentWidth: 1,
-			outputStyle: 'expanded'
-		}))
-		.pipe(autoprefixer())
-		.pipe(mode.development(sourcemaps.write('../../maps')))
-		.pipe(gulp.dest('./build/css/layouts/'))
-		.pipe(browserSync.stream());
-}
-
-function wcStyle(done) {
-  return gulp.src('./sass/site/primary/mx-woocommerce-styles.scss')
-    .pipe(mode.development(sourcemaps.init()))
-    .pipe(sass({
-      indentType: 'tab',
-      indentWidth: 1,
-      outputStyle: 'expanded'
-    }))
+  return gulp
+    .src("./sass/layout/mx-grid.scss")
+    .pipe(plumber({ errorHandler: onError }))
+    .pipe(gulpIf(!isProduction, sourcemaps.init()))
+    .pipe(sass())
     .pipe(autoprefixer())
-    .pipe(mode.development(sourcemaps.write('../../maps')))
-    .pipe(gulp.dest('./build/css/source/'))
+    .pipe(gulpIf(!isProduction, sourcemaps.write("../../maps")))
+    .pipe(gulp.dest("./build/css/layouts/"))
     .pipe(browserSync.stream());
 }
 
-function minifyStyle(done) {
-	return gulp.src('./build/style.css')
-		.pipe(cleanCSS())
-		.pipe(rename({
-			suffix: '.min'
-		}))
-		.pipe(gulp.dest('./build'))
-		.pipe(browserSync.stream());
-	done();
+function wcStyle() {
+  return gulp
+    .src("./sass/site/primary/mx-woocommerce-styles.scss")
+    .pipe(gulpIf(!isProduction, sourcemaps.init()))
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(gulpIf(!isProduction, sourcemaps.write("../../maps")))
+    .pipe(gulp.dest("./build/css/source/"))
+    .pipe(browserSync.stream());
 }
 
-function minifyWCStyle(done) {
-  return gulp.src('./build/css/source/mx-woocommerce-styles.css')
+// Run minify functions with --production to exclude sourcemaps
+function minifyStyle() {
+  return gulp
+    .src("./build/style.css")
+    .pipe(gulpIf(!isProduction, sourcemaps.init({ loadMaps: true })))
     .pipe(cleanCSS())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./build/css/minfiles'))
+    .pipe(
+      rename({
+        suffix: ".min",
+      })
+    )
+    .pipe(gulpIf(!isProduction, sourcemaps.write("./maps")))
+    .pipe(gulp.dest("./build"))
+    .pipe(browserSync.stream());
+}
+
+function minifyWCStyle() {
+  return gulp
+    .src("./build/css/source/mx-woocommerce-styles.css")
+    .pipe(gulpIf(!isProduction, sourcemaps.init({ loadMaps: true })))
+    .pipe(cleanCSS())
+    .pipe(
+      rename({
+        suffix: ".min",
+      })
+    )
+    .pipe(gulpIf(!isProduction, sourcemaps.write("../../maps")))
+    .pipe(gulp.dest("./build/css/minfiles"))
     .pipe(browserSync.stream());
 }
 
 // Adjust rtl.css file manually
 
 function concatLayoutCSS() {
-	return gulp.src(layoutStyles)
-		.pipe(concatCSS('layout-styles.min.css'))
-		.pipe(cleanCSS())
-		.pipe(gulp.dest('./build/css/minfiles'))
-		.pipe(browserSync.stream());
+  return createOrderedStream(layoutStyles)
+    .pipe(gulpIf(!isProduction, sourcemaps.init({ loadMaps: true })))
+    .pipe(concatCSS("layout-styles.css"))
+    .pipe(cleanCSS())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulpIf(!isProduction, sourcemaps.write("../../maps")))
+    .pipe(gulp.dest("./build/css/minfiles"))
+    .pipe(browserSync.stream());
 }
 
 function concatAnimCSS() {
-	return gulp.src(animStyles)
-		.pipe(concatCSS('animation-styles.min.css'))
-		.pipe(cleanCSS())
-		.pipe(gulp.dest('./build/css/minfiles'));
+  return createOrderedStream(animStyles)
+    .pipe(gulpIf(!isProduction, sourcemaps.init({ loadMaps: true })))
+    .pipe(concatCSS("animation-styles.min.css"))
+    .pipe(cleanCSS())
+    .pipe(gulpIf(!isProduction, sourcemaps.write("../../maps")))
+    .pipe(gulp.dest("./build/css/minfiles"));
 }
 
 function reloadLayoutDir() {
-	return gulp.src(layoutStyles)
-		.pipe(browserSync.stream());
+  return gulp.src(layoutStyles).pipe(browserSync.stream());
 }
 
 function reloadAnimDir() {
-	return gulp.src(animStyles)
-		.pipe(browserSync.stream());
+  return gulp.src(animStyles).pipe(browserSync.stream());
 }
 
 // Scripts
-function minifyJS() {
-  return pipeline(
-    gulp.src(jsFiles),
-    mode.development(sourcemaps.init()),
-    concatJS('scripts.min.js'),
-    mode.production(uglify()),
-    mode.development(sourcemaps.write('../../maps')),
-    gulp.dest('./build/js/minfiles')
-  );
+function compileJS() {
+  return createOrderedStream(jsFiles)
+    .pipe(sourcemaps.init())
+    .pipe(concatJS("scripts.min.js"))
+    .pipe(sourcemaps.write("../../maps"))
+    .pipe(gulp.dest("./build/js/minfiles"));
 }
 
-function minifySepJS() {
-	return pipeline(
-		gulp.src(jsSepFiles),
-    mode.development(sourcemaps.init()),
-		mode.production(uglify()),
-		rename({
-			suffix: '.min'
-		}),
-    mode.development(sourcemaps.write('../../maps')),
-		gulp.dest('./build/js/minfiles')
-	);
+function buildJSProd() {
+  return createOrderedStream(jsFiles)
+    .pipe(concatJS("scripts.min.js"))
+    .pipe(uglify())
+    .pipe(gulp.dest("./build/js/minfiles"));
+}
+
+function compileSepJS() {
+  return gulp
+    .src(jsSepFiles)
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write("../../maps"))
+    .pipe(gulp.dest("./build/js/minfiles"));
+}
+
+function buildSepJSProd() {
+  return gulp
+    .src(jsSepFiles)
+    .pipe(uglify())
+    .pipe(
+      rename({
+        suffix: ".min",
+      })
+    )
+    .pipe(gulp.dest("./build/js/minfiles"));
 }
 
 function jsHint() {
-	return gulp.src('./build/js/source/*.js')
-		.pipe(jshint())
-		.pipe(jshint.reporter('default'));
+  return gulp
+    .src("./build/js/source/*.js")
+    .pipe(jshint())
+    .pipe(jshint.reporter("default"));
 }
 
 function browsersyncStart() {
   browserSync.init({
-		proxy: 'localhost/wordpress/'
-	});
+    proxy: "localhost/wordpress/",
+  });
 }
 
-function watch() {
-	gulp.watch('./sass/**/*.scss', style);
-	gulp.watch('./sass/layout/mx-grid.scss', gridStyle);
-  gulp.watch('./sass/site/primary/mx-woocommerce-styles.scss', series(wcStyle, minifyWCStyle));
-	//gulp.watch('.build/js/source/*.js', jsHint);
-	gulp.watch(jsFiles, minifyJS);
-	gulp.watch(jsSepFiles, minifySepJS);
-  gulp.watch('./build/style.css', minifyStyle);
-	gulp.watch(layoutStyles, series(concatLayoutCSS, reloadLayoutDir));
-	gulp.watch(animStyles, series(concatAnimCSS, reloadAnimDir));
-	gulp.watch('./build/**/*.php').on('change', reloadBrowser);
-	gulp.watch('./build/js/**/*.js').on('change', reloadBrowser);
+function watchTask(cb) {
+  gulp.watch("./sass/**/*.scss", style);
+  gulp.watch("./sass/layout/mx-grid.scss", gridStyle);
+  gulp.watch(
+    "./sass/site/primary/mx-woocommerce-styles.scss",
+    series(wcStyle, minifyWCStyle)
+  );
+  //gulp.watch('.build/js/source/*.js', jsHint);
+  gulp.watch(jsFiles, compileJS);
+  gulp.watch(jsSepFiles, compileSepJS);
+  gulp.watch("./build/style.css", minifyStyle);
+  gulp.watch(layoutStyles, series(concatLayoutCSS, reloadLayoutDir));
+  gulp.watch(animStyles, series(concatAnimCSS, reloadAnimDir));
+  gulp.watch("./build/**/*.php").on("change", reloadBrowser);
+  gulp.watch("./build/js/**/*.js").on("change", reloadBrowser);
+  cb();
 }
 
 // Utility functions
 function zipUp(done) {
-	return gulp.src('build/**/*')
-		.pipe(zip('the-m-x.zip'))
-		.pipe(gulp.dest('dist'))
-	done();
+  return gulp
+    .src("build/**/*")
+    .pipe(zip("the-m-x.zip"))
+    .pipe(gulp.dest("dist"));
+  done();
 }
 
-function cleanMaps(done) {
-  return del([
-    './build/maps'
-  ]);
-  done();
-  console.log('Sourcemaps removed from build folder.');
+function cleanMaps() {
+  console.log("Sourcemaps removed from build folder.");
+  return del(["./build/maps"]);
 }
 
 function cleanAfterZip() {
-	return del([
-		'./dist/**/*',
-		'!./dist/the-m-x.zip'
-	]);
+  return del(["./dist/**/*", "!./dist/the-m-x.zip"]);
 }
 
-exports.default = series(style, gridStyle, concatLayoutCSS, minifyStyle, minifyJS, minifySepJS, watch);
+exports.default = series(
+  style,
+  gridStyle,
+  concatLayoutCSS,
+  minifyStyle,
+  watchTask
+);
+exports.compileJS = compileJS;
 exports.style = style;
 exports.gridStyle = gridStyle;
 exports.wcStyle = wcStyle;
@@ -228,10 +269,15 @@ exports.minifyStyle = minifyStyle;
 exports.minifyWCStyle = minifyWCStyle;
 exports.concatLayoutCSS = concatLayoutCSS;
 exports.concatAnimCSS = concatAnimCSS;
-exports.minifyJS = minifyJS;
-exports.minifySepJS = minifySepJS;
 exports.jsHint = jsHint;
 
 exports.zipUp = zipUp;
 exports.finishUp = series(cleanMaps, zipUp);
-exports.watch = parallel(browsersyncStart, watch);
+exports.watchTask = parallel(browsersyncStart, watchTask);
+exports.buildCSS = series(
+  minifyStyle,
+  minifyWCStyle,
+  concatLayoutCSS,
+  concatAnimCSS
+); // Run with --production flag for final build
+exports.buildJS = series(buildJSProd, buildSepJSProd);

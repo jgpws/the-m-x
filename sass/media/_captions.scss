@@ -1,18 +1,21 @@
+@use "../mixins/mixins";
+@use "../variables-site/typography";
+
 .wp-caption {
-	margin-bottom: 1.5em;
-	max-width: 85%;
+  margin-bottom: 1.5em;
+  max-width: 85%;
 
-	img[class*="wp-image-"] {
-		@include center-block;
-	}
+  img[class*="wp-image-"] {
+    @include mixins.center-block;
+  }
 
-	.wp-caption-text {
-		padding: 0.8075em 0;
-	}
+  .wp-caption-text {
+    padding: 0.8075em 0;
+  }
 }
 
 .wp-caption-text {
-	text-align: center;
+  text-align: center;
 }
 
 .wp-caption-text,
@@ -22,20 +25,20 @@
 .wp-block-gallery .blocks-gallery-item figcaption,
 .wp-block-table figcaption,
 .gallery-caption {
-	@include font-size(0.75);
-	font-weight: $font__weight-heavy;
+  font-size: 0.75rem;
+  font-weight: typography.$font__weight-heavy;
 }
 
 .wp-block-embed figcaption,
 .wp-block-image figcaption {
-	background-color: var(--wp--preset--color--white);
-	color: var(--wp--preset--color--primary-text-color);
-	margin-top: 0px;
-	padding: 0.8075em;
-	text-align: center;
+  background-color: var(--wp--preset--color--white);
+  color: var(--wp--preset--color--primary-text-color);
+  margin-top: 0px;
+  padding: 0.8075em;
+  text-align: center;
 }
 
 .wp-block-audio figcaption,
 .wp-block-table figcaption {
-	text-align: center;
+  text-align: center;
 }

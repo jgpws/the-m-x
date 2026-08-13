@@ -1,7 +1,10 @@
+@use "../mixins/mixins";
+@use "../variables-site/typography";
+
 input,
 label,
 textarea {
-	font-size: 125%;
+  font-size: 125%;
 }
 
 input[type="text"],
@@ -21,17 +24,17 @@ input[type="datetime-local"],
 input[type="color"],
 textarea,
 select {
-	background-color: var(--pale-gray);
-	border-top: transparent;
-	border-right: transparent;
-	border-bottom: 2px solid var(--accent-color);
-	border-left: transparent;
-	border-radius: 2px 2px 0 0;
-	color: var(--primary-text-color);
+  background-color: var(--pale-gray);
+  border-top: transparent;
+  border-right: transparent;
+  border-bottom: 2px solid var(--accent-color);
+  border-left: transparent;
+  border-radius: 2px 2px 0 0;
+  color: var(--primary-text-color);
 
-	&:focus {
-		color: var(--primary-text-color);
-	}
+  &:focus {
+    color: var(--primary-text-color);
+  }
 }
 
 input[type="text"],
@@ -51,19 +54,19 @@ input[type="datetime-local"],
 input[type="color"],
 select,
 textarea {
-	padding: 10px;
+  padding: 10px;
 }
 
 label {
-	margin: 0 0.5em;
+  margin: 0 0.5em;
 }
 
 select {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 textarea {
-	width: 100%;
+  width: 100%;
 }
 
 /* Comment Forms */
@@ -72,83 +75,82 @@ textarea {
 .comment-form-author,
 .comment-form-email,
 .comment-form-url {
-	background-color: var(--pale-gray);
-	border-radius: 8px 8px 0 0;
-	margin-bottom: 1em;
-	padding-bottom: 10px;
-	position: relative;
-	color: var(--primary-text-color);
-	border-bottom: 2px solid var(--black-opacity-2);
+  background-color: var(--pale-gray);
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 1em;
+  padding-bottom: 10px;
+  position: relative;
+  color: var(--primary-text-color);
+  border-bottom: 2px solid var(--black-opacity-2);
 
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="url"],
-	textarea {
-		background-color: transparent;
-		border: transparent;
-		padding: 10px 12px;
-	}
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="url"],
+  textarea {
+    background-color: transparent;
+    border: transparent;
+    padding: 10px 12px;
+  }
 
-	label {
-		margin: 0;
-		padding: 12px 12px 0 12px;
-		position: absolute;
-	}
+  label {
+    margin: 0;
+    padding: 12px 12px 0 12px;
+    position: absolute;
+  }
 
-	input,
-	label,
-	textarea {
-		width: 100%;
-	}
+  input,
+  label,
+  textarea {
+    width: 100%;
+  }
 
-	fieldset {
-		border-color: var(--pale-gray);
-	}
+  fieldset {
+    border-color: var(--pale-gray);
+  }
 }
 
 /* Searchfield in header */
 
 .header-button-panel .searchform {
-	@include flex-row-right-aligned;
-	background-color: var(--primary-color-dark);
-	align-items: flex-end;
-	height: 3rem;
-	left: 0px;
-	margin-left: 0.5em;
-	position: absolute;
-	width: calc(100% - 4.5rem);
-	z-index: 500;
+  @include mixins.flex-row-right-aligned;
+  background-color: var(--primary-color-dark);
+  align-items: flex-end;
+  height: 3rem;
+  left: 0px;
+  margin-left: 0.5em;
+  position: absolute;
+  width: calc(100% - 4.5rem);
+  z-index: 500;
 
-	input,
-	label {
-		@include font-size(0.875);
-	}
+  input,
+  label {
+    font-size: 0.875rem;
+  }
 
-	&.hide {
-		left: -9999em;
-	}
-
+  &.hide {
+    left: -9999em;
+  }
 }
 
 .header-button-panel .search-field {
-	background-color: transparent;
-	border-top: transparent;
-	border-right: transparent;
-	border-bottom: 2px solid var(--accent-color);
-	border-left: transparent;
-	color: var(--primary-text-color-white);
-	margin-bottom: 0;
-	width: 95%; /* fallback for browsers that don't support calc */
-	width: calc(100% - 0.5em);
+  background-color: transparent;
+  border-top: transparent;
+  border-right: transparent;
+  border-bottom: 2px solid var(--accent-color);
+  border-left: transparent;
+  color: var(--primary-text-color-white);
+  margin-bottom: 0;
+  width: 95%; /* fallback for browsers that don't support calc */
+  width: calc(100% - 0.5em);
 
-	&:focus {
-		color: var(--white);
-	}
+  &:focus {
+    color: var(--white);
+  }
 }
 
 .header-button-panel input.search-field::placeholder {
-	color: var(--primary-text-color-light-white);
-	font-weight: $font__weight-heavy;
-	opacity: 1;
+  color: var(--primary-text-color-light-white);
+  font-weight: typography.$font__weight-heavy;
+  opacity: 1;
 }

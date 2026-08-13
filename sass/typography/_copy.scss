@@ -1,45 +1,55 @@
+@use "../variables-site/typography";
+
 p {
-	margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 
-dfn, cite, em, i {
-	font-style: italic;
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
 }
 
 blockquote {
-	margin: 0 1.5em;
+  margin: 0 1.5em;
 }
 
 address {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
 
 pre {
-	background: var(--primary-color-pale);
-	font-family: var(--pre-font);
-	@include font-size(0.9375);
-	line-height: $font__line-height-pre;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
+  background: var(--primary-color-pale);
+  font-family: var(--pre-font);
+  font-size: 0.9375rem;
+  line-height: typography.$font__line-height-pre;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em;
 }
 
-code, kbd, tt, var {
-	font-family: var(--code-font);
-	@include font-size(0.9375);
+code,
+kbd,
+tt,
+var {
+  font-family: var(--code-font);
+  font-size: 0.9375rem;
 }
 
-abbr, acronym {
-	border-bottom: 1px dotted var(--primary-text-color);
-	cursor: help;
+abbr,
+acronym {
+  border-bottom: 1px dotted var(--primary-text-color);
+  cursor: help;
 }
 
-mark, ins {
-	background: var(--accent-color-dark);
-	text-decoration: none;
+mark,
+ins {
+  background: var(--accent-color-dark);
+  text-decoration: none;
 }
 
 big {
-	font-size: 125%;
+  font-size: 125%;
 }

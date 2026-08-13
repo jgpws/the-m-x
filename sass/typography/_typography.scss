@@ -1,15 +1,15 @@
+@use "../variables-site/typography";
+@use "headings";
+@use "copy";
+
 body,
 button,
 input,
 select,
 textarea {
-	color: var(--primary-text-color);
-	font-family: var(--body-font);
-	@include font-size(0.875);
-	font-weight: $font__weight-normal;
-	line-height: $font__line-height-body;
+  color: var(--primary-text-color);
+  font-family: var(--body-font);
+  font-size: 0.875rem;
+  font-weight: typography.$font__weight-normal;
+  line-height: typography.$font__line-height-body;
 }
-
-@import "headings";
-
-@import "copy";

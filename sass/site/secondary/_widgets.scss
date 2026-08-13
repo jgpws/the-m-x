@@ -1,155 +1,160 @@
-.widget-area {
-	background-color: var(--white);
-	box-shadow: $box-shadow-small;
+@use "../../mixins/mixins";
+@use "../../variables-site/effects";
+@use "../../variables-site/typography";
 
-	&:hover {
-		box-shadow: $box-shadow-large;
-	}
+.widget-area {
+  background-color: var(--white);
+  box-shadow: effects.$box-shadow-small;
+
+  &:hover {
+    box-shadow: effects.$box-shadow-large;
+  }
 }
 
 /* Refer to menu section for widget link styling */
 /* Refer to footer section for footer widget link styling */
 
 #secondary {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .widget-title {
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .widget {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 
-	/* Make sure select elements fit in widgets. */
-	select {
-		max-width: 100%;
-		@include center-block;
-	}
+  /* Make sure select elements fit in widgets. */
+  select {
+    max-width: 100%;
+    @include mixins.center-block;
+  }
 
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0 1rem;
-	}
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 1rem;
+  }
 
-	/* For specific widgets */
-	.recentcomments a:link,
-	.recentcomments a:visited,
-	ul li .rsswidget:link,
-	ul li .rsswidget:visited {
-		border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-	}
+  /* For specific widgets */
+  .recentcomments a:link,
+  .recentcomments a:visited,
+  ul li .rsswidget:link,
+  ul li .rsswidget:visited {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
 
-	.recentcomments a:hover,
-	.recentcomments a:focus,
-	ul li .rsswidget:hover,
-	ul li .rsswidget:focus {
-		border-bottom-color: var(--accent-color-darker);
-	}
+  .recentcomments a:hover,
+  .recentcomments a:focus,
+  ul li .rsswidget:hover,
+  ul li .rsswidget:focus {
+    border-bottom-color: var(--accent-color-darker);
+  }
 
-	.rsswidget {
-		font-weight: $font__weight-heavy;
-	}
+  .rsswidget {
+    font-weight: typography.$font__weight-heavy;
+  }
 
-	.rss-date {
-		text-transform: uppercase;
-	}
+  .rss-date {
+    text-transform: uppercase;
+  }
 
-	.searchform {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: flex-end;
+  .searchform {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
 
-		label {
-			width: 100%;
-		}
-	}
+    label {
+      width: 100%;
+    }
+  }
 
-	.search-field {
-		@include font-size(0.875);
-		width: 100%;
-	}
+  .search-field {
+    font-size: 0.875rem;
+    width: 100%;
+  }
 
-	.wp-caption {
-		max-width: 100%;
-	}
+  .wp-caption {
+    max-width: 100%;
+  }
 
-	.wp-calendar-table {
-		border: none;
-	}
+  .wp-calendar-table {
+    border: none;
+  }
 
-	&_calendar.jgd-column-1 {
-		margin: 0;
-		width: 100%;
-	}
+  &_calendar.jgd-column-1 {
+    margin: 0;
+    width: 100%;
+  }
 
-	.calendar_wrap {
-		font-weight: $font__weight-bold;
-		width: 100%;
+  .calendar_wrap {
+    font-weight: typography.$font__weight-bold;
+    width: 100%;
 
-		caption {
-			background-color: var(--primary-color);
-			@include font-size(2);
-			margin: 0 -1em;
-			padding-left: 2rem;
-			text-align: left;
-		}
+    caption {
+      background-color: var(--primary-color);
+      font-size: 2rem;
+      margin: 0 -1em;
+      padding-left: 2rem;
+      text-align: left;
+    }
 
-		td, th {
-			border-color: transparent;
-			height: 1.5em;
-			text-align: center;
-			width: 1.5em;
-		}
+    td,
+    th {
+      border-color: transparent;
+      height: 1.5em;
+      text-align: center;
+      width: 1.5em;
+    }
 
-		tr:hover {
-			background-color: transparent;
-		}
+    tr:hover {
+      background-color: transparent;
+    }
 
-		td a {
-			background-color: var(--primary-color);
-			border-radius: 50%;
-			display: inline-table;
-			height: 1.5em;
-			width: 1.5em;
-		}
+    td a {
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      display: inline-table;
+      height: 1.5em;
+      width: 1.5em;
+    }
 
-		caption, td a {
-			color: var(--white);
-		}
+    caption,
+    td a {
+      color: var(--white);
+    }
 
-		td#prev {
-			text-align: left;
-		}
+    td#prev {
+      text-align: left;
+    }
 
-		td#next {
-			text-align: right;
-		}
+    td#next {
+      text-align: right;
+    }
 
-		td#prev a,
-		td#next a {
-			border-radius: 2px;
-			display: inline-block;
-			height: auto;
-			padding: 0.5em;
-			width: auto;
-		}
-	}
-
+    td#prev a,
+    td#next a {
+      border-radius: 2px;
+      display: inline-block;
+      height: auto;
+      padding: 0.5em;
+      width: auto;
+    }
+  }
 }
 
 /* Block widgets */
 .widget_block {
-	&.jgd-column-1 {
-		margin: 0 0 1.5em;
-		padding: 1rem;
-		width: 100%;
-	}
+  &.jgd-column-1 {
+    margin: 0 0 1.5em;
+    padding: 1rem;
+    width: 100%;
+  }
 
-	.wp-block-calendar {
-		margin-left: -1rem;
-		margin-right: -1rem;
-	}
+  .wp-block-calendar {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
 }

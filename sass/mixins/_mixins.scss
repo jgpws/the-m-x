@@ -1,0 +1,160 @@
+@use "../variables-site/typography";
+
+// Rem output with px fallback; Enter values as ems without the em suffix
+@mixin font-size($sizeValue: 1) {
+  font-size: $sizeValue * 1rem;
+}
+
+// Large Formatted centered text; best used for headings
+@mixin large-centered-text() {
+  color: var(--primary-text-color-faded-black);
+  @include font-size(2.81);
+  line-height: 1.2em;
+  text-align: center;
+}
+
+// Center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Center 12.5%; apply to block level elements
+@mixin center-75-percent() {
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  width: 75%;
+}
+
+// Width
+@mixin width-100() {
+  // 100% width with 0.5em left and right padding
+  padding: 0 0.5em;
+  width: 100%;
+}
+
+// Clearfix
+@mixin clearfix() {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
+
+// Hide off-screen
+@mixin hide-offscreen() {
+  position: absolute !important;
+  left: -9999em;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+  clear: both;
+}
+
+// Vertical links list; apply to a list (li)
+@mixin vertical-menu() {
+  display: block;
+  font-weight: typography.$font__weight-bold;
+  min-height: 3em;
+  padding: 0.5em 0;
+}
+
+// Restore regular link styles; used for resetting custom link styles to the default
+@mixin restore-link-style() {
+  background-color: transparent;
+  color: var(--primary-color);
+  text-transform: none;
+}
+
+@mixin restore-link-hover-style() {
+  background-color: transparent;
+  color: var(--primary-color-dark);
+}
+
+// No background "cards"
+@mixin no-card-style() {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+// Button link style
+@mixin link-button-style() {
+  background-color: var(--accent-color);
+  border: transparent;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: var(--primary-text-color);
+  font-weight: typography.$font__weight-bold;
+  @include font-size(0.875);
+  line-height: 1.2;
+  min-height: 2.25em;
+  padding: 0 1em;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  &:link,
+  &:visited {
+    color: var(--primary-text-color);
+  }
+
+  &:hover {
+    background: var(--accent-color-dark);
+  }
+
+  &:active,
+  &:focus {
+    background: var(--accent-color-dark);
+    outline-width: 0;
+  }
+}
+
+@mixin link-highlight-style() {
+  background-color: var(--primary-color-darker-faded);
+  border-radius: 2px;
+  color: var(--primary-text-color-white);
+  font-weight: typography.$font__weight-bold;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+}
+
+@mixin link-highlight-style-hover() {
+  background-color: rgba(62, 39, 35, 0.7);
+  color: var(--white);
+}
+
+// Flexbox layouts
+// Horizontal row of wrapping elements
+@mixin flex-row-wrapped() {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+// Horizontal right-aligned; use on parent element
+@mixin flex-row-right-aligned() {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+// Horizontal spread with space in between each item
+@mixin flex-row-spread() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+// Horizontal spread with space around each item evenly
+@mixin flex-row-space-around() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}

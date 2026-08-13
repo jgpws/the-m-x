@@ -1,74 +1,74 @@
+@use "../mixins/mixins";
+
 #custom-header {
-	background-color: var(--primary-color);
-	position: relative;
-	width: 100%;
+  background-color: var(--primary-color);
+  position: relative;
+  width: 100%;
 
-	img {
-		@include center-block;
-		opacity: 0.78;
-	}
+  img {
+    @include mixins.center-block;
+    opacity: 0.78;
+  }
 
-	.hero-widgets-wrap {
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
+  .hero-widgets-wrap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 
-	.hero-widgets-wrap .widget-title {
-		@include font-size(1.5);
-		margin: 0.5rem;
-		text-align: center;
-	}
+  .hero-widgets-wrap .widget-title {
+    font-size: 1.5rem;
+    margin: 0.5rem;
+    text-align: center;
+  }
 
-	.hero-widgets-wrap .widget {
-		color: var(--primary-text-color-white);
-		@include font-size(0.875);
-		text-transform: uppercase;
-	}
-
+  .hero-widgets-wrap .widget {
+    color: var(--primary-text-color-white);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+  }
 }
 
 @media screen and (min-width: 37.5em) {
-	#custom-header {
-		position: relative;
+  #custom-header {
+    position: relative;
 
-		~ .main-navigation {
-			background-color: transparent;
-			bottom: 0;
-			position: absolute;
-		}
+    ~ .main-navigation {
+      background-color: transparent;
+      bottom: 0;
+      position: absolute;
+    }
 
-		.scrim {
-			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
-			width: 100%;
-			height: 33%;
-			position: absolute;
-			bottom: 0;
-		}
-	}
+    .scrim {
+      background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+      width: 100%;
+      height: 33%;
+      position: absolute;
+      bottom: 0;
+    }
+  }
 
-	#custom-header .hero-widgets-wrap {
-		margin-left: 25%;
-		margin-right: 25%;
-		width: 50%;
+  #custom-header .hero-widgets-wrap {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
 
-		.widget {
-			@include font-size(1);
-		}
+    .widget {
+      font-size: 1rem;
+    }
 
-		.widget-title {
-			@include font-size(2);
-			margin: 1rem;
-		}
-
-	}
+    .widget-title {
+      font-size: 2rem;
+      margin: 1rem;
+    }
+  }
 }
 
 @media screen and (min-width: 80em) {
-	#custom-header .hero-widgets-wrap {
-		margin-left: 33.3%;
-		margin-right: 33.3%;
-		top: 30%;
-		width: 33%;
-	}
+  #custom-header .hero-widgets-wrap {
+    margin-left: 33.3%;
+    margin-right: 33.3%;
+    top: 30%;
+    width: 33%;
+  }
 }

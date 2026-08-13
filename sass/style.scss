@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2018/06/07/the-m-x/
 Author: jgpws
 Author URI: http://www.jasong-designs.com
 Description: The M.X. stands for The Modern Experience. Give your content a trendy new style with Google's Material Design. The M.X. comes out of the box supporting many standard WordPress features, such as the Custom Header (renamed Hero Image), Custom Menus, full sized Featured Images and most of the Post Formats. Don't like a sidebar on every page? The default sidebar slides in on click when needed and out of view when not. When you are ready to add a store, The M.X. supports WooCommerce, with dedicated sidebar and shopping cart icon options. In addition, The M.X. has support for the Block Editor, with a block header option, full width post images, editor color palette and gradients.
-Version: 1.4.5
+Version: 1.4.6
 Tested up to: 6.2
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
@@ -18,7 +18,6 @@ The M.X. is distributed under the terms of the GNU GPL.
 The M.X. is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
-
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -53,138 +52,102 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	## Animations
 # Customizer
 --------------------------------------------------------------*/
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+@use "variables-site/variables-site";
+@use "mixins/mixins";
 
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "normalize";
+@use "normalize";
 
 /*--------------------------------------------------------------
-# CSS Variables
+# Font Face declarations
 --------------------------------------------------------------*/
-:root {
-	/* Colors */
-	--primary-text-color: rgba(0, 0, 0, 0.87);
-	--primary-text-color-medium-black: rgba(0, 0, 0, 0.54);
-	--primary-text-color-faded-black: rgba(0, 0, 0, 0.54);
-	--primary-text-color-light-black: rgba(0, 0, 0, 0.4);
-	--primary-text-color-white: rgba(255, 255, 255, 0.87);
-	--primary-text-color-medium-white: rgba(255, 255, 255, 0.7);
-	--primary-text-color-light-white: rgba(255, 255, 255, 0.4);
-	--primary-color: #795548;
-	--primary-color-pale: #efebe9;
-	--primary-color-light: #bcaaa4;
-	--primary-color-medium: #8d6e63;
-	--primary-color-dark: #5d4037;
-	--primary-color-darker: #3e2723;
-	--primary-color-darker-faded: rgba(62, 39, 35, 0.54);
-	--primary-color-opacity-12: rgba(62, 39, 35, 0.12);
-	--primary-color-opacity-04: rgba(62, 39, 35, 0.04);
-	--accent-color: #ffc107;
-	--accent-color-dark: #ffa000;
-	--accent-color-darker: #ff6f00;
-	--white: #ffffff;
-	--pale-gray: #eeeeee;
-	--silver: #c0c0c0;
-	--black: #000000;
-	--black-opacity-2: rgba(0, 0, 0, 0.2);
+@use "typography/fonts";
 
-	/* Fonts */
-	--body-font: 'Raleway', sans-serif;
-	--code-font: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	--pre-font: "Courier 10 Pitch", Courier, monospace;
-}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@use "typography/typography";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@use "elements/elements";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+@use "forms/forms";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@use "navigation/navigation";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@use "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+@use "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+@use "modules/clearings";
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+@use "layout/header";
+
+/*--------------------------------------------------------------
+# Widgets/Sidebar
+--------------------------------------------------------------*/
+@use "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Content Layout
+--------------------------------------------------------------*/
+@use "layout/content";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@use "site/site";
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+@use "layout/footer";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+@use "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# AMP
+--------------------------------------------------------------*/
+@use "modules/amp";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@use "media/media";
+
+/*--------------------------------------------------------------
+## Customizer Layouts
+--------------------------------------------------------------*/
+@use "layout/image-grid";
 
 /*--------------------------------------------------------------
 # Common Classes and IDs
 --------------------------------------------------------------*/
 .hide {
-	@include hide-offscreen;
+  @include mixins.hide-offscreen;
 }
-
-/*--------------------------------------------------------------
-# Font Face declarations
---------------------------------------------------------------*/
-@import "typography/fonts";
-
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-@import "typography/typography";
-
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-@import "elements/elements";
-
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-@import "forms/forms";
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
-@import "navigation/navigation";
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-@import "modules/accessibility";
-
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-@import "modules/alignments";
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-@import "modules/clearings";
-
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
-@import "layout/header";
-
-/*--------------------------------------------------------------
-# Widgets/Sidebar
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
-# Content Layout
---------------------------------------------------------------*/
-@import "layout/content";
-
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-@import "site/site";
-
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
-@import "layout/footer";
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-@import "modules/infinite-scroll";
-
-/*--------------------------------------------------------------
-# AMP
---------------------------------------------------------------*/
-@import "modules/amp";
-
-/*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
-@import "media/media";
-
-/*--------------------------------------------------------------
-## Customizer Layouts
---------------------------------------------------------------*/
-@import "layout/image-grid";

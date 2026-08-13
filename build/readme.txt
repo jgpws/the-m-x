@@ -26,6 +26,9 @@ The M.X. includes support for Infinite Scroll and Tiled Galleries in Jetpack.
 
 == Changelog ==
 
+= 1.4.6 May 11 2023 =
+Updated CSS for the WooCommerce product page, etc.
+
 = 1.4.5 May 9 2023 =
 Bug fix: Updated CSS for Navigation block; menus were hovering instead of on click; updated CSS styling for when the modal menu is open. Block headers are now found in the Template Parts section in Appearance.
 

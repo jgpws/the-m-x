@@ -1,3 +1,7 @@
+@use "../../mixins/mixins";
+@use "../../variables-site/effects";
+@use "../../variables-site/typography";
+
 .post,
 article.page,
 .single .post,
@@ -7,7 +11,7 @@ article.page,
 .search .post.format-audio {
 	background-color: var(--white);
 	border-radius: 2px;
-	box-shadow: $box-shadow-small;
+	box-shadow: effects.$box-shadow-small;
 }
 
 .post:hover,
@@ -17,7 +21,7 @@ article.page:hover,
 .search .post.format-image:hover,
 .search .post.format-video:hover,
 .search .post.format-audio:hover {
-	box-shadow: $box-shadow-large;
+	box-shadow: effects.$box-shadow-large;
 }
 
 .entry-content,
@@ -59,8 +63,8 @@ article.page:hover,
 .widgettitle,
 .comments-title,
 .entry-title-imagegrid {
-	@include font-size(1.5);
-	font-weight: $font__weight-bold;
+  font-size: 1.5rem;
+	font-weight: typography.$font__weight-bold;
 	line-height: 2rem;
 
 	a:link {
@@ -107,7 +111,7 @@ article.page:hover,
 
 .single .entry-title,
 .page .entry-title {
-	@include font-size(2.125);
+  font-size: 2.125rem;
 }
 
 .blog .entry-title,
@@ -121,7 +125,7 @@ article.page:hover,
 }
 
 .search .entry-title {
-	@include font-size(1.5);
+  font-size: 1.5rem;
 }
 
 .search .cat-links,
@@ -132,12 +136,12 @@ article.page:hover,
 
 	a:link,
 	a:visited {
-		@include restore-link-style;
+		@include mixins.restore-link-style;
 	}
 
 	a:hover,
 	a:focus {
-		@include restore-link-hover-style;
+		@include mixins.restore-link-hover-style;
 	}
 
 }
@@ -174,7 +178,7 @@ article.page:hover,
 .landing-to-parent a:link,
 .landing-to-parent a:visited {
 	color: var(--primary-text-color-white);
-	font-weight: $font__weight-bold;
+	font-weight: typography.$font__weight-bold;
 }
 
 .landing-to-parent a:hover,
@@ -184,7 +188,7 @@ article.page:hover,
 
 .page-template-template-landing {
 	article.page {
-		@include no-card-style;
+		@include mixins.no-card-style;
 	}
 }
 
@@ -240,7 +244,7 @@ article.page:hover,
 }
 
 .more-link {
-	@include link-button-style;
+	@include mixins.link-button-style;
 	display: inline-block;
 	margin: 0 0.5em 0.5em 0.5em;
 	padding: 0.65em 1em;
@@ -264,7 +268,7 @@ article.page:hover,
 
 .more-images-link {
 	a {
-		@include link-button-style;
+		@include mixins.link-button-style;
 		padding: 0.65em 1em;
 		display: block;
 		text-align: center;
@@ -302,13 +306,13 @@ article.page:hover,
 
 	&:link,
 	&:visited {
-		@include link-highlight-style;
+		@include mixins.link-highlight-style;
 		white-space: nowrap;
 	}
 
 	&:hover,
 	&:focus {
-		@include link-highlight-style-hover;
+		@include mixins.link-highlight-style-hover;
 	}
 
 }
@@ -367,7 +371,7 @@ article.page:hover,
 
 .page-links {
 	clear: both;
-	font-weight: $font__weight-bold;
+	font-weight: typography.$font__weight-bold;
 	margin: 0 0 1.5em 0;
 	text-align: center;
 
@@ -476,7 +480,7 @@ article.page:hover,
 		&:focus,
 		&:hover,
 		&:visited {
-			box-shadow: $box-shadow-small;
+			box-shadow: effects.$box-shadow-small;
 			color: var(--wp--preset--color--primary-text-color);
 			opacity: 1;
 		}
@@ -560,7 +564,7 @@ article.page:hover,
 .is-style-the-mx-nav {
 	.is-menu-open {
 		background-color: var(--wp--preset--color--white) !important;
-		box-shadow: $box-shadow-large;
+		box-shadow: effects.$box-shadow-large;
 		color: var(--wp--preset--color--primary-brown) !important;
 		
 		.wp-block-navigation-item__content:focus,
@@ -632,7 +636,7 @@ article.page:hover,
 	}
 
 	.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open) .has-child :where(.wp-block-navigation__submenu-container) {
-		box-shadow: $box-shadow-medium;
+		box-shadow: effects.$box-shadow-medium;
 	}
 	
 	.wp-block-navigation__submenu-container .wp-block-navigation__submenu-icon {
@@ -714,7 +718,7 @@ article.page:hover,
 }
 
 .wp-block-quote.is-style-large {
-	font-weight: $font__weight-normal;
+	font-weight: typography.$font__weight-normal;
 	font-size: 1.5rem;
 	line-height: 1.25rem;
 }
@@ -732,7 +736,7 @@ article.page:hover,
 .wp-block-quote.is-style-large cite {
 	font-style: italic;
 	font-size: 1rem;
-	font-weight: $font__weight-bold;
+	font-weight: typography.$font__weight-bold;
 }
 
 .wp-block-pullquote {
@@ -767,7 +771,7 @@ article.page:hover,
 }
 
 .wp-block-pullquote > p {
-	font-weight: $font__weight-bold;
+	font-weight: typography.$font__weight-bold;
 }
 
 .site-header-blocks .wp-block-search {
@@ -784,7 +788,7 @@ input.wp-block-search__input {
 }
 
 input.wp-block-search__input::placeholder {
-	font-weight: $font__weight-heavy;
+	font-weight: typography.$font__weight-heavy;
 	opacity: 1;
 	
 	.is-style-the-mx-search-darkbg & {
@@ -928,7 +932,7 @@ ul.wp-block-social-links {
 
 .wp-block-image.alignfull img,
 .wp-block-image.alignwide img {
-	@include center-block;
+	@include mixins.center-block;
 }
 
 @media (min-width: 80em) {
@@ -943,11 +947,11 @@ ul.wp-block-social-links {
 .wp-block-categories,
 .wp-block-latest-comments,
 .wp-block-latest-posts {
-	@include font-size(0.875);
+  font-size: 0.875rem;
 	padding: 0 1rem;
 
 	li {
-		@include vertical-menu;
+		@include mixins.vertical-menu;
 	}
 
 	a:link,
@@ -969,7 +973,7 @@ ul.wp-block-social-links {
 
 .wp-block-latest-comments__comment-date {
 	color: var(--wp--preset--color--primary-text-color-faded-black);
-	@include font-size(0.875);
+  font-size: 0.875rem;
 }
 
 .wp-block-calendar {
@@ -982,7 +986,7 @@ ul.wp-block-social-links {
 	table caption {
 		background-color: var(--wp--preset--color--primary-brown);
 		color: var(--wp--preset--color--white);
-		@include font-size(2);
+    font-size: 2rem;
 	}
 
 	table tbody {
@@ -1024,7 +1028,7 @@ ul.wp-block-social-links {
 }
 
 .entry-attachment-image img {
-	@include center-block;
+	@include mixins.center-block;
 }
 
 article.attachment {
@@ -1058,7 +1062,7 @@ article.attachment {
 
 .return-to-text {
 	color: var(--primary-text-color-white);
-	font-weight: $font__weight-heavy;
+	font-weight: typography.$font__weight-heavy;
 }
 
 @media (min-width: 37.5em) {
@@ -1066,7 +1070,7 @@ article.attachment {
 	.attachment .entry-content > :not(.entry-attachment-image),
 	.attachment .entry-footer,
 	.entry-attachment-image .wp-caption-text {
-		@include center-75-percent;
+		@include mixins.center-75-percent;
 	}
 
 	.entry-attachment-image img {

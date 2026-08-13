@@ -1,3 +1,7 @@
+@use "../../mixins/mixins";
+@use "../../variables-site/effects";
+@use "../../variables-site/typography";
+
 .format-gallery .entry-title,
 .format-image:not(.has-post-thumbnail) .entry-title,
 .format-audio .entry-title,
@@ -6,7 +10,7 @@
 .single .format-link .entry-title,
 .single .format-status .entry-title,
 .single .format-quote .entry-title {
-	@include large-centered-text;
+  @include mixins.large-centered-text;
 }
 
 .format-gallery .entry-title .material-icons,
@@ -14,8 +18,8 @@
 .single .format-image.has-post-thumbnail .entry-title .material-icons,
 .format-audio .entry-title .material-icons,
 .format-video .entry-title .material-icons {
-	@include font-size(2.81);
-	vertical-align: middle; /* Material Icons are displayed by Google as inline-block */
+  font-size: 2.81rem;
+  vertical-align: middle; /* Material Icons are displayed by Google as inline-block */
 }
 
 .format-image,
@@ -24,86 +28,86 @@
 .format-aside,
 .format-status,
 .format-quote {
-	box-shadow: $box-shadow-small;
-	background-color: var(--primary-color-light);
+  box-shadow: effects.$box-shadow-small;
+  background-color: var(--primary-color-light);
 }
 
 .format-image .entry-content,
 .format-video .entry-content {
-	margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .blog .format-image.has-post-thumbnail .wp-caption-text,
 .archive .format-image.has-post-thumbnail .wp-caption-text {
-	bottom: -5em;
-	display: block;
-	position: absolute;
-	width: 100%;
+  bottom: -5em;
+  display: block;
+  position: absolute;
+  width: 100%;
 }
 
 .single .format-image.has-post-thumbnail .entry-header {
-	margin-top: 4.175rem;
+  margin-top: 4.175rem;
 }
 
 .format-image.has-post-thumbnail .entry-title .material-icons {
-	color: var(--white);
+  color: var(--white);
 }
 
 .single .format-image.has-post-thumbnail .entry-title {
-	@include large-centered-text;
-	top: -3.765rem;
+  @include mixins.large-centered-text;
+  top: -3.765rem;
 }
 
 .blog .format-image.has-post-thumbnail .featured-image,
 .archive .format-image.has-post-thumbnail .featured-image {
-	margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 @media screen and (min-width: 80em) {
-	.blog .format-image:not(.has-post-thumbnail) img,
-	.archive .format-image:not(.has-post-thumbnail) img {
-		@include center-block;
-		max-width: 800px;
-		width: 100%;
-	}
+  .blog .format-image:not(.has-post-thumbnail) img,
+  .archive .format-image:not(.has-post-thumbnail) img {
+    @include mixins.center-block;
+    max-width: 800px;
+    width: 100%;
+  }
 
-	.wp-audio-shortcode {
-		margin: 0 auto;
-		max-width: 800px;
-	}
+  .wp-audio-shortcode {
+    margin: 0 auto;
+    max-width: 800px;
+  }
 }
 
 /* Background behind audio controls */
 .mejs-container {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mejs-container,
 .mejs-container .mejs-controls,
 .mejs-embed,
 .mejs-embed body {
-	background-color: var(--primary-color-dark) !important;
+  background-color: var(--primary-color-dark) !important;
 }
 
 .mejs-container button {
-	box-shadow: none;
+  box-shadow: none;
 }
 
 .format-video iframe {
-	box-shadow: $box-shadow-large;
+  box-shadow: effects.$box-shadow-large;
 }
 
 .format-video iframe,
 iframe.twitter-tweet {
-	margin: 0 auto !important;
-	display: block;
+  margin: 0 auto !important;
+  display: block;
 }
 
 .blog .format-status .entry-content,
 .archive .format-status .entry-content {
-	border-left: 5px solid var(--black-opacity-2);
-	margin: 1.25em 0;
-	padding-left: 1.5rem;
+  border-left: 5px solid var(--black-opacity-2);
+  margin: 1.25em 0;
+  padding-left: 1.5rem;
 }
 
 .blog .format-aside .entry-content p:not(.view-full-post-link),
@@ -112,35 +116,35 @@ iframe.twitter-tweet {
 .archive .format-aside .entry-content p:not(.view-full-post-link),
 .archive .format-status .entry-content,
 .archive .format-quote .entry-content {
-	color: rgba(0, 0, 0, 0.54);
-	font-size: 1.2rem;
-	line-height: 1.25em;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 1.2rem;
+  line-height: 1.25em;
 }
 
 @media screen and (min-width: 37.5em) {
-	.blog .format-aside .entry-content p:not(.view-full-post-link),
-	.blog .format-status .entry-content,
-	.blog .format-quote .entry-content,
-	.archive .format-aside .entry-content p:not(.view-full-post-link),
-	.archive .format-status .entry-content,
-	.archive .format-quote .entry-content {
-		font-size: 1.5rem;
-	}
+  .blog .format-aside .entry-content p:not(.view-full-post-link),
+  .blog .format-status .entry-content,
+  .blog .format-quote .entry-content,
+  .archive .format-aside .entry-content p:not(.view-full-post-link),
+  .archive .format-status .entry-content,
+  .archive .format-quote .entry-content {
+    font-size: 1.5rem;
+  }
 }
 
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
-	display: none;
+  display: none;
 }
 
 .blog .format-quote blockquote {
-	font-weight: $font__weight-normal;
+  font-weight: typography.$font__weight-normal;
 }
 
 .blog .format-quote cite,
 .archive .format-quote cite {
-	@include font-size(1);
-	font-weight: $font__weight-bold;
+  font-size: 1rem;
+  font-weight: typography.$font__weight-bold;
 }
 
 /* Post formats with sticky posts */
@@ -151,7 +155,7 @@ iframe.twitter-tweet {
 .blog .format-audio.sticky,
 .blog .format-status.sticky,
 .blog .format-quote.sticky {
-	box-shadow: $box-shadow-small;
+  box-shadow: effects.$box-shadow-small;
 }
 
 .blog .format-gallery.sticky .entry-content p,
@@ -161,7 +165,7 @@ iframe.twitter-tweet {
 .blog .format-audio.sticky .entry-content p,
 .blog .format-status.sticky .entry-content p,
 .blog .format-quote.sticky .entry-content p {
-	color: var(--primary-text-color-white);
+  color: var(--primary-text-color-white);
 }
 
 .blog .format-gallery.sticky .entry-title,
@@ -171,12 +175,12 @@ iframe.twitter-tweet {
 .blog .format-video.sticky .entry-title,
 .blog .format-status.sticky .entry-title,
 .blog .format-quote.sticky .entry-title {
-	color: var(--primary-text-color-white);
+  color: var(--primary-text-color-white);
 }
 
 .blog .format-gallery.sticky .more-images-link a:link,
 .blog .format-gallery.sticky .more-images-link a:visited {
-	color: var(--primary-text-color);
+  color: var(--primary-text-color);
 }
 
 /* Reverse styles for search pages */
@@ -185,39 +189,36 @@ iframe.twitter-tweet {
 .search .format-image:not(.has-post-thumbnail),
 .search .format-video,
 .search .format-audio {
-
-	.entry-title {
-		font-size: 1.5rem;
-		text-align: left;
-	}
-
+  .entry-title {
+    font-size: 1.5rem;
+    text-align: left;
+  }
 }
 
 .search .format-standard.has-post-thumbnail,
 .search .format-image.has-post-thumbnail {
+  .entry-header,
+  .entry-title,
+  .entry-meta {
+    position: static;
+  }
 
-	.entry-header,
-	.entry-title,
-	.entry-meta {
-		position: static;
-	}
+  .entry-title a:link {
+    color: var(--primary-color);
+  }
 
-	.entry-title a:link {
-		color: var(--primary-color);
-	}
+  .entry-title a:visited {
+    color: var(--primary-color-medium);
+  }
 
-	.entry-title a:visited {
-		color: var(--primary-color-medium);
-	}
-
-	.entry-meta .material-icons {
-		color: var(--primary-text-color-faded-black);
-	}
+  .entry-meta .material-icons {
+    color: var(--primary-text-color-faded-black);
+  }
 }
 
 .search .format-aside,
 .search .format-status,
 .search .format-quote {
-	background-color: var(--white);
-	box-shadow: $box-shadow-small;
+  background-color: var(--white);
+  box-shadow: effects.$box-shadow-small;
 }
